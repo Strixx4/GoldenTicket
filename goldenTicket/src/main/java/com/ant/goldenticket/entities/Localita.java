@@ -1,9 +1,9 @@
 package com.ant.goldenticket.entities;
 
-public class Localita 
+public class Localita extends Entity
 {
 	private String citta;
-	private String struttura;
+	private String zona;
 	private int posti;
 	private String indirizzo;
 	
@@ -13,11 +13,11 @@ public class Localita
 	public void setCitta(String citta) {
 		this.citta = citta;
 	}
-	public String getStruttura() {
-		return struttura;
+	public String getZona() {
+		return zona;
 	}
-	public void setStruttura(String struttura) {
-		this.struttura = struttura;
+	public void setZona(String zona) {
+		this.zona = zona;
 	}
 	public int getPosti() {
 		return posti;

@@ -3,7 +3,7 @@ package com.ant.goldenticket.entities;
 import java.util.List;
 import java.util.Map;
 
-public class Carrello 
+public class Carrello extends Entity
 {
 	private List<Biglietto> listaBiglietti;
 	private Map<String,String> utente;
