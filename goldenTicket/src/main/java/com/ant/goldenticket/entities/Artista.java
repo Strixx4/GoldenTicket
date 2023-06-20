@@ -1,6 +1,6 @@
 package com.ant.goldenticket.entities;
 
-public class Artista
+public class Artista extends Entity
 {
 	private String nominativo;
 
