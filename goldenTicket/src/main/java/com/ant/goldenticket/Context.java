@@ -1,5 +1,6 @@
 package com.ant.goldenticket;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.context.annotation.Bean;
@@ -9,10 +10,10 @@ import org.springframework.context.annotation.Scope;
 import com.ant.goldenticket.dao.DAOArtista;
 import com.ant.goldenticket.dao.DAOLocalita;
 import com.ant.goldenticket.dao.Database;
-import com.ant.goldenticket.entities.Localita;
-import com.ant.goldenticket.entities.Biglietto;
 import com.ant.goldenticket.entities.Artista;
+import com.ant.goldenticket.entities.Biglietto;
 import com.ant.goldenticket.entities.Evento;
+import com.ant.goldenticket.entities.Localita;
 
 @Configuration
 public class Context {
@@ -67,5 +68,14 @@ public class Context {
 		Biglietto b = new Biglietto();
 		b.fromMap(valori);
 		return b;
+	}
+	@Bean
+	@Scope("prototype")
+	public Evento evento(Map<String,String> m,List<Artista> a, Localita l) {
+		Evento e = new Evento();
+		e.fromMap(m);
+		e.setArtisti(a);
+		e.setLocalita(l);
+		return e;
 	}
 }
