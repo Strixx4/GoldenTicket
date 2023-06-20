@@ -3,6 +3,7 @@ package com.ant.goldenticket.entities;
 import java.util.Map;
 
 public class Biglietto extends Entity{
+	
 	private String dataEmissione;
 	private String fila;
 	private int posto;
