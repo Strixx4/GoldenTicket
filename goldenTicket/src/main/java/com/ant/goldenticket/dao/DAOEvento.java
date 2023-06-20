@@ -53,7 +53,23 @@ public class DAOEvento {
 		System.out.println(query + " " + db.update(query, e.getTipologia(), e.getGenere(), e.getData(), e.getOra(),
 				e.getGiornoSettimana() + "", e.getLocandina(), e.getLocalita().getId() + ""));
 		for (Artista a : e.getArtisti()) {
-			;
+			System.out.println("insert into associativa (idArtista,idEvento) values(?,?): " + db.update(
+					"insert into associativa (idArtista,idEvento) values(?,?)", a.getId() + "", e.getId() + ""));
+		}
+	}
+	public void update(Evento e)
+	{
+		String query="update eventi "
+				+ "set tipologia=?,genere=?,data=?,ora=?.giornoSettimana=?,locandina=?,idLocalita=? "
+				+ "where id=?";
+		System.out.println(query + " " + db.update(query, e.getTipologia(), e.getGenere(), e.getData(), e.getOra(),
+				e.getGiornoSettimana() + "", e.getLocandina(), e.getLocalita().getId() + "",e.getId()+""));
+		
+		
+		System.out.println("delete from associativa where idEvento=?" + db.update("delete from associativa where idEvento=?"+e.getId()));
+		
+		for (Artista a : e.getArtisti()) {
+			
 			System.out.println("insert into associativa (idArtista,idEvento) values(?,?): " + db.update(
 					"insert into associativa (idArtista,idEvento) values(?,?)", a.getId() + "", e.getId() + ""));
 		}
