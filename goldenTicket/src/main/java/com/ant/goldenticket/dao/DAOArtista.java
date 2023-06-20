@@ -29,11 +29,11 @@ public class DAOArtista
 	}
 	public List<Artista> readAll()
 	{
-		return read("select * from artista");
+		return read("select * from artisti");
 	}
 	public boolean create(Artista a)
 	{
-		String query="insert into artista(nominativo) values(?)";
+		String query="insert into artisti(nominativo) values(?)";
 		return db.update(query, a.getNominativo());
 	}
 	public boolean delete(int id)
@@ -43,12 +43,12 @@ public class DAOArtista
 	}
 	public boolean update(Artista a)
 	{
-		String query="update artista set nominativo=? where id=?";
+		String query="update artisti set nominativo=? where id=?";
 		return db.update(query, a.getNominativo(),a.getId()+"");
 	}
 	public Artista cercaPerId(int id)
 	{
-		String query="select * from artista where id=?";
+		String query="select * from artisti where id=?";
 		Map<String,String>m=db.row(query,id+"");
 		Artista a=context.getBean(Artista.class,m);
 		return a;

@@ -7,7 +7,7 @@ public class Evento extends Entity{
 	private String tipologia;
 	private String genere;
 	private String data;
-	private String giorno;
+	private String giornoSettimana;
 	private String ora;
 	private String locandina;
 	private Localita localita;
@@ -36,11 +36,11 @@ public class Evento extends Entity{
 	public void setData(String data) {
 		this.data = data;
 	}
-	public String getGiorno() {
-		return giorno;
+	public String getGiornoSettimana() {
+		return giornoSettimana;
 	}
-	public void setGiorno(String giorno) {
-		this.giorno = giorno;
+	public void setGiornoSettimana(String giorno) {
+		this.giornoSettimana = giorno;
 	}
 	public String getOra() {
 		return ora;
