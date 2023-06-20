@@ -2,13 +2,14 @@ package com.ant.goldenticket.entities;
 
 import java.util.List;
 
-public class Evento {
+public class Evento extends Entity{
 	private String nome;
 	private String tipologia;
 	private String genere;
 	private String data;
 	private String giorno;
 	private String ora;
+	private String locandina;
 	private Localita localita;
 	private List<Artista> artisti;
 	public String getNome() {
@@ -59,4 +60,11 @@ public class Evento {
 	public void setArtisti(List<Artista> artisti) {
 		this.artisti = artisti;
 	}
+	public String getLocandina() {
+		return locandina;
+	}
+	public void setLocandina(String locandina) {
+		this.locandina = locandina;
+	}
+	
 }
