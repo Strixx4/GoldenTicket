@@ -64,9 +64,11 @@ public class Context {
 
 	@Bean
 	@Scope("prototype")
-	public Biglietto leggiBiglietto(Map<String,String> valori) {
+	public Biglietto leggiBiglietto(Map<String,String> valori,Map<String,String> u, Evento e) {
 		Biglietto b = new Biglietto();
 		b.fromMap(valori);
+		b.setEvento(e);
+		b.setUtente(u);
 		return b;
 	}
 	@Bean
