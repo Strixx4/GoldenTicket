@@ -10,35 +10,37 @@ import org.springframework.context.ApplicationContext;
 import com.ant.goldenticket.entities.Biglietto;
 import com.ant.goldenticket.entities.Localita;
 
-public class DAOBiglietto {
+public class DAOBigliettoAcquistato {
 	
 	@Autowired
 	private Database db;
-	
+	@Autowired
+	private DAOEvento de;
 	@Autowired
 	private ApplicationContext context;
 	
-	public List<Biglietto> read(String query,String ...params)
+	public List<Biglietto> read(String query,Map<String,String> u, String ...params)
 	{
 		List<Biglietto> ris=new ArrayList<Biglietto>();
 		List<Map<String,String>>righe=db.rows(query, params);
 		for(Map<String,String> m:righe)
 		{
-			Biglietto b =context.getBean(Biglietto.class,m);
+			Biglietto b =context.getBean(Biglietto.class,m,u,de.cercaPerID(Integer.parseInt(m.get("id"))));
 			ris.add(b);
 		}
 		return ris;
 	}
-	public List<Biglietto> readAll()
+	public List<Biglietto> readAll(Map<String,String> u)
 	{
-		return read("select * from bigliettiacquistati");
+		return read("select * from bigliettiacquistati",u);
 	}
+	
 	public boolean create(Biglietto b)
 	{
 		String query="insert into bigliettiacquistati "
-				+ "(fila,posto,prezzo) "
-				+ "values(?,?,?)";
-		return db.update(query,b.getFila(),b.getPosto()+"", b.getPrezzo()+"");
+				+ "(fila,posto,prezzo,idUser,idEvento) "
+				+ "values(?,?,?,?,?)";
+		return db.update(query,b.getFila(),b.getPosto()+"", b.getPrezzo()+"",b.getUtente().get("id")+"",b.getEvento().getId()+"");
 	}
 	public boolean delete(int id)
 	{

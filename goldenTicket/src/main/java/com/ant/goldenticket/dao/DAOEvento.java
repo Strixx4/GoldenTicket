@@ -9,6 +9,7 @@ import org.springframework.context.ApplicationContext;
 
 import com.ant.goldenticket.entities.Artista;
 import com.ant.goldenticket.entities.Evento;
+import com.ant.goldenticket.entities.Localita;
 
 public class DAOEvento {
 	@Autowired
@@ -26,11 +27,12 @@ public class DAOEvento {
 		List<Map<String, String>> list = db.rows(query, strings);
 		for (Map<String, String> m : list) {
 			List<Artista> a = new ArrayList<>();
-			List<Map<String, String>> la = db.rows("select idArtista from associativa where idEvento=?", m.get("id"));
+			List<Map<String, String>> la = db.rows("select idArtista from associativa where idEvento = ?", m.get("id"));
 			for (Map<String, String> ma : la) {
 				a.add(da.cercaPerId(Integer.parseInt(ma.get("idArtista"))));
 			}
-			Evento e = context.getBean(Evento.class, m, a, dl.cercaPerId(Integer.parseInt(m.get("idLocalita"))));
+			
+			Evento e = context.getBean(Evento.class, m, a, dl.cercaPerId((Integer.parseInt(m.get("idLocalita")))));
 			ris.add(e);
 		}
 
