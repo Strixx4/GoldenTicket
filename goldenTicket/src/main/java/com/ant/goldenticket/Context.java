@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Scope;
 
 import com.ant.goldenticket.dao.DAOArtista;
 import com.ant.goldenticket.dao.DAOLocalita;
+import com.ant.goldenticket.dao.DAOUtenti;
 import com.ant.goldenticket.dao.Database;
 import com.ant.goldenticket.entities.Artista;
 import com.ant.goldenticket.entities.Biglietto;
@@ -32,6 +33,10 @@ public class Context {
 	public DAOArtista daoartista()
 	{
 		return new DAOArtista();
+	}
+	@Bean
+	public DAOUtenti daoutenti(){
+		return new DAOUtenti();
 	}
 	@Bean
 	@Scope("prototype")
