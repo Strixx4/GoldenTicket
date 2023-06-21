@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 
 import com.ant.goldenticket.dao.DAOArtista;
@@ -48,7 +49,7 @@ public class Context {
 		a.fromMap(ma);
 		return a;
 	}
-  @Bean
+	@Bean
 	@Scope("prototype")
 	public Biglietto creaBiglietto(int id,String dataEmissione,String fila,int posto,double prezzo,Map<String,String> utente,Evento evento) {
 		Biglietto b = new Biglietto();
@@ -64,6 +65,7 @@ public class Context {
 
 	@Bean
 	@Scope("prototype")
+	@Primary
 	public Biglietto leggiBiglietto(Map<String,String> valori,Map<String,String> u, Evento e) {
 		Biglietto b = new Biglietto();
 		b.fromMap(valori);
