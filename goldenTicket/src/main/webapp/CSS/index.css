@@ -1,13 +1,18 @@
-.container 
+body
 {
-    display: grid;
-    grid-template-columns: [first] 200px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];
-    grid-template-rows: [row1-start] 55% [row1-end] 30% [third-line] auto [last-line];
+  font-family: 'Geologica', sans-serif;
 }
 
-.header {
-  grid-column-start: 1;
-  grid-column-end: 4;
+#container
+{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: 10px;
+}
+
+.header
+{
   width: auto;
   background: rgb(31, 29, 29);
   color: rgba(255, 217, 0, 0.89);
@@ -27,156 +32,19 @@
   padding: 10px;
 }
 
-
-
 .context 
 {
-    height: auto;
-    grid-row: 3 / 4;
-    grid-column: 2 / 4;
-    grid-column-start: 2;
-    grid-column-end: 4;
-    background: #e9e9e9;
-    height: 100px;
+  text-align: center;
+  height: 500px;
+  background: #e9e9e9;
+  
 }
 
 .footer 
 {
-  grid-column: 1 / 4;
   background: rgb(31, 29, 29);
   color: white;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   padding: 10px;
 }
-
-/*INIZIO - Navbar*/
-
-
-* {box-sizing: border-box;}
-
-.navbar {
-    grid-column-start: 1;
-    grid-column-end: 4;
-    overflow: hidden;
-    background-color: #e9e9e9;
-  }
-
-.navbar a {
-  float: left;
-  display: block;
-  background: rgba(255, 217, 0, 0.89);
-  text-decoration: none;
-  padding: 20px 16px;
-  font-size: 17px;
-  color: white;
-  
-}
-
-.navbar a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-
-.navbar .search-container {
-    float: right;
-    display: flex;
-}
-
-.navbar input[type=text] {
-  font-size: 17px;
-  border: none;
-  width: 600px;
-  padding: 14px;
-  display: inline-block;
-}
-
-#login{
-    background: rgba(255, 217, 0, 0.89);
-    margin-left: 20px;
-
-}
-.navbar .search-container button {
-
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-  padding: 14px 10px;
-
-}
-
-.navbar .search-container button:hover {
-  background: #d81c1c;
-}
-
-/* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
-@media screen and (max-width: 600px) {
-  .navbar .search-container {
-    float: none;
-  }
-  .navbar a, .navbar input[type=text], .navbar .search-container button {
-    float: none;
-    display: block;
-    text-align: left;
-    width: 100%;
-    margin: 0;
-    padding: 14px;
-  }
-  .navbar input[type=text] {
-    border: 1px solid #ccc;  
-  }
-}
-
-
-/* Dropdown Button */
-.dropbtn {
-    background-color: rgba(255, 217, 0, 0.89);
-    color:#e9e9e9;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  /* Dropdown button on hover & focus */
-  .dropbtn:hover, .dropbtn:focus {
-    color: white;
-  }
-  
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    color: black;
-    text-decoration: none;
-    display: block;
-    background: white;
-  }
-  
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #ddd;}
-  
-  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-  .show {display:block;}
-
-  #myDropdown
-  {
-    display: flex;
-    flex-direction: column;
-  }
