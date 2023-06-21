@@ -1,6 +1,7 @@
 package com.ant.goldenticket.dao;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Map;
 
@@ -8,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
 import com.ant.goldenticket.entities.Biglietto;
-import com.ant.goldenticket.entities.Localita;
 
 public class DAOBigliettoAcquistato {
 	
@@ -60,12 +60,10 @@ public class DAOBigliettoAcquistato {
 	//cerco biglietti in base ad utente
 	public Biglietto cercaIDperUtente (int id) {
 		String query = "select * from bigliettiacquistati"
-						+ " join carrello on bigliettiacquistati.idUser = carrello.idUser "
-						+ " where id = ? ";
+						+ " where idUser = ? ";
 		Map <String,String> m = db.row(query, id + "");
 		Biglietto b = context.getBean(Biglietto.class,m);
 		return b;
-		
 	}
 }
 
