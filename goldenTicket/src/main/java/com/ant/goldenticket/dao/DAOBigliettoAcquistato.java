@@ -48,6 +48,7 @@ public class DAOBigliettoAcquistato {
 		return db.update(query,id+"");
 	}
 	
+	//cerco biglietto con id x
 	public Biglietto cercaPerId(int id)
 	{
 		String query="select * from bigliettiacquistati where id=?";
@@ -56,5 +57,15 @@ public class DAOBigliettoAcquistato {
 		return b;
 	}
 	
+	//cerco biglietti in base ad utente
+	public Biglietto cercaIDperUtente (int id) {
+		String query = "select * from bigliettiacquistati"
+						+ " join carrello on bigliettiacquistati.idUser = carrello.idUser "
+						+ " where id = ? ";
+		Map <String,String> m = db.row(query, id + "");
+		Biglietto b = context.getBean(Biglietto.class,m);
+		return b;
+		
+	}
 }
 
