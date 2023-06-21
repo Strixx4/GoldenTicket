@@ -79,5 +79,24 @@ public class DAOEvento {
 	public Evento cercaPerID(int id) {
 		return read("select * from eventi where id = ?", id + "").get(0);
 	}
-
+	
+	public List<String> listaTipologia(){
+		List<Map<String,String>> l = db.rows("select tipologia from eventi group by tipologia");
+		List<String> ris = new ArrayList<>();
+		for(Map<String,String> m : l) {
+			ris.add(m.get("tipologia"));
+		}
+		return ris;
+	}
+	public List<String> listaGeneri(String tipologia){
+		List<Map<String,String>> l = db.rows("select distinct genere from eventi where tipologia LIKE ?",tipologia);
+		List<String> ris = new ArrayList<>();
+		for(Map<String,String> m : l) {
+			ris.add(m.get("genere"));
+		}
+		return ris;
+	}
+	public List<Evento> readBygenere(String tipologia,String genere){
+		return read("select * from eventi where tipologia = ? and genere = ?",tipologia,genere);
+	}
 }
