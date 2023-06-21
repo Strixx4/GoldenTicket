@@ -9,7 +9,6 @@ import org.springframework.context.ApplicationContext;
 
 import com.ant.goldenticket.entities.Artista;
 import com.ant.goldenticket.entities.Evento;
-import com.ant.goldenticket.entities.Localita;
 
 public class DAOEvento {
 	@Autowired
