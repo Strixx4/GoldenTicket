@@ -33,6 +33,8 @@ public String index(HttpSession session)
 
 
 //se autenticato carrello, se no logga
+
+//Utenti Controller
 @GetMapping("carrello")
 public String carrello (HttpSession session) {
 	if (session.getAttribute("login") == null) //guardo se è autentificato
@@ -41,12 +43,14 @@ public String carrello (HttpSession session) {
 	
 }
 
+//[003]
 //formlogin che reindirizza l'utente alla pagina di login
 @GetMapping("formlogin")
 public String formlogin() {
 	return "login.jsp";
 }
 
+//[003]
 //login
 @PostMapping("login")
 public String login (@RequestParam("user") String u,
@@ -61,8 +65,10 @@ public String login (@RequestParam("user") String u,
 public String logout(HttpSession session)
 {
 	session.setAttribute("login", null);
-	session.setAttribute("login",null);
-	session.setAttribute("login", null);
+	session.setAttribute("username",null);
+	session.setAttribute("password", null);
+	session.setAttribute("id", null);
+	session.setAttribute("ruolo", null);
 	return "redirect:index.jsp";
 	}
 
@@ -77,6 +83,7 @@ public boolean checkSession(HttpSession session)
 	return ris;
 }
 
+//[002]
 @GetMapping("eventi")
 public String elencoeventi (HttpSession session, Model model)
 {
@@ -85,6 +92,7 @@ public String elencoeventi (HttpSession session, Model model)
 	}
 
 
+//[001]
 @GetMapping ("dettagli") 
 public String dettagli (@RequestParam("id") int idEvento, Model model) {
 	Evento e = de.cercaPerID(idEvento);
