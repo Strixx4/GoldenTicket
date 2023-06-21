@@ -79,5 +79,9 @@ public class DAOEvento {
 	public Evento cercaPerID(int id) {
 		return read("select * from eventi where id = ?", id + "").get(0);
 	}
+	public Evento cercaPerZona(String citta,String zona)
+	{
+		return read("select * from eventi inner join localita on eventi.idLocalita=localita.id  where localita.citta like ? and localita.zona like ? order by eventi.data;", citta,zona).get(0);
+	}
 
 }
