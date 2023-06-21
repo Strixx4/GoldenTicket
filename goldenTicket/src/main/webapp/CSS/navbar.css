@@ -565,11 +565,12 @@ a:hover {
 {
     overflow: hidden;
     background-color: #e9e9e9;
+
   }
 
 .navbar a {
   float: left;
-  display: block;
+  display: flex;
   background: rgba(255, 217, 0, 0.89);
   text-decoration: none;
   padding: 20px 16px;
@@ -584,36 +585,43 @@ a:hover {
 }
 
 
-.navbar .search-container {
-    float: right;
+.navbar 
+{
     display: flex;
+    justify-content: space-between;
 }
+
 
 .navbar input[type=text] {
   font-size: 17px;
   border: none;
-  width: 300px;
+  width: 85%;
   padding: 14px;
-  display: inline-block;
+  float: left;
 }
 
 #login{
     background: rgba(255, 217, 0, 0.89);
-    margin-left: 20px;
-
+    display: inline-block;
+    margin: 8px;
 }
 
 .navbar .search-container button {
     background: #ddd;
-    font-size: 10px;
+    font-size: auto;
     border: none;
     cursor: pointer;
-    padding: 14px
-  
+    padding: 14px;
+    
+  }
+
+  .navbar .search-container
+  {
+    padding: 5px;
   }
   
   .navbar .search-container button:hover {
-    background: #d81c1c;
+    background: rgba(255, 217, 0, 0.89);
   }
   
   /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
