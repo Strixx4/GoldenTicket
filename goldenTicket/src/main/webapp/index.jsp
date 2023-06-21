@@ -9,7 +9,6 @@
       <title>DropDown Menu</title>
       <link rel="icon" type="image/x-icon" href="/IMG/favicon.jpeg">
       <link rel="stylesheet" href="../CSS/index.css">
-      <link rel="stylesheet" href="../CSS/index.css">
       <link rel="stylesheet" href="../CSS/navbar.css">
       
       <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
