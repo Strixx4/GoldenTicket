@@ -1,5 +1,7 @@
 package com.ant.goldenticket.controllers;
 
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ant.goldenticket.dao.DAOEvento;
+import com.ant.goldenticket.dao.DAOLocalita;
 import com.ant.goldenticket.dao.DAOUtenti;
 import com.ant.goldenticket.entities.Evento;
 import jakarta.servlet.http.HttpSession;
@@ -27,12 +30,22 @@ public class IndexController {
 	DAOUtenti du;
 	@Autowired
 	DAOEvento de;
-
+	@Autowired
+	DAOLocalita dl;
+	
 //home
 	@GetMapping("/")
-	public String index(HttpSession session ,Model model) 
-	{
+
+	public String index(HttpSession session, Model model) {
+		List<String> citta = dl.tutteLeCitta();
+		model.addAttribute("listacitta", citta);
+		model.addAttribute("listageneri", de.listaTipologia());
+		Map<String,List<String>> zone = new LinkedHashMap<>(); 
+		model.addAttribute("listazone", zone);
 		model.addAttribute("eventi", de.eventiCasuali());
+		for(String c : citta) {
+			zone.put(c, dl.tutteLeZone(c));	
+		}
 		return "index.jsp";
 	}
 
