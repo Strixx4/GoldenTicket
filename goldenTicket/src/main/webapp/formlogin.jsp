@@ -13,31 +13,26 @@
   <div class="container11">
  <div class="container1">
 
-<h1 id = "titolo">Login</h1>
+<h2 id = "titolo">Login</h2>
 	<label for = "Nome utente">Nome utente</label>
-	<br>
     <input type="text" placeholder="Nome utente" name="nomeutente" required>
 	<br>
 	<br>
-	<label for = "Password">Password</label> 
-	<br>
+	<label for = "Password   ">Password</label> 
     <input type="password" placeholder="Password" name="password" required> 
     <br>
-    <button type="submit" class = "bottone">LOGIN</button>
- </div>
- <br>
+    <button type="submit" class = "bottone"><a href = ../HTML/testlogin.html>LOGIN</a></button>
   <div class="container2">
-<h1 id = "titolo">Non sei registrato?</h1>
+<h2 id = "titolo">Non sei registrato?</h2>
 <label for = "Nome utente">Nome utente</label> 
-<br>
     <input type="text" placeholder="Nome utente" name="nomeutente1" >
-	<br>
-	<br>
-	<label for = "Password">Password</label>  
-	<br>
+    <br>
+	<label for = "Password   ">Password</label>  
     <input type="password" placeholder="Password" name="password1" >
 	<br>
+	<br>
     <button type = "submit" class ="bottone">REGISTRATI</button>
+    <br>
      </div>
   </div>
 </form> 

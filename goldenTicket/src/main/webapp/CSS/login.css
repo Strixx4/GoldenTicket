@@ -30,7 +30,7 @@ section .signin .content .form .inputBox
 }
 
 .container {
-	border: solid rgba(255, 217, 0, 0.89) 3px;
+	border: solid rgb(255, 217, 0) 20px;
 	background-color: white;
 }
 
@@ -41,9 +41,12 @@ section .signin .content .form .inputBox
 
 .bottone {
 	size: 30px;
+	background-color: rgb(255, 217, 0);
+	color: white;
+	
 }
 
 .container11 {
-border:solid rgba(255, 217, 0, 0.89) 5px;
+border:solid rgba(255, 217, 0, 0.89) 10px;
 background-color: #e9e9e9;
 }
