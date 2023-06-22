@@ -30,7 +30,9 @@ public class IndexController {
 
 //home
 	@GetMapping("/")
-	public String index(HttpSession session) {
+	public String index(HttpSession session ,Model model) 
+	{
+		model.addAttribute("eventi", de.eventiCasuali());
 		return "index.jsp";
 	}
 

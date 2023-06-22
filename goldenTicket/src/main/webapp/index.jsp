@@ -1,5 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+
+<%@ page import="java.util.*" %>
+
+<%@ page import="com.ant.goldenticket.*" %>
+
+<%@ page import="com.ant.goldenticket.entities.*" %>
+
+<%List<Evento> eventi = (List<Evento>) request.getAttribute("eventi"); %>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -138,9 +146,16 @@
       </div>
 
       <div class="context">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt exercitationem rem aperiam ut iure expedita deleniti ullam deserunt reiciendis a. Tempora facere dicta dolorem suscipit vel, magnam non odit quos.
-        </p>
+      
+        <%for(Evento e: eventi){ %>
+          <div>
+              <img src="<%=e.getLocandina()%>"> <br>
+              <h1> <%=e.getNome() %></h1> <br>
+              <p><%=e.getLocalita().getCitta()%><br><%= e.getLocalita().getZona()%><br><%=e.getGiornoSettimana()%> <%=e.getData()%> alle ore <%= e.getOra()%> </p><br>
+              <a href = "dettagli?id=<%=e.getId()%>">DETTAGLI</a>
+          </div>
+        <%}%>
+        
       </div>
 
       <div class="footer">
