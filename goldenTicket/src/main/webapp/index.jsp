@@ -114,9 +114,9 @@
             </div>
           </li>
           <!--/ portfolio -->
-          <!-- blog -->
+          <!-- eventi -->
           <li>
-            <a href="#"><i class="fa fa-edit"></i>Blog</a>
+             <a href="eventi">Eventi</a>
           </li>
 
           <div class="navbar"> 
