@@ -7,36 +7,40 @@
 <% List<String> t = (List<String>)request.getAttribute("listageneri");%>
 <% Map<String, List<String>> z = (Map<String, List<String>>)request.getAttribute("listazone");%>
 <%List<Evento> eventi = (List<Evento>) request.getAttribute("eventi"); %>
-
+    	
 <!DOCTYPE html>
 <html>
-  <head>
-      <title>GoldenTicket</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Golden Ticket</title>
-      <link rel="icon" type="image/x-icon" href="/IMG/favicon.jpeg">
-      <link rel="stylesheet" href="CSS/index.css">
-      <link rel="stylesheet" href="CSS/navbar.css">
-      <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-      <script src="File.js"></script>
-  </head>
-  <body>
-    <div id="container">
+	<head>
+		<meta charset="UTF-8">
+		<title>GoldenTicket</title>
+      	<meta name="viewport" content="width=device-width, initial-scale=1">
+      	<title>DropDown Menu</title>
+      	<link rel="icon" type="image/x-icon" href="/IMG/favicon.jpeg">
+      	<link rel="stylesheet" href="../CSS/index.css">
+      	<link rel="stylesheet" href="../CSS/navbar.css">
+      
+      	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+      	<script src="../JS/File.js"></script>
+	</head>
+	<body>
+		<div id="container">
       <div class="header">
         <img src="../IMG/golden-ticket.png" id="logo">
         <h1>Golden Ticket</h1>
         <img src="../IMG/golden-ticket.png" id="logo">      
       </div>
-   
-      <!-- mega menu -->
-      <ul class="sky-mega-menu sky-mega-menu-anim-flip sky-mega-menu-response-to-icons">
-        <!-- home -->
-        <li>
-          <a href="/"><i class="fa fa-single fa-home"></i></a>
-        </li>
-        <!--/ home -->
-        <!-- Città  -->
+        
+      <div id="megamenu">
+        <!-- mega menu -->
+        <div class="caselle-sinistra">
+          <ul class="sky-mega-menu sky-mega-menu-anim-flip sky-mega-menu-response-to-icons">
+            <!-- home -->
+            <li>
+              <a href="index.html"><i class="fa fa-single fa-home"></i></a>
+            </li>
+            <!--/ home -->
+            <!-- about -->
+            <!-- Città  -->
         <li aria-haspopup="true">
           <a>Citt�<i class="fa fa-indicator fa-chevron-down"></i></a>
           <div class="grid-container3">
@@ -59,7 +63,8 @@
             </ul>
           </div>
         </li>
-        <!-- Tipologia -->
+          <!--/ about -->
+         <!-- Tipologia -->
         <li aria-haspopup="true">
           <a href="#">Tipologia<i class="fa fa-indicator fa-chevron-down"></i></a>
           <div class="grid-container3">
@@ -70,26 +75,29 @@
             </ul>
           </div>
         </li>
+          <!--/ news -->
+          <!-- eventi -->
           <li>
-             <a href="eventi">Eventi</a>
+            <a href="eventi"></i>Eventi</a>
           </li>
+
           <div class="navbar"> 
             <div class="search-container">
-              <form action="ricerca" method="get">
-
-                <input type="text" placeholder="Nome,Artista,Citta..." name="search">
+              <form action="">
+                <input type="text" placeholder="Search.." name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
               </form>
                
             </div>
             <div class="login">
-              <a href="formlogin.jsp" id="login" type="submit">LOGIN</a>
+              <a href="../HTML/index.html" id="login" type="submit">LOGIN</a>
             </div>
           </div>
-        <!--/ contacts -->
-      </ul>
-      <!--/ mega menu -->
-    </div>
+          <!--/ contacts -->
+        </ul>
+      </div>
+        <!--/ mega menu -->
+      </div>
 
       <div class="context">
 
