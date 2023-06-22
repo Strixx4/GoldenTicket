@@ -19,7 +19,9 @@
 	<%=e.getGiornoSettimana()%>
 	<%= e.getOra()%> <br>
 	<%=e.getLocandina()%> <br>
+	<a href = "dettagli?id=<%=e.getId()%>">DETTAGLI</a>
 	<%}%>
+	
 </body>
 </html>
 	
