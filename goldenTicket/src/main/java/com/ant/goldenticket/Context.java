@@ -43,6 +43,7 @@ public class Context {
 	@Bean
 	public DAOEvento daoevento() {
 		return new DAOEvento();
+
 	}
 	
 	@Bean

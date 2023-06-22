@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+*{
+	font-family: 'Geologica', sans-serif;
+}
+body 
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #133847;
+}
+section 
+{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+section .signin .content .form .inputBox
+{
+  position: relative;
+  width: 100%;
+}
+
+.container {
+	border: solid rgba(255, 217, 0, 0.89) 3px;
+	background-color: white;
+}
+
+#titolo {
+	align-items: center;
+	color: black;
+}
+
+.bottone {
+	size: 30px;
+}
+
+.container11 {
+border:solid rgba(255, 217, 0, 0.89) 5px;
+background-color: #e9e9e9;
+}

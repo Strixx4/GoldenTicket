@@ -3,7 +3,7 @@
     <%@page import = "java.util.*" %>
     <%@page import = "com.ant.goldenticket.entities.*" %>
     <%List<Evento> eventi = 
-    	(List<Evento>)request.getAttribute("elenco");%>
+    	(List<Evento>)request.getAttribute("eventi");%>
     	
 <!DOCTYPE html>
 <html>
@@ -14,14 +14,12 @@
 
 <!-- elenco degli eventi -->
 <%for(Evento e: eventi){ %>
-	<%e.getNome(); %> <br>
-	<%e.getTipologia(); %> <br>
-	<%e.getGenere(); %> <br>
-	<%e.getData(); %> <br>
-	<%e.getGiornoSettimana(); %> <br>
-	<%e.getOra(); %> <br>
-	<%e.getLocandina(); %> <br>
-	<%e.getArtisti(); %> <br>
+	<%=e.getNome() %> 
+	<%=e.getData()%>
+	<%=e.getGiornoSettimana()%>
+	<%= e.getOra()%> <br>
+	<%=e.getLocandina()%> <br>
+	<a href = "dettagli?id=<%=e.getId()%>">DETTAGLI</a>
 	<%}%>
 	
 </body>
