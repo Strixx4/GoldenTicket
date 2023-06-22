@@ -2,6 +2,13 @@
     pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.*" %>
 <%@ page import="com.ant.goldenticket.entities.*" %>
+<%@ page import="com.ant.goldenticket.*" %>
+<% List<String> c = (List<String>)request.getAttribute("listacitta");%>
+<% List<String> t = (List<String>)request.getAttribute("listatipologia");%>
+<% Map<String, List<String>> z = (Map<String, List<String>>)request.getAttribute("listazone");%>
+<% Map<String, List<String>> g = (Map<String, List<String>>)request.getAttribute("listaSG");%>
+
+
 <% List<Evento> el=  (List<Evento>)request.getAttribute("lNome");%>
 <% List<Evento> al=  (List<Evento>)request.getAttribute("lArtista");%>
 <% List<Evento> ll=  (List<Evento>)request.getAttribute("lLocalita"); %>
@@ -22,8 +29,7 @@
   </head>
 
   <body>
-
-    <div id="container">
+		<div id="container">
       <div class="header">
         <img src="../IMG/golden-ticket.png" id="logo">
         <h1>Golden Ticket</h1>
@@ -38,18 +44,71 @@
             <li>
               <a href="/"><i class="fa fa-single fa-home"></i></a>
             </li>
-            
+            <!--/ home -->
+            <!-- about -->
+            <!-- CittÃ Â  -->
+        <li aria-haspopup="true">
+          <a>Città <i class="fa fa-indicator fa-chevron-down"></i></a>
+          <div class="grid-container3">
+            <ul>
+              <!-- FOR PER STAMPARE NOMI CITTA'-->
+            <% for(String citta : c){%>
+            	<li><a href="leggicitta?citta=<%=citta%>"></i><%=citta%><i class="fa fa-group"></i><i class="fa fa-indicator fa-chevron-right"></i></a>
+                <div class="grid-container3">
+                  <ul>
+
+                    <% for(String zone : z.get(citta)){ %>
+                    <li aria-haspopup="true">
+                      <a href="leggitipologia?citta=<%=citta%>?zona=<%=zone%>"><i class="fa fa-female"></i><%=zone%></a>
+                      <%} %>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            <%}%>           
+            </ul>
+          </div>
+        </li>
+          <!--/ about -->
+         <!-- Tipologia -->
+        <li aria-haspopup="true">
+          <a href="#">Tipologia<i class="fa fa-indicator fa-chevron-down"></i></a>
+          <div class="grid-container3">
+            <ul>
+             <!-- FOR PER STAMPARE NOMI CITTA'-->
+            <% for(String tipologia : t){%>
+            	<li><a href="leggitipologia?tipologia=<%=tipologia%>"><%=tipologia%><i class="fa fa-group"></i><i class="fa fa-indicator fa-chevron-right"></i></a>
+                <div class="grid-container3">
+                  <ul>
+
+                    <% for(String genere : g.get(tipologia)){ %>
+                    <li aria-haspopup="true">
+                      <a href="leggigenere?tipologia=<%=tipologia%>?genere=<%=genere%>"><i class="fa fa-female"></i><%=genere%></a>
+                      <%} %>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            <%}%>           
+            </ul>
+          </div>
+        </li>
+          <!--/ news -->
+          <!-- eventi -->
+          <li>
+            <a href="eventi">Eventi</a>
+          </li>
 
           <div class="navbar"> 
             <div class="search-container">
-              <form action="">
-                <input type="text" placeholder="Search.." name="search">
+              <form action="ricerca" method="get">
+                <input type="text" placeholder="Nome,Artista,Città..." name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
               </form>
                
             </div>
             <div class="login">
-              <a href="../HTML/index.html" id="login" type="submit">LOGIN</a>
+              <a href="formlogin" id="login" type="submit">LOGIN</a>
             </div>
           </div>
           <!--/ contacts -->
@@ -58,31 +117,55 @@
         <!--/ mega menu -->
       </div>
 
-      <div class="context">
+      <div class="ricerca">
       <!-- INSERISCI QUI -->
       <h3 class="hn">EVENTI PER NOME ( <%=el.size() %> )</h3>
-      <div id="listNome">
+      <div id="listNome" class="context">
+      <% if(el.size() > 0){ %>
           <%for(Evento e : el){ %>
-          <div class="n">
-          	<a href="dettagli?id=<%=e.getId()%>"><%=e.getNome()%></a>
+          <div >
+          	<h1> <%=e.getNome() %></h1> <br>
+				<img src="<%=e.getLocandina()%>"><br>
+				<p><%=e.getLocalita().getCitta()%><br><%= e.getLocalita().getZona()%><br><%=e.getGiornoSettimana()%> <%=e.getData()%> alle ore <%= e.getOra()%> </p> <br>
+				<a href = "dettagli?id=<%=e.getId()%>">DETTAGLI</a>
           </div>
           <%}%>
+      <%} %>
+      <% if(el.size()  == 0){ %>
+      	<p>Non ci sono risultati disponibili</p>
+       <%} %>
         </div>
       <h3 class="ha">EVENTI PER ARTISTA ( <%=al.size() %> )</h3>  
-      <div id="listArtista">
+      <div id="listArtista" class ="context">
+      <% if(al.size() > 0){ %>
           <%for(Evento e : al){ %>
-          <div class="a">
-          	<a href="dettagli?id=<%=e.getId()%>"><%=e.getNome()%></a>
+          	<div><h1> <%=e.getNome() %></h1> <br>
+				<img src="<%=e.getLocandina()%>"><br>
+				<p><%=e.getLocalita().getCitta()%><br><%= e.getLocalita().getZona()%><br><%=e.getGiornoSettimana()%> <%=e.getData()%> alle ore <%= e.getOra()%> </p> <br>
+				<a href = "dettagli?id=<%=e.getId()%>">DETTAGLI</a>
           </div>
           <%}%>
-          </div>
+      <%} %>
+      <% if(al.size()  == 0){ %>
+      	<p>Non ci sono risultati disponibili</p>
+       <%} %>
+        </div>
+
       <h3 class="hc">EVENTI PER CITTA ( <%=ll.size() %> )</h3>  
-      	<div id="listCitta">
+      	<div id="listCitta" class="context">
+      	 <% if(ll.size() > 0){ %>
           <%for(Evento e : ll){ %>
-          <div class="c">
-          	<a href="dettagli?id=<%=e.getId()%>"><%=e.getNome()%></a>
-          	</div>
+          <div>
+          	<h1> <%=e.getNome() %></h1> <br>
+				<img src="<%=e.getLocandina()%>"><br>
+				<p><%=e.getLocalita().getCitta()%><br><%= e.getLocalita().getZona()%><br><%=e.getGiornoSettimana()%> <%=e.getData()%> alle ore <%= e.getOra()%> </p> <br>
+				<a href = "dettagli?id=<%=e.getId()%>">DETTAGLI</a>
+			</div>
           <%}%>
+        <%} %>
+      <% if(ll.size()  == 0){ %>
+      	<p>Non ci sono risultati disponibili</p>
+       <%} %>
           </div>
       </div>
 
@@ -124,5 +207,5 @@
       </div>
     </div>
   </body>
-  	<script>nascondi();</script>
+  	<script>nascondi()</script>
 </html>

@@ -1,24 +1,173 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@page import = "com.ant.goldenticket.entities.*" %>
+<%@ page import = "java.util.*" %>
+<%@ page import = "com.ant.goldenticket.entities.*" %>
+<%@ page import="com.ant.goldenticket.*" %> 
+<% List<String> c = (List<String>)request.getAttribute("listacitta");%>
+<% List<String> t = (List<String>)request.getAttribute("listatipologia");%>
+<% Map<String, List<String>> z = (Map<String, List<String>>)request.getAttribute("listazone");%>
+<% Map<String, List<String>> g = (Map<String, List<String>>)request.getAttribute("listaSG");%>
+
+    
     <% Evento e = (Evento) request.getAttribute("evento"); %>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
+  <head>
+      <title>GoldenTicket</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>DropDown Menu</title>
+      <link rel="icon" type="image/x-icon" href="/IMG/favicon.jpeg">
+      <link rel="stylesheet" href="../CSS/index.css">
+      <link rel="stylesheet" href="../CSS/navbar.css">
+      <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+      <script src="File.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+      <Script src="jqSearch.js"></Script>
+  </head>
 
+  <body>
+		<div id="container">
+      <div class="header">
+        <img src="../IMG/golden-ticket.png" id="logo">
+        <h1>Golden Ticket</h1>
+        <img src="../IMG/golden-ticket.png" id="logo">      
+      </div>
+        
+      <div id="megamenu">
+        <!-- mega menu -->
+        <div class="caselle-sinistra">
+          <ul class="sky-mega-menu sky-mega-menu-anim-flip sky-mega-menu-response-to-icons">
+            <!-- home -->
+            <li>
+              <a href="/"><i class="fa fa-single fa-home"></i></a>
+            </li>
+            <!--/ home -->
+            <!-- about -->
+            <!-- CittÃ Â  -->
+        <li aria-haspopup="true">
+          <a>Città <i class="fa fa-indicator fa-chevron-down"></i></a>
+          <div class="grid-container3">
+            <ul>
+              <!-- FOR PER STAMPARE NOMI CITTA'-->
+            <% for(String citta : c){%>
+            	<li><a href="leggicitta?citta=<%=citta%>"></i><%=citta%><i class="fa fa-group"></i><i class="fa fa-indicator fa-chevron-right"></i></a>
+                <div class="grid-container3">
+                  <ul>
 
-</head>
+                    <% for(String zone : z.get(citta)){ %>
+                    <li aria-haspopup="true">
+                      <a href="leggitipologia?citta=<%=citta%>?zona=<%=zone%>"><i class="fa fa-female"></i><%=zone%></a>
+                      <%} %>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            <%}%>           
+            </ul>
+          </div>
+        </li>
+          <!--/ about -->
+         <!-- Tipologia -->
+        <li aria-haspopup="true">
+          <a href="#">Tipologia<i class="fa fa-indicator fa-chevron-down"></i></a>
+          <div class="grid-container3">
+            <ul>
+             <!-- FOR PER STAMPARE NOMI CITTA'-->
+            <% for(String tipologia : t){%>
+            	<li><a href="leggitipologia?tipologia=<%=tipologia%>"><%=tipologia%><i class="fa fa-group"></i><i class="fa fa-indicator fa-chevron-right"></i></a>
+                <div class="grid-container3">
+                  <ul>
 
-<body>
-<a href = "eventi"> ELENCO </a>
-<%= e.getNome()%> <br>
-<%=	e.getTipologia()%> <br>
-<%=	e.getGenere()%>  <br>
-<%=e.getData()%><%=e.getGiornoSettimana()%> <%=	e.getOra()%>  <br>
-<%=e.getLocalita()%> <br>
-<%=e.getLocandina()%> <br>
+                    <% for(String genere : g.get(tipologia)){ %>
+                    <li aria-haspopup="true">
+                      <a href="leggigenere?tipologia=<%=tipologia%>?genere=<%=genere%>"><i class="fa fa-female"></i><%=genere%></a>
+                      <%} %>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            <%}%>           
+            </ul>
+          </div>
+        </li>
+          <!--/ news -->
+          <!-- eventi -->
+          <li>
+            <a href="eventi">Eventi</a>
+          </li>
 
+          <div class="navbar"> 
+            <div class="search-container">
+              <form action="ricerca" method="get">
+                <input type="text" placeholder="Nome,Artista,Città..." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+              </form>
+               
+            </div>
+            <div class="login">
+              <a href="formlogin" id="login" type="submit">LOGIN</a>
+            </div>
+          </div>
+          <!--/ contacts -->
+        </ul>
+      </div>
+        <!--/ mega menu -->
+      </div>
+<div class="context">
+	<div>
+				<h1> <%=e.getNome() %></h1> <br>
+				<img src="<%=e.getLocandina()%>"><br>
+				<%=e.getTipologia()%>, <%=e.getGenere()%><br>
+				Artisti:<br>
+				<%for(Artista a: e.getArtisti()){ %>
+					<%=a.getNominativo()%><br>
+				<%} %>
+				<p><%=e.getLocalita().getCitta()%> in <%=e.getLocalita().getZona()%><br>
+				indirizzo : <%=e.getLocalita().getIndirizzo()%><br>
+				<%=e.getGiornoSettimana()%> <br>
+				<%=e.getData()%> alle ore <%= e.getOra()%> </p> <br>
+			</div>
+
+</div>
+ <div class="footer">
+        <div id="linguaggi">
+          <h2>Tecnologie Utilizzate</h2>
+            
+          <h4>FRONT-END</h4>
+          <a href="https://www.w3schools.com/html/default.asp" target="_blank">HTML</a>
+          <a href="https://www.w3schools.com/cs/default.asp" target="_blank">CSS</a>
+          <a href="https://www.w3schools.com/js/default.asp" target="_blank">JavaScript</a>
+          
+          
+            <h4>BACK-END</h4>
+            <a href="https://www.w3schools.com/java/default.asp" target="_blank">Java</a>
+            <a href="https://www.w3schools.com/MySQL/default.asp" target="_blank">MySQL</a>
+            <a href="https://spring.io/">Spring</a>
+          
+        </div>
+        
+        <div id="societa">
+          <h2>La Società </h2>
+            <li>Andrea Sbabo</li>
+            <li>Michele Pasino</li>
+            <li>Beatrice Sala</li>
+            <li>Samuele Alessandro Di Silvestri</li>
+            <li>Bryan Huarcaya</li>
+        </div>
+
+        <div id="contatti">
+          <h2>Contatti</h2>
+            <li>andreasbabo6@gmail.com</li>
+            <li>michele.pasino@hotmail.com</li>
+            <li>sala.beatrice00@gmail.com</li>
+            <li>samueledisilvestri@gmail.com</li>
+            <li>bryanhuarcayar@gmail.com</li> 
+        </div>
+
+      </div>
+    </div>
+		
 
 
 </body>
