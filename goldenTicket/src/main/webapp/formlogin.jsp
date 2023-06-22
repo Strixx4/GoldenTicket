@@ -2,15 +2,30 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<head>
+<link rel="stylesheet" href="../CSS/login.css">
 </head>
 <body>
-	<form action="login" method="post">
-		<input type="text" name="username">
-		<input type="password" name="password">
-		<input type="submit" value="Login">
-	</form>
+ <form action="login" method="post">
+<h1>Login</h1>
+  <div class="container">
+  
+    <label for="Nome utente"><b>Nome utente</b></label>
+    <input type="text" placeholder="Nome utente" name="nomeutente" required>
+	<br>
+	<br>
+	<br>
+    <label for="Password"><b>Password</b></label>
+    <input type="password" placeholder="Password" name="password" required>
+
+<br>
+<br>
+<br>
+    <button type="submit">LOGIN</button>
+    
+    
+  </div>
+</form> 
 </body>
 </html>

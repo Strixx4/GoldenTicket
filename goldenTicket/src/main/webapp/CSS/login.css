@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+body 
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #ffeb61;
+}
+section 
+{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+section .signin .content .form .inputBox
+{
+  position: relative;
+  width: 100%;
+}
+
+.container {
+	border: solid black 3px;
+	background-color: white;
+}
+
+h1 {
+	align-items: center;
+}
+
