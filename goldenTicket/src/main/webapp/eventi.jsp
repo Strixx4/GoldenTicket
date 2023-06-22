@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@page import = "java.util.*" %>
-    <%@page import = "com.ant.goldenticket.entities.*" %>
-    <%List<Evento> eventi = 
-    	(List<Evento>)request.getAttribute("eventi");%>
+<%@ page import = "java.util.*" %>
+<%@ page import = "com.ant.goldenticket.entities.*" %>
+<%@ page import="com.ant.goldenticket.*" %>
+<% List<String> c = (List<String>)request.getAttribute("listacitta");%>
+<% List<String> t = (List<String>)request.getAttribute("listageneri");%>
+<% Map<String, List<String>> z = (Map<String, List<String>>)request.getAttribute("listazone");%>
+<%List<Evento> eventi = (List<Evento>) request.getAttribute("eventi"); %>
     	
 <!DOCTYPE html>
 <html>
@@ -37,94 +40,50 @@
             </li>
             <!--/ home -->
             <!-- about -->
-            <li aria-haspopup="true">
-              <a href="#"><i class="fa fa-star"></i>CittÃ <i class="fa fa-indicator fa-chevron-down"></i></a>
-              <div class="grid-container3">
-                <ul>
-                  <li><a href="#"><i class="fa fa-globe"></i>Mission</a></li>
-                  <li aria-haspopup="true">
-                    <a href="#"><i class="fa fa-group"></i><i class="fa fa-indicator fa-chevron-right"></i>Our Team</a>
-                    <div class="grid-container3">
-                      <ul>
-                        <li aria-haspopup="true">
-                          <a href="#"><i class="fa fa-male"></i><i class="fa fa-indicator fa-chevron-right"></i>Markus Fisher</a>
-                          <div class="grid-container3">
-                            <ul>
-                              <li><a href="#"><i class="fa fa-leaf"></i>About</a></li>
-                              <li><a href="#"><i class="fa fa-tasks"></i>Skills</a></li>
-                              <li><a href="#"><i class="fa fa-comments"></i>Contacts</a></li>
-                            </ul>
-                          </div>
-                        </li>
-                        <li aria-haspopup="true">
-                          <a href="#"><i class="fa fa-female"></i><i class="fa fa-indicator fa-chevron-right"></i>Leyla Sparks</a>
-                          <div class="grid-container3">
-                            <ul>
-                              <li><a href="#"><i class="fa fa-leaf"></i>About</a></li>
-                              <li><a href="#"><i class="fa fa-tasks"></i>Skills</a></li>
-                              <li><a href="#"><i class="fa fa-comments"></i>Contacts</a></li>
-                            </ul>
-                          </div>
-                        </li>
-                        <li aria-haspopup="true">
-                          <a href="#"><i class="fa fa-male"></i><i class="fa fa-indicator fa-chevron-right"></i>Gleb Ismailov</a>
-                          <div class="grid-container3">
-                            <ul>
-                              <li><a href="#"><i class="fa fa-leaf"></i>About</a></li>
-                              <li><a href="#"><i class="fa fa-tasks"></i>Skills</a></li>
-                              <li><a href="#"><i class="fa fa-comments"></i>Contacts</a></li>
-                            </ul>
-                          </div>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-female"></i>Viktoria Gibbers</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li>
-                    <a href="#"><i class="fa fa-trophy"></i>Rewards</a>
-                  </li>
-                  <li>
-                    <hrefhref href="#"><i class="fa fa-certificate"></i>Certificates
-                  </hrefhref></li>
-                </ul>
-              </div>
-            </li>
+            <!-- CittÃ Â  -->
+        <li aria-haspopup="true">
+          <a>Città <i class="fa fa-indicator fa-chevron-down"></i></a>
+          <div class="grid-container3">
+            <ul>
+              <!-- FOR PER STAMPARE NOMI CITTA'-->
+            <% for(String citta : c){%>
+            	<li><a href="leggicitta?citta=<%=citta%>"></i><%=citta%><i class="fa fa-group"></i><i class="fa fa-indicator fa-chevron-right"></i></a>
+                <div class="grid-container3">
+                  <ul>
+
+                    <% for(String zone : z.get(citta)){ %>
+                    <li aria-haspopup="true">
+                      <a href="leggicitta?citta=<%=citta%>;leggizona?zone=<%=zone%>"><i class="fa fa-female"></i><%=zone%></a>
+                      <%} %>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            <%}%>           
+            </ul>
+          </div>
+        </li>
           <!--/ about -->
-          <!-- news -->
-          <li aria-haspopup="true">
-            <a href="#"><i class="fa fa-bullhorn"></i>News<i class="fa fa-indicator fa-chevron-down"></i></a>
-            <div class="grid-container3">
-              <ul>
-                <li><a href="#"><i class="fa fa-check"></i>Company</a></li>
-                <li><a href="#"><i class="fa fa-check"></i>Products</a></li>
-                <li><a href="#"><i class="fa fa-check"></i>Specials</a></li>
-              </ul>
-            </div>
-          </li>
+         <!-- Tipologia -->
+        <li aria-haspopup="true">
+          <a href="#">Tipologia<i class="fa fa-indicator fa-chevron-down"></i></a>
+          <div class="grid-container3">
+            <ul>
+            <% for(String l : t){%>
+            	<li><a href="leggitipologia?tipologia=<%=l%>"></i><%=l%></a></li>
+            <%}%>
+            </ul>
+          </div>
+        </li>
           <!--/ news -->
-          <!-- portfolio -->
-          <li aria-haspopup="true">
-            <a href="#"><i class="fa fa-briefcase"></i>Portfolio<i class="fa fa-indicator fa-chevron-down"></i></a>
-            <div class="grid-container3">
-              <ul>
-                <li><a href="#"><i class="fa fa-lemon-o"></i>Logos</a></li>
-                <li><a href="#"><i class="fa fa-globe"></i>Websites</a></li>
-                <li><a href="#"><i class="fa fa-th-large"></i>Branding</a></li>
-                <li><a href="#"><i class="fa fa-picture-o"></i>Illustrations</a></li>
-              </ul>
-            </div>
-          </li>
-          <!--/ portfolio -->
-          <!-- blog -->
+          <!-- eventi -->
           <li>
             <a href="eventi"></i>Eventi</a>
           </li>
 
           <div class="navbar"> 
             <div class="search-container">
-              <form action="">
+              <form action="ricerca" method="get">
                 <input type="text" placeholder="Search.." name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
               </form>
