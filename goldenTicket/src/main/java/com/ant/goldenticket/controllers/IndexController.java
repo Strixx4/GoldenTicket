@@ -95,14 +95,14 @@ public class IndexController {
 		return ris;
 	}
 
-//[002]
+
 	@GetMapping("eventi")
 	public String elencoeventi(HttpSession session, Model model) {
 		model.addAttribute("eventi", de.readAll());
 		return "eventi.jsp";
 	}
 
-//[001]
+
 	@GetMapping("dettagli")
 	public String dettagli(@RequestParam("id") int idEvento, Model model) {
 		Evento e = de.cercaPerID(idEvento);
