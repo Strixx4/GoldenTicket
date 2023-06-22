@@ -113,6 +113,15 @@ public class IndexController {
 
 	@GetMapping("eventi")
 	public String elencoeventi(HttpSession session, Model model) {
+		List<String> citta = dl.tutteLeCitta();
+		model.addAttribute("listacitta", citta);
+		model.addAttribute("listageneri", de.listaTipologia());
+		Map<String,List<String>> zone = new LinkedHashMap<>(); 
+		model.addAttribute("listazone", zone);
+		model.addAttribute("eventi", de.eventiCasuali());
+		for(String c : citta) {
+			zone.put(c, dl.tutteLeZone(c));	
+		}
 		model.addAttribute("eventi", de.readAll());
 		return "eventi.jsp";
 	}
