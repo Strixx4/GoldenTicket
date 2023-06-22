@@ -38,7 +38,7 @@
         <!--/ home -->
         <!-- Città -->
         <li aria-haspopup="true">
-          <a>Citta'<i class="fa fa-indicator fa-chevron-down"></i></a>
+          <a>Citt�<i class="fa fa-indicator fa-chevron-down"></i></a>
           <div class="grid-container3">
             <ul>
               <!-- FOR PER STAMPARE NOMI CITTA'-->
@@ -63,17 +63,17 @@
 
         <!-- Tipologia -->
         <li aria-haspopup="true">
-          <a href="#"><i class="fa fa-bullhorn"></i>Tipologia<i class="fa fa-indicator fa-chevron-down"></i></a>
+          <a href="#">Tipologia<i class="fa fa-indicator fa-chevron-down"></i></a>
           <div class="grid-container3">
             <ul>
               <!-- FOR PER STAMPARE NOMI CITTA'-->
             <% for(String l : t){%>
-            	<li><a href="#"></i><%=l%></a></li>
+            	<li><a href="leggigenere?genere=<%=l%>"></i><%=l%></a></li>
             <%}%>
             </ul>
           </div>
         </li>
-     
+        
           <div class="navbar"> 
             <div class="search-container">
               <form action="" method="get">
@@ -112,7 +112,7 @@
         </div>
         
         <div id="societa">
-          <h2>La Societa'</h2>
+          <h2>La Societ�</h2>
             <li>Andrea Sbabo</li>
             <li>Michele Pasino</li>
             <li>Beatrice Sala</li>
