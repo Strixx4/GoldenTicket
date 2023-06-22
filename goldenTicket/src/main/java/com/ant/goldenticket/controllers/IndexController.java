@@ -113,4 +113,12 @@ public class IndexController {
 			return "dettagli.jsp";
 		}
 	}
+	@GetMapping("ricerca")
+	public String ricerca(@RequestParam("search") String par, Model model) {
+		model.addAttribute("lNome",de.readByNome(par));
+		model.addAttribute("lArtista",de.readByArtista(par));
+		model.addAttribute("lLocalita",de.readByCitta(par));
+		return "ricerca.jsp";
+	}
+	
 }
