@@ -21,7 +21,7 @@
 	<label for = "Password   ">Password</label> 
     <input type="password" placeholder="Password" name="password" required> 
     <br>
-    <button type="submit" class = "bottone"><a href = ../HTML/testlogin.html>LOGIN</a></button>
+    <button type="submit" class = "bottone"><a href = "../HTML/testlogin.html">LOGIN</a></button>
   <div class="container2">
 <h2 id = "titolo">Non sei registrato?</h2>
 <label for = "Nome utente">Nome utente</label> 
@@ -31,7 +31,7 @@
     <input type="password" placeholder="Password" name="password1" >
 	<br>
 	<br>
-    <button type = "submit" class ="bottone">REGISTRATI</button>
+    <button type = "submit" class ="bottone"><a href = "../HTML/testregistrazione.html">REGISTRATI</a></button>
     <br>
      </div>
   </div>
