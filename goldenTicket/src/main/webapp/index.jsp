@@ -4,25 +4,29 @@
 <%@ page import = "com.ant.goldenticket.entities.*" %>
 <%@ page import="com.ant.goldenticket.*" %>
 <% List<String> c = (List<String>)request.getAttribute("listacitta");%>
-<% List<String> t = (List<String>)request.getAttribute("listageneri");%>
+<% List<String> t = (List<String>)request.getAttribute("listatipologia");%>
 <% Map<String, List<String>> z = (Map<String, List<String>>)request.getAttribute("listazone");%>
+<% Map<String, List<String>> g = (Map<String, List<String>>)request.getAttribute("listaSG");%>
+
 <%List<Evento> eventi = (List<Evento>) request.getAttribute("eventi"); %>
     	
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>GoldenTicket</title>
-      	<meta name="viewport" content="width=device-width, initial-scale=1">
-      	<title>DropDown Menu</title>
-      	<link rel="icon" type="image/x-icon" href="/IMG/favicon.jpeg">
-      	<link rel="stylesheet" href="../CSS/index.css">
-      	<link rel="stylesheet" href="../CSS/navbar.css">
-      
-      	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-      	<script src="../JS/File.js"></script>
-	</head>
-	<body>
+  <head>
+      <title>GoldenTicket</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>DropDown Menu</title>
+      <link rel="icon" type="image/x-icon" href="/IMG/favicon.jpeg">
+      <link rel="stylesheet" href="../CSS/index.css">
+      <link rel="stylesheet" href="../CSS/navbar.css">
+      <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+      <script src="File.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+      <Script src="jqSearch.js"></Script>
+  </head>
+
+  <body>
 		<div id="container">
       <div class="header">
         <img src="../IMG/golden-ticket.png" id="logo">
@@ -36,7 +40,7 @@
           <ul class="sky-mega-menu sky-mega-menu-anim-flip sky-mega-menu-response-to-icons">
             <!-- home -->
             <li>
-              <a href="index.html"><i class="fa fa-single fa-home"></i></a>
+              <a href="/"><i class="fa fa-single fa-home"></i></a>
             </li>
             <!--/ home -->
             <!-- about -->
@@ -53,7 +57,7 @@
 
                     <% for(String zone : z.get(citta)){ %>
                     <li aria-haspopup="true">
-                      <a href="leggicitta?citta=<%=citta%>;leggizona?zone=<%=zone%>"><i class="fa fa-female"></i><%=zone%></a>
+                      <a href="leggitipologia?citta=<%=citta%>?zona=<%=zone%>"><i class="fa fa-female"></i><%=zone%></a>
                       <%} %>
                     </li>
                   </ul>
@@ -69,28 +73,40 @@
           <a href="#">Tipologia<i class="fa fa-indicator fa-chevron-down"></i></a>
           <div class="grid-container3">
             <ul>
-            <% for(String l : t){%>
-            	<li><a href="leggitipologia?tipologia=<%=l%>"></i><%=l%></a></li>
-            <%}%>
+             <!-- FOR PER STAMPARE NOMI CITTA'-->
+            <% for(String tipologia : t){%>
+            	<li><a href="leggitipologia?tipologia=<%=tipologia%>"><%=tipologia%><i class="fa fa-group"></i><i class="fa fa-indicator fa-chevron-right"></i></a>
+                <div class="grid-container3">
+                  <ul>
+
+                    <% for(String genere : g.get(tipologia)){ %>
+                    <li aria-haspopup="true">
+                      <a href="leggigenere?tipologia=<%=tipologia%>?genere=<%=genere%>"><i class="fa fa-female"></i><%=genere%></a>
+                      <%} %>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            <%}%>           
             </ul>
           </div>
         </li>
           <!--/ news -->
           <!-- eventi -->
           <li>
-            <a href="eventi"></i>Eventi</a>
+            <a href="eventi">Eventi</a>
           </li>
 
           <div class="navbar"> 
             <div class="search-container">
-              <form action="">
-                <input type="text" placeholder="Search.." name="search">
+              <form action="ricerca" method="get">
+                <input type="text" placeholder="Nome,Artista,Città..." name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
               </form>
                
             </div>
             <div class="login">
-              <a href="../HTML/index.html" id="login" type="submit">LOGIN</a>
+              <a href="formlogin" id="login" type="submit">LOGIN</a>
             </div>
           </div>
           <!--/ contacts -->

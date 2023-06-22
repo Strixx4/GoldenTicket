@@ -38,14 +38,24 @@ public class IndexController {
 
 	public String index(HttpSession session, Model model) {
 		List<String> citta = dl.tutteLeCitta();
+		List<String> tipologia=de.listaTipologia();
 		model.addAttribute("listacitta", citta);
-		model.addAttribute("listageneri", de.listaTipologia());
+		model.addAttribute("listatipologia", tipologia);
+		Map<String,List<String>> sottog = new LinkedHashMap<>(); 
 		Map<String,List<String>> zone = new LinkedHashMap<>(); 
 		model.addAttribute("listazone", zone);
 		model.addAttribute("eventi", de.eventiCasuali());
 		for(String c : citta) {
 			zone.put(c, dl.tutteLeZone(c));	
 		}
+		for(String g: tipologia) {
+			sottog.put(g,de.listaGeneri(g));
+		}
+		model.addAttribute("listaSG",sottog);
+		
+		model.addAttribute("eventi", de.eventiCasuali());
+		
+		
 		return "index.jsp";
 	}
 
@@ -114,14 +124,21 @@ public class IndexController {
 	@GetMapping("eventi")
 	public String elencoeventi(HttpSession session, Model model) {
 		List<String> citta = dl.tutteLeCitta();
+		List<String> tipologia=de.listaTipologia();
 		model.addAttribute("listacitta", citta);
-		model.addAttribute("listageneri", de.listaTipologia());
+		model.addAttribute("listatipologia", tipologia);
+		Map<String,List<String>> sottog = new LinkedHashMap<>(); 
 		Map<String,List<String>> zone = new LinkedHashMap<>(); 
 		model.addAttribute("listazone", zone);
 		model.addAttribute("eventi", de.eventiCasuali());
 		for(String c : citta) {
 			zone.put(c, dl.tutteLeZone(c));	
 		}
+		for(String g: tipologia) {
+			sottog.put(g,de.listaGeneri(g));
+		}
+		model.addAttribute("listaSG",sottog);
+		
 		model.addAttribute("eventi", de.readAll());
 		return "eventi.jsp";
 	}
@@ -129,16 +146,48 @@ public class IndexController {
 
 	@GetMapping("dettagli")
 	public String dettagli(@RequestParam("id") int idEvento, Model model) {
+		
 		Evento e = de.cercaPerID(idEvento);
 		if (e == null)
 			return "redirect:eventi";
 		else {
+			List<String> citta = dl.tutteLeCitta();
+			List<String> tipologia=de.listaTipologia();
+			model.addAttribute("listacitta", citta);
+			model.addAttribute("listatipologia", tipologia);
+			Map<String,List<String>> sottog = new LinkedHashMap<>(); 
+			Map<String,List<String>> zone = new LinkedHashMap<>(); 
+			model.addAttribute("listazone", zone);
+			model.addAttribute("eventi", de.eventiCasuali());
+			for(String c : citta) {
+				zone.put(c, dl.tutteLeZone(c));	
+			}
+			for(String g: tipologia) {
+				sottog.put(g,de.listaGeneri(g));
+			}
+			model.addAttribute("listaSG",sottog);
 			model.addAttribute("evento", e);
 			return "dettagli.jsp";
 		}
 	}
 	@GetMapping("ricerca")
 	public String ricerca(@RequestParam("search") String par, Model model) {
+		List<String> citta = dl.tutteLeCitta();
+		List<String> tipologia=de.listaTipologia();
+		model.addAttribute("listacitta", citta);
+		model.addAttribute("listatipologia", tipologia);
+		Map<String,List<String>> sottog = new LinkedHashMap<>(); 
+		Map<String,List<String>> zone = new LinkedHashMap<>(); 
+		model.addAttribute("listazone", zone);
+		model.addAttribute("eventi", de.eventiCasuali());
+		for(String c : citta) {
+			zone.put(c, dl.tutteLeZone(c));	
+		}
+		for(String g: tipologia) {
+			sottog.put(g,de.listaGeneri(g));
+		}
+		model.addAttribute("listaSG",sottog);
+		
 		model.addAttribute("lNome",de.readByNome(par));
 		model.addAttribute("lArtista",de.readByArtista(par));
 		model.addAttribute("lLocalita",de.readByCitta(par));
