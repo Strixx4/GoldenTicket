@@ -17,3 +17,8 @@ window.onclick = function(event) {
     }
   }
 }
+function nascondi(){
+  		 document.getElementById("listNome").style.display = "none";
+  		 document.getElementById("listArtista").style.display = "none";
+  		 document.getElementById("listCitta").style.display = "none";
+}

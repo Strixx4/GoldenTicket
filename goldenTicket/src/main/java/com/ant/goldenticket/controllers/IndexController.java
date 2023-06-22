@@ -35,13 +35,14 @@ public class IndexController {
 	
 //home
 	@GetMapping("/")
+
 	public String index(HttpSession session, Model model) {
 		List<String> citta = dl.tutteLeCitta();
 		model.addAttribute("listacitta", citta);
 		model.addAttribute("listageneri", de.listaTipologia());
 		Map<String,List<String>> zone = new LinkedHashMap<>(); 
 		model.addAttribute("listazone", zone);
-		
+		model.addAttribute("eventi", de.eventiCasuali());
 		for(String c : citta) {
 			zone.put(c, dl.tutteLeZone(c));	
 		}
@@ -127,4 +128,12 @@ public class IndexController {
 			return "dettagli.jsp";
 		}
 	}
+	@GetMapping("ricerca")
+	public String ricerca(@RequestParam("search") String par, Model model) {
+		model.addAttribute("lNome",de.readByNome(par));
+		model.addAttribute("lArtista",de.readByArtista(par));
+		model.addAttribute("lLocalita",de.readByCitta(par));
+		return "ricerca.jsp";
+	}
+	
 }

@@ -5,6 +5,17 @@
 <% List<String> c = (List<String>)request.getAttribute("listacitta");%>
 <% List<String> t = (List<String>)request.getAttribute("listageneri");%>
 <% Map<String, List<String>> z = (Map<String, List<String>>)request.getAttribute("listazone");%>
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+
+<%@ page import="java.util.*" %>
+
+<%@ page import="com.ant.goldenticket.*" %>
+
+<%@ page import="com.ant.goldenticket.entities.*" %>
+
+<%List<Evento> eventi = (List<Evento>) request.getAttribute("eventi"); %>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -29,6 +40,7 @@
         <img src="../IMG/golden-ticket.png" id="logo">      
       </div>
         
+
       <!-- mega menu -->
       <ul class="sky-mega-menu sky-mega-menu-anim-flip sky-mega-menu-response-to-icons">
         <!-- home -->
@@ -36,9 +48,9 @@
           <a href="/"><i class="fa fa-single fa-home"></i></a>
         </li>
         <!--/ home -->
-        <!-- Città -->
+        <!-- Città  -->
         <li aria-haspopup="true">
-          <a>Citt�<i class="fa fa-indicator fa-chevron-down"></i></a>
+          <a>Città<i class="fa fa-indicator fa-chevron-down"></i></a>
           <div class="grid-container3">
             <ul>
               <!-- FOR PER STAMPARE NOMI CITTA'-->
@@ -59,26 +71,28 @@
             </ul>
           </div>
         </li>
-        <!--/ Città -->
-
         <!-- Tipologia -->
         <li aria-haspopup="true">
           <a href="#">Tipologia<i class="fa fa-indicator fa-chevron-down"></i></a>
           <div class="grid-container3">
             <ul>
-              <!-- FOR PER STAMPARE NOMI CITTA'-->
             <% for(String l : t){%>
-            	<li><a href="leggigenere?genere=<%=l%>"></i><%=l%></a></li>
+            	<li><a href="leggitipologia?tipologia=<%=l%>"></i><%=l%></a></li>
             <%}%>
             </ul>
           </div>
         </li>
-        
+          <li>
+             <a href="eventi">Eventi</a>
+          </li>
           <div class="navbar"> 
             <div class="search-container">
               <form action="" method="get">
-                <input type="text" placeholder="Search.." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
+
+              <form action="ricerca" method="get">
+
+                <input type="text" placeholder="Nome,Artista,Citta..." name="search">
+                <input type="submit"><i class="fa fa-search"></i>
               </form>
                
             </div>
@@ -92,6 +106,16 @@
     </div>
 
       <div class="context">
+
+      
+        <%for(Evento e: eventi){ %>
+          <div>
+              <img src="<%=e.getLocandina()%>"> <br>
+              <h1> <%=e.getNome() %></h1> <br>
+              <p><%=e.getLocalita().getCitta()%><br><%= e.getLocalita().getZona()%><br><%=e.getGiornoSettimana()%> <%=e.getData()%> alle ore <%= e.getOra()%> </p><br>
+              <a href = "dettagli?id=<%=e.getId()%>">DETTAGLI</a>
+          </div>
+        <%}%>
         
       </div>
 
@@ -112,7 +136,7 @@
         </div>
         
         <div id="societa">
-          <h2>La Societ�</h2>
+          <h2>La Societï¿½</h2>
             <li>Andrea Sbabo</li>
             <li>Michele Pasino</li>
             <li>Beatrice Sala</li>
