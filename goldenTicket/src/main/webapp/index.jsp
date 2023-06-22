@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ page import = "java.util.*" %>
 <%@ page import = "com.ant.goldenticket.entities.Localita" %>
-<% List<Localita> d = (List<Localita>)request.getAttribute("listacitta");%>
+<% List<String> d = (List<String>)request.getAttribute("listacitta");%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -27,103 +27,101 @@
         <img src="../IMG/golden-ticket.png" id="logo">      
       </div>
         
-      <div id="megamenu">
-        <!-- mega menu -->
-        <div class="caselle-sinistra">
-          <ul class="sky-mega-menu sky-mega-menu-anim-flip sky-mega-menu-response-to-icons">
-            <!-- home -->
-            <li>
-              <a href="index.html"><i class="fa fa-single fa-home"></i></a>
-            </li>
-            <!--/ home -->
-            <!-- about -->
-            <li aria-haspopup="true">
-              <a href="#"><i class="fa fa-star"></i>Citta' <i class="fa fa-indicator fa-chevron-down"></i></a>
-              <div class="grid-container3">
-                <ul>
-                  <li><a href="#"><i class="fa fa-globe"></i><% for(Localita m : d){%>
-				<b><%= m.getCitta()%></b><br>		
-		    <%}%></a></li>
-                  <li aria-haspopup="true">
-                    <a href="#"><i class="fa fa-group"></i><i class="fa fa-indicator fa-chevron-right"></i>Our Team</a>
-                    <div class="grid-container3">
-                      <ul>
-                        <li aria-haspopup="true">
-                          <a href="#"><i class="fa fa-male"></i><i class="fa fa-indicator fa-chevron-right"></i>Markus Fisher</a>
-                          <div class="grid-container3">
-                            <ul>
-                              <li><a href="#"><i class="fa fa-leaf"></i>About</a></li>
-                              <li><a href="#"><i class="fa fa-tasks"></i>Skills</a></li>
-                              <li><a href="#"><i class="fa fa-comments"></i>Contacts</a></li>
-                            </ul>
-                          </div>
-                        </li>
-                        <li aria-haspopup="true">
-                          <a href="#"><i class="fa fa-female"></i><i class="fa fa-indicator fa-chevron-right"></i>Leyla Sparks</a>
-                          <div class="grid-container3">
-                            <ul>
-                              <li><a href="#"><i class="fa fa-leaf"></i>About</a></li>
-                              <li><a href="#"><i class="fa fa-tasks"></i>Skills</a></li>
-                              <li><a href="#"><i class="fa fa-comments"></i>Contacts</a></li>
-                            </ul>
-                          </div>
-                        </li>
-                        <li aria-haspopup="true">
-                          <a href="#"><i class="fa fa-male"></i><i class="fa fa-indicator fa-chevron-right"></i>Gleb Ismailov</a>
-                          <div class="grid-container3">
-                            <ul>
-                              <li><a href="#"><i class="fa fa-leaf"></i>About</a></li>
-                              <li><a href="#"><i class="fa fa-tasks"></i>Skills</a></li>
-                              <li><a href="#"><i class="fa fa-comments"></i>Contacts</a></li>
-                            </ul>
-                          </div>
-                        </li>
-                        <li>
-                          <a href="#"><i class="fa fa-female"></i>Viktoria Gibbers</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li>
-                    <a href="#"><i class="fa fa-trophy"></i>Rewards</a>
-                  </li>
-                  <li>
-                    <hrefhref href="#"><i class="fa fa-certificate"></i>Certificates
-                  </hrefhref></li>
-                </ul>
-              </div>
-            </li>
-          <!--/ about -->
-          <!-- news -->
-          <li aria-haspopup="true">
-            <a href="#"><i class="fa fa-bullhorn"></i>News<i class="fa fa-indicator fa-chevron-down"></i></a>
-            <div class="grid-container3">
-              <ul>
-                <li><a href="#"><i class="fa fa-check"></i>Company</a></li>
-                <li><a href="#"><i class="fa fa-check"></i>Products</a></li>
-                <li><a href="#"><i class="fa fa-check"></i>Specials</a></li>
-              </ul>
-            </div>
-          </li>
-          <!--/ news -->
-          <!-- portfolio -->
-          <li aria-haspopup="true">
-            <a href="#"><i class="fa fa-briefcase"></i>Portfolio<i class="fa fa-indicator fa-chevron-down"></i></a>
-            <div class="grid-container3">
-              <ul>
-                <li><a href="#"><i class="fa fa-lemon-o"></i>Logos</a></li>
-                <li><a href="#"><i class="fa fa-globe"></i>Websites</a></li>
-                <li><a href="#"><i class="fa fa-th-large"></i>Branding</a></li>
-                <li><a href="#"><i class="fa fa-picture-o"></i>Illustrations</a></li>
-              </ul>
-            </div>
-          </li>
+      <!-- mega menu -->
+      <ul class="sky-mega-menu sky-mega-menu-anim-flip sky-mega-menu-response-to-icons">
+        <!-- home -->
+        <li>
+          <a href="/"><i class="fa fa-single fa-home"></i></a>
+        </li>
+        <!--/ home -->
+        <!-- about -->
+        <li aria-haspopup="true">
+          <a href="#"><i class="fa fa-globe"></i>Citta'<i class="fa fa-indicator fa-chevron-down"></i></a>
+          <div class="grid-container3">
+            <ul>
+              <!-- FOR PER STAMPARE NOMI CITTA'-->
+            <% for(String l : d){%>
+            	<li><a href="#"></i><%=l%></a></li>
+            <%}%>
+              <li aria-haspopup="true">
+                <a href="#"><i class="fa fa-group"></i><i class="fa fa-indicator fa-chevron-right"></i>Our Team</a>
+                <div class="grid-container3">
+                  <ul>
+                    <li aria-haspopup="true">
+                      <a href="#"><i class="fa fa-male"></i><i class="fa fa-indicator fa-chevron-right"></i>Markus Fisher</a>
+                      <div class="grid-container3">
+                        <ul>
+                          <li><a href="#"><i class="fa fa-leaf"></i>About</a></li>
+                          <li><a href="#"><i class="fa fa-tasks"></i>Skills</a></li>
+                          <li><a href="#"><i class="fa fa-comments"></i>Contacts</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li aria-haspopup="true">
+                      <a href="#"><i class="fa fa-female"></i><i class="fa fa-indicator fa-chevron-right"></i>Leyla Sparks</a>
+                      <div class="grid-container3">
+                        <ul>
+                          <li><a href="#"><i class="fa fa-leaf"></i>About</a></li>
+                          <li><a href="#"><i class="fa fa-tasks"></i>Skills</a></li>
+                          <li><a href="#"><i class="fa fa-comments"></i>Contacts</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li aria-haspopup="true">
+                      <a href="#"><i class="fa fa-male"></i><i class="fa fa-indicator fa-chevron-right"></i>Gleb Ismailov</a>
+                      <div class="grid-container3">
+                        <ul>
+                          <li><a href="#"><i class="fa fa-leaf"></i>About</a></li>
+                          <li><a href="#"><i class="fa fa-tasks"></i>Skills</a></li>
+                          <li><a href="#"><i class="fa fa-comments"></i>Contacts</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li><a href="#"><i class="fa fa-female"></i>Viktoria Gibbers</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li><a href="#"><i class="fa fa-trophy"></i>Rewards</a></a>
+              </li>
+              <li><a href="#"><i class="fa fa-certificate"></i>Certificates</a></a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <!--/ about -->
+        <!-- news -->
+        <li aria-haspopup="true">
+          <a href="#"><i class="fa fa-bullhorn"></i>News<i class="fa fa-indicator fa-chevron-down"></i></a>
+          <div class="grid-container3">
+            <ul>
+              <li><a href="#"><i class="fa fa-check"></i>Company</a></li>
+              <li><a href="#"><i class="fa fa-check"></i>Products</a></li>
+              <li><a href="#"><i class="fa fa-check"></i>Specials</a></li>
+            </ul>
+          </div>
+        </li>
+        <!--/ news -->
+        <!-- portfolio -->
+        <li aria-haspopup="true">
+          <a href="#"><i class="fa fa-briefcase"></i>Portfolio<i class="fa fa-indicator fa-chevron-down"></i></a>
+          <div class="grid-container3">
+            <ul>
+              <li><a href="#"><i class="fa fa-lemon-o"></i>Logos</a></li>
+              <li><a href="#"><i class="fa fa-globe"></i>Websites</a></li>
+              <li><a href="#"><i class="fa fa-th-large"></i>Branding</a></li>
+              <li><a href="#"><i class="fa fa-picture-o"></i>Illustrations</a></li>
+            </ul>
+          </div>
+          </li class="right">
           <!--/ portfolio -->
           <!-- blog -->
-          <li>
-            <a href="#"><i class="fa fa-edit"></i>Blog</a>
-          </li>
-
+        <li>
+          <a href="#"><i class="fa fa-edit"></i>Blog</a>
+        </li>
+        <!--/ blog -->
+        <!-- contacts -->
+       
           <div class="navbar"> 
             <div class="search-container">
               <form action="">
@@ -133,19 +131,17 @@
                
             </div>
             <div class="login">
-              <a href="../HTML/index.html" id="login" type="submit">LOGIN</a>
+              <a href="formlogin.jsp" id="login" type="submit">LOGIN</a>
             </div>
           </div>
-          <!--/ contacts -->
-        </ul>
-      </div>
-        <!--/ mega menu -->
-      </div>
+        
+        <!--/ contacts -->
+      </ul>
+      <!--/ mega menu -->
+    </div>
 
       <div class="context">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt exercitationem rem aperiam ut iure expedita deleniti ullam deserunt reiciendis a. Tempora facere dicta dolorem suscipit vel, magnam non odit quos.
-        </p>
+        
       </div>
 
       <div class="footer">
