@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ant.goldenticket.dao.DAOEvento;
+import com.ant.goldenticket.dao.DAOLocalita;
 import com.ant.goldenticket.dao.DAOUtenti;
 import com.ant.goldenticket.entities.Evento;
 import jakarta.servlet.http.HttpSession;
@@ -25,11 +26,16 @@ public class IndexController {
 
 	@Autowired
 	DAOUtenti du;
+	@Autowired
 	DAOEvento de;
-
+	@Autowired
+	DAOLocalita dl;
+	
 //home
 	@GetMapping("/")
-	public String index(HttpSession session) {
+	public String index(HttpSession session, Model model) {
+		
+		model.addAttribute("listacitta", dl.tutteLeCitta());
 		return "index.jsp";
 	}
 

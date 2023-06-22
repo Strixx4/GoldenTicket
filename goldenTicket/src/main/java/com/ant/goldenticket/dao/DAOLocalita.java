@@ -60,7 +60,7 @@ public class DAOLocalita
 	public List<String> tutteLeCitta()
 	{
 		List<Map<String,String>>c=db.rows("select citta from localita group by citta order by citta ");
-		List<String> ris= new ArrayList();
+		List<String> ris= new ArrayList<>();
 		for(Map<String,String> m:c)
 			ris.add(m.get("citta"));
 		return ris;
@@ -68,7 +68,7 @@ public class DAOLocalita
 	public List<String> tutteLeZone(String citta)
 	{
 		List<Map<String,String>>c=db.rows("select zona from localita  where citta like ? order by zona  ", citta);
-		List<String> ris= new ArrayList();
+		List<String> ris= new ArrayList<>();
 		for(Map<String,String> m:c)
 			ris.add(m.get("zona"));
 		return ris;

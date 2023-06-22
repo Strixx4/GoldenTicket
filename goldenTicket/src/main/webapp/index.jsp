@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import = "java.util.*" %>
+<%@ page import = "com.ant.goldenticket.entities.Localita" %>
+<% List<Localita> d = (List<Localita>)request.getAttribute("listacitta");%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -35,10 +38,12 @@
             <!--/ home -->
             <!-- about -->
             <li aria-haspopup="true">
-              <a href="#"><i class="fa fa-star"></i>Citt√†<i class="fa fa-indicator fa-chevron-down"></i></a>
+              <a href="#"><i class="fa fa-star"></i>Citta'†<i class="fa fa-indicator fa-chevron-down"></i></a>
               <div class="grid-container3">
                 <ul>
-                  <li><a href="#"><i class="fa fa-globe"></i>Mission</a></li>
+                  <li><a href="#"><i class="fa fa-globe"></i><% for(Localita m : d){%>
+				<b><%= m.getCitta()%></b><br>		
+		    <%}%></a></li>
                   <li aria-haspopup="true">
                     <a href="#"><i class="fa fa-group"></i><i class="fa fa-indicator fa-chevron-right"></i>Our Team</a>
                     <div class="grid-container3">

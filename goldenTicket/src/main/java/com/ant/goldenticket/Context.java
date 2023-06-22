@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 
 import com.ant.goldenticket.dao.DAOArtista;
+import com.ant.goldenticket.dao.DAOEvento;
 import com.ant.goldenticket.dao.DAOLocalita;
 import com.ant.goldenticket.dao.DAOUtenti;
 import com.ant.goldenticket.dao.Database;
@@ -21,7 +22,7 @@ import com.ant.goldenticket.entities.Localita;
 public class Context {
 	@Bean
 	public Database db() {
-		return new Database("GoldenTicket","root","root");
+		return new Database("GoldenTicket","root","Q705322H");
 	}
 
 	@Bean 
@@ -38,6 +39,12 @@ public class Context {
 	public DAOUtenti daoutenti(){
 		return new DAOUtenti();
 	}
+	
+	@Bean
+	public DAOEvento daoevento() {
+		return new DAOEvento();
+	}
+	
 	@Bean
 	@Scope("prototype")
 	public Localita mappaLocalita(Map<String,String> ml)
