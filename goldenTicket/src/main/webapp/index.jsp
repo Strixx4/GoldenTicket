@@ -38,7 +38,7 @@
         <!--/ home -->
         <!-- CittÃ  -->
         <li aria-haspopup="true">
-          <a>Cittï¿½<i class="fa fa-indicator fa-chevron-down"></i></a>
+          <a>Città<i class="fa fa-indicator fa-chevron-down"></i></a>
           <div class="grid-container3">
             <ul>
               <!-- FOR PER STAMPARE NOMI CITTA'-->
@@ -112,7 +112,7 @@
         </div>
         
         <div id="societa">
-          <h2>La Societï¿½</h2>
+          <h2>La Società</h2>
             <li>Andrea Sbabo</li>
             <li>Michele Pasino</li>
             <li>Beatrice Sala</li>
