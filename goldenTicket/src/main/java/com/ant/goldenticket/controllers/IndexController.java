@@ -1,5 +1,7 @@
 package com.ant.goldenticket.controllers;
 
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -34,8 +36,15 @@ public class IndexController {
 //home
 	@GetMapping("/")
 	public String index(HttpSession session, Model model) {
+		List<String> citta = dl.tutteLeCitta();
+		model.addAttribute("listacitta", citta);
+		model.addAttribute("listageneri", de.listaTipologia());
+		Map<String,List<String>> zone = new LinkedHashMap<>(); 
+		model.addAttribute("listazone", zone);
 		
-		model.addAttribute("listacitta", dl.tutteLeCitta());
+		for(String c : citta) {
+			zone.put(c, dl.tutteLeZone(c));	
+		}
 		return "index.jsp";
 	}
 
