@@ -8,23 +8,37 @@
 </head>
 <body>
  <form action="login" method="post">
-<h1>Login</h1>
-  <div class="container">
-  
-    <label for="Nome utente"><b>Nome utente</b></label>
+ 
+ 
+  <div class="container11">
+ <div class="container1">
+
+<h1 id = "titolo">Login</h1>
+	<label for = "Nome utente">Nome utente</label>
+	<br>
     <input type="text" placeholder="Nome utente" name="nomeutente" required>
 	<br>
 	<br>
+	<label for = "Password">Password</label> 
 	<br>
-    <label for="Password"><b>Password</b></label>
-    <input type="password" placeholder="Password" name="password" required>
-
+    <input type="password" placeholder="Password" name="password" required> 
+    <br>
+    <button type="submit" class = "bottone">LOGIN</button>
+ </div>
+ <br>
+  <div class="container2">
+<h1 id = "titolo">Non sei registrato?</h1>
+<label for = "Nome utente">Nome utente</label> 
 <br>
-<br>
-<br>
-    <button type="submit">LOGIN</button>
-    
-    
+    <input type="text" placeholder="Nome utente" name="nomeutente1" >
+	<br>
+	<br>
+	<label for = "Password">Password</label>  
+	<br>
+    <input type="password" placeholder="Password" name="password1" >
+	<br>
+    <button type = "submit" class ="bottone">REGISTRATI</button>
+     </div>
   </div>
 </form> 
 </body>
