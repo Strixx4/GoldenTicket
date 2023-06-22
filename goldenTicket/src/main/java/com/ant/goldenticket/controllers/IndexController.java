@@ -25,6 +25,7 @@ public class IndexController {
 
 	@Autowired
 	DAOUtenti du;
+	@Autowired
 	DAOEvento de;
 
 //home
@@ -109,7 +110,7 @@ public class IndexController {
 			return "redirect:eventi";
 		else {
 			model.addAttribute("evento", e);
-			return "dettaglievento.jsp";
+			return "dettagli.jsp";
 		}
 	}
 }
