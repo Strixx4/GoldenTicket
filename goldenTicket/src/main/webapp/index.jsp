@@ -30,12 +30,12 @@
           <ul class="sky-mega-menu sky-mega-menu-anim-flip sky-mega-menu-response-to-icons">
             <!-- home -->
             <li>
-              <a href="index.html"><i class="fa fa-single fa-home"></i></a>
+              <a href="/"><i class="fa fa-single fa-home"></i></a>
             </li>
             <!--/ home -->
             <!-- about -->
             <li aria-haspopup="true">
-              <a href="#"><i class="fa fa-star"></i>Citt√†<i class="fa fa-indicator fa-chevron-down"></i></a>
+              <a href="#"><i class="fa fa-star"></i>Citt‡†<i class="fa fa-indicator fa-chevron-down"></i></a>
               <div class="grid-container3">
                 <ul>
                   <li><a href="#"><i class="fa fa-globe"></i>Mission</a></li>
@@ -83,7 +83,7 @@
                     <a href="#"><i class="fa fa-trophy"></i>Rewards</a>
                   </li>
                   <li>
-                    <hrefhref href="#"><i class="fa fa-certificate"></i>Certificates
+                    <hreffhre href="#"><i class="fa fa-certificate"></i>Certificates
                   </hrefhref></li>
                 </ul>
               </div>
@@ -121,9 +121,9 @@
 
           <div class="navbar"> 
             <div class="search-container">
-              <form action="">
+              <form action="ricerca">
                 <input type="text" placeholder="Search.." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
+                <input type="submit"><i class="fa fa-search"></i>
               </form>
                
             </div>
