@@ -195,6 +195,29 @@ public class IndexController {
 		return "ricerca.jsp";
 	}
 
+	@GetMapping("leggigenere")
+	public String leggiGenere(@RequestParam("genere") String g, @RequestParam("tipologia") String c,Model model) {
+		List<String> citta = dl.tutteLeCitta();
+		List<String> tipologia=de.listaTipologia();
+		model.addAttribute("listacitta", citta);
+		model.addAttribute("listatipologia", tipologia);
+		Map<String,List<String>> sottog = new LinkedHashMap<>(); 
+		Map<String,List<String>> zone = new LinkedHashMap<>(); 
+		model.addAttribute("listazone", zone);
+		model.addAttribute("eventi", de.eventiCasuali());
+		for(String d : citta) {
+			zone.put(d, dl.tutteLeZone(d));	
+		}
+		for(String e: tipologia) {
+			sottog.put(e,de.listaGeneri(e));
+		}
+		model.addAttribute("listaSG",sottog);
+		
+		model.addAttribute("lista",de.readBygenere(c, g));
+		return "leggigenere.jsp";
+	}
+	
+
 	
 	@GetMapping("leggizone")
 	public String elencozone(@RequestParam("citta") String cit, 
