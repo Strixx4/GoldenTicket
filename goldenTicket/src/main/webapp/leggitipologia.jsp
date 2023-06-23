@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <%@ page import = "java.util.*" %>
 <%@ page import = "com.ant.goldenticket.entities.*" %>
 <%@ page import="com.ant.goldenticket.*" %>
@@ -7,7 +7,6 @@
 <% List<String> t = (List<String>)request.getAttribute("listatipologia");%>
 <% Map<String, List<String>> z = (Map<String, List<String>>)request.getAttribute("listazone");%>
 <% Map<String, List<String>> g = (Map<String, List<String>>)request.getAttribute("listaSG");%>
-
 
 <%List<Evento> eventi = (List<Evento>) request.getAttribute("eventi"); %>
     	
@@ -17,6 +16,7 @@
       <title>GoldenTicket</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>DropDown Menu</title>
       <link rel="icon" type="image/x-icon" href="/IMG/favicon.jpeg">
       <link rel="stylesheet" href="../CSS/index.css">
       <link rel="stylesheet" href="../CSS/navbar.css">
@@ -30,7 +30,7 @@
 		<div id="container">
       <div class="header">
         <img src="../IMG/golden-ticket.png" id="logo">
-        <h1>GoldenTicket</h1>
+        <h1>Golden Ticket</h1>
         <img src="../IMG/golden-ticket.png" id="logo">      
       </div>
         
@@ -44,9 +44,9 @@
             </li>
             <!--/ home -->
             <!-- about -->
-            <!-- CittÃ Â  -->
+            <!-- Città  -->
         <li aria-haspopup="true">
-          <a>Citta'<i class="fa fa-indicator fa-chevron-down"></i></a>
+          <a>Citt�<i class="fa fa-indicator fa-chevron-down"></i></a>
           <div class="grid-container3">
             <ul>
               <!-- FOR PER STAMPARE NOMI CITTA'-->
@@ -57,7 +57,7 @@
 
                     <% for(String zone : z.get(citta)){ %>
                     <li aria-haspopup="true">
-                      <a href="leggizone?citta=<%=citta%>&zona=<%=zone%>"><i class="fa fa-female"></i><%=zone%></a>
+                      <a href="leggitipologia?citta=<%=citta%>?zona=<%=zone%>"><i class="fa fa-female"></i><%=zone%></a>
                       <%} %>
                     </li>
                   </ul>
@@ -100,7 +100,7 @@
           <div class="navbar"> 
             <div class="search-container">
               <form action="ricerca" method="get">
-                <input type="text" placeholder="Nome,Artista,Citta'..." name="search">
+                <input type="text" placeholder="Nome,Artista,Citt�..." name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
               </form>
                
@@ -115,18 +115,20 @@
         <!--/ mega menu -->
       </div>
 
-      <div class="context">	
-          <!-- elenco degli eventi -->
-		<%for(Evento e: eventi){ %>
-			<div>
-				<h1> <%=e.getNome() %></h1> <br>
-				<img src="<%=e.getLocandina()%>"><br>
-				<p><%=e.getLocalita().getCitta()%><br><%= e.getLocalita().getZona()%><br><%=e.getGiornoSettimana()%> <%=e.getData()%> alle ore <%= e.getOra()%> </p> <br>
-				<a href = "dettagli?id=<%=e.getId()%>">DETTAGLI</a>
-			
-			</div>
-	
-		<%}%>
+      <div class="context">
+
+      
+        <%for(Evento e: eventi){ %>
+          <div>
+              <img src="<%=e.getLocandina()%>"> <br>
+              <h1> <%=e.getNome() %></h1> <br>
+              <p><%=e.getLocalita().getCitta()%><br>
+              <%= e.getLocalita().getZona()%><br>
+              <%=e.getGiornoSettimana()%> <%=e.getData()%> alle ore <%= e.getOra()%> </p><br>
+              <a href = "dettagli?id=<%=e.getId()%>">DETTAGLI</a>
+          </div>
+        <%}%>
+        
       </div>
 
       <div class="footer">
@@ -138,16 +140,15 @@
           <a href="https://www.w3schools.com/cs/default.asp" target="_blank">CSS</a>
           <a href="https://www.w3schools.com/js/default.asp" target="_blank">JavaScript</a>
           
-          
-            <h4>BACK-END</h4>
-            <a href="https://www.w3schools.com/java/default.asp" target="_blank">Java</a>
-            <a href="https://www.w3schools.com/MySQL/default.asp" target="_blank">MySQL</a>
-            <a href="https://spring.io/">Spring</a>
+          <h4>BACK-END</h4>
+          <a href="https://www.w3schools.com/java/default.asp" target="_blank">Java</a>
+          <a href="https://www.w3schools.com/MySQL/default.asp" target="_blank">MySQL</a>
+          <a href="https://spring.io/">Spring</a>
           
         </div>
         
         <div id="societa">
-          <h2>La Societa'</h2>
+          <h2>La Societ�</h2>
             <li>Andrea Sbabo</li>
             <li>Michele Pasino</li>
             <li>Beatrice Sala</li>
@@ -166,8 +167,5 @@
 
       </div>
     </div>
-		
-	
-</body>
+  </body>
 </html>
-	

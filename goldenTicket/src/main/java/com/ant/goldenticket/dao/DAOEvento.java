@@ -107,7 +107,10 @@ public class DAOEvento {
 	public List<Evento> readBygenere(String tipologia, String genere) {
 		return read("select * from eventi where tipologia = ? and genere = ?", tipologia, genere);
 	}
-
+	public List<Evento> readBytipologia(String tipologia)
+	{
+		return read("select* from eventi where tipologia=?",tipologia);
+	}
 	public List<Evento> eventiCasuali() {
 		return read("select * from eventi order by rand() limit 8");
 	}
@@ -128,7 +131,7 @@ public class DAOEvento {
 		}
 		return ris;
 	}
-
+	
 	public List<Evento> readByCitta(String par) {
 		List<Evento> l = readAll();
 		List<Evento> ris = new ArrayList<>();
