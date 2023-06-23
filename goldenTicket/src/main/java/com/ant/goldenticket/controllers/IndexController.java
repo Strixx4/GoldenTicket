@@ -120,6 +120,9 @@ public class IndexController {
 		return ris;
 	}
 
+	
+	
+	
 
 	@GetMapping("eventi")
 	public String elencoeventi(HttpSession session, Model model) {
@@ -142,6 +145,7 @@ public class IndexController {
 		model.addAttribute("eventi", de.readAll());
 		return "eventi.jsp";
 	}
+	
 
 
 	@GetMapping("dettagli")
@@ -194,4 +198,26 @@ public class IndexController {
 		return "ricerca.jsp";
 	}
 	
+	@GetMapping("leggizone")
+	public String elencozone(@RequestParam("citta") String cit, 
+			@RequestParam("zona") String zon, Model model)
+	{
+		List<String> citta = dl.tutteLeCitta();
+		List<String> tipologia=de.listaTipologia();
+		model.addAttribute("listacitta", citta);
+		model.addAttribute("listatipologia", tipologia);
+		Map<String,List<String>> sottog = new LinkedHashMap<>(); 
+		Map<String,List<String>> zone = new LinkedHashMap<>(); 
+		model.addAttribute("listazone", zone);
+		model.addAttribute("eventi", de.cercaPerZona(cit, zon));
+		for(String c : citta) {
+			zone.put(c, dl.tutteLeZone(c));	
+		}
+		for(String g: tipologia) {
+			sottog.put(g,de.listaGeneri(g));
+		}
+		model.addAttribute("listaSG",sottog);
+		
+		return "leggizone.jsp";
+	}
 }
