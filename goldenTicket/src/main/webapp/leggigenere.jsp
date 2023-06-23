@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ page import="java.util.*" %>
-<%@ page import="com.ant.goldenticket.entities.*" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import = "java.util.*" %>
+<%@ page import = "com.ant.goldenticket.entities.*" %>
 <%@ page import="com.ant.goldenticket.*" %>
 <% List<String> c = (List<String>)request.getAttribute("listacitta");%>
 <% List<String> t = (List<String>)request.getAttribute("listatipologia");%>
@@ -9,9 +9,8 @@
 <% Map<String, List<String>> g = (Map<String, List<String>>)request.getAttribute("listaSG");%>
 
 
-<% List<Evento> el=  (List<Evento>)request.getAttribute("lNome");%>
-<% List<Evento> al=  (List<Evento>)request.getAttribute("lArtista");%>
-<% List<Evento> ll=  (List<Evento>)request.getAttribute("lLocalita"); %>
+<%List<Evento> eventi = (List<Evento>) request.getAttribute("lista"); %>
+    	
 <!DOCTYPE html>
 <html>
   <head>
@@ -46,9 +45,9 @@
             </li>
             <!--/ home -->
             <!-- about -->
-            <!-- Città  -->
+            <!-- CittÃ Â  -->
         <li aria-haspopup="true">
-          <a>Citt�<i class="fa fa-indicator fa-chevron-down"></i></a>
+          <a>Città <i class="fa fa-indicator fa-chevron-down"></i></a>
           <div class="grid-container3">
             <ul>
               <!-- FOR PER STAMPARE NOMI CITTA'-->
@@ -102,7 +101,7 @@
           <div class="navbar"> 
             <div class="search-container">
               <form action="ricerca" method="get">
-                <input type="text" placeholder="Nome,Artista,Citt�..." name="search">
+                <input type="text" placeholder="Nome,Artista,Città..." name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
               </form>
                
@@ -117,56 +116,18 @@
         <!--/ mega menu -->
       </div>
 
-      <div class="ricerca">
-      <!-- INSERISCI QUI -->
-      <h3 class="hn">EVENTI PER NOME ( <%=el.size() %> )</h3>
-      <div id="listNome" class="context">
-      <% if(el.size() > 0){ %>
-          <%for(Evento e : el){ %>
-          <div >
-          	<h1> <%=e.getNome() %></h1> <br>
+      <div class="context">	
+          <!-- elenco degli eventi -->
+		<%for(Evento e: eventi){ %>
+			<div>
+				<h1> <%=e.getNome() %></h1> <br>
 				<img src="<%=e.getLocandina()%>"><br>
 				<p><%=e.getLocalita().getCitta()%><br><%= e.getLocalita().getZona()%><br><%=e.getGiornoSettimana()%> <%=e.getData()%> alle ore <%= e.getOra()%> </p> <br>
 				<a href = "dettagli?id=<%=e.getId()%>">DETTAGLI</a>
-          </div>
-          <%}%>
-      <%} %>
-      <% if(el.size()  == 0){ %>
-      	<p>Non ci sono risultati disponibili</p>
-       <%} %>
-        </div>
-      <h3 class="ha">EVENTI PER ARTISTA ( <%=al.size() %> )</h3>  
-      <div id="listArtista" class ="context">
-      <% if(al.size() > 0){ %>
-          <%for(Evento e : al){ %>
-          	<div><h1> <%=e.getNome() %></h1> <br>
-				<img src="<%=e.getLocandina()%>"><br>
-				<p><%=e.getLocalita().getCitta()%><br><%= e.getLocalita().getZona()%><br><%=e.getGiornoSettimana()%> <%=e.getData()%> alle ore <%= e.getOra()%> </p> <br>
-				<a href = "dettagli?id=<%=e.getId()%>">DETTAGLI</a>
-          </div>
-          <%}%>
-      <%} %>
-      <% if(al.size()  == 0){ %>
-      	<p>Non ci sono risultati disponibili</p>
-       <%} %>
-        </div>
-
-      <h3 class="hc">EVENTI PER CITTA ( <%=ll.size() %> )</h3>  
-      	<div id="listCitta" class="context">
-      	 <% if(ll.size() > 0){ %>
-          <%for(Evento e : ll){ %>
-          <div>
-          	<h1> <%=e.getNome() %></h1> <br>
-				<img src="<%=e.getLocandina()%>"><br>
-				<p><%=e.getLocalita().getCitta()%><br><%= e.getLocalita().getZona()%><br><%=e.getGiornoSettimana()%> <%=e.getData()%> alle ore <%= e.getOra()%> </p> <br>
-				<a href = "dettagli?id=<%=e.getId()%>">DETTAGLI</a>
+			
 			</div>
-          <%}%>
-        <%} %>
-      <% if(ll.size()  == 0){ %>
-      	<p>Non ci sono risultati disponibili</p>
-       <%} %>
-          </div>
+	
+		<%}%>
       </div>
 
       <div class="footer">
@@ -187,7 +148,7 @@
         </div>
         
         <div id="societa">
-          <h2>La Societ�</h2>
+          <h2>La Società </h2>
             <li>Andrea Sbabo</li>
             <li>Michele Pasino</li>
             <li>Beatrice Sala</li>
@@ -206,6 +167,8 @@
 
       </div>
     </div>
-  </body>
-  	<script>nascondi()</script>
+		
+	
+</body>
 </html>
+	
