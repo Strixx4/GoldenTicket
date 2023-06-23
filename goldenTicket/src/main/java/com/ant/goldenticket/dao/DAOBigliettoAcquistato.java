@@ -16,23 +16,25 @@ public class DAOBigliettoAcquistato {
 	private Database db;
 	@Autowired
 	private DAOEvento de;
+	@Autowired 
+	private DAOUtenti du;
 	@Autowired
 	private ApplicationContext context;
 	
-	public List<Biglietto> read(String query,Map<String,String> u, String ...params)
+	public List<Biglietto> read(String query, String ...params)
 	{
 		List<Biglietto> ris=new ArrayList<Biglietto>();
 		List<Map<String,String>>righe=db.rows(query, params);
 		for(Map<String,String> m:righe)
 		{
-			Biglietto b =context.getBean(Biglietto.class,m,u,de.cercaPerID(Integer.parseInt(m.get("id"))));
+			Biglietto b =context.getBean(Biglietto.class,du.readByID(Integer.parseInt(m.get("id"))),m,de.cercaPerID(Integer.parseInt(m.get("id"))));
 			ris.add(b);
 		}
 		return ris;
 	}
-	public List<Biglietto> readAll(Map<String,String> u)
+	public List<Biglietto> readAll(int u)
 	{
-		return read("select * from bigliettiacquistati",u);
+		return read("select * from bigliettiacquistati where idUser=?",u+"");
 	}
 	
 	public boolean create(Biglietto b)
@@ -47,23 +49,9 @@ public class DAOBigliettoAcquistato {
 		String query="delete from bigliettiacquistati where id=?";
 		return db.update(query,id+"");
 	}
-	
-	//cerco biglietto con id x
-	public Biglietto cercaPerId(int id)
-	{
-		String query="select * from bigliettiacquistati where id=?";
-		Map<String,String>m=db.row(query,id+"");
-		Biglietto b=context.getBean(Biglietto.class,m);
-		return b;
-	}
-	
 	//cerco biglietti in base ad utente
 	public Biglietto cercaIDperUtente (int id) {
-		String query = "select * from bigliettiacquistati"
-						+ " where idUser = ? ";
-		Map <String,String> m = db.row(query, id + "");
-		Biglietto b = context.getBean(Biglietto.class,m);
-		return b;
+		return read("select * from bigliettiacquistati where id=?",id+"").get(0);
 	}
 }
 
