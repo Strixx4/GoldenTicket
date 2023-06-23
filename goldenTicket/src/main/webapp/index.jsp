@@ -101,16 +101,26 @@
                 <input type="text" placeholder="Nome,Artista,Citta'..." name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
               </form>
-               
             </div>
+                 
+            <!--SE UTENTE NON E' LOGGATO-->
             <div class="login">
-              <a href="formlogin" id="login" type="submit">LOGIN</a>
-            </div>
+              <!--SE UTENTE NON è LOGGATO ESEGUE QUESTO "CODICE"-->
+              <a href="formlogin" id="login" type="submit">LOGIN</a>   
+                <div class="search-container">
+                  <form action="carrello" method="get">                  
+                    <button type="submit"><i class="fas fa-shopping-cart"></i></button>
+                  </form>
+                    <!--
+                      <button type="submit"><i class="fas fa-shopping-cart"></i></button>
+                      <a href="#" id="" type="submit">ACQUISTI</a>
+                      <a href="logout" id="logout" type="submit">ESCI</a>
+                    -->
+                </div>                     
+              </div>
           </div>
-          <!--/ contacts -->
         </ul>
       </div>
-        <!--/ mega menu -->
       </div>
 
       <div class="context">
