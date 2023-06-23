@@ -57,7 +57,7 @@
 
                     <% for(String zone : z.get(citta)){ %>
                     <li aria-haspopup="true">
-                      <a href="leggitipologia?citta=<%=citta%>?zona=<%=zone%>"><i class="fa fa-female"></i><%=zone%></a>
+                      <a href="leggizone?citta=<%=citta%>&zona=<%=zone%>"><i class="fa fa-female"></i><%=zone%></a>
                       <%} %>
                     </li>
                   </ul>

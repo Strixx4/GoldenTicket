@@ -53,10 +53,9 @@
             	<li><a href="leggicitta?citta=<%=citta%>"></i><%=citta%><i class="fa fa-group"></i><i class="fa fa-indicator fa-chevron-right"></i></a>
                 <div class="grid-container3">
                   <ul>
-
                     <% for(String zone : z.get(citta)){ %>
                     <li aria-haspopup="true">
-                      <a href="leggicitta?citta=<%=citta%>&&leggizona?zona=<%=zone%>"><%=zone%></a>
+                      <a href="leggizone?citta=<%=citta%>&zona=<%=zone%>"><i class="fa fa-female"></i><%=zone%></a>
                       <%} %>
                     </li>
                   </ul>
