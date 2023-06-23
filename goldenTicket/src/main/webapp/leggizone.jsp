@@ -80,7 +80,7 @@
 
                     <% for(String genere : g.get(tipologia)){ %>
                     <li aria-haspopup="true">
-                      <a href="leggigenere?tipologia=<%=tipologia%>?genere=<%=genere%>"><i class="fa fa-female"></i><%=genere%></a>
+                      <a href="leggigenere?tipologia=<%=tipologia%>&genere=<%=genere%>"><i class="fa fa-female"></i><%=genere%></a>
                       <%} %>
                     </li>
                   </ul>

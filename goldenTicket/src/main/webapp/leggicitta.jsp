@@ -56,7 +56,7 @@
 
                     <% for(String zone : z.get(citta)){ %>
                     <li aria-haspopup="true">
-                      <a href="leggizone?citta=<%=citta%>&leggizona?zona=<%=zone%>"><%=zone%></a>
+                      <a href="leggizone?citta=<%=citta%>&zona=<%=zone%>"><%=zone%></a>
                       <%} %>
                     </li>
                   </ul>
@@ -80,7 +80,7 @@
 
                     <% for(String genere : g.get(tipologia)){ %>
                     <li aria-haspopup="true">
-                      <a href="leggitipologia?tipologia=<%=tipologia%>&&leggigenere?genere=<%=genere%>"><%=genere%></a>
+                      <a href="leggigenere?tipologia=<%=tipologia%>&genere=<%=genere%>"><%=genere%></a>
                       <%} %>
                     </li>
                   </ul>
