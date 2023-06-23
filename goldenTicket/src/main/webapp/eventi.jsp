@@ -17,7 +17,6 @@
       <title>GoldenTicket</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>DropDown Menu</title>
       <link rel="icon" type="image/x-icon" href="/IMG/favicon.jpeg">
       <link rel="stylesheet" href="../CSS/index.css">
       <link rel="stylesheet" href="../CSS/navbar.css">
@@ -31,7 +30,7 @@
 		<div id="container">
       <div class="header">
         <img src="../IMG/golden-ticket.png" id="logo">
-        <h1>Golden Ticket</h1>
+        <h1>GoldenTicket</h1>
         <img src="../IMG/golden-ticket.png" id="logo">      
       </div>
         
@@ -47,7 +46,7 @@
             <!-- about -->
             <!-- CittÃ Â  -->
         <li aria-haspopup="true">
-          <a>Città <i class="fa fa-indicator fa-chevron-down"></i></a>
+          <a>Citta'<i class="fa fa-indicator fa-chevron-down"></i></a>
           <div class="grid-container3">
             <ul>
               <!-- FOR PER STAMPARE NOMI CITTA'-->
@@ -101,7 +100,7 @@
           <div class="navbar"> 
             <div class="search-container">
               <form action="ricerca" method="get">
-                <input type="text" placeholder="Nome,Artista,Città..." name="search">
+                <input type="text" placeholder="Nome,Artista,Citta'..." name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
               </form>
                
@@ -148,7 +147,7 @@
         </div>
         
         <div id="societa">
-          <h2>La Società </h2>
+          <h2>La Societa'</h2>
             <li>Andrea Sbabo</li>
             <li>Michele Pasino</li>
             <li>Beatrice Sala</li>
