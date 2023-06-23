@@ -51,18 +51,6 @@ public class IndexController {
 		return "index.jsp";
 	}
 
-//se autenticato carrello, se no logga
-
-//Utenti Controller
-	@GetMapping("carrello")
-	public String carrello(HttpSession session) {
-		if (session.getAttribute("login") == null) // guardo se è autentificato
-			return "redirect:formlogin";
-		return "redirect:carrello.jsp";
-
-	}
-
-
 	@GetMapping("eventi")
 	public String elencoeventi(HttpSession session, Model model) {
 		List<String> citta = dl.tutteLeCitta();
