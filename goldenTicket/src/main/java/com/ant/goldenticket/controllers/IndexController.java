@@ -120,10 +120,6 @@ public class IndexController {
 		return ris;
 	}
 
-	
-	
-	
-
 	@GetMapping("eventi")
 	public String elencoeventi(HttpSession session, Model model) {
 		List<String> citta = dl.tutteLeCitta();
@@ -170,6 +166,7 @@ public class IndexController {
 				sottog.put(g,de.listaGeneri(g));
 			}
 			model.addAttribute("listaSG",sottog);
+			
 			model.addAttribute("evento", e);
 			return "dettagli.jsp";
 		}
@@ -203,7 +200,7 @@ public class IndexController {
 	public String elencozone(@RequestParam("citta") String cit, 
 			@RequestParam("zona") String zon, Model model)
 	{
-  List<String> citta = dl.tutteLeCitta();
+		List<String> citta = dl.tutteLeCitta();
 		List<String> tipologia=de.listaTipologia();
 		model.addAttribute("listacitta", citta);
 		model.addAttribute("listatipologia", tipologia);

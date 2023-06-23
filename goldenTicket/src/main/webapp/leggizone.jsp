@@ -115,8 +115,6 @@
       </div>
 
       <div class="context">
-
-      
         <%for(Evento e: eventi){ %>
           <div>
               <img src="<%=e.getLocandina()%>"> <br>
