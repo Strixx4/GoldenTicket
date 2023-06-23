@@ -1,17 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="java.util.*" %>
-<%@ page import="com.ant.goldenticket.entities.*" %>
+<%@ page import = "java.util.*" %>
+<%@ page import = "com.ant.goldenticket.entities.*" %>
 <%@ page import="com.ant.goldenticket.*" %>
 <% List<String> c = (List<String>)request.getAttribute("listacitta");%>
 <% List<String> t = (List<String>)request.getAttribute("listatipologia");%>
 <% Map<String, List<String>> z = (Map<String, List<String>>)request.getAttribute("listazone");%>
 <% Map<String, List<String>> g = (Map<String, List<String>>)request.getAttribute("listaSG");%>
 
-
-<% List<Evento> el=  (List<Evento>)request.getAttribute("lNome");%>
-<% List<Evento> al=  (List<Evento>)request.getAttribute("lArtista");%>
-<% List<Evento> ll=  (List<Evento>)request.getAttribute("lLocalita"); %>
+<%List<Evento> riscitta = (List<Evento>) request.getAttribute("risultatocitta"); %>
+    	
 <!DOCTYPE html>
 <html>
   <head>
@@ -58,7 +56,7 @@
 
                     <% for(String zone : z.get(citta)){ %>
                     <li aria-haspopup="true">
-                      <a href="leggitipologia?citta=<%=citta%>?zona=<%=zone%>"><i class="fa fa-female"></i><%=zone%></a>
+                      <a href="leggicitta?citta=<%=citta%>&&leggizona?zona=<%=zone%>"><%=zone%></a>
                       <%} %>
                     </li>
                   </ul>
@@ -82,7 +80,7 @@
 
                     <% for(String genere : g.get(tipologia)){ %>
                     <li aria-haspopup="true">
-                      <a href="leggigenere?tipologia=<%=tipologia%>?genere=<%=genere%>"><i class="fa fa-female"></i><%=genere%></a>
+                      <a href="leggitipologia?tipologia=<%=tipologia%>&&leggigenere?genere=<%=genere%>"><%=genere%></a>
                       <%} %>
                     </li>
                   </ul>
@@ -116,56 +114,25 @@
         <!--/ mega menu -->
       </div>
 
-      <div class="ricerca">
-      <!-- INSERISCI QUI -->
-      <h3 class="hn">EVENTI PER NOME ( <%=el.size() %> )</h3>
-      <div id="listNome" class="context">
-      <% if(el.size() > 0){ %>
-          <%for(Evento e : el){ %>
-          <div >
-          	<h1> <%=e.getNome() %></h1> <br>
-				<img src="<%=e.getLocandina()%>"><br>
-				<p><%=e.getLocalita().getCitta()%><br><%= e.getLocalita().getZona()%><br><%=e.getGiornoSettimana()%> <%=e.getData()%> alle ore <%= e.getOra()%> </p> <br>
-				<a href = "dettagli?id=<%=e.getId()%>">DETTAGLI</a>
-          </div>
-          <%}%>
-      <%} %>
-      <% if(el.size()  == 0){ %>
-      	<p>Non ci sono risultati disponibili</p>
-       <%} %>
-        </div>
-      <h3 class="ha">EVENTI PER ARTISTA ( <%=al.size() %> )</h3>  
-      <div id="listArtista" class ="context">
-      <% if(al.size() > 0){ %>
-          <%for(Evento e : al){ %>
-          	<div><h1> <%=e.getNome() %></h1> <br>
-				<img src="<%=e.getLocandina()%>"><br>
-				<p><%=e.getLocalita().getCitta()%><br><%= e.getLocalita().getZona()%><br><%=e.getGiornoSettimana()%> <%=e.getData()%> alle ore <%= e.getOra()%> </p> <br>
-				<a href = "dettagli?id=<%=e.getId()%>">DETTAGLI</a>
-          </div>
-          <%}%>
-      <%} %>
-      <% if(al.size()  == 0){ %>
-      	<p>Non ci sono risultati disponibili</p>
-       <%} %>
-        </div>
+      <div class="context">
 
-      <h3 class="hc">EVENTI PER CITTA ( <%=ll.size() %> )</h3>  
-      	<div id="listCitta" class="context">
-      	 <% if(ll.size() > 0){ %>
-          <%for(Evento e : ll){ %>
+      	<%if(riscitta.size() > 0){ %>
+      	<%for(Evento e: riscitta){ %>
           <div>
-          	<h1> <%=e.getNome() %></h1> <br>
-				<img src="<%=e.getLocandina()%>"><br>
-				<p><%=e.getLocalita().getCitta()%><br><%= e.getLocalita().getZona()%><br><%=e.getGiornoSettimana()%> <%=e.getData()%> alle ore <%= e.getOra()%> </p> <br>
-				<a href = "dettagli?id=<%=e.getId()%>">DETTAGLI</a>
-			</div>
-          <%}%>
-        <%} %>
-      <% if(ll.size()  == 0){ %>
+              <img src="<%=e.getLocandina()%>"> <br>
+              <h1> <%=e.getNome() %></h1> <br>
+              <p><%=e.getLocalita().getCitta()%><br>
+              <%= e.getLocalita().getZona()%><br>
+              <%=e.getGiornoSettimana()%> <%=e.getData()%> alle ore <%= e.getOra()%> </p><br>
+              <a href = "dettagli?id=<%=e.getId()%>">DETTAGLI</a>
+          </div>
+        <%}%>
+     
+      	<%}%>
+      	
+      	<% if(riscitta.size()  == 0){ %>
       	<p>Non ci sono risultati disponibili</p>
        <%} %>
-          </div>
       </div>
 
       <div class="footer">
@@ -177,11 +144,10 @@
           <a href="https://www.w3schools.com/cs/default.asp" target="_blank">CSS</a>
           <a href="https://www.w3schools.com/js/default.asp" target="_blank">JavaScript</a>
           
-          
-            <h4>BACK-END</h4>
-            <a href="https://www.w3schools.com/java/default.asp" target="_blank">Java</a>
-            <a href="https://www.w3schools.com/MySQL/default.asp" target="_blank">MySQL</a>
-            <a href="https://spring.io/">Spring</a>
+          <h4>BACK-END</h4>
+          <a href="https://www.w3schools.com/java/default.asp" target="_blank">Java</a>
+          <a href="https://www.w3schools.com/MySQL/default.asp" target="_blank">MySQL</a>
+          <a href="https://spring.io/">Spring</a>
           
         </div>
         
@@ -206,5 +172,4 @@
       </div>
     </div>
   </body>
-  	<script>nascondi()</script>
 </html>
