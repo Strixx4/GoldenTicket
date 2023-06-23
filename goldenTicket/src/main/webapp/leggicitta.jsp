@@ -8,7 +8,7 @@
 <% Map<String, List<String>> z = (Map<String, List<String>>)request.getAttribute("listazone");%>
 <% Map<String, List<String>> g = (Map<String, List<String>>)request.getAttribute("listaSG");%>
 
-<%List<Evento> eventi = (List<Evento>) request.getAttribute("eventi"); %>
+<%List<Evento> riscitta = (List<Evento>) request.getAttribute("risultatocitta"); %>
     	
 <!DOCTYPE html>
 <html>
@@ -53,9 +53,10 @@
             	<li><a href="leggicitta?citta=<%=citta%>"></i><%=citta%><i class="fa fa-group"></i><i class="fa fa-indicator fa-chevron-right"></i></a>
                 <div class="grid-container3">
                   <ul>
+
                     <% for(String zone : z.get(citta)){ %>
                     <li aria-haspopup="true">
-                      <a href="leggizone?citta=<%=citta%>&zona=<%=zone%>"><i class="fa fa-female"></i><%=zone%></a>
+                      <a href="leggizone?citta=<%=citta%>&leggizona?zona=<%=zone%>"><%=zone%></a>
                       <%} %>
                     </li>
                   </ul>
@@ -79,7 +80,7 @@
 
                     <% for(String genere : g.get(tipologia)){ %>
                     <li aria-haspopup="true">
-                      <a href="leggigenere?tipologia=<%=tipologia%>&genere=<%=genere%>"><i class="fa fa-female"></i><%=genere%></a>
+                      <a href="leggitipologia?tipologia=<%=tipologia%>&&leggigenere?genere=<%=genere%>"><%=genere%></a>
                       <%} %>
                     </li>
                   </ul>
@@ -115,8 +116,8 @@
 
       <div class="context">
 
-      
-        <%for(Evento e: eventi){ %>
+      	<%if(riscitta.size() > 0){ %>
+      	<%for(Evento e: riscitta){ %>
           <div>
               <img src="<%=e.getLocandina()%>"> <br>
               <h1> <%=e.getNome() %></h1> <br>
@@ -126,7 +127,12 @@
               <a href = "dettagli?id=<%=e.getId()%>">DETTAGLI</a>
           </div>
         <%}%>
-        
+     
+      	<%}%>
+      	
+      	<% if(riscitta.size()  == 0){ %>
+      	<p>Non ci sono risultati disponibili</p>
+       <%} %>
       </div>
 
       <div class="footer">

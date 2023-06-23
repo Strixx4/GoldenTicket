@@ -79,10 +79,11 @@ public class DAOEvento {
 		return read("select * from eventi where id = ?", id + "").get(0);
 	}
 
-	public Evento cercaPerZona(String citta, String zona) {
+	public List<Evento> cercaPerZona(String citta, String zona) {
 		return read(
-				"select * from eventi inner join localita on eventi.idLocalita=localita.id  where localita.citta like ? and localita.zona like ? order by eventi.data;",
-				citta, zona).get(0);
+				"select * from eventi inner join localita on eventi.idLocalita="
+				+ "localita.id  where localita.citta like \"%"+citta+"%\" and localita.zona "
+				+ "like \"%"+zona+"%\" order by eventi.data;");
 	}
 
 	public List<String> listaTipologia() {
@@ -106,7 +107,10 @@ public class DAOEvento {
 	public List<Evento> readBygenere(String tipologia, String genere) {
 		return read("select * from eventi where tipologia = ? and genere = ?", tipologia, genere);
 	}
-
+	public List<Evento> readBytipologia(String tipologia)
+	{
+		return read("select* from eventi where tipologia=?",tipologia);
+	}
 	public List<Evento> eventiCasuali() {
 		return read("select * from eventi order by rand() limit 8");
 	}
@@ -127,7 +131,7 @@ public class DAOEvento {
 		}
 		return ris;
 	}
-
+	
 	public List<Evento> readByCitta(String par) {
 		List<Evento> l = readAll();
 		List<Evento> ris = new ArrayList<>();

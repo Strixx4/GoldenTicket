@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page import = "java.util.*" %>
 <%@ page import = "com.ant.goldenticket.entities.*" %>
 <%@ page import="com.ant.goldenticket.*" %>
@@ -16,6 +15,7 @@
       <title>GoldenTicket</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>DropDown Menu</title>
       <link rel="icon" type="image/x-icon" href="/IMG/favicon.jpeg">
       <link rel="stylesheet" href="../CSS/index.css">
       <link rel="stylesheet" href="../CSS/navbar.css">
@@ -29,7 +29,7 @@
 		<div id="container">
       <div class="header">
         <img src="../IMG/golden-ticket.png" id="logo">
-        <h1>GoldenTicket</h1>
+        <h1>Golden Ticket</h1>
         <img src="../IMG/golden-ticket.png" id="logo">      
       </div>
         
@@ -45,7 +45,7 @@
             <!-- about -->
             <!-- CittÃ Â  -->
         <li aria-haspopup="true">
-          <a>Citta'<i class="fa fa-indicator fa-chevron-down"></i></a>
+          <a>Città <i class="fa fa-indicator fa-chevron-down"></i></a>
           <div class="grid-container3">
             <ul>
               <!-- FOR PER STAMPARE NOMI CITTA'-->
@@ -53,6 +53,7 @@
             	<li><a href="leggicitta?citta=<%=citta%>"></i><%=citta%><i class="fa fa-group"></i><i class="fa fa-indicator fa-chevron-right"></i></a>
                 <div class="grid-container3">
                   <ul>
+<!-- ------------------------------------------------------------------------------------------------ -->
                     <% for(String zone : z.get(citta)){ %>
                     <li aria-haspopup="true">
                       <a href="leggizone?citta=<%=citta%>&zona=<%=zone%>"><i class="fa fa-female"></i><%=zone%></a>
@@ -79,7 +80,7 @@
 
                     <% for(String genere : g.get(tipologia)){ %>
                     <li aria-haspopup="true">
-                      <a href="leggigenere?tipologia=<%=tipologia%>&genere=<%=genere%>"><i class="fa fa-female"></i><%=genere%></a>
+                      <a href="leggigenere?tipologia=<%=tipologia%>?genere=<%=genere%>"><i class="fa fa-female"></i><%=genere%></a>
                       <%} %>
                     </li>
                   </ul>
@@ -98,7 +99,7 @@
           <div class="navbar"> 
             <div class="search-container">
               <form action="ricerca" method="get">
-                <input type="text" placeholder="Nome,Artista,Citta'..." name="search">
+                <input type="text" placeholder="Nome,Artista,Città..." name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
               </form>
                
@@ -114,8 +115,6 @@
       </div>
 
       <div class="context">
-
-      
         <%for(Evento e: eventi){ %>
           <div>
               <img src="<%=e.getLocandina()%>"> <br>
@@ -146,7 +145,7 @@
         </div>
         
         <div id="societa">
-          <h2>La Societa'</h2>
+          <h2>La Società</h2>
             <li>Andrea Sbabo</li>
             <li>Michele Pasino</li>
             <li>Beatrice Sala</li>
