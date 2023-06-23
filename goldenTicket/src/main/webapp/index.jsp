@@ -103,21 +103,29 @@
               </form>
             </div>
                  
-            <!--SE UTENTE NON E' LOGGATO-->
+            <!--NO LOGIN-->
+            <!--
             <div class="login">
-              <!--SE UTENTE NON è LOGGATO ESEGUE QUESTO "CODICE"-->
-              <a href="formlogin" id="login" type="submit">LOGIN</a>   
-                <div class="search-container">
-                  <form action="carrello" method="get">                  
-                    <button type="submit"><i class="fas fa-shopping-cart"></i></button>
-                  </form>
-                    <!--
-                      <button type="submit"><i class="fas fa-shopping-cart"></i></button>
-                      <a href="#" id="" type="submit">ACQUISTI</a>
-                      <a href="logout" id="logout" type="submit">ESCI</a>
-                    -->
-                </div>                     
-              </div>
+              <div class="search-container">
+                <form action="carrello" method="get">                  
+                  <button type="submit"><i class="fas fa-shopping-cart"></i></button>
+                </form>  
+              <a href="formlogin" id="login" type="submit">LOGIN</a>                          
+            </div>
+          </div>
+           --> 
+            <!--SI LOGIN --> 
+            
+            <div class="login">
+              <div class="search-container">
+                <form action="carrello" method="get">                  
+                  <button type="submit"><i class="fas fa-shopping-cart"></i></button>
+                </form>
+                <a href="#" id="" type="submit">ACQUISTI</a>
+                <a href="logout" id="logout" type="submit">ESCI</a>
+              </div>                 
+            </div>
+          
           </div>
         </ul>
       </div>

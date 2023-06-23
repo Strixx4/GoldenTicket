@@ -4,7 +4,7 @@
 <html>
 <meta charset="ISO-8859-1">
 <head>
-<title>GoldenTicket</title>
+    <title>GoldenTicket</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/x-icon" href="/IMG/favicon.jpeg">

@@ -603,8 +603,7 @@ a:hover {
 #login{
     background: rgba(255, 217, 0, 0.89);
     display: inline-block;
-    margin: 8px;
-    float: right;
+    margin: 5px;
 }
 
 .navbar .search-container button {
@@ -613,15 +612,16 @@ a:hover {
     border: none;
     cursor: pointer;
     padding: 14px;
-    
+    float: left;
   }
 
   .navbar .search-container
   {
     padding: 5px;
-    display:inline-block;
+    display:flex;
   }
-  
+
+
   .navbar .search-container button:hover {
     background: rgba(255, 217, 0, 0.89);
   }
