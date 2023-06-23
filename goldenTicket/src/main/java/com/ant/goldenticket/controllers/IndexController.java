@@ -193,5 +193,26 @@ public class IndexController {
 		model.addAttribute("lLocalita",de.readByCitta(par));
 		return "ricerca.jsp";
 	}
-	
+
+	@GetMapping("leggicitta")
+	public String leggicitta(@RequestParam("citta") String par, Model model) {
+		List<String> citta = dl.tutteLeCitta();
+		List<String> tipologia=de.listaTipologia();
+		model.addAttribute("listacitta", citta);
+		model.addAttribute("listatipologia", tipologia);
+		Map<String,List<String>> sottog = new LinkedHashMap<>(); 
+		Map<String,List<String>> zone = new LinkedHashMap<>(); 
+		model.addAttribute("listazone", zone);
+		
+		for(String c : citta) {
+			zone.put(c, dl.tutteLeZone(c));	
+		}
+		for(String g: tipologia) {
+			sottog.put(g,de.listaGeneri(g));
+		}
+		model.addAttribute("listaSG",sottog);
+		
+		model.addAttribute("risultatocitta", de.readByCitta(par));
+		return "leggicitta.jsp";
+	}
 }
