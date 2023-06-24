@@ -23,7 +23,7 @@ form
   flex-wrap: wrap;
   overflow: hidden;
   border: solid rgb(255, 217, 0) 20px;
-background-color: white;
+  background-color: white;
 }
 section .signin .content .form .inputBox
 {

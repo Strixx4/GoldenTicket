@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 
 import com.ant.goldenticket.dao.DAOArtista;
+import com.ant.goldenticket.dao.DAOBigliettoAcquistato;
+import com.ant.goldenticket.dao.DAOCarrello;
 import com.ant.goldenticket.dao.DAOEvento;
 import com.ant.goldenticket.dao.DAOLocalita;
 import com.ant.goldenticket.dao.DAOUtenti;
@@ -43,6 +45,16 @@ public class Context {
 	@Bean
 	public DAOEvento daoevento() {
 		return new DAOEvento();
+
+	}
+	@Bean
+	public DAOBigliettoAcquistato daoba() {
+		return new DAOBigliettoAcquistato();
+
+	}
+	@Bean
+	public DAOCarrello daocarrello() {
+		return new DAOCarrello();
 
 	}
 	
