@@ -17,7 +17,7 @@ public class DAOCarrello {
 	DAOEvento de;
 	@Autowired
 	DAOUtenti du;
-
+	@Autowired
 	private ApplicationContext context;
 
 	// nel carrello leggo una lista di biglietti
