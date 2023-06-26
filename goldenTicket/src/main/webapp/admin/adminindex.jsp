@@ -39,25 +39,26 @@
 					<li><a href="admin/"><i class="fa fa-single fa-home"></i></a></li>
 					<!--/ home -->
 					<!-- about -->
-					<!-- Città  -->
+					<!-- CittÃ Â  -->
 					<li aria-haspopup="true"><a>NUOVO<i
 							class="fa fa-indicator fa-chevron-down"></i></a>
 						<div class="grid-container3">
 							<ul>
 								<!-- FOR PER STAMPARE NOMI CITTA'-->
-								<li><a href="nouvoevento">Evento<i
+
+								<li><a href="formnouvoevento">Evento<i
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
-								<li><a href="nouvoartista">Artista<i
+								<li><a href="formnouvoartista">Artista<i
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
-								<li><a href="nouvolocalita">Localita<i
+								<li><a href="formnouvolocalita">Localita<i
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
-								<li><a href="nouvouser">User</i><i
+								<li><a href="formnouvouser">User</i><i
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
@@ -65,17 +66,18 @@
 						</div></li>
 					<!--/ about -->
 					<!-- eventi -->
-					<li><a href="eventi">Eventi</a></li>
+					<li><a href="listaeventi">Eventi</a></li>
 					<!-- localita-->
-					<li><a href="localita">Localit�</a></li>
+					<li><a href="listalocalita">Località</a></li>
 					<!-- eventi -->
-					<li><a href="artisti">Artisti</a></li>
+					<li><a href="listaartisti">Artisti</a></li>
 					<!-- users -->
-					<li><a href="users">Users</a></li>
+					<li><a href="listauser">Users</a></li>
 					
 					<div class="navbar">
 						<div class="search-container">
-							<form action="ricerca" method="get">
+							<form action="ricercaadmin" method="get">
+
 								<input type="text" placeholder="Nome,Artista,Citta'..."
 									name="search">
 								<button type="submit">
@@ -95,7 +97,10 @@
             </div>
           </div>
            -->
+
+					
 						<!--SI LOGIN -->
+
 
 						<div class="login">
 							<div class="search-container">
