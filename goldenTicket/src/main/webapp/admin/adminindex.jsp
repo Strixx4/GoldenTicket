@@ -45,19 +45,21 @@
 						<div class="grid-container3">
 							<ul>
 								<!-- FOR PER STAMPARE NOMI CITTA'-->
-								<li><a href="nouvoevento">Evento<i
+							
+								<li><a href="formnuovoevento">Evento<i
+										class="fa fa-group"></i>
+										class="fa fa-indicator fa-chevron-right"></i></a>
+								</li>
+								<li><a href="formnuovoartista">Artista<i
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
-								<li><a href="nouvoartista">Artista<i
+								<li><a href="formnuovolocalita">Localita<i
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
-								<li><a href="nouvolocalita">Localita<i
-										class="fa fa-group"></i><i
-										class="fa fa-indicator fa-chevron-right"></i></a>
-								</li>
-								<li><a href="nouvouser">User</i><i
+								<li><a href="formnuovouser">User</i><i>
+
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
@@ -65,38 +67,25 @@
 						</div></li>
 					<!--/ about -->
 					<!-- eventi -->
-					<li><a href="eventi">Eventi</a></li>
+					<li><a href="listaeventi">Eventi</a></li>
 					<!-- localita-->
-					<li><a href="localita">Localit‡</a></li>
+					<li><a href="listalocalita">Localit√†</a></li>
 					<!-- eventi -->
-					<li><a href="artisti">Artisti</a></li>
+					<li><a href="listaartisti">Artisti</a></li>
 					<!-- users -->
-					<li><a href="users">Users</a></li>
+					<li><a href="listauser">Users</a></li>
 					
 					<div class="navbar">
 						<div class="search-container">
-							<form action="ricerca" method="get">
+							<form action="ricercaadmin" method="get">
 								<input type="text" placeholder="Nome,Artista,Citta'..."
 									name="search">
 								<button type="submit">
 									<i class="fa fa-search"></i>
 								</button>
 							</form>
-						</div>
-
-						<!--NO LOGIN-->
-						<!--
-            <div class="login">
-              <div class="search-container">
-                <form action="carrello" method="get">                  
-                  <button type="submit"><i class="fas fa-shopping-cart"></i></button>
-                </form>  
-              <a href="formlogin" id="login" type="submit">LOGIN</a>                          
-            </div>
-          </div>
-           -->
+						</div>				
 						<!--SI LOGIN -->
-
 						<div class="login">
 							<div class="search-container">
 								<a href="logout" id="logout" type="submit">ESCI</a>
@@ -107,10 +96,7 @@
 				</ul>
 			</div>
 		</div>
-
 		<div class="context">
-
-
 		</div>
 
 		<div class="footer">
