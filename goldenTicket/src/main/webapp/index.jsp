@@ -20,6 +20,9 @@ Map<String, List<String>> g = (Map<String, List<String>>) request.getAttribute("
 List<Evento> eventi = (List<Evento>) request.getAttribute("eventi");
 %>
 
+<% String controllaLogin = (String) request.getAttribute("controllologin");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -129,21 +132,12 @@ List<Evento> eventi = (List<Evento>) request.getAttribute("eventi");
 							</form>
 						</div>
 
-						<!--NO LOGIN-->
-						<!--
-            <div class="login">
-              <div class="search-container">
-                <form action="carrello" method="get">                  
-                  <button type="submit"><i class="fas fa-shopping-cart"></i></button>
-                </form>  
-              <a href="formlogin" id="login" type="submit">LOGIN</a>                          
-            </div>
-          </div>
-           -->
-						<!--SI LOGIN -->
+
+    
 
 						<div class="login">
 							<div class="search-container">
+                <%if(controllaLogin != null){%>
 								<form action="carrello" method="get">
 									<button type="submit">
 										<i class="fas fa-shopping-cart"></i>
@@ -153,7 +147,12 @@ List<Evento> eventi = (List<Evento>) request.getAttribute("eventi");
 									id="logout" type="submit">ESCI</a>
 							</div>
 						</div>
-
+			<% }else {%>
+        <form action="carrello" method="get">                  
+          <button type="submit"><i class="fas fa-shopping-cart"></i></button>
+        </form>  
+        <a href="formlogin" id="login" type="submit">LOGIN</a>      
+			<%} %>
 					</div>
 				</ul>
 			</div>

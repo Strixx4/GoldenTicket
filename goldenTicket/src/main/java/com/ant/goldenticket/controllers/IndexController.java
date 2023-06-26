@@ -45,8 +45,8 @@ public class IndexController {
 			sottog.put(g, de.listaGeneri(g));
 		}
 		model.addAttribute("listaSG", sottog);
-
 		model.addAttribute("eventi", de.eventiCasuali());
+		model.addAttribute("controllologin", session.getAttribute("login"));
 
 		return "index.jsp";
 	}
