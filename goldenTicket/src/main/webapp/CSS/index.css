@@ -3,7 +3,6 @@ body
   font-family: 'Geologica', sans-serif;
 }
 
-
 .header
 {
   width: auto;
@@ -38,6 +37,7 @@ body
   grid-auto-rows: auto;
   min-width: 500px;
 }
+
 .ricerca{
   padding: 15px;
   min-height:300px;
@@ -82,36 +82,27 @@ div .context div
   border-radius: 7%;
   padding: 2%;
 }
+
 .contextbiglietto
 {
-  padding: 15px;
-  text-align: center;
-  height: auto;
-  background: #e9e9e9;
-  width: auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-  grid-auto-rows: auto;
-  min-width: 500px;
-}
-div .contextbiglietto div img
-{
-  height: auto;
-  width: 80%;
-  margin-top: 15px;
+  background-color:#e9e9e9;
+  padding: 40px;
 }
 
-div .contextbiglietto div h1
+
+.contextbiglietto img
 {
-  font-size: 20px;
-  margin-top: 5%;
+  height: 120px;
+  width: 120px;
+  float: left;
+  margin-right: 20px;
 }
 
-div .contextbiglietto div
-{
-  border: solid black 2px;
-  background-color: #F5D12D;
-  border-radius: 7%;
-  padding: 2%;
+.contextbiglietto .result{
+  padding: 30px;
+}
+
+.infospettacolo{
+  padding: 10px;
+  line-height: 0.4;
 }

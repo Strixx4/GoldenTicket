@@ -139,52 +139,38 @@
           </ul>
         </div>
       </div>
-
-      <div class="contextbiglietto">
       
-      	<%
-			for (Biglietto b : biglietti) {
-			%>
-			<div>
-				<img src="<%=b.getEvento().getLocandina()%>"> <br>
-				<table>
-					<tr>
-						<td>Evento: <%=b.getEvento().getNome()%></td>
-					</tr>
-					<tr>
-						<td>Data: <%=b.getEvento().getData() %></td>
-						<td>Orario: <%=b.getEvento().getOra() %></td>
-					</tr>
-					<tr>
-						<td>Fila: <%=b.getFila() %></td>
-						<td>Posto: <%=b.getPosto() %></td>
-					</tr>
-					<tr>
-						<td>Nome: <%=b.getUtente().get("username")%></td>
-						<td>Prezzo: <%=b.getPrezzo() %></td>
-					</tr>
-				</table>
-				
-			</div>
+      <div class="contextbiglietto">
+      <hr>
+      <%for(Biglietto b : biglietti) {%>
+        <div class="result">
+          <img src="<%=b.getEvento().getLocandina()%>" id="locandina">
+            <div class="infospettacolo">
+              <p>Evento: <%=b.getEvento().getNome()%></p>
+              <span>Data: <%=b.getEvento().getData() %></span>
+              <p>Orario: <%=b.getEvento().getOra() %></p>
+              <span>Fila: <%=b.getFila() %></span>
+              <span>Posto: <%=b.getPosto() %></span>
+			      </div>
+        </div>
+        
 			<%} %>
-      <br> <a href="checkout">Checkout</a>
+      <hr>
+      <a href="checkout" style="left: 50%;">Checkout</a>
     </div>
-
+    
       <div class="footer">
         <div id="linguaggi">
-          <h2>Tecnologie Utilizzate</h2>
-            
+          <h2>Tecnologie Utilizzate</h2> 
           <h4>FRONT-END</h4>
           <a href="https://www.w3schools.com/html/default.asp" target="_blank">HTML</a>
           <a href="https://www.w3schools.com/cs/default.asp" target="_blank">CSS</a>
           <a href="https://www.w3schools.com/js/default.asp" target="_blank">JavaScript</a>
-          
-          
-            <h4>BACK-END</h4>
-            <a href="https://www.w3schools.com/java/default.asp" target="_blank">Java</a>
-            <a href="https://www.w3schools.com/MySQL/default.asp" target="_blank">MySQL</a>
-            <a href="https://spring.io/">Spring</a>
-          
+
+          <h4>BACK-END</h4>
+          <a href="https://www.w3schools.com/java/default.asp" target="_blank">Java</a>
+          <a href="https://www.w3schools.com/MySQL/default.asp" target="_blank">MySQL</a>
+          <a href="https://spring.io/">Spring</a>
         </div>
         
         <div id="societa">
