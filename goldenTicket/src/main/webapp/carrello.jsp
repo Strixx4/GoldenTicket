@@ -139,26 +139,38 @@
           </ul>
         </div>
       </div>
-
-      <div class="b-context">
       
+      <div class="contextbiglietto">
+      <hr>
+      <%for(Biglietto b : biglietti) {%>
+        <div class="result">
+          <img src="<%=b.getEvento().getLocandina()%>" id="locandina">
+            <div class="infospettacolo">
+              <p>Evento: <%=b.getEvento().getNome()%></p>
+              <span>Data: <%=b.getEvento().getData() %></span>
+              <p>Orario: <%=b.getEvento().getOra() %></p>
+              <span>Fila: <%=b.getFila() %></span>
+              <span>Posto: <%=b.getPosto() %></span>
+			      </div>
+        </div>
+        
+			<%} %>
+      <hr>
+      <a href="checkout" style="left: 50%;">Checkout</a>
     </div>
-
+    
       <div class="footer">
         <div id="linguaggi">
-          <h2>Tecnologie Utilizzate</h2>
-            
+          <h2>Tecnologie Utilizzate</h2> 
           <h4>FRONT-END</h4>
           <a href="https://www.w3schools.com/html/default.asp" target="_blank">HTML</a>
           <a href="https://www.w3schools.com/cs/default.asp" target="_blank">CSS</a>
           <a href="https://www.w3schools.com/js/default.asp" target="_blank">JavaScript</a>
-          
-          
-            <h4>BACK-END</h4>
-            <a href="https://www.w3schools.com/java/default.asp" target="_blank">Java</a>
-            <a href="https://www.w3schools.com/MySQL/default.asp" target="_blank">MySQL</a>
-            <a href="https://spring.io/">Spring</a>
-          
+
+          <h4>BACK-END</h4>
+          <a href="https://www.w3schools.com/java/default.asp" target="_blank">Java</a>
+          <a href="https://www.w3schools.com/MySQL/default.asp" target="_blank">MySQL</a>
+          <a href="https://spring.io/">Spring</a>
         </div>
         
         <div id="societa">

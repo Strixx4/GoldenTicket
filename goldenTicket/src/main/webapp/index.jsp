@@ -146,8 +146,6 @@
 		</div>
 
 		<div class="context">
-
-
 			<%
 			for (Evento e : eventi) {
 			%>
