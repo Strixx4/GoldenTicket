@@ -36,7 +36,7 @@
 				<ul
 					class="sky-mega-menu sky-mega-menu-anim-flip sky-mega-menu-response-to-icons">
 					<!-- home -->
-					<li><a href="admin/"><i class="fa fa-single fa-home"></i></a></li>
+					<li><a href="/admin/"><i class="fa fa-single fa-home"></i></a></li>
 					<!--/ home -->
 					<!-- about -->
 					<!-- Città  -->
@@ -47,7 +47,7 @@
 								<!-- FOR PER STAMPARE NOMI CITTA'-->
 							
 								<li><a href="formnuovoevento">Evento<i
-										class="fa fa-group"></i>
+										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
 								<li><a href="formnuovoartista">Artista<i
@@ -58,7 +58,7 @@
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
-								<li><a href="formnuovouser">User</i><i>
+								<li><a href="formnuovouser">User</i><i
 
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
@@ -88,7 +88,7 @@
 						<!--SI LOGIN -->
 						<div class="login">
 							<div class="search-container">
-								<a href="logout" id="logout" type="submit">ESCI</a>
+								<a href= "logout" id="logout" type="submit">ESCI</a>
 							</div>
 						</div>
 
