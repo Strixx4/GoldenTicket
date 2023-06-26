@@ -151,7 +151,9 @@
               <p>Orario: <%=b.getEvento().getOra() %></p>
               <span>Fila: <%=b.getFila() %></span>
               <span>Posto: <%=b.getPosto() %></span>
+              <span>Prezzo: <%=b.getPrezzo() %></span>
 			      </div>
+			      <a href="elimina">ELIMINA</a>
         </div>
         
 			<%} %>

@@ -25,15 +25,16 @@ public class DAOCarrello {
 		List<Biglietto> ris = new ArrayList<Biglietto>();
 		List<Map<String, String>> righe = db.rows(query, params);
 		for (Map<String, String> m : righe) { // prende mappa, utente, evento
-			Biglietto b = context.getBean(Biglietto.class, m, du.readByID(Integer.parseInt(m.get("idUser"))),
-					de.cercaPerID(Integer.parseInt(m.get("id"))));
+			Biglietto b = (Biglietto) context.getBean("leggiBiglietto", m, du.readByID(Integer.parseInt(m.get("idUser"))),
+					de.cercaPerID(Integer.parseInt(m.get("idEvento"))));
+			
 			ris.add(b);
 		}
 		return ris;
 	}
 
 	public List<Biglietto> readAll(int u) {
-		return read("select * from carrello where idUser = ?", u + "");
+		return read("select * from carrello where idUser=?", u + "");
 	}
 
 	public boolean create(Biglietto b) {
