@@ -65,7 +65,7 @@
 						</div></li>
 					<!--/ about -->
 					<!-- eventi -->
-					<li><a href="eventi">Eventi</a></li>
+					<li><a href="eventiadmin">Eventi</a></li>
 					<!-- localita-->
 					<li><a href="localita">Località</a></li>
 					<!-- eventi -->
@@ -75,7 +75,7 @@
 					
 					<div class="navbar">
 						<div class="search-container">
-							<form action="ricerca" method="get">
+							<form action="ricercaadmin" method="get">
 								<input type="text" placeholder="Nome,Artista,Citta'..."
 									name="search">
 								<button type="submit">
