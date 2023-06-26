@@ -24,7 +24,7 @@ import com.ant.goldenticket.entities.Localita;
 public class Context {
 	@Bean
 	public Database db() {
-		return new Database("GoldenTicket","root","Q705322H");
+		return new Database("GoldenTicket","root","root");
 	}
 
 	@Bean 
