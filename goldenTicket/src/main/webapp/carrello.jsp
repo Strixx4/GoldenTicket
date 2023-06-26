@@ -3,6 +3,7 @@
 <%@ page import="java.util.*" %>
 <%@ page import="com.ant.goldenticket.entities.*" %>
 <%@ page import="com.ant.goldenticket.*" %>
+
 <% List<String> c = (List<String>)request.getAttribute("listacitta");%>
 <% List<String> t = (List<String>)request.getAttribute("listatipologia");%>
 <% Map<String, List<String>> z = (Map<String, List<String>>)request.getAttribute("listazone");%>

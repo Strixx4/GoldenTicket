@@ -26,22 +26,12 @@ public class UtentiController {
 	@Autowired
 	private DAOBigliettoAcquistato db;
 	@Autowired
-	private ApplicationContext context;
-	@Autowired
 	private DAOEvento de;
 	@Autowired
 	private DAOLocalita dl;
 
 	@GetMapping("carrello")
 	public String carrello(HttpSession session, Model model) {
-		if (!LoginController.checkSession(session)) {
-			return "redirect:formlogin";
-		} else {
-			if (LoginController.checkAdmin(session)) {
-				return "redirect:admin/";
-			}
-		}
-
 		List<String> citta = dl.tutteLeCitta();
 		List<String> tipologia = de.listaTipologia();
 		model.addAttribute("listacitta", citta);
@@ -57,6 +47,15 @@ public class UtentiController {
 			sottog.put(g, de.listaGeneri(g));
 		}
 		model.addAttribute("controllologin", session.getAttribute("login"));
+		model.addAttribute("listaSG", sottog);
+		
+		if (!LoginController.checkSession(session)) {
+			return "redirect:formlogin";
+		} else {
+			if (LoginController.checkAdmin(session)) {
+				return "redirect:admin/";
+			}
+		}
 
 		model.addAttribute("listabiglietti", dc.readAll(Integer.parseInt(session.getAttribute("id").toString())));
 		return "carrello.jsp";
