@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.ant.goldenticket.dao.DAOArtista;
 import com.ant.goldenticket.dao.DAOEvento;
 import com.ant.goldenticket.dao.DAOLocalita;
 import com.ant.goldenticket.dao.DAOUtenti;
@@ -30,240 +31,100 @@ public class AdminController {
 	@Autowired
 	DAOLocalita dl;
 	@Autowired
+	DAOArtista da;
+	@Autowired
 	DAOUtenti du;
-	@GetMapping("admin/")
-	public String index(HttpSession session, Model model) {
-		
-		List<String> citta = dl.tutteLeCitta();
-		List<String> tipologia = de.listaTipologia();
-		model.addAttribute("listacitta", citta);
-		model.addAttribute("listatipologia", tipologia);
-		Map<String, List<String>> sottog = new LinkedHashMap<>();
-		Map<String, List<String>> zone = new LinkedHashMap<>();
-		model.addAttribute("listazone", zone);
-		model.addAttribute("eventi", de.eventiCasuali());
-		for (String c : citta) {
-			zone.put(c, dl.tutteLeZone(c));
-		}
-		for (String g : tipologia) {
-			sottog.put(g, de.listaGeneri(g));
-		}
-		model.addAttribute("controllologin", session.getAttribute("login"));
-
-		model.addAttribute("listaSG", sottog);
-		model.addAttribute("eventi", de.eventiCasuali());
-		
-		return "/admin/adminindex.jsp";
 	
-		
+	@GetMapping("/")
+	public String indexadmin(HttpSession session, Model model) {
+		if(!LoginController.checkSession(session))
+			return"redirect:formlogin";
+		if(!LoginController.checkAdmin(session))
+			return"redirect:/";
+		return "/admin/adminindex.jsp";	
 	}
-	@GetMapping("nouvoevento")
+	@GetMapping("formnouvoevento")
 	public String nuovoevento(HttpSession session, Model model)
 	{
-		List<String> citta = dl.tutteLeCitta();
-		List<String> tipologia = de.listaTipologia();
-		model.addAttribute("listacitta", citta);
-		model.addAttribute("listatipologia", tipologia);
-		Map<String, List<String>> sottog = new LinkedHashMap<>();
-		Map<String, List<String>> zone = new LinkedHashMap<>();
-		model.addAttribute("listazone", zone);
-		model.addAttribute("eventi", de.eventiCasuali());
-		for (String c : citta) {
-			zone.put(c, dl.tutteLeZone(c));
-		}
-		for (String g : tipologia) {
-			sottog.put(g, de.listaGeneri(g));
-		}
-		model.addAttribute("controllologin", session.getAttribute("login"));
-
-		model.addAttribute("listaSG", sottog);
-		model.addAttribute("eventi", de.eventiCasuali());
-		
-		return "/admin/nuovoevento.jsp";
+		if(!LoginController.checkSession(session))
+			return"redirect:formlogin";
+		if(!LoginController.checkAdmin(session))
+			return"redirect:/";
+		return "/admin/formnuovoevento.jsp";
 	}
-	@GetMapping("nouvoartista")
+	@GetMapping("formnouvoartista")
 	public String nuovoartista(HttpSession session, Model model)
 	{
-		List<String> citta = dl.tutteLeCitta();
-		List<String> tipologia = de.listaTipologia();
-		model.addAttribute("listacitta", citta);
-		model.addAttribute("listatipologia", tipologia);
-		Map<String, List<String>> sottog = new LinkedHashMap<>();
-		Map<String, List<String>> zone = new LinkedHashMap<>();
-		model.addAttribute("listazone", zone);
-		model.addAttribute("eventi", de.eventiCasuali());
-		for (String c : citta) {
-			zone.put(c, dl.tutteLeZone(c));
-		}
-		for (String g : tipologia) {
-			sottog.put(g, de.listaGeneri(g));
-		}
-		model.addAttribute("controllologin", session.getAttribute("login"));
-
-		model.addAttribute("listaSG", sottog);
-		model.addAttribute("eventi", de.eventiCasuali());
-		
-		return "/admin/nuovoartista.jsp";
+		if(!LoginController.checkSession(session))
+			return"redirect:formlogin";
+		if(!LoginController.checkAdmin(session))
+			return"redirect:/";
+		return "/admin/formnuovoartista.jsp";
 	}
-	@GetMapping("nouvolocalita")
+	@GetMapping("formnouvolocalita")
 	public String nuovolocalita(HttpSession session, Model model)
 	{
-		List<String> citta = dl.tutteLeCitta();
-		List<String> tipologia = de.listaTipologia();
-		model.addAttribute("listacitta", citta);
-		model.addAttribute("listatipologia", tipologia);
-		Map<String, List<String>> sottog = new LinkedHashMap<>();
-		Map<String, List<String>> zone = new LinkedHashMap<>();
-		model.addAttribute("listazone", zone);
-		model.addAttribute("eventi", de.eventiCasuali());
-		for (String c : citta) {
-			zone.put(c, dl.tutteLeZone(c));
-		}
-		for (String g : tipologia) {
-			sottog.put(g, de.listaGeneri(g));
-		}
-		model.addAttribute("controllologin", session.getAttribute("login"));
-
-		model.addAttribute("listaSG", sottog);
-		model.addAttribute("eventi", de.eventiCasuali());
-		
-		return "/admin/nuovolocalita.jsp";
+		if(!LoginController.checkSession(session))
+			return"redirect:formlogin";
+		if(!LoginController.checkAdmin(session))
+			return"redirect:/";
+		return "/admin/formnuovolocalita.jsp";
 	}
-	@GetMapping("nouvouser")
+	@GetMapping("formnouvouser")
 	public String nuovouser(HttpSession session, Model model)
 	{
-		List<String> citta = dl.tutteLeCitta();
-		List<String> tipologia = de.listaTipologia();
-		model.addAttribute("listacitta", citta);
-		model.addAttribute("listatipologia", tipologia);
-		Map<String, List<String>> sottog = new LinkedHashMap<>();
-		Map<String, List<String>> zone = new LinkedHashMap<>();
-		model.addAttribute("listazone", zone);
-		model.addAttribute("eventi", de.eventiCasuali());
-		for (String c : citta) {
-			zone.put(c, dl.tutteLeZone(c));
-		}
-		for (String g : tipologia) {
-			sottog.put(g, de.listaGeneri(g));
-		}
-		model.addAttribute("controllologin", session.getAttribute("login"));
-
-		model.addAttribute("listaSG", sottog);
-		model.addAttribute("eventi", de.eventiCasuali());
-		
-		return "/admin/nuovouser.jsp";
+		if(!LoginController.checkSession(session))
+			return"redirect:formlogin";
+		if(!LoginController.checkAdmin(session))
+			return"redirect:/";
+		return "/admin/formnuovouser.jsp";
 	}
-	@GetMapping("eventiadmin")
+	@GetMapping("listaeventi")
 	public String elencoeventi(HttpSession session, Model model) {
-		List<String> citta = dl.tutteLeCitta();
-		List<String> tipologia = de.listaTipologia();
-		model.addAttribute("listacitta", citta);
-		model.addAttribute("listatipologia", tipologia);
-		Map<String, List<String>> sottog = new LinkedHashMap<>();
-		Map<String, List<String>> zone = new LinkedHashMap<>();
-		model.addAttribute("listazone", zone);
-		model.addAttribute("eventi", de.eventiCasuali());
-		for (String c : citta) {
-			zone.put(c, dl.tutteLeZone(c));
-		}
-		for (String g : tipologia) {
-			sottog.put(g, de.listaGeneri(g));
-		}
-		model.addAttribute("listaSG", sottog);
-
-		model.addAttribute("eventi", de.readAll());
-		model.addAttribute("controllologin", session.getAttribute("login"));
-		return "/admin/eventiadmin.jsp";
+		if(!LoginController.checkSession(session))
+			return"redirect:formlogin";
+		if(!LoginController.checkAdmin(session))
+			return"redirect:/";
+		model.addAttribute("listaeventi", de.readAll());
+		return "/admin/listaeventi.jsp";
 	}
-	@GetMapping("localita")
+	@GetMapping("listalocalita")
 	public String elencolocalita(HttpSession session, Model model) {
-		List<String> citta = dl.tutteLeCitta();
-		List<String> tipologia = de.listaTipologia();
-		model.addAttribute("listacitta", citta);
-		model.addAttribute("listatipologia", tipologia);
-		Map<String, List<String>> sottog = new LinkedHashMap<>();
-		Map<String, List<String>> zone = new LinkedHashMap<>();
-		model.addAttribute("listazone", zone);
-		model.addAttribute("eventi", de.eventiCasuali());
-		for (String c : citta) {
-			zone.put(c, dl.tutteLeZone(c));
-		}
-		for (String g : tipologia) {
-			sottog.put(g, de.listaGeneri(g));
-		}
-		model.addAttribute("listaSG", sottog);
-
-		model.addAttribute("eventi", de.readAll());
-		model.addAttribute("controllologin", session.getAttribute("login"));
-		return "/admin/localita.jsp";
+		if(!LoginController.checkSession(session))
+			return"redirect:formlogin";
+		if(!LoginController.checkAdmin(session))
+			return"redirect:/";
+		model.addAttribute("listalocalita", dl.readAll());
+		return "/admin/listalocalita.jsp";
 	}
-	@GetMapping("artisti")
+	@GetMapping("listaartisti")
 	public String elencoartisti(HttpSession session, Model model) {
-		List<String> citta = dl.tutteLeCitta();
-		List<String> tipologia = de.listaTipologia();
-		model.addAttribute("listacitta", citta);
-		model.addAttribute("listatipologia", tipologia);
-		Map<String, List<String>> sottog = new LinkedHashMap<>();
-		Map<String, List<String>> zone = new LinkedHashMap<>();
-		model.addAttribute("listazone", zone);
-		model.addAttribute("eventi", de.eventiCasuali());
-		for (String c : citta) {
-			zone.put(c, dl.tutteLeZone(c));
-		}
-		for (String g : tipologia) {
-			sottog.put(g, de.listaGeneri(g));
-		}
-		model.addAttribute("listaSG", sottog);
-
-		model.addAttribute("eventi", de.readAll());
-		model.addAttribute("controllologin", session.getAttribute("login"));
-		return "/admin/artisti.jsp";
+		if(!LoginController.checkSession(session))
+			return"redirect:formlogin";
+		if(!LoginController.checkAdmin(session))
+			return"redirect:/";
+		model.addAttribute("listaartisti", da.readAll());
+		return "/admin/listaartisti.jsp";
 	}
-	@GetMapping("users")
+	@GetMapping("listauser")
 	public String elencousers(HttpSession session, Model model) {
-		List<String> citta = dl.tutteLeCitta();
-		List<String> tipologia = de.listaTipologia();
-		model.addAttribute("listacitta", citta);
-		model.addAttribute("listatipologia", tipologia);
-		Map<String, List<String>> sottog = new LinkedHashMap<>();
-		Map<String, List<String>> zone = new LinkedHashMap<>();
-		model.addAttribute("listazone", zone);
-		model.addAttribute("eventi", de.eventiCasuali());
-		for (String c : citta) {
-			zone.put(c, dl.tutteLeZone(c));
-		}
-		for (String g : tipologia) {
-			sottog.put(g, de.listaGeneri(g));
-		}
-		model.addAttribute("listaSG", sottog);
-
-		model.addAttribute("eventi", de.readAll());
-		model.addAttribute("controllologin", session.getAttribute("login"));
-		return "/admin/users.jsp";
+		if(!LoginController.checkSession(session))
+			return"redirect:formlogin";
+		if(!LoginController.checkAdmin(session))
+			return"redirect:/";
+		model.addAttribute("listauser", du.readAll());
+		return "/admin/listausers.jsp";
 	}
 	
 	@GetMapping("ricercaadmin")
 	public String ricerca(@RequestParam("search") String par, Model model, HttpSession session) {
-		List<String> citta = dl.tutteLeCitta();
-		List<String> tipologia = de.listaTipologia();
-		model.addAttribute("listacitta", citta);
-		model.addAttribute("listatipologia", tipologia);
-		Map<String, List<String>> sottog = new LinkedHashMap<>();
-		Map<String, List<String>> zone = new LinkedHashMap<>();
-		model.addAttribute("listazone", zone);
-		model.addAttribute("eventi", de.eventiCasuali());
-		for (String c : citta) {
-			zone.put(c, dl.tutteLeZone(c));
-		}
-		for (String g : tipologia) {
-			sottog.put(g, de.listaGeneri(g));
-		}
-		model.addAttribute("listaSG", sottog);
-
+		if(!LoginController.checkSession(session))
+			return"redirect:formlogin";
+		if(!LoginController.checkAdmin(session))
+			return"redirect:/";
 		model.addAttribute("lNome", de.readByNome(par));
 		model.addAttribute("lArtista", de.readByArtista(par));
 		model.addAttribute("lLocalita", de.readByCitta(par));
-		model.addAttribute("controllologin", session.getAttribute("login"));
 		return "/admin/ricercaadmin.jsp";
 	}
 	
