@@ -3,18 +3,20 @@ package com.ant.goldenticket.controllers;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.ant.goldenticket.Context;
 import com.ant.goldenticket.dao.DAOBigliettoAcquistato;
 import com.ant.goldenticket.dao.DAOCarrello;
 import com.ant.goldenticket.dao.DAOEvento;
 import com.ant.goldenticket.dao.DAOLocalita;
+import com.ant.goldenticket.dao.DAOUtenti;
 import com.ant.goldenticket.entities.Biglietto;
 
 import jakarta.servlet.http.HttpSession;
@@ -29,6 +31,8 @@ public class UtentiController {
 	private DAOEvento de;
 	@Autowired
 	private DAOLocalita dl;
+	@Autowired
+	private DAOUtenti du;
 
 	@GetMapping("carrello")
 	public String carrello(HttpSession session, Model model) {
@@ -125,7 +129,7 @@ public class UtentiController {
 		return "acquisti.jsp";
 	}
 
-	@GetMapping("rimbosrso")
+	@GetMapping("rimborso")
 	public String rimborso(HttpSession session, @RequestParam("id") int id) {
 		if (!LoginController.checkSession(session)) {
 			return "redirect:formlogin";
@@ -137,4 +141,30 @@ public class UtentiController {
 		db.delete(id);
 		return "redirect:acquisti";
 	}
+	
+	
+	
+	
+	
+	
+	
+	@GetMapping("aggiungiacarrello")
+	public String AggiungiaCarrello(@RequestParam("id") int id, HttpSession session) {
+		
+		if (!LoginController.checkSession(session)) {
+			return "redirect:formlogin";
+		} else {
+			if (LoginController.checkAdmin(session)) {
+				return "redirect:admin/";
+			}
+		}
+	
+	
+		Random r = new Random(); //da 65 a 90 lettere maiuscole
+		Biglietto b = Context.getBean("2023-06-26", (r.nextInt(65,90)), r.nextDouble(49.99,230.99),
+				du.readByID((int) session.getAttribute("id")), de.cercaPerID((int) session.getAttribute("id")));
+		db.create(b);
+		return "redirect:carrello";
+	}
+}
 }
