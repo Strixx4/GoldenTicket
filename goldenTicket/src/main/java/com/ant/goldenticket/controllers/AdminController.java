@@ -1,9 +1,5 @@
 package com.ant.goldenticket.controllers;
 
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -43,7 +39,7 @@ public class AdminController {
 			return"redirect:/";
 		return "/admin/adminindex.jsp";	
 	}
-	@GetMapping("formnouvoevento")
+	@GetMapping("formnuovoevento")
 	public String nuovoevento(HttpSession session, Model model)
 	{
 		if(!LoginController.checkSession(session))
@@ -52,7 +48,7 @@ public class AdminController {
 			return"redirect:/";
 		return "/admin/formnuovoevento.jsp";
 	}
-	@GetMapping("formnouvoartista")
+	@GetMapping("formnuovoartista")
 	public String nuovoartista(HttpSession session, Model model)
 	{
 		if(!LoginController.checkSession(session))
@@ -61,7 +57,7 @@ public class AdminController {
 			return"redirect:/";
 		return "/admin/formnuovoartista.jsp";
 	}
-	@GetMapping("formnouvolocalita")
+	@GetMapping("formnuovolocalita")
 	public String nuovolocalita(HttpSession session, Model model)
 	{
 		if(!LoginController.checkSession(session))
@@ -70,7 +66,7 @@ public class AdminController {
 			return"redirect:/";
 		return "/admin/formnuovolocalita.jsp";
 	}
-	@GetMapping("formnouvouser")
+	@GetMapping("formnuovouser")
 	public String nuovouser(HttpSession session, Model model)
 	{
 		if(!LoginController.checkSession(session))
