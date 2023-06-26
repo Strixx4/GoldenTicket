@@ -155,7 +155,7 @@
 				indirizzo : <%=e.getLocalita().getIndirizzo()%><br>
 				<%=e.getGiornoSettimana()%> <br>
 				<%=e.getData()%> alle ore <%= e.getOra()%> </p> <br>
-				<a href = "carrello"> AGGIUNGI </a>
+				<a href = "aggiungiacarrello.html"> AGGIUNGI </a>
 			</div>
 
 </div>
