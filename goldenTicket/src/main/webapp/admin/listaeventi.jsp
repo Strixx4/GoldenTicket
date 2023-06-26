@@ -56,13 +56,13 @@
 						</div></li>
 					<!--/ about -->
 					<!-- eventi -->
-					<li><a href="eventi">Eventi</a></li>
+					<li><a href="listaeventi">Eventi</a></li>
 					<!-- localita-->
-					<li><a href="localita">Localita'</a></li>
+					<li><a href="listalocalita">Localita'</a></li>
 					<!-- eventi -->
-					<li><a href="artisti">Artisti</a></li>
+					<li><a href="listaartisti">Artisti</a></li>
 					<!-- users -->
-					<li><a href="users">Users</a></li>
+					<li><a href="listausers">Users</a></li>
 					
 					<div class="navbar">
 						<div class="search-container">

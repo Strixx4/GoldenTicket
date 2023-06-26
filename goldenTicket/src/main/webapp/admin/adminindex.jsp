@@ -54,7 +54,7 @@
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
-								<li><a href="formnuovolocalita">Localita<i
+								<li><a href="formnuovolocalita">Localita'<i
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
@@ -69,7 +69,7 @@
 					<!-- eventi -->
 					<li><a href="listaeventi">Eventi</a></li>
 					<!-- localita-->
-					<li><a href="listalocalita">Localit√†</a></li>
+					<li><a href="listalocalita">Localita'†</a></li>
 					<!-- eventi -->
 					<li><a href="listaartisti">Artisti</a></li>
 					<!-- users -->
