@@ -32,6 +32,14 @@ public class UtentiController {
 
 	@GetMapping("carrello")
 	public String carrello(HttpSession session, Model model) {
+		if (!LoginController.checkSession(session)) {
+			return "redirect:formlogin";
+		} else {
+			if (LoginController.checkAdmin(session)) {
+				return "redirect:admin/";
+			}
+		}
+		
 		List<String> citta = dl.tutteLeCitta();
 		List<String> tipologia = de.listaTipologia();
 		model.addAttribute("listacitta", citta);
@@ -48,14 +56,6 @@ public class UtentiController {
 		}
 		model.addAttribute("controllologin", session.getAttribute("login"));
 		model.addAttribute("listaSG", sottog);
-		
-		if (!LoginController.checkSession(session)) {
-			return "redirect:formlogin";
-		} else {
-			if (LoginController.checkAdmin(session)) {
-				return "redirect:admin/";
-			}
-		}
 
 		model.addAttribute("listabiglietti", dc.readAll(Integer.parseInt(session.getAttribute("id").toString())));
 		return "carrello.jsp";
@@ -94,6 +94,8 @@ public class UtentiController {
 
 	@GetMapping("acquisti")
 	public String bigliettiAcquistati(HttpSession session, Model model) {
+		
+		
 		if (!LoginController.checkSession(session)) {
 			return "redirect:formlogin";
 		} else {
@@ -101,7 +103,7 @@ public class UtentiController {
 				return "redirect:admin/";
 			}
 		}
-
+		
 		List<String> citta = dl.tutteLeCitta();
 		List<String> tipologia = de.listaTipologia();
 		model.addAttribute("listacitta", citta);
@@ -117,6 +119,8 @@ public class UtentiController {
 			sottog.put(g, de.listaGeneri(g));
 		}
 		model.addAttribute("controllologin", session.getAttribute("login"));
+		model.addAttribute("listaSG", sottog);
+		
 		model.addAttribute("listabiglietti", db.readAll(Integer.parseInt(session.getAttribute("id").toString())));
 		return "acquisti.jsp";
 	}
