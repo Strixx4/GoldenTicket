@@ -3,25 +3,13 @@
 <%@ page import="java.util.*"%>
 <%@ page import="com.ant.goldenticket.entities.*"%>
 <%@ page import="com.ant.goldenticket.*"%>
-<%
-List<String> c = (List<String>) request.getAttribute("listacitta");
-%>
-<%
-List<String> t = (List<String>) request.getAttribute("listatipologia");
-%>
-<%
-Map<String, List<String>> z = (Map<String, List<String>>) request.getAttribute("listazone");
-%>
-<%
-Map<String, List<String>> g = (Map<String, List<String>>) request.getAttribute("listaSG");
-%>
 
-<%
-List<Evento> eventi = (List<Evento>) request.getAttribute("eventi");
-%>
-
-<% String controllaLogin = (String) request.getAttribute("controllologin");
-%>
+<%List<String> c = (List<String>) request.getAttribute("listacitta");%>
+<%List<String> t = (List<String>) request.getAttribute("listatipologia");%>
+<%Map<String, List<String>> z = (Map<String, List<String>>) request.getAttribute("listazone");%>
+<%Map<String, List<String>> g = (Map<String, List<String>>) request.getAttribute("listaSG");%>
+<%List<Evento> eventi = (List<Evento>) request.getAttribute("eventi");%>
+<%String controllaLogin = (String) request.getAttribute("controllologin");%>
 
 <!DOCTYPE html>
 <html>
@@ -75,8 +63,7 @@ List<Evento> eventi = (List<Evento>) request.getAttribute("eventi");
 											for (String zone : z.get(citta)) {
 											%>
 											<li aria-haspopup="true"><a
-												href="leggizone?citta=<%=citta%>&zona=<%=zone%>"><i
-													class="fa fa-female"></i><%=zone%></a> <%
+												href="leggizone?citta=<%=citta%>&zona=<%=zone%>"><%=zone%></a> <%
  											}
  											%></li>
 										</ul>
@@ -106,8 +93,7 @@ List<Evento> eventi = (List<Evento>) request.getAttribute("eventi");
 											for (String genere : g.get(tipologia)) {
 											%>
 											<li aria-haspopup="true"><a
-												href="leggigenere?tipologia=<%=tipologia%>&genere=<%=genere%>"><i
-													class="fa fa-female"></i><%=genere%></a> <%
+												href="leggigenere?tipologia=<%=tipologia%>&genere=<%=genere%>"><%=genere%></a> <%
 											 }
 											 %></li>
 										</ul>
@@ -154,6 +140,7 @@ List<Evento> eventi = (List<Evento>) request.getAttribute("eventi");
         <a href="formlogin" id="login" type="submit">LOGIN</a>      
 			<%} %>
 					</div>
+
 				</ul>
 			</div>
 		</div>

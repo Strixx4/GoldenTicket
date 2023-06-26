@@ -44,9 +44,11 @@ public class IndexController {
 		for (String g : tipologia) {
 			sottog.put(g, de.listaGeneri(g));
 		}
+		model.addAttribute("controllologin", session.getAttribute("login"));
+
 		model.addAttribute("listaSG", sottog);
 		model.addAttribute("eventi", de.eventiCasuali());
-		model.addAttribute("controllologin", session.getAttribute("login"));
+		
 
 		return "index.jsp";
 	}
@@ -70,11 +72,12 @@ public class IndexController {
 		model.addAttribute("listaSG", sottog);
 
 		model.addAttribute("eventi", de.readAll());
+		model.addAttribute("controllologin", session.getAttribute("login"));
 		return "eventi.jsp";
 	}
 
 	@GetMapping("dettagli")
-	public String dettagli(@RequestParam("id") int idEvento, Model model) {
+	public String dettagli(@RequestParam("id") int idEvento, Model model, HttpSession session) {
 
 		Evento e = de.cercaPerID(idEvento);
 		if (e == null)
@@ -97,12 +100,13 @@ public class IndexController {
 			model.addAttribute("listaSG", sottog);
 
 			model.addAttribute("evento", e);
+			model.addAttribute("controllologin", session.getAttribute("login"));
 			return "dettagli.jsp";
 		}
 	}
 
 	@GetMapping("ricerca")
-	public String ricerca(@RequestParam("search") String par, Model model) {
+	public String ricerca(@RequestParam("search") String par, Model model, HttpSession session) {
 		List<String> citta = dl.tutteLeCitta();
 		List<String> tipologia = de.listaTipologia();
 		model.addAttribute("listacitta", citta);
@@ -122,11 +126,12 @@ public class IndexController {
 		model.addAttribute("lNome", de.readByNome(par));
 		model.addAttribute("lArtista", de.readByArtista(par));
 		model.addAttribute("lLocalita", de.readByCitta(par));
+		model.addAttribute("controllologin", session.getAttribute("login"));
 		return "ricerca.jsp";
 	}
 
 	@GetMapping("leggigenere")
-	public String leggiGenere(@RequestParam("genere") String g, @RequestParam("tipologia") String c, Model model) {
+	public String leggiGenere(@RequestParam("genere") String g, @RequestParam("tipologia") String c, Model model, HttpSession session) {
 		List<String> citta = dl.tutteLeCitta();
 		List<String> tipologia = de.listaTipologia();
 		model.addAttribute("listacitta", citta);
@@ -144,11 +149,12 @@ public class IndexController {
 		model.addAttribute("listaSG", sottog);
 
 		model.addAttribute("lista", de.readBygenere(c, g));
+		model.addAttribute("controllologin", session.getAttribute("login"));
 		return "leggigenere.jsp";
 	}
 
 	@GetMapping("leggizone")
-	public String elencozone(@RequestParam("citta") String cit, @RequestParam("zona") String zon, Model model) {
+	public String elencozone(@RequestParam("citta") String cit, @RequestParam("zona") String zon, Model model, HttpSession session) {
 		List<String> citta = dl.tutteLeCitta();
 		List<String> tipologia = de.listaTipologia();
 		model.addAttribute("listacitta", citta);
@@ -165,11 +171,12 @@ public class IndexController {
 		model.addAttribute("listaSG", sottog);
 
 		model.addAttribute("eventi", de.cercaPerZona(cit, zon));
+		model.addAttribute("controllologin", session.getAttribute("login"));
 		return "leggizone.jsp";
 	}
 
 	@GetMapping("leggitipologia")
-	public String cercatipologia(@RequestParam("tipologia") String tipo, Model model) {
+	public String cercatipologia(@RequestParam("tipologia") String tipo, Model model, HttpSession session) {
 		List<String> citta = dl.tutteLeCitta();
 		List<String> tipologia = de.listaTipologia();
 		model.addAttribute("listacitta", citta);
@@ -186,11 +193,12 @@ public class IndexController {
 		model.addAttribute("listaSG", sottog);
 
 		model.addAttribute("eventi", de.readBytipologia(tipo));
+		model.addAttribute("controllologin", session.getAttribute("login"));
 		return "leggitipologia.jsp";
 	}
 
 	@GetMapping("leggicitta")
-	public String leggicitta(@RequestParam("citta") String par, Model model) {
+	public String leggicitta(@RequestParam("citta") String par, Model model, HttpSession session) {
 
 		List<String> citta = dl.tutteLeCitta();
 		List<String> tipologia = de.listaTipologia();
@@ -209,6 +217,7 @@ public class IndexController {
 		model.addAttribute("listaSG", sottog);
 
 		model.addAttribute("risultatocitta", de.readByCitta(par));
+		model.addAttribute("controllologin", session.getAttribute("login"));
 		return "leggicitta.jsp";
 
 	}
