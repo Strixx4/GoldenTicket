@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 
 public class DAOUtenti {
 	@Autowired
@@ -28,9 +29,9 @@ public class DAOUtenti {
 	}
 
 	// I controlli saranno messi in controller
-	public boolean create(Map<String, String> u) {
+	public boolean create(String u, String p, String r) {
 		String query = "insert into utenti (username,password,ruolo) values (?,?,?)";
-		return db.update(query, u.get("username"), u.get("password"), u.get("ruolo"));
+		return db.update(query, u,p,r);
 	}
 
 	public Map<String, String> cercaPerNome(String nome) {
