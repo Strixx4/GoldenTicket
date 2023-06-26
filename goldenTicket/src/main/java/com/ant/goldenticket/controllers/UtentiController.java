@@ -38,14 +38,6 @@ public class UtentiController {
 
 	@GetMapping("carrello")
 	public String carrello(HttpSession session, Model model) {
-		if (!LoginController.checkSession(session)) {
-			return "redirect:formlogin";
-		} else {
-			if (LoginController.checkAdmin(session)) {
-				return "redirect:admin/";
-			}
-		}
-
 		List<String> citta = dl.tutteLeCitta();
 		List<String> tipologia = de.listaTipologia();
 		model.addAttribute("listacitta", citta);
@@ -62,6 +54,13 @@ public class UtentiController {
 		}
 		model.addAttribute("controllologin", session.getAttribute("login"));
 		model.addAttribute("listaSG", sottog);
+		if (!LoginController.checkSession(session)) {
+			return "redirect:formlogin";
+		} else {
+			if (LoginController.checkAdmin(session)) {
+				return "redirect:admin/";
+			}
+		}
 
 		model.addAttribute("listabiglietti", dc.readAll(Integer.parseInt(session.getAttribute("id").toString())));
 		return "carrello.jsp";
@@ -155,10 +154,11 @@ public class UtentiController {
 		}
 
 		Random r = new Random(); // da 65 a 90 lettere maiuscole
-		Biglietto b = (Biglietto) context.getBean("creaBiglietto", "2023-06-26", filaCasuale(r.nextInt(0,5)), (r.nextInt(65, 90)),
-				r.nextDouble(49.99, 230.99), du.readByID((int) session.getAttribute("id")),
-				de.cercaPerID((int) session.getAttribute("id")));
-		db.create(b);
+		Biglietto b = (Biglietto) context.getBean("creaBigliettoCarrello", filaCasuale(r.nextInt(0,5)), (r.nextInt(65, 90)),
+				r.nextDouble(49.99, 230.99), du.readByID(Integer.parseInt(session.getAttribute("id").toString())),
+				de.cercaPerID(id));
+		System.out.println("biglietto: " + b);
+		dc.create(b);
 		return "redirect:carrello";
 	}
 

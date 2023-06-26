@@ -76,7 +76,18 @@ public class Context {
 	}
 	@Bean
 	@Scope("prototype")
-	public Biglietto creaBiglietto(String dataEmissione,String fila,int posto,double prezzo,Map<String,String> utente,Evento evento) {
+	public Biglietto creaBigliettoCarrello(String fila,int posto,double prezzo,Map<String,String> utente,Evento evento) {
+		Biglietto b = new Biglietto();
+		b.setFila(fila);
+		b.setPosto(posto);
+		b.setPrezzo(prezzo);
+		b.setUtente(utente);
+		b.setEvento(evento);
+		return b;
+	}
+	@Bean
+	@Scope("prototype")
+	public Biglietto creaBigliettoAcquistato(String dataEmissione,String fila,int posto,double prezzo,Map<String,String> utente,Evento evento) {
 		Biglietto b = new Biglietto();
 		b.setDataEmissione(dataEmissione);
 		b.setFila(fila);
@@ -86,7 +97,6 @@ public class Context {
 		b.setEvento(evento);
 		return b;
 	}
-
 	@Bean
 	@Scope("prototype")
 	@Primary
