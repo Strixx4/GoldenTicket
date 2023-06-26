@@ -3,6 +3,7 @@ package com.ant.goldenticket.controllers;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -15,6 +16,7 @@ import com.ant.goldenticket.dao.DAOBigliettoAcquistato;
 import com.ant.goldenticket.dao.DAOCarrello;
 import com.ant.goldenticket.dao.DAOEvento;
 import com.ant.goldenticket.dao.DAOLocalita;
+import com.ant.goldenticket.dao.DAOUtenti;
 import com.ant.goldenticket.entities.Biglietto;
 
 import jakarta.servlet.http.HttpSession;
@@ -29,17 +31,13 @@ public class UtentiController {
 	private DAOEvento de;
 	@Autowired
 	private DAOLocalita dl;
+	@Autowired
+	private DAOUtenti du;
+	@Autowired
+	private ApplicationContext context;
 
 	@GetMapping("carrello")
 	public String carrello(HttpSession session, Model model) {
-		if (!LoginController.checkSession(session)) {
-			return "redirect:formlogin";
-		} else {
-			if (LoginController.checkAdmin(session)) {
-				return "redirect:admin/";
-			}
-		}
-		
 		List<String> citta = dl.tutteLeCitta();
 		List<String> tipologia = de.listaTipologia();
 		model.addAttribute("listacitta", citta);
@@ -56,6 +54,13 @@ public class UtentiController {
 		}
 		model.addAttribute("controllologin", session.getAttribute("login"));
 		model.addAttribute("listaSG", sottog);
+		if (!LoginController.checkSession(session)) {
+			return "redirect:formlogin";
+		} else {
+			if (LoginController.checkAdmin(session)) {
+				return "redirect:admin/";
+			}
+		}
 
 		model.addAttribute("listabiglietti", dc.readAll(Integer.parseInt(session.getAttribute("id").toString())));
 		return "carrello.jsp";
@@ -94,8 +99,7 @@ public class UtentiController {
 
 	@GetMapping("acquisti")
 	public String bigliettiAcquistati(HttpSession session, Model model) {
-		
-		
+
 		if (!LoginController.checkSession(session)) {
 			return "redirect:formlogin";
 		} else {
@@ -103,7 +107,7 @@ public class UtentiController {
 				return "redirect:admin/";
 			}
 		}
-		
+
 		List<String> citta = dl.tutteLeCitta();
 		List<String> tipologia = de.listaTipologia();
 		model.addAttribute("listacitta", citta);
@@ -120,12 +124,12 @@ public class UtentiController {
 		}
 		model.addAttribute("controllologin", session.getAttribute("login"));
 		model.addAttribute("listaSG", sottog);
-		
+
 		model.addAttribute("listabiglietti", db.readAll(Integer.parseInt(session.getAttribute("id").toString())));
 		return "acquisti.jsp";
 	}
 
-	@GetMapping("rimbosrso")
+	@GetMapping("rimborso")
 	public String rimborso(HttpSession session, @RequestParam("id") int id) {
 		if (!LoginController.checkSession(session)) {
 			return "redirect:formlogin";
@@ -137,4 +141,45 @@ public class UtentiController {
 		db.delete(id);
 		return "redirect:acquisti";
 	}
+
+	@GetMapping("aggiungiacarrello")
+	public String AggiungiaCarrello(@RequestParam("id") int id, HttpSession session) {
+
+		if (!LoginController.checkSession(session)) {
+			return "redirect:formlogin";
+		} else {
+			if (LoginController.checkAdmin(session)) {
+				return "redirect:admin/";
+			}
+		}
+
+		Random r = new Random(); // da 65 a 90 lettere maiuscole
+		Biglietto b = (Biglietto) context.getBean("creaBigliettoCarrello", filaCasuale(r.nextInt(0,5)), (r.nextInt(65, 90)),
+				r.nextDouble(49.99, 230.99), du.readByID(Integer.parseInt(session.getAttribute("id").toString())),
+				de.cercaPerID(id));
+		System.out.println("biglietto: " + b);
+		dc.create(b);
+		return "redirect:carrello";
+	}
+
+	private String filaCasuale(int c) {
+		switch (c) {
+		case 1:
+			return "A";
+
+		case 2:
+			return "B";
+
+		case 3:
+			return "C";
+
+		case 4:
+			return "D";
+
+		default:
+			return "E";
+
+		}
+	}
+
 }
