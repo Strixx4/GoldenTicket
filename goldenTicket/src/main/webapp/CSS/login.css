@@ -11,7 +11,7 @@ body
   min-height: 100vh;
   background-color: #133847;
 }
-section 
+form
 {
   position: absolute;
   width: 100vw;
@@ -22,6 +22,8 @@ section
   gap: 2px;
   flex-wrap: wrap;
   overflow: hidden;
+  border: solid rgb(255, 217, 0) 20px;
+  background-color: white;
 }
 section .signin .content .form .inputBox
 {
@@ -29,12 +31,13 @@ section .signin .content .form .inputBox
   width: 100%;
 }
 
-.container {
-	border: solid rgb(255, 217, 0) 20px;
-	background-color: white;
-}
 
-#titolo {
+
+h1{
+	align-items: center;
+	color: black;
+}
+h2{
 	align-items: center;
 	color: black;
 }
@@ -46,7 +49,3 @@ section .signin .content .form .inputBox
 	
 }
 
-.container11 {
-border:solid rgba(255, 217, 0, 0.89) 10px;
-background-color: #e9e9e9;
-}

@@ -1,15 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.*"%>
 <%@ page import="com.ant.goldenticket.entities.*"%>
 <%@ page import="com.ant.goldenticket.*"%>
 
-<%List<String> c = (List<String>) request.getAttribute("listacitta");%>
-<%List<String> t = (List<String>) request.getAttribute("listatipologia");%>
-<%Map<String, List<String>> z = (Map<String, List<String>>) request.getAttribute("listazone");%>
-<%Map<String, List<String>> g = (Map<String, List<String>>) request.getAttribute("listaSG");%>
-<%List<Evento> eventi = (List<Evento>) request.getAttribute("eventi");%>
-<%String controllaLogin = (String) request.getAttribute("controllologin");%>
 
 <!DOCTYPE html>
 <html>
@@ -42,71 +36,43 @@
 				<ul
 					class="sky-mega-menu sky-mega-menu-anim-flip sky-mega-menu-response-to-icons">
 					<!-- home -->
-					<li><a href="/"><i class="fa fa-single fa-home"></i></a></li>
+					<li><a href="admin/"><i class="fa fa-single fa-home"></i></a></li>
 					<!--/ home -->
 					<!-- about -->
 					<!-- Città  -->
-					<li aria-haspopup="true"><a>Citta'<i
+					<li aria-haspopup="true"><a>NUOVO<i
 							class="fa fa-indicator fa-chevron-down"></i></a>
 						<div class="grid-container3">
 							<ul>
 								<!-- FOR PER STAMPARE NOMI CITTA'-->
-								<%
-								for (String citta : c) {
-								%>
-								<li><a href="leggicitta?citta=<%=citta%>"></i><%=citta%><i
+								<li><a href="nouvoevento">Evento<i
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
-									<div class="grid-container3">
-										<ul>
-											<%
-											for (String zone : z.get(citta)) {
-											%>
-											<li aria-haspopup="true"><a
-												href="leggizone?citta=<%=citta%>&zona=<%=zone%>"><%=zone%></a> <%
- 											}
- 											%></li>
-										</ul>
-									</div></li>
-								<%
-								}
-								%>
+								</li>
+								<li><a href="nouvoartista">Artista<i
+										class="fa fa-group"></i><i
+										class="fa fa-indicator fa-chevron-right"></i></a>
+								</li>
+								<li><a href="nouvolocalita">Localita<i
+										class="fa fa-group"></i><i
+										class="fa fa-indicator fa-chevron-right"></i></a>
+								</li>
+								<li><a href="nouvouser">User</i><i
+										class="fa fa-group"></i><i
+										class="fa fa-indicator fa-chevron-right"></i></a>
+								</li>
 							</ul>
 						</div></li>
 					<!--/ about -->
-					<!-- Tipologia -->
-					<li aria-haspopup="true"><a href="#">Tipologia<i
-							class="fa fa-indicator fa-chevron-down"></i></a>
-						<div class="grid-container3">
-							<ul>
-								<!-- FOR PER STAMPARE NOMI CITTA'-->
-								<%
-								for (String tipologia : t) {
-								%>
-								<li><a href="leggitipologia?tipologia=<%=tipologia%>"><%=tipologia%><i
-										class="fa fa-group"></i><i
-										class="fa fa-indicator fa-chevron-right"></i></a>
-									<div class="grid-container3">
-										<ul>
-
-											<%
-											for (String genere : g.get(tipologia)) {
-											%>
-											<li aria-haspopup="true"><a
-												href="leggigenere?tipologia=<%=tipologia%>&genere=<%=genere%>"><%=genere%></a> <%
-											 }
-											 %></li>
-										</ul>
-									</div></li>
-								<%
-								}
-								%>
-							</ul>
-						</div></li>
-					<!--/ news -->
 					<!-- eventi -->
 					<li><a href="eventi">Eventi</a></li>
-
+					<!-- localita-->
+					<li><a href="localita">Localit�</a></li>
+					<!-- eventi -->
+					<li><a href="artisti">Artisti</a></li>
+					<!-- users -->
+					<li><a href="users">Users</a></li>
+					
 					<div class="navbar">
 						<div class="search-container">
 							<form action="ricerca" method="get">
@@ -118,56 +84,32 @@
 							</form>
 						</div>
 
-
-    
+						<!--NO LOGIN-->
+						<!--
+            <div class="login">
+              <div class="search-container">
+                <form action="carrello" method="get">                  
+                  <button type="submit"><i class="fas fa-shopping-cart"></i></button>
+                </form>  
+              <a href="formlogin" id="login" type="submit">LOGIN</a>                          
+            </div>
+          </div>
+           -->
+						<!--SI LOGIN -->
 
 						<div class="login">
 							<div class="search-container">
-                <%if(controllaLogin != null){%>
-								<form action="carrello" method="get">
-									<button type="submit">
-										<i class="fas fa-shopping-cart"></i>
-									</button>
-								</form>
-								<a href="acquisti" id="" type="submit">ACQUISTI</a> <a href="logout"
-									id="logout" type="submit">ESCI</a>
+								<a href="logout" id="logout" type="submit">ESCI</a>
 							</div>
 						</div>
-			<% }else {%>
-        <form action="carrello" method="get">                  
-          <button type="submit"><i class="fas fa-shopping-cart"></i></button>
-        </form>  
-        <a href="formlogin" id="login" type="submit">LOGIN</a>      
-			<%} %>
-					</div>
 
+					</div>
 				</ul>
 			</div>
 		</div>
 
 		<div class="context">
 
-
-			<%
-			for (Evento e : eventi) {
-			%>
-			<div>
-				<img src="<%=e.getLocandina()%>"> <br>
-				<h1>
-					<%=e.getNome()%></h1>
-				<br>
-				<p><%=e.getLocalita().getCitta()%><br>
-					<%=e.getLocalita().getZona()%><br>
-					<%=e.getGiornoSettimana()%>
-					<%=e.getData()%>
-					alle ore
-					<%=e.getOra()%>
-				</p>
-				<br> <a href="dettagli?id=<%=e.getId()%>">DETTAGLI</a>
-			</div>
-			<%
-			}
-			%>
 
 		</div>
 
