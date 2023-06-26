@@ -48,7 +48,7 @@ public class LoginController {
 			else {
 				if (checkAdmin(session))
 					return "redirect:admin/";
-				return "redirect:/";
+				return "redirect:formlogin";
 			}
 		}
 

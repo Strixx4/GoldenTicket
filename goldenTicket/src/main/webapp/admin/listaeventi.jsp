@@ -3,7 +3,7 @@
 <%@ page import="java.util.*"%>
 <%@ page import="com.ant.goldenticket.entities.*"%>
 <%@ page import="com.ant.goldenticket.*"%>
-
+<% List<Evento> list = (List<Evento>)request.getAttribute("listaeventi");%>
 
 <!DOCTYPE html>
 <html>
@@ -45,20 +45,19 @@
 						<div class="grid-container3">
 							<ul>
 								<!-- FOR PER STAMPARE NOMI CITTA'-->
-							
-								<li><a href="formnuovoevento">Evento<i
-										class="fa fa-group"></i>
-										class="fa fa-indicator fa-chevron-right"></i></a>
-								</li>
-								<li><a href="formnuovoartista">Artista<i
+								<li><a href="nouvoevento">Evento<i
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
-								<li><a href="formnuovolocalita">Localita<i
+								<li><a href="nouvoartista">Artista<i
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
-								<li><a href="formnuovouser">User</i><i>
+								<li><a href="nouvolocalita">Localita<i
+										class="fa fa-group"></i><i
+										class="fa fa-indicator fa-chevron-right"></i></a>
+								</li>
+								<li><a href="nouvouser">User</i><i
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
@@ -66,25 +65,26 @@
 						</div></li>
 					<!--/ about -->
 					<!-- eventi -->
-					<li><a href="listaeventi">Eventi</a></li>
+					<li><a href="eventi">Eventi</a></li>
 					<!-- localita-->
-					<li><a href="listalocalita">Localit√†</a></li>
+					<li><a href="localita">Localit‡</a></li>
 					<!-- eventi -->
-					<li><a href="listaartisti">Artisti</a></li>
+					<li><a href="artisti">Artisti</a></li>
 					<!-- users -->
-					<li><a href="listauser">Users</a></li>
+					<li><a href="users">Users</a></li>
 					
 					<div class="navbar">
 						<div class="search-container">
-							<form action="ricercaadmin" method="get">
+							<form action="ricerca" method="get">
 								<input type="text" placeholder="Nome,Artista,Citta'..."
 									name="search">
 								<button type="submit">
 									<i class="fa fa-search"></i>
 								</button>
 							</form>
-						</div>				
+						</div>
 						<!--SI LOGIN -->
+
 						<div class="login">
 							<div class="search-container">
 								<a href="logout" id="logout" type="submit">ESCI</a>
@@ -97,8 +97,24 @@
 		</div>
 
 		<div class="context">
-
-
+			
+			<%for(Evento e : list){ %>
+			<div>
+					<h1> <%=e.getNome() %></h1> <br>
+					<img src="<%=e.getLocandina()%>"><br>
+					<%=e.getTipologia()%>, <%=e.getGenere()%><br>
+					Artisti:<br>
+					<%for(Artista a: e.getArtisti()){ %>
+						<%=a.getNominativo()%><br>
+					<%} %>
+					<p><%=e.getLocalita().getCitta()%> in <%=e.getLocalita().getZona()%><br>
+					indirizzo : <%=e.getLocalita().getIndirizzo()%><br>
+					<%=e.getGiornoSettimana()%> <br>
+					<%=e.getData()%> alle ore <%=e.getOra()%> </p> <br>
+					<a href="eliminaevento?id= <%=e.getId() %>">Elimina</a>
+					<a href="modificaevento?id= <%=e.getId() %>">modifica</a>
+			</div>
+			<%} %>
 		</div>
 
 		<div class="footer">
