@@ -140,8 +140,34 @@
         </div>
       </div>
 
-      <div class="b-context">
+      <div class="contextbiglietto">
       
+      	<%
+			for (Biglietto b : biglietti) {
+			%>
+			<div>
+				<img src="<%=b.getEvento().getLocandina()%>"> <br>
+				<table>
+					<tr>
+						<td>Evento: <%=b.getEvento().getNome()%></td>
+					</tr>
+					<tr>
+						<td>Data: <%=b.getEvento().getData() %></td>
+						<td>Orario: <%=b.getEvento().getOra() %></td>
+					</tr>
+					<tr>
+						<td>Fila: <%=b.getFila() %></td>
+						<td>Posto: <%=b.getPosto() %></td>
+					</tr>
+					<tr>
+						<td>Nome: <%=b.getUtente().get("username")%></td>
+						<td>Prezzo: <%=b.getPrezzo() %></td>
+					</tr>
+				</table>
+				
+			</div>
+			<%} %>
+      <br> <a href="checkout">Checkout</a>
     </div>
 
       <div class="footer">

@@ -82,3 +82,36 @@ div .context div
   border-radius: 7%;
   padding: 2%;
 }
+.contextbiglietto
+{
+  padding: 15px;
+  text-align: center;
+  height: auto;
+  background: #e9e9e9;
+  width: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  grid-auto-rows: auto;
+  min-width: 500px;
+}
+div .contextbiglietto div img
+{
+  height: auto;
+  width: 80%;
+  margin-top: 15px;
+}
+
+div .contextbiglietto div h1
+{
+  font-size: 20px;
+  margin-top: 5%;
+}
+
+div .contextbiglietto div
+{
+  border: solid black 2px;
+  background-color: #F5D12D;
+  border-radius: 7%;
+  padding: 2%;
+}
