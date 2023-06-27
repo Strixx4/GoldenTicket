@@ -27,7 +27,7 @@ public class DAOBigliettoAcquistato {
 		List<Map<String,String>>righe=db.rows(query, params);
 		for(Map<String,String> m:righe)
 		{
-			Biglietto b =context.getBean(Biglietto.class,du.readByID(Integer.parseInt(m.get("id"))),m,de.cercaPerID(Integer.parseInt(m.get("id"))));
+			Biglietto b =context.getBean(Biglietto.class,m,du.readByID(Integer.parseInt(m.get("id"))),de.cercaPerID(Integer.parseInt(m.get("idEvento"))));
 			ris.add(b);
 		}
 		return ris;
