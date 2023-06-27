@@ -153,7 +153,7 @@
               <span>Posto: <%=b.getPosto() %></span>
               <span>Prezzo: <%=b.getPrezzo() %></span>
 			      </div>
-			      <a href="eliminadacarrello">ELIMINA</a>
+			      <a href="eliminadacarrello?id=<%=b.getId()%>">ELIMINA</a>
         </div>
         
 			<%} %>
