@@ -36,42 +36,33 @@
 				<ul
 					class="sky-mega-menu sky-mega-menu-anim-flip sky-mega-menu-response-to-icons">
 					<!-- home -->
-					<li><a href="admin/"><i class="fa fa-single fa-home"></i></a></li>
+					<li><a href="/admin/"><i class="fa fa-single fa-home"></i></a></li>
 					<!--/ home -->
 					<!-- about -->
 					<!-- Città  -->
-					<li aria-haspopup="true"><a>NUOVO<i
-							class="fa fa-indicator fa-chevron-down"></i></a>
+					<li aria-haspopup="true"><a>NUOVO</a>
 						<div class="grid-container3">
 							<ul>
 								<!-- FOR PER STAMPARE NOMI CITTA'-->
-								<li><a href="nouvoevento">Evento<i
-										class="fa fa-group"></i><i
-										class="fa fa-indicator fa-chevron-right"></i></a>
+								<li><a href="nouvoevento">Evento</a>
 								</li>
-								<li><a href="nouvoartista">Artista<i
-										class="fa fa-group"></i><i
-										class="fa fa-indicator fa-chevron-right"></i></a>
+								<li><a href="nouvoartista">Artista</a>
 								</li>
-								<li><a href="nouvolocalita">Localita<i
-										class="fa fa-group"></i><i
-										class="fa fa-indicator fa-chevron-right"></i></a>
+								<li><a href="nouvolocalita">Localita'</a>
 								</li>
-								<li><a href="nouvouser">User</i><i
-										class="fa fa-group"></i><i
-										class="fa fa-indicator fa-chevron-right"></i></a>
+								<li><a href="nouvouser">User</a>
 								</li>
 							</ul>
 						</div></li>
 					<!--/ about -->
 					<!-- eventi -->
-					<li><a href="eventi">Eventi</a></li>
+					<li><a href="listaeventi">Eventi</a></li>
 					<!-- localita-->
-					<li><a href="localita">Localit�</a></li>
+					<li><a href="listalocalita">Localita'</a></li>
 					<!-- eventi -->
-					<li><a href="artisti">Artisti</a></li>
+					<li><a href="listaartisti">Artisti</a></li>
 					<!-- users -->
-					<li><a href="users">Users</a></li>
+					<li><a href="listausers">Users</a></li>
 					
 					<div class="navbar">
 						<div class="search-container">
