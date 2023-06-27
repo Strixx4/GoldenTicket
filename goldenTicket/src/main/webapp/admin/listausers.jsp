@@ -102,7 +102,7 @@
 						<%=m.get("username") %>
 						<%=m.get("ruolo") %>
 						<a href="eliminauser?id=<%m.get("id");%>">Elimina</a>
-						<a href="modificauser?id=<%m.get("id");%>">Modifica</a>
+						<a href="formmodificauser?id=<%m.get("id");%>">Modifica</a>
 					</div>
 					
 					

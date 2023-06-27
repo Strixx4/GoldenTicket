@@ -44,13 +44,13 @@
 						<div class="grid-container3">
 							<ul>
 								<!-- FOR PER STAMPARE NOMI CITTA'-->
-								<li><a href="nouvoevento">Evento</a>
+								<li><a href="formnuovoevento">Evento</a>
 								</li>
-								<li><a href="nouvoartista">Artista</a>
+								<li><a href="formnuovoartista">Artista</a>
 								</li>
-								<li><a href="nouvolocalita">Localita'</a>
+								<li><a href="formnuovolocalita">Localita'</a>
 								</li>
-								<li><a href="nouvouser">User</a>
+								<li><a href="formnuovouser">User</a>
 								</li>
 							</ul>
 						</div></li>
@@ -103,7 +103,7 @@
 					<%=e.getGiornoSettimana()%> <br>
 					<%=e.getData()%> alle ore <%=e.getOra()%> </p> <br>
 					<a href="eliminaevento?id= <%=e.getId() %>">Elimina</a>
-					<a href="modificaevento?id= <%=e.getId() %>">modifica</a>
+					<a href="formmodificaevento?id= <%=e.getId() %>">modifica</a>
 			</div>
 			<%} %>
 		</div>

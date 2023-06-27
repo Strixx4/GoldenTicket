@@ -46,19 +46,19 @@
 						<div class="grid-container3">
 							<ul>
 								<!-- FOR PER STAMPARE NOMI CITTA'-->
-								<li><a href="nouvoevento">Evento<i
+								<li><a href="formnuovoevento">Evento<i
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
-								<li><a href="nouvoartista">Artista<i
+								<li><a href="formnuovoartista">Artista<i
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
-								<li><a href="nouvolocalita">Localita<i
+								<li><a href="formnuovolocalita">Localita<i
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
-								<li><a href="nouvouser">User</i><i
+								<li><a href="formnuovouser">User</i><i
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
@@ -103,7 +103,7 @@
 			<div>
 					<h1> <%=a.getNominativo() %></h1> <br>
 					<a href="eliminaartista?id= <%=a.getId() %>">Elimina</a>
-					<a href="modificaartista?id= <%=a.getId() %>">modifica</a>
+					<a href="formmodificaartista?id= <%=a.getId() %>">modifica</a>
 			</div>
 			<%} %>
 		</div>
