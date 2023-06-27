@@ -147,6 +147,7 @@
               <p>Evento: <%=b.getEvento().getNome()%></p>
               <span>Data: <%=b.getEvento().getData() %></span>
               <p>Orario: <%=b.getEvento().getOra() %></p>
+              <p>Data Emissione: <%=b.getDataEmissione() %> </p>
               <span>Fila: <%=b.getFila() %></span>
               <span>Posto: <%=b.getPosto() %></span>
               <span>Prezzo: <%=b.getPrezzo() %></span>
