@@ -37,7 +37,7 @@
 				<ul
 					class="sky-mega-menu sky-mega-menu-anim-flip sky-mega-menu-response-to-icons">
 					<!-- home -->
-					<li><a href="admin/"><i class="fa fa-single fa-home"></i></a></li>
+					<li><a href="/admin/"><i class="fa fa-single fa-home"></i></a></li>
 					<!--/ home -->
 					<!-- about -->
 					<!-- Città  -->
@@ -66,13 +66,13 @@
 						</div></li>
 					<!--/ about -->
 					<!-- eventi -->
-					<li><a href="eventi">Eventi</a></li>
+					<li><a href="listaeventi">Eventi</a></li>
 					<!-- localita-->
-					<li><a href="localita">Localit�</a></li>
+					<li><a href="listalocalita">Localit�</a></li>
 					<!-- eventi -->
-					<li><a href="artisti">Artisti</a></li>
+					<li><a href="listaartisti">Artisti</a></li>
 					<!-- users -->
-					<li><a href="users">Users</a></li>
+					<li><a href="listausers">Users</a></li>
 					
 					<div class="navbar">
 						<div class="search-container">

@@ -61,10 +61,8 @@ public class UtentiController {
 				return "redirect:admin/";
 			}
 		}
-
 		model.addAttribute("listabiglietti", dc.readAll(Integer.parseInt(session.getAttribute("id").toString())));
 		return "carrello.jsp";
-
 	}
 
 	@GetMapping("eliminadacarrello")

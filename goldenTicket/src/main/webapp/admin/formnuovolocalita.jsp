@@ -69,7 +69,7 @@
 					<!-- eventi -->
 					<li><a href="listaeventi">Eventi</a></li>
 					<!-- localita-->
-					<li><a href="listalocalita">Localita'�</a></li>
+					<li><a href="listalocalita">Localita'</a></li>
 					<!-- eventi -->
 					<li><a href="listaartisti">Artisti</a></li>
 					<!-- users -->
@@ -96,46 +96,32 @@
 				</ul>
 			</div>
 		</div>
-		
 		<div class="context">
-			<form action="nuovoevento" method="get">
-				<label>Nome:</label>
-				<input type="text" name="nome" placeholder="Finale di Champions"><br><br>
-				<label>Tipologia:</label>
-				<input type="text" name="tipologia" placeholder="Sport"><br>
-				<label>Genere:</label>
-				<input type="text" name="genere" placeholder="Calcio"><br><br>
-				<label>Data:</label>
-				<input type="text" name="data" placeholder="YYYY-MM-DD"><br>
-				<label>Giorno della Settimana:</label>
-				<input type="text" name="giornoSettimana" placeholder="Luned�"><br>
-				<label>Ora:</label>
-				<input type="text" name="ora" placeholder="11:20"><br><br>
-				<label>Locandina:</label>
-				<input type="text" name="locandina" placeholder="www.foto.com"><br><br>
-				<label>Localita:</label>
-				<input type="text" name="localita" placeholder="San Siro"><br><br>
-				<label>Artisti:</label>
-				<input type="text" name="artisti" placeholder="Vasco,Bugo,Milan"><br><br>
-				<hr>
-				<input type="submit" value="aggiungi">
+			<form action="nuovalocalita" method="get" style=" display: inline-block;">
+				<label for="citta">Citta':</label>
+				<input type="text" placeholder="Città"><br>
+				<label for="zona">Zona:</label>
+				<input type="text" placeholder="Zona"><br>
+				<label for="posti">Posti:</label>
+				<input type="number" placeholder="Numero posti"><br>
+				<label for="indirizzo">Indirizzo:</label>
+				<input type="text" placeholder="Indirizzo"><br>
+				<input type="submit" value="Aggiungi">
 			</form>
 		</div>
 
 		<div class="footer">
+			
 			<div id="linguaggi">
 				<h2>Tecnologie Utilizzate</h2>
-
 				<h4>FRONT-END</h4>
 				<a href="https://www.w3schools.com/html/default.asp" target="_blank">HTML</a>
 				<a href="https://www.w3schools.com/cs/default.asp" target="_blank">CSS</a>
 				<a href="https://www.w3schools.com/js/default.asp" target="_blank">JavaScript</a>
-
 				<h4>BACK-END</h4>
 				<a href="https://www.w3schools.com/java/default.asp" target="_blank">Java</a>
-				<a href="https://www.w3schools.com/MySQL/default.asp"
-					target="_blank">MySQL</a> <a href="https://spring.io/">Spring</a>
-
+				<a href="https://www.w3schools.com/MySQL/default.asp"target="_blank">MySQL</a> 
+				<a href="https://spring.io/"ctarget="_blank">Spring</a>
 			</div>
 
 			<div id="societa">

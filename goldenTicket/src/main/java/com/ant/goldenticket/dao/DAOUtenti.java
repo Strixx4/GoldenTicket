@@ -20,7 +20,6 @@ public class DAOUtenti {
 
 	public boolean update(Map<String, String> u) {
 		String query = "update utenti set username = ? , password = ? , ruolo = ? where id = ?";
-
 		return db.update(query, u.get("username"), u.get("password"), u.get("ruolo"), u.get("id"));
 	}
 

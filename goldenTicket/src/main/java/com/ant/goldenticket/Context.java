@@ -24,7 +24,7 @@ import com.ant.goldenticket.entities.Localita;
 public class Context {
 	@Bean
 	public Database db() {
-		return new Database("GoldenTicket","root","root");
+		return new Database("GoldenTicket","root","Q705322H");
 	}
 
 	@Bean 
@@ -99,7 +99,6 @@ public class Context {
 	}
 	@Bean
 	@Scope("prototype")
-	@Primary
 	public Biglietto leggiBiglietto(Map<String,String> valori,Map<String,String> u, Evento e) {
 		Biglietto b = new Biglietto();
 		b.fromMap(valori);
@@ -109,9 +108,9 @@ public class Context {
 	}
 	@Bean
 	@Scope("prototype")
-	public Evento evento(Map<String,String> m,List<Artista> a, Localita l) {
+	public Evento evento(Map<String,String> valori, List<Artista> a, Localita l) {
 		Evento e = new Evento();
-		e.fromMap(m);
+		e.fromMap(valori);
 		e.setArtisti(a);
 		e.setLocalita(l);
 		return e;
