@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.*"%>    
 <%@ page import="com.ant.goldenticket.entities.*"%>
 <%@ page import="com.ant.goldenticket.*"%>
-<% Artista a=(Artista) request.getAttribute("artista");%>
+<%Map<String,String>u=(Map<String,String>)request.getAttribute("user"); %>
 
 <!DOCTYPE html>
 <html>
@@ -95,9 +96,10 @@
 				</div>
 			</div>
 			<div class="context">
-				<form action="modificaartista" method="post">
-					ID<input type="text" name="id" value="<%=a.getId()%>"readonly><br>
-					NOMINATIVO<input type="text" name="nominativo" value="<%=a.getNominativo()%>"><br>
+				<form action="modificauser" method="post">
+					ID<input type="text" name="id" value="<%=u.get("id")%>"readonly><br>
+					USERNAME<input type="text" name="nominativo" value="<%=u.get("username")%>"><br>
+					PASSWORD<input type="text" name="nominativo" value="<%=u.get("password")%>"><br>
 					<input type="submit" value="AGGIORNA">
 				</form>
 			</div>
