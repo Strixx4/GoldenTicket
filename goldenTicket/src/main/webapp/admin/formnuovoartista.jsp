@@ -98,7 +98,7 @@
 			</div>
 		</div>
 		<div class="context">
-			<form action="formnuovoartista" method="get">
+			<form action="nuovoartista" method="get">
 			NOMINATIVO <input type="text" name="nominativo">
 			<input type="submit" value="AGGIUNGI">
 		</form>

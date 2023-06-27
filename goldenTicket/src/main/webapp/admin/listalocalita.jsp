@@ -104,7 +104,7 @@
 						<%=l.getPosti()%><br>
 						<%=l.getIndirizzo() %><br>
 						<a href="eliminalocalita?id=<%l.getId();%>">Elimina</a>
-						<a href="modificalocalita?id=<%l.getId();%>">Modifica</a>
+						<a href="formmodificalocalita?id=<%l.getId();%>">Modifica</a>
 					</div>
 					
 					
