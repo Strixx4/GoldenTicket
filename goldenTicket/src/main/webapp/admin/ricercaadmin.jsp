@@ -1,9 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="com.ant.goldenticket.entities.*"%>
-<%@ page import="com.ant.goldenticket.*"%>
-<% Artista a=(Artista) request.getAttribute("artista");%>
+<%@ page import="java.util.*" %>
+<%@ page import="com.ant.goldenticket.entities.*" %>
+<%@ page import="com.ant.goldenticket.*" %>
+<% List<String> c = (List<String>)request.getAttribute("listacitta");%>
+<% List<String> t = (List<String>)request.getAttribute("listatipologia");%>
+<% Map<String, List<String>> z = (Map<String, List<String>>)request.getAttribute("listazone");%>
+<% Map<String, List<String>> g = (Map<String, List<String>>)request.getAttribute("listaSG");%>
 
+
+<% List<Evento> el=  (List<Evento>)request.getAttribute("lNome");%>
+<% List<Evento> al=  (List<Evento>)request.getAttribute("lArtista");%>
+<% List<Evento> ll=  (List<Evento>)request.getAttribute("lLocalita");%>
+<% String controllaLogin = (String) request.getAttribute("controllologin");%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -20,7 +29,7 @@
 			src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 		<Script src="../admin/jqSearchadmin.js"></Script>
 	</head>
-	
+
 	<body>
 		<div id="container">
 			<div class="header">
@@ -35,7 +44,7 @@
 					<ul
 						class="sky-mega-menu sky-mega-menu-anim-flip sky-mega-menu-response-to-icons">
 						<!-- home -->
-						<li><a href="admin/"><i class="fa fa-single fa-home"></i></a></li>
+						<li><a href="/admin/"><i class="fa fa-single fa-home"></i></a></li>
 						<!--/ home -->
 						<!-- about -->
 						<!-- Città  -->
@@ -58,6 +67,7 @@
 											class="fa fa-indicator fa-chevron-right"></i></a>
 									</li>
 									<li><a href="formnuovouser">User</i><i
+	
 											class="fa fa-group"></i><i
 											class="fa fa-indicator fa-chevron-right"></i></a>
 									</li>
@@ -86,7 +96,7 @@
 							<!--SI LOGIN -->
 							<div class="login">
 								<div class="search-container">
-									<a href="logout" id="logout" type="submit">ESCI</a>
+									<a href= "logout" id="logout" type="submit">ESCI</a>
 								</div>
 							</div>
 	
@@ -94,13 +104,62 @@
 					</ul>
 				</div>
 			</div>
-			<div class="context">
-				<form action="modificaartista" method="post">
-					ID<input type="text" name="id" value="<%=a.getId()%>"readonly><br>
-					NOMINATIVO<input type="text" name="nominativo" value="<%=a.getNominativo()%>"><br>
-					<input type="submit" value="AGGIORNA">
-				</form>
-			</div>
+			<div class="ricerca">
+	      <!-- INSERISCI QUI -->
+	      <h3 class="hn">EVENTI PER NOME ( <%=el.size() %> )</h3>
+	      <div id="listNome" class="context">
+	      <% if(el.size() > 0){ %>
+	          <%for(Evento e : el){ %>
+	          <div >
+	          	<h1> <%=e.getNome() %></h1> <br>
+					<img src="<%=e.getLocandina()%>"><br>
+					<p><%=e.getLocalita().getCitta()%><br><%= e.getLocalita().getZona()%><br><%=e.getGiornoSettimana()%> <%=e.getData()%> alle ore <%= e.getOra()%> </p> <br>
+					<a href="eliminaevento?id= <%=e.getId() %>">Elimina</a>
+					<a href="formmodificaevento?id= <%=e.getId() %>">modifica</a>
+					
+	          </div>
+	          <%}%>
+	      <%} %>
+	      <% if(el.size()  == 0){ %>
+	      	<p>Non ci sono risultati disponibili</p>
+	       <%} %>
+	        </div>
+	      <h3 class="ha">EVENTI PER ARTISTA ( <%=al.size() %> )</h3>  
+	      <div id="listArtista" class ="context">
+	      <% if(al.size() > 0){ %>
+	          <%for(Evento e : al){ %>
+	          	<div><h1> <%=e.getNome() %></h1> <br>
+					<img src="<%=e.getLocandina()%>"><br>
+					<p><%=e.getLocalita().getCitta()%><br><%= e.getLocalita().getZona()%><br><%=e.getGiornoSettimana()%> <%=e.getData()%> alle ore <%= e.getOra()%> </p> <br>
+					<a href="eliminaevento?id= <%=e.getId() %>">Elimina</a>
+					<a href="formmodificaevento?id= <%=e.getId() %>">modifica</a>
+	          </div>
+	          <%}%>
+	      <%} %>
+	      <% if(al.size()  == 0){ %>
+	      	<p>Non ci sono risultati disponibili</p>
+	       <%} %>
+	        </div>
+	
+	      <h3 class="hc">EVENTI PER CITTA ( <%=ll.size() %> )</h3>  
+	      	<div id="listCitta" class="context">
+	      	 <% if(ll.size() > 0){ %>
+	          <%for(Evento e : ll){ %>
+	          <div>
+	          	<h1> <%=e.getNome() %></h1> <br>
+					<img src="<%=e.getLocandina()%>"><br>
+					<p><%=e.getLocalita().getCitta()%><br><%= e.getLocalita().getZona()%><br><%=e.getGiornoSettimana()%> <%=e.getData()%> alle ore <%= e.getOra()%> </p> <br>
+					<a href="eliminaevento?id= <%=e.getId() %>">Elimina</a>
+					<a href="formmodificaevento?id= <%=e.getId() %>">modifica</a>
+				</div>
+	          <%}%>
+	        <%} %>
+	      <% if(ll.size()  == 0){ %>
+	      	<p>Non ci sono risultati disponibili</p>
+	       <%} %>
+	          </div>
+	    </div>
+	
 			<div class="footer">
 				<div id="linguaggi">
 					<h2>Tecnologie Utilizzate</h2>
@@ -138,4 +197,5 @@
 			</div>
 		</div>
 	</body>
+	<script>nascondi()</script>
 </html>

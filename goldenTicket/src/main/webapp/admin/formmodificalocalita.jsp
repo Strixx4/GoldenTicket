@@ -15,10 +15,10 @@
 		<link rel="stylesheet" href="../CSS/navbar.css">
 		<link rel="stylesheet"
 			href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-		<script src="File.js"></script>
+		<script src="../admin/Fileadmin.js"></script>
 		<script
 			src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-		<Script src="jqSearch.js"></Script>
+		<Script src="../admin/jqSearchadmin.js"></Script>
 	</head>
 	
 	<body>
@@ -35,7 +35,7 @@
 					<ul
 						class="sky-mega-menu sky-mega-menu-anim-flip sky-mega-menu-response-to-icons">
 						<!-- home -->
-						<li><a href="admin/"><i class="fa fa-single fa-home"></i></a></li>
+						<li><a href="/admin/"><i class="fa fa-single fa-home"></i></a></li>
 						<!--/ home -->
 						<!-- about -->
 						<!-- Città  -->
