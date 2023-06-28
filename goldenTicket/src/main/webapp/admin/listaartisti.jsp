@@ -46,19 +46,21 @@
 						<div class="grid-container3">
 							<ul>
 								<!-- FOR PER STAMPARE NOMI CITTA'-->
-								<li><a href="nouvoevento">Evento<i
+							
+								<li><a href="formnuovoevento">Evento<i
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
-								<li><a href="nouvoartista">Artista<i
+								<li><a href="formnuovoartista">Artista<i
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
-								<li><a href="nouvolocalita">Localita<i
+								<li><a href="formnuovolocalita">Localita'<i
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
-								<li><a href="nouvouser">User</i><i
+								<li><a href="formnuovouser">User</i><i
+
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
@@ -68,27 +70,34 @@
 					<!-- eventi -->
 					<li><a href="listaeventi">Eventi</a></li>
 					<!-- localita-->
+<<<<<<< Updated upstream
 					<li><a href="listalocalita">Localit�</a></li>
 					<!-- eventi -->
 					<li><a href="listaartisti">Artisti</a></li>
 					<!-- users -->
 					<li><a href="listausers">Users</a></li>
+=======
+					<li><a href="listalocalita">Localita'</a></li>
+					<!-- eventi -->
+					<li><a href="listaartisti">Artisti</a></li>
+					<!-- users -->
+					<li><a href="listauser">Users</a></li>
+>>>>>>> Stashed changes
 					
 					<div class="navbar">
 						<div class="search-container">
-							<form action="ricerca" method="get">
+							<form action="ricercaadmin" method="get">
 								<input type="text" placeholder="Nome,Artista,Citta'..."
 									name="search">
 								<button type="submit">
 									<i class="fa fa-search"></i>
 								</button>
 							</form>
-						</div>
+						</div>				
 						<!--SI LOGIN -->
-
 						<div class="login">
 							<div class="search-container">
-								<a href="logout" id="logout" type="submit">ESCI</a>
+								<a href= "logout" id="logout" type="submit">ESCI</a>
 							</div>
 						</div>
 

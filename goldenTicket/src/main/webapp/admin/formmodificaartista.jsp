@@ -96,33 +96,17 @@
 				</ul>
 			</div>
 		</div>
-		
 		<div class="context">
-			<form action="nuovoevento" method="get">
-				<label>Nome:</label>
-				<input type="text" name="nome" placeholder="Finale di Champions"><br><br>
-				<label>Tipologia:</label>
-				<input type="text" name="tipologia" placeholder="Sport"><br>
-				<label>Genere:</label>
-				<input type="text" name="genere" placeholder="Calcio"><br><br>
-				<label>Data:</label>
-				<input type="text" name="data" placeholder="YYYY-MM-DD"><br>
-				<label>Giorno della Settimana:</label>
-<<<<<<< Updated upstream
-				<input type="text" name="giornoSettimana" placeholder="Luned�"><br>
-=======
-				<input type="text" name="giornoSettimana" placeholder="Lunedi"><br>
->>>>>>> Stashed changes
-				<label>Ora:</label>
-				<input type="text" name="ora" placeholder="11:20"><br><br>
-				<label>Locandina:</label>
-				<input type="text" name="locandina" placeholder="www.foto.com"><br><br>
-				<label>Localita:</label>
-				<input type="text" name="localita" placeholder="San Siro"><br><br>
-				<label>Artisti:</label>
-				<input type="text" name="artisti" placeholder="Vasco,Bugo,Milan"><br><br>
-				<hr>
-				<input type="submit" value="aggiungi">
+            <form action="nuovalocalita" method="get" style=" display: inline-block;">
+				<label for="citta">Citta':</label>
+				<input type="text" placeholder="Città"><br>
+				<label for="zona">Zona:</label>
+				<input type="text" placeholder="Zona"><br>
+				<label for="posti">Posti:</label>
+				<input type="number" placeholder="Numero posti"><br>
+				<label for="indirizzo">Indirizzo:</label>
+				<input type="text" placeholder="Indirizzo"><br>
+				<input type="submit" value="Aggiungi">
 			</form>
 		</div>
 

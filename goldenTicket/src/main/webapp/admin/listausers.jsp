@@ -37,7 +37,7 @@
 					<ul
 						class="sky-mega-menu sky-mega-menu-anim-flip sky-mega-menu-response-to-icons">
 						<!-- home -->
-						<li><a href="admin/"><i class="fa fa-single fa-home"></i></a></li>
+						<li><a href="/admin/"><i class="fa fa-single fa-home"></i></a></li>
 						<!--/ home -->
 						<!-- about -->
 						<!-- Città  -->
@@ -60,6 +60,7 @@
 											class="fa fa-indicator fa-chevron-right"></i></a>
 									</li>
 									<li><a href="formnuovouser">User</i><i
+	
 											class="fa fa-group"></i><i
 											class="fa fa-indicator fa-chevron-right"></i></a>
 									</li>
@@ -69,7 +70,7 @@
 						<!-- eventi -->
 						<li><a href="listaeventi">Eventi</a></li>
 						<!-- localita-->
-						<li><a href="listalocalita">Localita'�</a></li>
+						<li><a href="listalocalita">Localita'</a></li>
 						<!-- eventi -->
 						<li><a href="listaartisti">Artisti</a></li>
 						<!-- users -->
@@ -88,7 +89,7 @@
 							<!--SI LOGIN -->
 							<div class="login">
 								<div class="search-container">
-									<a href="logout" id="logout" type="submit">ESCI</a>
+									<a href= "logout" id="logout" type="submit">ESCI</a>
 								</div>
 							</div>
 	
@@ -96,6 +97,7 @@
 					</ul>
 				</div>
 			</div>
+
 			<div class="context">
 				<%for(Map<String,String> m:users) {%>
 					<div>

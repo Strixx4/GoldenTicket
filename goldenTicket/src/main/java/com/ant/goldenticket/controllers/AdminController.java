@@ -1,6 +1,10 @@
 package com.ant.goldenticket.controllers;
 
+<<<<<<< Updated upstream
 import java.util.*;
+=======
+import java.util.Map;
+>>>>>>> Stashed changes
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -14,7 +18,10 @@ import com.ant.goldenticket.dao.DAOArtista;
 import com.ant.goldenticket.dao.DAOEvento;
 import com.ant.goldenticket.dao.DAOLocalita;
 import com.ant.goldenticket.dao.DAOUtenti;
+<<<<<<< Updated upstream
 import com.ant.goldenticket.entities.Artista;
+=======
+>>>>>>> Stashed changes
 import com.ant.goldenticket.entities.Evento;
 
 import jakarta.servlet.http.HttpSession;
@@ -51,12 +58,20 @@ public class AdminController {
 			return "redirect:/";
 		return "formnuovoevento.jsp";
 	}
+<<<<<<< Updated upstream
 	@GetMapping("nuovoevento")
 	public String aggiungiEvento(@RequestParam Map<String,String> m, HttpSession session){
+=======
+
+	@GetMapping("nuovoevento")
+	public String modificaevento(HttpSession session, @RequestParam Map<String,String> params)
+	{
+>>>>>>> Stashed changes
 		if(!LoginController.checkSession(session))
 			return"redirect:/";
 		if(!LoginController.checkAdmin(session))
 			return "redirect:/";
+<<<<<<< Updated upstream
 
 		String[] artisti = m.get("artisti").split(","); 
 		List<Artista> a = new ArrayList<Artista>();
@@ -68,6 +83,13 @@ public class AdminController {
 		de.create(e);
 		return "redirect:listaeventi";
 	}
+=======
+		
+		return "redirect:listaeventi";
+	}
+
+
+>>>>>>> Stashed changes
 	@GetMapping("formnuovoartista")
 	public String formnuovoartista(HttpSession session, Model model)
 	{
@@ -77,6 +99,7 @@ public class AdminController {
 			return "redirect:/";
 		return "formnuovoartista.jsp";
 	}
+<<<<<<< Updated upstream
 	@GetMapping("nuovoartista")
 	public String nuovoartista(@RequestParam Map<String,String> m, HttpSession session){
 		if(!LoginController.checkSession(session))
@@ -88,6 +111,9 @@ public class AdminController {
 		de.create(e);
 		return "redirect:listaartisti";
 	}
+=======
+
+>>>>>>> Stashed changes
 	@GetMapping("formnuovolocalita")
 	public String nuovolocalita(HttpSession session, Model model)
 	{
