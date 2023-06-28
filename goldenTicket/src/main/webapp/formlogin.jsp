@@ -8,21 +8,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/x-icon" href="/IMG/favicon.jpeg">
+<link rel="stylesheet" href="../CSS/login.css">
 </head>
 <body>
-	<h2>
-		<a href="/">HOME</a>
-	</h2>
-	<form action="login" method="post">
-		<h2 id="titolo">Login</h2>
-		Nomeutente<input type="text" placeholder="Nome utente" name="username"><br>
-		<br> Password <input type="password" placeholder="Password"
-			name="password"> <br> <input type="submit"
-			class="bottone" value="LOGIN">
-	</form>
-	<br>
-	<h2>
-		<a href="formregistra">REGISTRATI</a>
-	</h2>
+	<div class="container">
+		<form action="login" method="post">
+			<a class="bottone" id="home"href="/">HOME</a>
+			<h2 id="titolo">LOGIN</h2>
+			Username<input type="text" placeholder="username" name="username"><br><br>
+			Password <input type="password" placeholder="Password" name="password"> <br> <br>
+			<a>Hai dimenticato la password?</a><input type="submit" class="bottone" value="LOGIN"><br><br>
+			Non hai un account?<a class="bottone" href="formregistra">REGISTRATI</a>
+		</form>
+	</div>
+	
+
 </body>
 </html>
