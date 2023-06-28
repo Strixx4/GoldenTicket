@@ -1,5 +1,11 @@
 package com.ant.goldenticket.controllers;
 
+<<<<<<< Updated upstream
+import java.util.*;
+=======
+import java.util.Map;
+>>>>>>> Stashed changes
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -12,7 +18,11 @@ import com.ant.goldenticket.dao.DAOArtista;
 import com.ant.goldenticket.dao.DAOEvento;
 import com.ant.goldenticket.dao.DAOLocalita;
 import com.ant.goldenticket.dao.DAOUtenti;
-
+<<<<<<< Updated upstream
+import com.ant.goldenticket.entities.Artista;
+=======
+>>>>>>> Stashed changes
+import com.ant.goldenticket.entities.Evento;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -48,8 +58,26 @@ public class AdminController {
 			return "redirect:/";
 		return "formnuovoevento.jsp";
 	}
+<<<<<<< Updated upstream
+	@GetMapping("nuovoevento")
+	public String aggiungiEvento(@RequestParam Map<String,String> m, HttpSession session){
+=======
+
+	@GetMapping("nuovoevento")
+	public String modificaevento(HttpSession session, @RequestParam Map<String,String> params)
+	{
+>>>>>>> Stashed changes
+		if(!LoginController.checkSession(session))
+			return"redirect:/";
+		if(!LoginController.checkAdmin(session))
+			return "redirect:/";
+		
+		return "redirect:listaeventi";
+	}
+
+
 	@GetMapping("formnuovoartista")
-	public String nuovoartista(HttpSession session, Model model)
+	public String formnuovoartista(HttpSession session, Model model)
 	{
 		if(!LoginController.checkSession(session))
 			return"redirect:/";
@@ -57,6 +85,21 @@ public class AdminController {
 			return "redirect:/";
 		return "formnuovoartista.jsp";
 	}
+<<<<<<< Updated upstream
+	@GetMapping("nuovoartista")
+	public String nuovoartista(@RequestParam Map<String,String> m, HttpSession session){
+		if(!LoginController.checkSession(session))
+			return"redirect:/";
+		if(!LoginController.checkAdmin(session))
+			return "redirect:/";
+
+		Artista a = context.getBean(Artista.class, m);
+		de.create(e);
+		return "redirect:listaartisti";
+	}
+=======
+
+>>>>>>> Stashed changes
 	@GetMapping("formnuovolocalita")
 	public String nuovolocalita(HttpSession session, Model model)
 	{
@@ -65,6 +108,17 @@ public class AdminController {
 		if(!LoginController.checkAdmin(session))
 			return "redirect:/";
 		return "formnuovolocalita.jsp";
+	}
+	@GetMapping("nuovalocalita")
+	public String nuovoartista(@RequestParam Map<String,String> m, HttpSession session){
+		if(!LoginController.checkSession(session))
+			return"redirect:/";
+		if(!LoginController.checkAdmin(session))
+			return "redirect:/";
+
+		Localita a = context.getBean(Localita.class, m);
+		de.create(e);
+		return "redirect:listalocalita";
 	}
 	@GetMapping("formnuovouser")
 	public String nuovouser(HttpSession session, Model model)
@@ -75,6 +129,17 @@ public class AdminController {
 			return "redirect:/";
 		return "formnuovouser.jsp";
 	}
+	@GetMapping("nuovouser")
+	public String nuovoartista(@RequestParam Map<String,String> m, HttpSession session){
+		if(!LoginController.checkSession(session))
+			return"redirect:/";
+		if(!LoginController.checkAdmin(session))
+			return "redirect:/";
+
+		du.create(m.get("username"), m.get("password"), "admin");
+		return "redirect:listauser";
+	}
+	
 	@GetMapping("listaeventi")
 	public String elencoeventi(HttpSession session, Model model) {
 		if(!LoginController.checkSession(session))

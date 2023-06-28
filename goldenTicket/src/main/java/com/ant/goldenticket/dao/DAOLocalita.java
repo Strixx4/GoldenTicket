@@ -74,6 +74,9 @@ public class DAOLocalita
 		return ris;
 	}
 	
-	
+	public Localita cercaPerLocalita(String zona, String citta)
+	{
+		return read("select * from localita where citta like ? and zona like ? ", "%"+citta+"%", "%"+zona+"%").get(0);
+	}
 	
 }

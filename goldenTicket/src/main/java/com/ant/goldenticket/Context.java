@@ -96,6 +96,7 @@ public class Context {
 		b.setEvento(evento);
 		return b;
 	}
+
 	@Bean
 	@Scope("prototype")
 	@Primary
@@ -108,9 +109,25 @@ public class Context {
 	}
 	@Bean
 	@Scope("prototype")
-	public Evento evento(Map<String,String> m,List<Artista> a, Localita l) {
+<<<<<<< Updated upstream
+	public Evento evento(Map<String,String> valori, List<Artista> a, Localita l) {
+=======
+	@Primary
+	public Evento evento(Map<String,String> m, List<Artista> a, Localita l) {
 		Evento e = new Evento();
 		e.fromMap(m);
+		e.setArtisti(a);
+		e.setLocalita(l);
+		return e;
+	}
+
+	@Bean
+	@Scope("prototype")
+	public Evento creaEvento(Map<String,String> m, List<Artista> a, Localita l)
+	{
+>>>>>>> Stashed changes
+		Evento e = new Evento();
+		e.fromMap(valori);
 		e.setArtisti(a);
 		e.setLocalita(l);
 		return e;

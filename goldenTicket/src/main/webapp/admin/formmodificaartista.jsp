@@ -38,7 +38,7 @@
 						<li><a href="/admin/"><i class="fa fa-single fa-home"></i></a></li>
 						<!--/ home -->
 						<!-- about -->
-						<!-- Città  -->
+						<!-- CittÃ Â  -->
 						<li aria-haspopup="true"><a>NUOVO<i
 								class="fa fa-indicator fa-chevron-down"></i></a>
 							<div class="grid-container3">
@@ -67,7 +67,7 @@
 						<!-- eventi -->
 						<li><a href="listaeventi">Eventi</a></li>
 						<!-- localita-->
-						<li><a href="listalocalita">Localita'�</a></li>
+						<li><a href="listalocalita">Localita' </a></li>
 						<!-- eventi -->
 						<li><a href="listaartisti">Artisti</a></li>
 						<!-- users -->

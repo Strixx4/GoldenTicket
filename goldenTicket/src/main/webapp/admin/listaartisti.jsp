@@ -3,7 +3,6 @@
 <%@ page import="java.util.*"%>
 <%@ page import="com.ant.goldenticket.entities.*"%>
 <%@ page import="com.ant.goldenticket.*"%>
-<% List<Evento> list = (List<Evento>)request.getAttribute("listaeventi");%>
 <% List<Artista> artisti = (List<Artista>)request.getAttribute("listaartisti");%>
 
 <!DOCTYPE html>
@@ -40,7 +39,7 @@
 					<li><a href="/admin/"><i class="fa fa-single fa-home"></i></a></li>
 					<!--/ home -->
 					<!-- about -->
-					<!-- Città  -->
+					<!-- CittÃ Â  -->
 					<li aria-haspopup="true"><a>NUOVO<i
 							class="fa fa-indicator fa-chevron-down"></i></a>
 						<div class="grid-container3">
@@ -54,7 +53,8 @@
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
-								<li><a href="formnuovolocalita">Localita<i
+								<li><a href="formnuovolocalita">Localita'<i
+
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
@@ -68,27 +68,25 @@
 					<!-- eventi -->
 					<li><a href="listaeventi">Eventi</a></li>
 					<!-- localita-->
-					<li><a href="listalocalita">Localit�</a></li>
+					<li><a href="listalocalita">Localita'</a></li>
 					<!-- eventi -->
 					<li><a href="listaartisti">Artisti</a></li>
 					<!-- users -->
-					<li><a href="listauser">Users</a></li>
-					
+					<li><a href="listausers">Users</a></li>
 					<div class="navbar">
 						<div class="search-container">
-							<form action="ricerca" method="get">
+							<form action="ricercaadmin" method="get">
 								<input type="text" placeholder="Nome,Artista,Citta'..."
 									name="search">
 								<button type="submit">
 									<i class="fa fa-search"></i>
 								</button>
 							</form>
-						</div>
+						</div>				
 						<!--SI LOGIN -->
-
 						<div class="login">
 							<div class="search-container">
-								<a href="logout" id="logout" type="submit">ESCI</a>
+								<a href= "logout" id="logout" type="submit">ESCI</a>
 							</div>
 						</div>
 

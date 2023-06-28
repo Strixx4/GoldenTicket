@@ -53,4 +53,11 @@ public class DAOArtista
 		Artista a=context.getBean(Artista.class,m);
 		return a;
 	}
+	public Artista cercaPerNominativo(String nominativo)
+	{
+		String query="select * from artisti like nominativo=?";
+		return read(query, "%"+nominativo+"%").get(0);
+	
+	}
+
 }

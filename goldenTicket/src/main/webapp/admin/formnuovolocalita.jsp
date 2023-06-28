@@ -3,7 +3,6 @@
 <%@ page import="java.util.*"%>
 <%@ page import="com.ant.goldenticket.entities.*"%>
 <%@ page import="com.ant.goldenticket.*"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,8 +18,6 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <Script src="../admin/jqSearchadmin.js"></Script>
-</head>
-
 <body>
 	<div id="container">
 		<div class="header">
@@ -38,7 +35,7 @@
 					<li><a href="/admin/"><i class="fa fa-single fa-home"></i></a></li>
 					<!--/ home -->
 					<!-- about -->
-					<!-- Città  -->
+					<!-- CittÃ Â  -->
 					<li aria-haspopup="true"><a>NUOVO<i
 							class="fa fa-indicator fa-chevron-down"></i></a>
 						<div class="grid-container3">
@@ -68,7 +65,7 @@
 					<!-- eventi -->
 					<li><a href="listaeventi">Eventi</a></li>
 					<!-- localita-->
-					<li><a href="listalocalita">Localita'�</a></li>
+					<li><a href="listalocalita">Localita' </a></li>
 					<!-- eventi -->
 					<li><a href="listaartisti">Artisti</a></li>
 					<!-- users -->
@@ -96,28 +93,31 @@
 			</div>
 		</div>
 		<div class="context">
-			<form action="nuovolocalita" method="get">
-			Citta: 		<input type="text" name="citta"><br>
-			Zona:  		<input type="text" name="zona"><br>
-			Posti: 		<input type="text" name="posti"><br>
-			indirizzo:  <input type="text" name="indirizzo"><br>
-			<input type="submit" value="aggiungi">
-		</form>
+			<form action="nuovalocalita" method="get" style=" display: inline-block;">
+				<label for="citta">Citta':</label>
+				<input type="text" placeholder="CittÃ "><br>
+				<label for="zona">Zona:</label>
+				<input type="text" placeholder="Zona"><br>
+				<label for="posti">Posti:</label>
+				<input type="number" placeholder="Numero posti"><br>
+				<label for="indirizzo">Indirizzo:</label>
+				<input type="text" placeholder="Indirizzo"><br>
+				<input type="submit" value="Aggiungi">
+			</form>
 		</div>
 
 		<div class="footer">
+			
 			<div id="linguaggi">
 				<h2>Tecnologie Utilizzate</h2>
-
 				<h4>FRONT-END</h4>
 				<a href="https://www.w3schools.com/html/default.asp" target="_blank">HTML</a>
 				<a href="https://www.w3schools.com/cs/default.asp" target="_blank">CSS</a>
 				<a href="https://www.w3schools.com/js/default.asp" target="_blank">JavaScript</a>
-
 				<h4>BACK-END</h4>
 				<a href="https://www.w3schools.com/java/default.asp" target="_blank">Java</a>
-				<a href="https://www.w3schools.com/MySQL/default.asp"
-					target="_blank">MySQL</a> <a href="https://spring.io/">Spring</a>
+				<a href="https://www.w3schools.com/MySQL/default.asp"target="_blank">MySQL</a> 
+				<a href="https://spring.io/"ctarget="_blank">Spring</a>
 
 			</div>
 
