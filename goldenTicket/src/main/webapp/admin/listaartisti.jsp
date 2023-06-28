@@ -72,7 +72,7 @@
 					<!-- eventi -->
 					<li><a href="listaartisti">Artisti</a></li>
 					<!-- users -->
-					<li><a href="listausers">Users</a></li>
+					<li><a href="listauser">Users</a></li>
 					<div class="navbar">
 						<div class="search-container">
 							<form action="ricercaadmin" method="get">
