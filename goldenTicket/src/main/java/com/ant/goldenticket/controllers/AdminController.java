@@ -129,6 +129,14 @@ public class AdminController {
 		return "redirect:listaeventi";
 	}
 
+	private boolean checkEvento(Evento e) {
+		boolean ris = false;
+		//controllo data
+		String[] data = e.getData().split("-");
+		
+		return ris;
+	}
+	
 	// ----------------------------ARTISTA----------------------------
 	@GetMapping("formnuovoartista")
 	public String formnuovoartista(HttpSession session, Model model) {
@@ -156,7 +164,8 @@ public class AdminController {
 		if (!LoginController.checkAdmin(session))
 			return "redirect:/";
 		Artista a = context.getBean(Artista.class, m);
-		da.create(a);
+		if (checkArtisti(a))
+			da.create(a);
 		return "redirect:listaartisti";
 	}
 
@@ -177,7 +186,8 @@ public class AdminController {
 		if (!LoginController.checkAdmin(session))
 			return "redirect:/";
 		Artista a = context.getBean(Artista.class, inputs);
-		da.update(a);
+		if (checkArtisti(a))
+			da.update(a);
 		return "redirect:listaartisti";
 	}
 
@@ -189,6 +199,13 @@ public class AdminController {
 			return "redirect:/";
 		model.addAttribute("listaartisti", da.readAll());
 		return "listaartisti.jsp";
+	}
+
+	private boolean checkArtisti(Artista a) {
+		if (a.getNominativo().length() > 0 && a.getNominativo().length() <= 100)
+			return true;
+		else
+			return false;
 	}
 
 	// '--------------------------------LOCALITA'--------------------------------
@@ -208,7 +225,8 @@ public class AdminController {
 		if (!LoginController.checkAdmin(session))
 			return "redirect:/";
 		Localita l = context.getBean(Localita.class, m);
-		dl.create(l);
+		if (checkLocalita(l))
+			dl.create(l);
 		return "redirect:listalocalita";
 	}
 
@@ -231,7 +249,8 @@ public class AdminController {
 			return "redirect:/";
 
 		Localita l = context.getBean(Localita.class, inputs);
-		dl.update(l);
+		if (checkLocalita(l))
+			dl.update(l);
 		return "redirect:listalocalita";
 	}
 
@@ -257,6 +276,19 @@ public class AdminController {
 
 	}
 
+	private boolean checkLocalita(Localita l) {
+		if (l.getIndirizzo().length() > 0 && l.getIndirizzo().length() <= 100) {
+			if (l.getCitta().length() > 0 && l.getCitta().length() <= 50) {
+				if (l.getZona().length() > 0 && l.getZona().length() <= 20) {
+					return true;
+				} else
+					return false;
+			} else
+				return false;
+		} else
+			return false;
+	}
+
 	// '--------------------------------USER'--------------------------------
 	@GetMapping("formnuovouser")
 	public String nuovouser(HttpSession session, Model model) {
@@ -264,6 +296,7 @@ public class AdminController {
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
 			return "redirect:/";
+
 		return "formnuovouser.jsp";
 	}
 
@@ -273,8 +306,12 @@ public class AdminController {
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
 			return "redirect:/";
-		du.create(m.get("username"), m.get("password"), "admin");
-		return "redirect:listauser";
+		if (du.cercaPerNome(m.get("username")) == null) {
+			if (LoginController.checkData(m.get("username"), m.get("password")))
+				du.create(m.get("username"), m.get("password"), "admin");
+			return "redirect:listauser";
+		} else
+			return "redirect:formnuovouser";
 	}
 
 	@GetMapping("formmodificauser")
@@ -293,9 +330,21 @@ public class AdminController {
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
 			return "redirect:/";
-		du.update(inputs);
-		System.out.println("Modificato con successo!");
-		return "redirect:listauser";
+		if (du.cercaPerNome(inputs.get("username")) == null) {
+			if (LoginController.checkData(inputs.get("username"), inputs.get("password")))
+				du.update(inputs);
+			return "redirect:listauser";
+		} else {
+			if (du.cercaPerNome(inputs.get("username")).get("username") == inputs.get("username")) {
+				if (LoginController.checkData(inputs.get("username"), inputs.get("password")))
+					du.update(inputs);
+
+				return "redirect:listauser";
+			} else {
+				System.out.println("!=");
+				return "redirect:listauser";
+			}
+		}
 	}
 
 	@GetMapping("eliminauser")

@@ -11,7 +11,7 @@
 </head>
 <body>
 	<a href="/">HOME</a>
-	<form action="registati" method="post">
+	<form action="registrati" method="post">
 		<h2 id="titolo">Non sei registrato?</h2>
 		Nome utente <input type="text" placeholder="Nome utente"
 			name="username"><br> Password <input type="password"
