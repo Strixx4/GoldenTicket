@@ -3,7 +3,7 @@
 <%@ page import="java.util.*"%>    
 <%@ page import="com.ant.goldenticket.entities.*"%>
 <%@ page import="com.ant.goldenticket.*"%>
-<%Map<String,String>u=(Map<String,String>)request.getAttribute("user"); %>
+<%Map<String,String> u =(Map<String,String>)request.getAttribute("user"); %>
 
 <!DOCTYPE html>
 <html>
@@ -68,7 +68,7 @@
 						<!-- eventi -->
 						<li><a href="listaeventi">Eventi</a></li>
 						<!-- localita-->
-						<li><a href="listalocalita">Localita' </a></li>
+						<li><a href="listalocalita">Localita'ï¿½</a></li>
 						<!-- eventi -->
 						<li><a href="listaartisti">Artisti</a></li>
 						<!-- users -->
@@ -98,8 +98,8 @@
 			<div class="context">
 				<form action="modificauser" method="post">
 					ID<input type="text" name="id" value="<%=u.get("id")%>"readonly><br>
-					USERNAME<input type="text" name="nominativo" value="<%=u.get("username")%>"><br>
-					PASSWORD<input type="text" name="nominativo" value="<%=u.get("password")%>"><br>
+					USERNAME<input type="text" name="username" value="<%=u.get("username")%>"><br>
+					PASSWORD<input type="text" name="password" value="<%=u.get("password")%>"><br>
 					<input type="submit" value="AGGIORNA">
 				</form>
 			</div>
