@@ -68,7 +68,7 @@ public class AdminController {
 		for (String s : a) {
 			ar.add(da.cercaPerNominativo(s));
 		}
-		Evento e = context.getBean(Evento.class,params,ar,l);
+		Evento e = context.getBean(Evento.class, params, ar, l);
 		de.create(e);
 		return "redirect:listaeventi";
 	}
@@ -214,37 +214,53 @@ public class AdminController {
 		du.delete(idUser);
 		return "redirect:/admin/";
 	}
-	
+
 	@PostMapping("modificauser")
-	public String modificaUtente(@RequestParam Map<String,String> inputs)
-	{
+	public String modificaUtente(@RequestParam Map<String, String> inputs,HttpSession session) {
+		if (!LoginController.checkSession(session))
+			return "redirect:/";
+		if (!LoginController.checkAdmin(session))
+			return "redirect:/";
 		du.update(inputs);
-			return "redirect:listausers";
+		return "redirect:listausers";
 	}
 
 	@GetMapping("modificaartista")
-	public String formmodificaArtista(@RequestParam Map<String,String> inputs){
-	   Artista a = context.getBean(Artista.class,inputs);
+	public String formmodificaArtista(@RequestParam Map<String, String> inputs,HttpSession session) {
+		if (!LoginController.checkSession(session))
+			return "redirect:/";
+		if (!LoginController.checkAdmin(session))
+			return "redirect:/";
+		Artista a = context.getBean(Artista.class, inputs);
 		da.update(a);
-			return "redirect:listaartisti";
-		}
+		return "redirect:listaartisti";
+	}
 
 	@GetMapping("modificaevento")
-	public String formmodificaEvento(@RequestParam Map <String,String> inputs){
-		   List <Artista> la = new ArrayList<Artista>(); //lista di artisti
-		   String [] sa = inputs.get("artisti").split(","); //splittiamo gli artisti con la virgola e li mettiamo in un array di Stringhe
-		   for (String a:sa) { //ciclo for per riempire la lista di singoli nomi di artisti
-			   la.add(da.cercaPerNominativo(a));
-		   }
-		   	dl.cercaPerLocalita(inputs.get("zona"), inputs.get("citta"));
-		    Evento e = context.getBean(Evento.class,inputs,la,dl);
-			de.update(e);
-			return "redirect:listaeventi";
-			}
+	public String formmodificaEvento(@RequestParam Map<String, String> inputs,HttpSession session) {
+		if (!LoginController.checkSession(session))
+			return "redirect:/";
+		if (!LoginController.checkAdmin(session))
+			return "redirect:/";
+		List<Artista> la = new ArrayList<Artista>(); // lista di artisti
+		String[] sa = inputs.get("artisti").split(","); // splittiamo gli artisti con la virgola e li mettiamo in un
+														// array di Stringhe
+		for (String a : sa) { // ciclo for per riempire la lista di singoli nomi di artisti
+			la.add(da.cercaPerNominativo(a));
+		}
+		dl.cercaPerLocalita(inputs.get("zona"), inputs.get("citta"));
+		Evento e = context.getBean(Evento.class, inputs, la, dl);
+		de.update(e);
+		return "redirect:listaeventi";
+	}
 
 	@GetMapping("modificalocalita")
-	public String formmodificaLocalita(@RequestParam Map <String,String> inputs) {
-		Localita l = context.getBean(Localita.class,inputs);
+	public String formmodificaLocalita(@RequestParam Map<String, String> inputs,HttpSession session) {
+		if (!LoginController.checkSession(session))
+			return "redirect:/";
+		if (!LoginController.checkAdmin(session))
+			return "redirect:/";
+		Localita l = context.getBean(Localita.class, inputs);
 		dl.update(l);
 		return "redirect:listalocalita";
 

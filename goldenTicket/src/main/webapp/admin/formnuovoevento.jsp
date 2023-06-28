@@ -69,7 +69,7 @@
 					<!-- eventi -->
 					<li><a href="listaeventi">Eventi</a></li>
 					<!-- localita-->
-					<li><a href="listalocalita">Localita'�</a></li>
+					<li><a href="listalocalita">Localita'</a></li>
 					<!-- eventi -->
 					<li><a href="listaartisti">Artisti</a></li>
 					<!-- users -->
@@ -96,7 +96,6 @@
 				</ul>
 			</div>
 		</div>
-		
 		<div class="context">
 			<form action="nuovoevento" method="get">
 				<label>Nome:</label>
