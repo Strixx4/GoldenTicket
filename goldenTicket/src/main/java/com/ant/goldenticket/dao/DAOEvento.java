@@ -49,10 +49,11 @@ public class DAOEvento {
 
 	public void create(Evento e) {
 
-		String query = "insert into eventi(tipologia,genere,data,ora,giornoSettimana,locandina,idLocalita) values(?,?,?,?,?,?,?) ";
+		String query = "insert into eventi(nome,tipologia,genere,data,ora,giornoSettimana,locandina,idLocalita) values(?,?,?,?,?,?,?,?) ";
 
-		System.out.println(query + " " + db.update(query, e.getTipologia(), e.getGenere(), e.getData(), e.getOra(),
-				e.getGiornoSettimana() + "", e.getLocandina(), e.getLocalita().getId() + ""));
+		System.out.println(query + " " + db.update(query, e.getNome(), e.getTipologia(), e.getGenere(), e.getData(),
+				e.getOra(), e.getGiornoSettimana() + "", e.getLocandina(), e.getLocalita().getId() + ""));
+		e.setId(read("select * from eventi where id = (select MAX(id) from eventi)").get(0).getId());
 		for (Artista a : e.getArtisti()) {
 			System.out.println("insert into associativa (idArtista,idEvento) values(?,?): " + db.update(
 					"insert into associativa (idArtista,idEvento) values(?,?)", a.getId() + "", e.getId() + ""));
@@ -61,13 +62,21 @@ public class DAOEvento {
 
 	public void update(Evento e) {
 		String query = "update eventi "
-				+ "set tipologia=?,genere=?,data=?,ora=?.giornoSettimana=?,locandina=?,idLocalita=? " + "where id=?";
-		System.out.println(query + " " + db.update(query, e.getTipologia(), e.getGenere(), e.getData(), e.getOra(),
+				+ "set nome=?,"
+				+ "tipologia=?,"
+				+ "genere=?,"
+				+ "data=?,"
+				+ "ora=?,"
+				+ "giornoSettimana=?,"
+				+ "locandina=?,"
+				+ "idLocalita=? " 
+				+ "where id=?";
+		System.out.println(query + " " + db.update(query,e.getNome(),e.getTipologia(), e.getGenere(), e.getData(), e.getOra(),
 				e.getGiornoSettimana() + "", e.getLocandina(), e.getLocalita().getId() + "", e.getId() + ""));
 
-		System.out.println("delete from associativa where idEvento=?"
-				+ db.update("delete from associativa where idEvento=?" + e.getId()));
-
+		System.out.println("delete from associativa where idEvento="+e.getId()+" "
+				+ db.update("delete from associativa where idEvento=?",e.getId()+""));
+		//
 		for (Artista a : e.getArtisti()) {
 
 			System.out.println("insert into associativa (idArtista,idEvento) values(?,?): " + db.update(
@@ -80,10 +89,9 @@ public class DAOEvento {
 	}
 
 	public List<Evento> cercaPerZona(String citta, String zona) {
-		return read(
-				"select * from eventi inner join localita on eventi.idLocalita="
-				+ "localita.id  where localita.citta like \"%"+citta+"%\" and localita.zona "
-				+ "like \"%"+zona+"%\" order by eventi.data;");
+		return read("select * from eventi inner join localita on eventi.idLocalita="
+				+ "localita.id  where localita.citta like \"%" + citta + "%\" and localita.zona " + "like \"%" + zona
+				+ "%\" order by eventi.data;");
 	}
 
 	public List<String> listaTipologia() {
@@ -107,23 +115,25 @@ public class DAOEvento {
 	public List<Evento> readBygenere(String tipologia, String genere) {
 		return read("select * from eventi where tipologia = ? and genere = ?", tipologia, genere);
 	}
-	public List<Evento> readBytipologia(String tipologia)
-	{
-		return read("select* from eventi where tipologia=?",tipologia);
+
+	public List<Evento> readBytipologia(String tipologia) {
+		return read("select* from eventi where tipologia=?", tipologia);
 	}
+
 	public List<Evento> eventiCasuali() {
 		return read("select * from eventi order by rand() limit 8");
 	}
 
 	public List<Evento> readByNome(String nome) {
-		return read("select * from eventi where nome like \"%"+nome+"%\"" );
+		return read("select * from eventi where nome like \"%" + nome + "%\"");
 	}
-	public List<Evento> readByArtista(String nome){
+
+	public List<Evento> readByArtista(String nome) {
 		List<Evento> l = readAll();
 		List<Evento> ris = new ArrayList<>();
-		for(Evento e : l) {
-			for(Artista a : e.getArtisti()) {
-				if(a.getNominativo().toLowerCase().contains(nome.toLowerCase())) {
+		for (Evento e : l) {
+			for (Artista a : e.getArtisti()) {
+				if (a.getNominativo().toLowerCase().contains(nome.toLowerCase())) {
 					ris.add(e);
 					continue;
 				}
@@ -131,16 +141,20 @@ public class DAOEvento {
 		}
 		return ris;
 	}
-	
+
 	public List<Evento> readByCitta(String par) {
 		List<Evento> l = readAll();
 		List<Evento> ris = new ArrayList<>();
-		for(Evento e : l) {
-			if(e.getLocalita().getCitta().toLowerCase().contains(par.toLowerCase())) {
+		for (Evento e : l) {
+			if (e.getLocalita().getCitta().toLowerCase().contains(par.toLowerCase())) {
 				ris.add(e);
 			}
 		}
 		return ris;
+	}
+
+	public int getNextId() {
+		return 1 + Integer.parseInt(db.row("select MAX(id)as id from eventi").get("id"));
 	}
 
 }

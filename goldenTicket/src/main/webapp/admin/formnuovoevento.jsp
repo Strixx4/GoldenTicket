@@ -113,11 +113,11 @@
 				<label>Locandina:</label>
 				<input type="text" name="locandina" placeholder="www.foto.com"><br><br>
 				<label>Zona:</label>
-				<input type="text" name="Zona" placeholder="San Siro"><br><br>
+				<input type="text" name="zona" placeholder="San Siro"><br><br>
 				<label>Citta:</label>
 				<input type="text" name="citta" placeholder="Milano"><br><br>
 				<label>Artisti:</label>
-				<input type="text" name="artisti" placeholder="Vasco Rossi,Bugo,Milan"><br><br>
+				<input type="text" name="iArtisti" placeholder="Vasco Rossi,Bugo,Milan"><br><br>
 				<hr>
 				<input type="submit" value="aggiungi">
 			</form>
