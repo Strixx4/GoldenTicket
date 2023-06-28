@@ -3,7 +3,7 @@
 <%@ page import="java.util.*"%>
 <%@ page import="com.ant.goldenticket.entities.*"%>
 <%@ page import="com.ant.goldenticket.*"%>
-
+<% Evento e = (Evento)request.getAttribute("evento");%>
 
 <!DOCTYPE html>
 <html>
@@ -69,7 +69,7 @@
 					<!-- eventi -->
 					<li><a href="listaeventi">Eventi</a></li>
 					<!-- localita-->
-					<li><a href="listalocalita">Localita'</a></li>
+					<li><a href="listalocalita">Localita' </a></li>
 					<!-- eventi -->
 					<li><a href="listaartisti">Artisti</a></li>
 					<!-- users -->
@@ -96,7 +96,33 @@
 				</ul>
 			</div>
 		</div>
+		
 		<div class="context">
+			<form action="modificaevento" method="get">
+				<label>Nome:</label>
+				<input type="text" name="nome" value="<%= e.getNome() %>"><br><br>
+				<label>Tipologia:</label>
+				<input type="text" name="tipologia" value="<%= e.getTipologia() %>"><br>
+				<label>Genere:</label>
+				<input type="text" name="genere" value="<%= e.getGenere()%>"><br><br>
+				<label>Data:</label>
+				<input type="text" name="data" value="<%= e.getData() %>"><br>
+				<label>Giorno della Settimana:</label>
+				<input type="text" name="giornoSettimana" value="<%= e.getTipologia() %>"><br>
+				<label>Ora:</label>
+				<input type="text" name="ora" value="<%= e.getOra() %>"><br><br>
+				<label>Locandina:</label>
+				<input type="text" name="locandina" value="<%= e.getLocandina() %>"><br><br>
+				<label>Zona: </label>
+				<input type="text" name="zona" value="<%= e.getLocalita().getZona() %>"><br><br>
+				<label>Citta':</label>
+				<input type="text" name="citta" value="<%= e.getLocalita().getCitta() %>"><br><br>
+				<label>Artisti:</label>
+				<input type="text" name="artisti" >
+				<br><br>
+				<hr>
+				<input type="submit" value="aggiungi">
+			</form>
 		</div>
 
 		<div class="footer">

@@ -17,10 +17,10 @@
 		<link rel="stylesheet" href="../CSS/navbar.css">
 		<link rel="stylesheet"
 			href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-		<script src="File.js"></script>
+		<script src="../admin/Fileadmin.js"></script>
 		<script
 			src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-		<Script src="jqSearch.js"></Script>
+		<Script src="../admin/jqSearchadmin.js"></Script>
 	</head>
 	
 	<body>
@@ -103,8 +103,8 @@
 					<div>
 						<%=m.get("username") %>
 						<%=m.get("ruolo") %>
-						<a href="eliminauser?id=<%m.get("id");%>">Elimina</a>
-						<a href="modificauser?id=<%m.get("id");%>">Modifica</a>
+						<a href="eliminauser?id=<%=m.get("id")%>">Elimina</a>
+						<a href="formmodificauser?id=<%=m.get("id")%>">Modifica</a>
 					</div>
 					
 					

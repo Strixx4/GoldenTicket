@@ -16,10 +16,10 @@
 <link rel="stylesheet" href="../CSS/navbar.css">
 <link rel="stylesheet"
 	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-<script src="File.js"></script>
+<script src="../admin/Fileadmin.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<Script src="jqSearch.js"></Script>
+<Script src="../admin/jqSearchadmin.js"></Script>
 </head>
 
 <body>
@@ -117,10 +117,12 @@
 				<input type="text" name="ora" placeholder="11:20"><br><br>
 				<label>Locandina:</label>
 				<input type="text" name="locandina" placeholder="www.foto.com"><br><br>
-				<label>Localita:</label>
-				<input type="text" name="localita" placeholder="San Siro"><br><br>
+				<label>Zona:</label>
+				<input type="text" name="Zona" placeholder="San Siro"><br><br>
+				<label>Citta:</label>
+				<input type="text" name="citta" placeholder="Milano"><br><br>
 				<label>Artisti:</label>
-				<input type="text" name="artisti" placeholder="Vasco,Bugo,Milan"><br><br>
+				<input type="text" name="artisti" placeholder="Vasco Rossi,Bugo,Milan"><br><br>
 				<hr>
 				<input type="submit" value="aggiungi">
 			</form>

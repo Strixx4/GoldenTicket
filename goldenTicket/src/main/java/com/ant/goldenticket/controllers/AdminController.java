@@ -202,4 +202,45 @@ public class AdminController {
 		model.addAttribute("lLocalita", de.readByCitta(par));
 		return "ricercaadmin.jsp";
 	}
+	@GetMapping("eliminaevento")
+	public String cancellaevento(@RequestParam("id") int idEvento, HttpSession session)
+	{
+		if(!LoginController.checkSession(session))
+			return"redirect:/";
+		if(!LoginController.checkAdmin(session))
+			return "redirect:/";
+		de.delete(idEvento);
+		return "redirect:/admin/";
+	}
+	@GetMapping("eliminaartista")
+	public String cancellaartista(@RequestParam("id") int idArtista, HttpSession session)
+	{
+		if(!LoginController.checkSession(session))
+			return"redirect:/";
+		if(!LoginController.checkAdmin(session))
+			return "redirect:/";
+		da.delete(idArtista);
+		return "redirect:/admin/";
+	}
+	@GetMapping("eliminalocalita")
+	public String cancellalocalita(@RequestParam("id") int idLocalita, HttpSession session)
+	{
+		if(!LoginController.checkSession(session))
+			return"redirect:/";
+		if(!LoginController.checkAdmin(session))
+			return "redirect:/";
+		dl.delete(idLocalita);
+		return "redirect:/admin/";
+	}
+	@GetMapping("eliminauser")
+	public String cancellauser(@RequestParam("id") int idUser, HttpSession session)
+	{
+		if(!LoginController.checkSession(session))
+			return"redirect:/";
+		if(!LoginController.checkAdmin(session))
+			return "redirect:/";
+		du.delete(idUser);
+		return "redirect:/admin/";
+	}
+	
 }

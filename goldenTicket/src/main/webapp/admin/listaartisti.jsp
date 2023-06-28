@@ -3,7 +3,6 @@
 <%@ page import="java.util.*"%>
 <%@ page import="com.ant.goldenticket.entities.*"%>
 <%@ page import="com.ant.goldenticket.*"%>
-<% List<Evento> list = (List<Evento>)request.getAttribute("listaeventi");%>
 <% List<Artista> artisti = (List<Artista>)request.getAttribute("listaartisti");%>
 
 <!DOCTYPE html>
@@ -17,10 +16,10 @@
 <link rel="stylesheet" href="../CSS/navbar.css">
 <link rel="stylesheet"
 	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-<script src="File.js"></script>
+<script src="../admin/Fileadmin.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<Script src="jqSearch.js"></Script>
+<Script src="../admin/jqSearchadmin.js"></Script>
 </head>
 
 <body>
@@ -40,13 +39,12 @@
 					<li><a href="/admin/"><i class="fa fa-single fa-home"></i></a></li>
 					<!--/ home -->
 					<!-- about -->
-					<!-- Città  -->
+					<!-- CittÃ Â  -->
 					<li aria-haspopup="true"><a>NUOVO<i
 							class="fa fa-indicator fa-chevron-down"></i></a>
 						<div class="grid-container3">
 							<ul>
 								<!-- FOR PER STAMPARE NOMI CITTA'-->
-							
 								<li><a href="formnuovoevento">Evento<i
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
@@ -56,11 +54,11 @@
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
 								<li><a href="formnuovolocalita">Localita'<i
+
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
 								<li><a href="formnuovouser">User</i><i
-
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
@@ -70,20 +68,11 @@
 					<!-- eventi -->
 					<li><a href="listaeventi">Eventi</a></li>
 					<!-- localita-->
-<<<<<<< Updated upstream
-					<li><a href="listalocalita">Localit�</a></li>
-					<!-- eventi -->
-					<li><a href="listaartisti">Artisti</a></li>
-					<!-- users -->
-					<li><a href="listausers">Users</a></li>
-=======
 					<li><a href="listalocalita">Localita'</a></li>
 					<!-- eventi -->
 					<li><a href="listaartisti">Artisti</a></li>
 					<!-- users -->
-					<li><a href="listauser">Users</a></li>
->>>>>>> Stashed changes
-					
+					<li><a href="listausers">Users</a></li>
 					<div class="navbar">
 						<div class="search-container">
 							<form action="ricercaadmin" method="get">
@@ -112,7 +101,7 @@
 			<div>
 					<h1> <%=a.getNominativo() %></h1> <br>
 					<a href="eliminaartista?id= <%=a.getId() %>">Elimina</a>
-					<a href="modificaartista?id= <%=a.getId() %>">modifica</a>
+					<a href="formmodificaartista?id= <%=a.getId() %>">modifica</a>
 			</div>
 			<%} %>
 		</div>

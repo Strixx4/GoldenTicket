@@ -1,5 +1,6 @@
 package com.ant.goldenticket.controllers;
 
+import java.time.LocalDate;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +19,7 @@ import com.ant.goldenticket.dao.DAOEvento;
 import com.ant.goldenticket.dao.DAOLocalita;
 import com.ant.goldenticket.dao.DAOUtenti;
 import com.ant.goldenticket.entities.Biglietto;
+import com.ant.goldenticket.entities.Evento;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -88,9 +90,13 @@ public class UtentiController {
 			}
 		}
 		List<Biglietto> carr = dc.readAll(Integer.parseInt(session.getAttribute("id").toString()));
+		String data=LocalDate.now().toString();
 		for (Biglietto b : carr) {
-			db.create(b);
-			db.delete(b.getId());
+			Biglietto c = (Biglietto) context.getBean("creaBigliettoAcquistato",data , b.getFila(), b.getPosto(),
+					b.getPrezzo(), b.getUtente(), b.getEvento());
+			db.createAcquisto(c);
+			dc.delete(b.getId());
+			//String dataEmissione,String fila,int posto,double prezzo,Map<String,String> utente,Evento evento
 		}
 		return "redirect:acquisti";
 	}
@@ -152,12 +158,16 @@ public class UtentiController {
 		}
 
 		Random r = new Random(); // da 65 a 90 lettere maiuscole
-		Biglietto b = (Biglietto) context.getBean("creaBigliettoCarrello", filaCasuale(r.nextInt(0,5)), (r.nextInt(65, 90)),
-				r.nextDouble(49.99, 230.99), du.readByID(Integer.parseInt(session.getAttribute("id").toString())),
-				de.cercaPerID(id));
+		Biglietto b = (Biglietto) context.getBean("creaBigliettoCarrello", filaCasuale(r.nextInt(0, 5)),
+				r.nextInt(1,30), prezzo(r.nextInt(0, 10)),
+				du.readByID(Integer.parseInt(session.getAttribute("id").toString())), de.cercaPerID(id));
 		System.out.println("biglietto: " + b);
 		dc.create(b);
 		return "redirect:carrello";
+	}
+
+	private double prezzo(int nextInt) {
+		return 5 * nextInt + 50.86;
 	}
 
 	private String filaCasuale(int c) {

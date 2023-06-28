@@ -26,7 +26,6 @@ public class Context {
 	public Database db() {
 		return new Database("GoldenTicket","root","Q705322H");
 	}
-
 	@Bean 
 	public DAOLocalita daolocalita()
 	{

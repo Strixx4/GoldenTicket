@@ -16,10 +16,10 @@
 <link rel="stylesheet" href="../CSS/navbar.css">
 <link rel="stylesheet"
 	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-<script src="File.js"></script>
+<script src="../admin/Fileadmin.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<Script src="jqSearch.js"></Script>
+<Script src="../admin/jqSearchadmin.js"></Script>
 </head>
 
 <body>
@@ -62,7 +62,7 @@
 					<!-- eventi -->
 					<li><a href="listaartisti">Artisti</a></li>
 					<!-- users -->
-					<li><a href="listausers">Users</a></li>
+					<li><a href="listauser">Users</a></li>
 					
 					<div class="navbar">
 						<div class="search-container">
@@ -103,7 +103,7 @@
 					<%=e.getGiornoSettimana()%> <br>
 					<%=e.getData()%> alle ore <%=e.getOra()%> </p> <br>
 					<a href="eliminaevento?id= <%=e.getId() %>">Elimina</a>
-					<a href="modificaevento?id= <%=e.getId() %>">modifica</a>
+					<a href="formmodificaevento?id= <%=e.getId() %>">modifica</a>
 			</div>
 			<%} %>
 		</div>

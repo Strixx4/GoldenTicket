@@ -3,8 +3,6 @@
 <%@ page import="java.util.*"%>
 <%@ page import="com.ant.goldenticket.entities.*"%>
 <%@ page import="com.ant.goldenticket.*"%>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,12 +14,10 @@
 <link rel="stylesheet" href="../CSS/navbar.css">
 <link rel="stylesheet"
 	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-<script src="File.js"></script>
+<script src="../admin/Fileadmin.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<Script src="jqSearch.js"></Script>
-</head>
-
+<Script src="../admin/jqSearchadmin.js"></Script>
 <body>
 	<div id="container">
 		<div class="header">
@@ -39,7 +35,7 @@
 					<li><a href="/admin/"><i class="fa fa-single fa-home"></i></a></li>
 					<!--/ home -->
 					<!-- about -->
-					<!-- Città  -->
+					<!-- CittÃ Â  -->
 					<li aria-haspopup="true"><a>NUOVO<i
 							class="fa fa-indicator fa-chevron-down"></i></a>
 						<div class="grid-container3">
@@ -69,7 +65,7 @@
 					<!-- eventi -->
 					<li><a href="listaeventi">Eventi</a></li>
 					<!-- localita-->
-					<li><a href="listalocalita">Localita'</a></li>
+					<li><a href="listalocalita">Localita' </a></li>
 					<!-- eventi -->
 					<li><a href="listaartisti">Artisti</a></li>
 					<!-- users -->
@@ -99,7 +95,7 @@
 		<div class="context">
 			<form action="nuovalocalita" method="get" style=" display: inline-block;">
 				<label for="citta">Citta':</label>
-				<input type="text" placeholder="Città"><br>
+				<input type="text" placeholder="CittÃ "><br>
 				<label for="zona">Zona:</label>
 				<input type="text" placeholder="Zona"><br>
 				<label for="posti">Posti:</label>
@@ -122,6 +118,7 @@
 				<a href="https://www.w3schools.com/java/default.asp" target="_blank">Java</a>
 				<a href="https://www.w3schools.com/MySQL/default.asp"target="_blank">MySQL</a> 
 				<a href="https://spring.io/"ctarget="_blank">Spring</a>
+
 			</div>
 
 			<div id="societa">

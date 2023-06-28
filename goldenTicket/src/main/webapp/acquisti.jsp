@@ -139,8 +139,24 @@
         </div>
       </div>
 
-      <div class="b-context">
-      
+      <div class="contextbiglietto">
+      	<%for(Biglietto b : biglietti) {%>
+        <div class="result">
+          <img src="<%=b.getEvento().getLocandina()%>" id="locandina">
+            <div class="infospettacolo">
+              <p>Evento: <%=b.getEvento().getNome()%></p>
+              <span>Data: <%=b.getEvento().getData() %></span>
+              <p>Orario: <%=b.getEvento().getOra() %></p>
+              <p>Data Emissione: <%=b.getDataEmissione() %> </p>
+              <span>Fila: <%=b.getFila() %></span>
+              <span>Posto: <%=b.getPosto() %></span>
+              <span>Prezzo: <%=b.getPrezzo() %></span>
+              <a href= "rimborso?id=<%= b.getId() %>"> ELIMINA </a>
+			      </div>
+			      </div>
+			      <hr>
+			      <% } %>
+			      
     </div>
 
       <div class="footer">

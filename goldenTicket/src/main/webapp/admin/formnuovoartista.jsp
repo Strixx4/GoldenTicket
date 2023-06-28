@@ -4,6 +4,7 @@
 <%@ page import="com.ant.goldenticket.entities.*"%>
 <%@ page import="com.ant.goldenticket.*"%>
 
+<% Artista a = (Artista)request.getAttribute("Artista");%>
 
 <!DOCTYPE html>
 <html>
@@ -69,7 +70,7 @@
 					<!-- eventi -->
 					<li><a href="listaeventi">Eventi</a></li>
 					<!-- localita-->
-					<li><a href="listalocalita">Localita'</a></li>
+					<li><a href="listalocalita">Localita' </a></li>
 					<!-- eventi -->
 					<li><a href="listaartisti">Artisti</a></li>
 					<!-- users -->
@@ -97,6 +98,10 @@
 			</div>
 		</div>
 		<div class="context">
+			<form action="nuovoartista" method="get">
+			NOMINATIVO <input type="text" name="nominativo">
+			<input type="submit" value="AGGIUNGI">
+		</form>
 		</div>
 
 		<div class="footer">

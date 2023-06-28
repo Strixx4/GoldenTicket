@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="java.util.*"%>
 <%@ page import="com.ant.goldenticket.entities.*"%>
 <%@ page import="com.ant.goldenticket.*"%>
-<%List<Localita>localita=(List<Localita>)request.getAttribute("listalocalita"); %>
-
+<% Localita l=(Localita) request.getAttribute("localita");%>
 
 <!DOCTYPE html>
 <html>
@@ -97,18 +95,14 @@
 				</div>
 			</div>
 			<div class="context">
-				<%for(Localita l:localita) {%>
-					<div>
-						<%=l.getCitta() %><br>
-						<%=l.getZona() %><br>
-						<%=l.getPosti()%><br>
-						<%=l.getIndirizzo() %><br>
-						<a href="eliminalocalita?id=<%l.getId();%>">Elimina</a>
-						<a href="formmodificalocalita?id=<%l.getId();%>">Modifica</a>
-					</div>
-					
-					
-				<%} %>
+				<form action="modificalocalita" method="post">
+					ID<input type="text" name="id" value="<%=l.getId()%>"readonly><br>
+					CITTA<input type="text" name="citta" value="<%=l.getCitta()%>"><br>
+					ZONA<input type="text" name="zona" value="<%=l.getZona()%>"><br>
+					POSTI<input type="text" name="posti" value="<%=l.getPosti()%>"><br>
+					INDIRIZZO<input type="text" name="indirizzo" value="<%=l.getIndirizzo()%>"><br>
+					<input type="submit" value="AGGIORNA">
+				</form>
 			</div>
 			<div class="footer">
 				<div id="linguaggi">
