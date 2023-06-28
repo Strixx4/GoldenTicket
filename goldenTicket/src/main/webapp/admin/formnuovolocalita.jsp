@@ -93,15 +93,15 @@
 			</div>
 		</div>
 		<div class="context">
-			<form action="nuovalocalita" method="get" style=" display: inline-block;">
+			<form action="nuovolocalita" method="get" style=" display: inline-block;">
 				<label for="citta">Citta':</label>
-				<input type="text" placeholder="CittÃ "><br>
+				<input type="text" name="citta" placeholder="CittÃ "><br>
 				<label for="zona">Zona:</label>
-				<input type="text" placeholder="Zona"><br>
+				<input type="text" name="zona" placeholder="Zona"><br>
 				<label for="posti">Posti:</label>
-				<input type="number" placeholder="Numero posti"><br>
+				<input type="text" name="posti" placeholder="Numero posti"><br>
 				<label for="indirizzo">Indirizzo:</label>
-				<input type="text" placeholder="Indirizzo"><br>
+				<input type="text" name="indirizzo" placeholder="Indirizzo"><br>
 				<input type="submit" value="Aggiungi">
 			</form>
 		</div>

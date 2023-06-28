@@ -33,9 +33,10 @@ public class DAOLocalita {
 		return db.update(query, l.getCitta(), l.getZona(), l.getPosti() + "", l.getIndirizzo());
 	}
 
-	public boolean delete(int id) {
-		String query = "delte from localita where id=?";
-		return db.update(query, id + "");
+	public boolean delete(int id)
+	{
+		String query="delete from localita where id=?";
+		return db.update(query,id+"");
 	}
 
 	public boolean update(Localita l) {
