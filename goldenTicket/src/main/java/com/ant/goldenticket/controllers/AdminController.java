@@ -62,11 +62,12 @@ public class AdminController {
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
 			return "redirect:/";
-		Localita l = dl.cercaPerLocalita(params.get("zona"), params.get("zona"));
+		Localita l = dl.cercaPerLocalita(params.get("zona"), params.get("citta"));
 		List<Artista> ar = new ArrayList<>();
-		String[] a = params.get("artisti").split(",");
+		String[] a = params.get("iArtisti").split(",");
 		for (String s : a) {
-			ar.add(da.cercaPerNominativo(s));
+			Artista p = da.cercaPerNominativo(s);
+			ar.add(p);
 		}
 		Evento e = context.getBean(Evento.class, params, ar, l);
 		de.create(e);
@@ -182,7 +183,7 @@ public class AdminController {
 		if (!LoginController.checkAdmin(session))
 			return "redirect:/";
 		de.delete(idEvento);
-		return "redirect:/admin/";
+		return "redirect:listaeventi";
 	}
 
 	@GetMapping("eliminaartista")
@@ -216,7 +217,7 @@ public class AdminController {
 	}
 
 	@PostMapping("modificauser")
-	public String modificaUtente(@RequestParam Map<String, String> inputs,HttpSession session) {
+	public String modificaUtente(@RequestParam Map<String, String> inputs, HttpSession session) {
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
@@ -226,7 +227,7 @@ public class AdminController {
 	}
 
 	@GetMapping("modificaartista")
-	public String formmodificaArtista(@RequestParam Map<String, String> inputs,HttpSession session) {
+	public String formmodificaArtista(@RequestParam Map<String, String> inputs, HttpSession session) {
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
@@ -236,26 +237,36 @@ public class AdminController {
 		return "redirect:listaartisti";
 	}
 
+	@GetMapping("formmodificaevento")
+	public String formModificaEvento(HttpSession session, @RequestParam("id") int id, Model model) {
+		if (!LoginController.checkSession(session))
+			return "redirect:/";
+		if (!LoginController.checkAdmin(session))
+			return "redirect:/";
+		model.addAttribute("evento", de.cercaPerID(id));
+		return "formmodificaevento.jsp";
+	}
+
 	@GetMapping("modificaevento")
-	public String formmodificaEvento(@RequestParam Map<String, String> inputs,HttpSession session) {
+	public String formmodificaEvento(@RequestParam Map<String, String> inputs, HttpSession session) {
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
 			return "redirect:/";
 		List<Artista> la = new ArrayList<Artista>(); // lista di artisti
-		String[] sa = inputs.get("artisti").split(","); // splittiamo gli artisti con la virgola e li mettiamo in un
+		String[] sa = inputs.get("iArtisti").split(","); // splittiamo gli artisti con la virgola e li mettiamo in un
 														// array di Stringhe
 		for (String a : sa) { // ciclo for per riempire la lista di singoli nomi di artisti
 			la.add(da.cercaPerNominativo(a));
 		}
-		dl.cercaPerLocalita(inputs.get("zona"), inputs.get("citta"));
-		Evento e = context.getBean(Evento.class, inputs, la, dl);
+		Localita l = dl.cercaPerLocalita(inputs.get("zona"), inputs.get("citta"));
+		Evento e = context.getBean(Evento.class, inputs, la, l);
 		de.update(e);
 		return "redirect:listaeventi";
 	}
 
 	@GetMapping("modificalocalita")
-	public String formmodificaLocalita(@RequestParam Map<String, String> inputs,HttpSession session) {
+	public String formmodificaLocalita(@RequestParam Map<String, String> inputs, HttpSession session) {
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))

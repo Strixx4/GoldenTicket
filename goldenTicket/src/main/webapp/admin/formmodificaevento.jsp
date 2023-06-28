@@ -98,6 +98,7 @@
 		</div>
 		<div class="context">
 			<form action="modificaevento" method="get">
+			<input type="text" name="id" value="<%= e.getId() %>" readonly><br>
 				<label>Nome:</label>
 				<input type="text" name="nome" value="<%= e.getNome() %>"><br><br>
 				<label>Tipologia:</label>
@@ -117,7 +118,7 @@
 				<label>Citta':</label>
 				<input type="text" name="citta" value="<%= e.getLocalita().getCitta() %>"><br><br>
 				<label>Artisti:</label>
-				<input type="text" name="artisti" >
+				<input type="text" name="iArtisti" >
 				<br><br>
 				<hr>
 				<input type="submit" value="aggiungi">
