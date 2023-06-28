@@ -102,6 +102,19 @@ public class AdminController {
 			return "redirect:/";
 		return "formnuovolocalita.jsp";
 	}
+	
+	@GetMapping("nuovolocalita")
+	public String nuovolocalita(@RequestParam Map<String, String> m, HttpSession session)
+	{
+		if (!LoginController.checkSession(session))
+			return "redirect:/";
+		if (!LoginController.checkAdmin(session))
+			return "redirect:/";
+
+		Localita l = context.getBean(Localita.class, m);
+		dl.create(l);
+		return "redirect:listalocalita";
+	}
 
 	@GetMapping("formnuovouser")
 	public String nuovouser(HttpSession session, Model model) {
@@ -202,7 +215,7 @@ public class AdminController {
 		if (!LoginController.checkAdmin(session))
 			return "redirect:/";
 		dl.delete(idLocalita);
-		return "redirect:/admin/";
+		return "redirect:/admin/listalocalita";
 	}
 
 	@GetMapping("eliminauser")
@@ -254,15 +267,27 @@ public class AdminController {
 		return "redirect:listaeventi";
 	}
 
-	@GetMapping("modificalocalita")
-	public String formmodificaLocalita(@RequestParam Map<String, String> inputs,HttpSession session) {
+	
+	@GetMapping("formmodificalocalita")
+	public String formmodificalocalita(@RequestParam("id") int idLocalita,HttpSession session,Model model)
+	{
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
 			return "redirect:/";
-		Localita l = context.getBean(Localita.class, inputs);
+		Localita l = dl.cercaPerId(idLocalita);
+		model.addAttribute("localita",l);
+		return "formmodificalocalita.jsp";
+	}
+	@PostMapping("modificalocalita")
+	public String modificaLocalita(@RequestParam Map<String,String> inputs,HttpSession session) {
+		if (!LoginController.checkSession(session))
+			return "redirect:/";
+		if (!LoginController.checkAdmin(session))
+			return "redirect:/";
+		Localita l = context.getBean(Localita.class,inputs);
 		dl.update(l);
-		return "redirect:listalocalita";
+		return "redirect:/admin/listalocalita";
 
 	}
 }
