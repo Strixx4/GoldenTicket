@@ -71,7 +71,10 @@ public class AdminController {
 			Artista p = da.cercaPerNominativo(s);
 			ar.add(p);
 		}
+		if (l == null || ar.size() <= 0)
+			return "redirect:formnuovoevento";
 		Evento e = context.getBean(Evento.class, params, ar, l);
+
 		de.create(e);
 		return "redirect:listaeventi";
 	}
@@ -119,6 +122,8 @@ public class AdminController {
 			la.add(da.cercaPerNominativo(a));
 		}
 		Localita l = dl.cercaPerLocalita(inputs.get("zona"), inputs.get("citta"));
+		if (l == null || la.size() <= 0)
+			return "redirect:formmodificaevento";
 		Evento e = context.getBean(Evento.class, inputs, la, l);
 		de.update(e);
 		return "redirect:listaeventi";
