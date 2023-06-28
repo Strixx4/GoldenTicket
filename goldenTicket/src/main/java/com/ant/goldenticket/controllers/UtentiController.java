@@ -91,9 +91,11 @@ public class UtentiController {
 		}
 		List<Biglietto> carr = dc.readAll(Integer.parseInt(session.getAttribute("id").toString()));
 		String data=LocalDate.now().toString();
+		
 		for (Biglietto b : carr) {
-			Biglietto c = (Biglietto) context.getBean("creaBigliettoAcquistato",data , b.getFila(), b.getPosto(),
+			Biglietto c = (Biglietto) context.getBean("creaBigliettoAcquistato",data, b.getFila(), b.getPosto(),
 					b.getPrezzo(), b.getUtente(), b.getEvento());
+			
 			db.createAcquisto(c);
 			dc.delete(b.getId());
 			//String dataEmissione,String fila,int posto,double prezzo,Map<String,String> utente,Evento evento

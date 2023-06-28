@@ -44,9 +44,9 @@ public class DAOBigliettoAcquistato {
 	}
 	
 	public boolean createAcquisto(Biglietto b) {
-		String query = "insert into bigliettiacquistati " + "(fila,posto,prezzo,idUser,idEvento) "
+		String query = "insert into bigliettiacquistati " + "(dataEmissione,fila,posto,prezzo,idUser,idEvento) "
 				+ "values(?,?,?,?,?)";
-		return db.update(query, b.getFila(), b.getPosto() + "", b.getPrezzo() + "", b.getUtente().get("id") + "",
+		return db.update(query,b.getDataEmissione(),b.getFila(), b.getPosto() + "", b.getPrezzo() + "", b.getUtente().get("id") + "",
 				b.getEvento().getId() + "");
 	}
 
