@@ -39,7 +39,7 @@ public class DAOLocalita
 	}
 	public boolean delete(int id)
 	{
-		String query="delte from localita where id=?";
+		String query="delete from localita where id=?";
 		return db.update(query,id+"");
 	}
 	public boolean update(Localita l)
