@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ page import="com.ant.goldenticket.entities.*"%>
 <%@ page import="com.ant.goldenticket.*"%>
-<% Artista a=(Artista) request.getAttribute("artista");%>
+<% Artista a = (Artista) request.getAttribute("artista");%>
 
 <!DOCTYPE html>
 <html>
@@ -96,7 +96,7 @@
 			</div>
 		</div>
 			<div class="context">
-				<form action="modificaartista" method="post">
+				<form action="modificaartista">
 					ID<input type="text" name="id" value="<%=a.getId()%>"readonly><br>
 					NOMINATIVO<input type="text" name="nominativo" value="<%=a.getNominativo()%>"><br>
 					<input type="submit" value="AGGIORNA">
