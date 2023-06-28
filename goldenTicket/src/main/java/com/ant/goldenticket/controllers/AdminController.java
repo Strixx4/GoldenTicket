@@ -71,25 +71,11 @@ public class AdminController {
 			return"redirect:/";
 		if(!LoginController.checkAdmin(session))
 			return "redirect:/";
-<<<<<<< Updated upstream
-
-		String[] artisti = m.get("artisti").split(","); 
-		List<Artista> a = new ArrayList<Artista>();
-		
-		for(String arr : artisti)
-			a.add(da.cercaPerNominativo(arr));
-	
-		Evento e = context.getBean(Evento.class, m, a, dl.cercaPerLocalita(m.get("citta"), m.get("zona")));
-		de.create(e);
-		return "redirect:listaeventi";
-	}
-=======
 		
 		return "redirect:listaeventi";
 	}
 
 
->>>>>>> Stashed changes
 	@GetMapping("formnuovoartista")
 	public String formnuovoartista(HttpSession session, Model model)
 	{
