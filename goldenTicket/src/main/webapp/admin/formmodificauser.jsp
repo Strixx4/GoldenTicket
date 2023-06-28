@@ -76,25 +76,14 @@
 						
 						<div class="navbar">
 							<div class="search-container">
-								<form action="ricercaadmin" method="get">
-									<input type="text" placeholder="Nome,Artista,Citta'..."
-										name="search">
-									<button type="submit">
-										<i class="fa fa-search"></i>
-									</button>
-								</form>
-							</div>				
-							<!--SI LOGIN -->
-							<div class="login">
-								<div class="search-container">
-									<a href="logout" id="logout" type="submit">ESCI</a>
-								</div>
+								<a href= "logout" id="logout" type="submit">ESCI</a>
 							</div>
-	
 						</div>
-					</ul>
-				</div>
+
+					</div>
+				</ul>
 			</div>
+		</div>
 			<div class="context">
 				<form action="modificauser" method="post">
 					ID<input type="text" name="id" value="<%=u.get("id")%>"readonly><br>

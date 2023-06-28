@@ -69,7 +69,7 @@
 					<!-- eventi -->
 					<li><a href="listaeventi">Eventi</a></li>
 					<!-- localita-->
-					<li><a href="listalocalita">Localita'�</a></li>
+					<li><a href="listalocalita">Localita'</a></li>
 					<!-- eventi -->
 					<li><a href="listaartisti">Artisti</a></li>
 					<!-- users -->
@@ -96,7 +96,6 @@
 				</ul>
 			</div>
 		</div>
-		
 		<div class="context">
 			<form action="nuovoevento" method="get">
 				<label>Nome:</label>
@@ -108,11 +107,7 @@
 				<label>Data:</label>
 				<input type="text" name="data" placeholder="YYYY-MM-DD"><br>
 				<label>Giorno della Settimana:</label>
-<<<<<<< Updated upstream
-				<input type="text" name="giornoSettimana" placeholder="Luned�"><br>
-=======
 				<input type="text" name="giornoSettimana" placeholder="Lunedi"><br>
->>>>>>> Stashed changes
 				<label>Ora:</label>
 				<input type="text" name="ora" placeholder="11:20"><br><br>
 				<label>Locandina:</label>

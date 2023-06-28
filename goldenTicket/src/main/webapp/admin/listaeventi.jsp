@@ -40,17 +40,28 @@
 					<!--/ home -->
 					<!-- about -->
 					<!-- Città  -->
-					<li aria-haspopup="true"><a>NUOVO</a>
+					<li aria-haspopup="true"><a>NUOVO<i
+							class="fa fa-indicator fa-chevron-down"></i></a>
 						<div class="grid-container3">
 							<ul>
 								<!-- FOR PER STAMPARE NOMI CITTA'-->
-								<li><a href="formnuovoevento">Evento</a>
+							
+								<li><a href="formnuovoevento">Evento<i
+										class="fa fa-group"></i><i
+										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
-								<li><a href="formnuovoartista">Artista</a>
+								<li><a href="formnuovoartista">Artista<i
+										class="fa fa-group"></i><i
+										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
-								<li><a href="formnuovolocalita">Localita'</a>
+								<li><a href="formnuovolocalita">Localita'<i
+										class="fa fa-group"></i><i
+										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
-								<li><a href="formnuovouser">User</a>
+								<li><a href="formnuovouser">User</i><i
+
+										class="fa fa-group"></i><i
+										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
 							</ul>
 						</div></li>
@@ -66,19 +77,18 @@
 					
 					<div class="navbar">
 						<div class="search-container">
-							<form action="ricerca" method="get">
+							<form action="ricercaadmin" method="get">
 								<input type="text" placeholder="Nome,Artista,Citta'..."
 									name="search">
 								<button type="submit">
 									<i class="fa fa-search"></i>
 								</button>
 							</form>
-						</div>
+						</div>				
 						<!--SI LOGIN -->
-
 						<div class="login">
 							<div class="search-container">
-								<a href="logout" id="logout" type="submit">ESCI</a>
+								<a href= "logout" id="logout" type="submit">ESCI</a>
 							</div>
 						</div>
 

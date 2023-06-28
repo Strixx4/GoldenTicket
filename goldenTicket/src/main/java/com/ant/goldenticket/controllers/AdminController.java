@@ -258,10 +258,10 @@ public class AdminController {
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
 			return "redirect:/";
+
 		model.addAttribute("lNome", de.readByNome(par));
 		model.addAttribute("lArtista", de.readByArtista(par));
 		model.addAttribute("lLocalita", de.readByCitta(par));
 		return "ricercaadmin.jsp";
 	}
-
 }

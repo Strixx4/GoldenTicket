@@ -39,12 +39,13 @@
 					<li><a href="/admin/"><i class="fa fa-single fa-home"></i></a></li>
 					<!--/ home -->
 					<!-- about -->
-					<!-- CittÃ Â  -->
+					<!-- Città  -->
 					<li aria-haspopup="true"><a>NUOVO<i
 							class="fa fa-indicator fa-chevron-down"></i></a>
 						<div class="grid-container3">
 							<ul>
 								<!-- FOR PER STAMPARE NOMI CITTA'-->
+							
 								<li><a href="formnuovoevento">Evento<i
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
@@ -54,11 +55,11 @@
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
 								<li><a href="formnuovolocalita">Localita'<i
-
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
 								<li><a href="formnuovouser">User</i><i
+
 										class="fa fa-group"></i><i
 										class="fa fa-indicator fa-chevron-right"></i></a>
 								</li>
@@ -73,6 +74,7 @@
 					<li><a href="listaartisti">Artisti</a></li>
 					<!-- users -->
 					<li><a href="listauser">Users</a></li>
+					
 					<div class="navbar">
 						<div class="search-container">
 							<form action="ricercaadmin" method="get">
