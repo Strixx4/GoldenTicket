@@ -9,6 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -213,5 +214,39 @@ public class AdminController {
 		du.delete(idUser);
 		return "redirect:/admin/";
 	}
+	
+	@PostMapping("modificauser")
+	public String modificaUtente(@RequestParam Map<String,String> inputs)
+	{
+		du.update(inputs);
+			return "redirect:listausers";
+	}
 
+	@GetMapping("modificaartista")
+	public String formmodificaArtista(@RequestParam Map<String,String> inputs){
+	   Artista a = context.getBean(Artista.class,inputs);
+		da.update(a);
+			return "redirect:listaartisti";
+		}
+
+	@GetMapping("modificaevento")
+	public String formmodificaEvento(@RequestParam Map <String,String> inputs){
+		   List <Artista> la = new ArrayList<Artista>(); //lista di artisti
+		   String [] sa = inputs.get("artisti").split(","); //splittiamo gli artisti con la virgola e li mettiamo in un array di Stringhe
+		   for (String a:sa) { //ciclo for per riempire la lista di singoli nomi di artisti
+			   la.add(da.cercaPerNominativo(a));
+		   }
+		   	dl.cercaPerLocalita(inputs.get("zona"), inputs.get("citta"));
+		    Evento e = context.getBean(Evento.class,inputs,la,dl);
+			de.update(e);
+			return "redirect:listaeventi";
+			}
+
+	@GetMapping("modificalocalita")
+	public String formmodificaLocalita(@RequestParam Map <String,String> inputs) {
+		Localita l = context.getBean(Localita.class,inputs);
+		dl.update(l);
+		return "redirect:listalocalita";
+
+	}
 }
