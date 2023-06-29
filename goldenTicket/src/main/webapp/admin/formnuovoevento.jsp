@@ -131,7 +131,7 @@
 				<input type="text" name="zona" placeholder="San Siro">
 				<br>
 				<br>
-				<label>Citta:</label>
+				<label>Citta':</label>
 				<input type="text" name="citta" placeholder="Milano">
 				<br>
 				<br>

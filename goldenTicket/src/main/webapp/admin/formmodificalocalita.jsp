@@ -99,7 +99,7 @@
 			<div class="context">
 				<form action="modificalocalita" method="post">
 					ID<input type="text" name="id" value="<%=l.getId()%>"readonly><br>
-					CITTA<input type="text" name="citta" value="<%=l.getCitta()%>"><br>
+					CITTA'<input type="text" name="citta" value="<%=l.getCitta()%>"><br>
 					ZONA<input type="text" name="zona" value="<%=l.getZona()%>"><br>
 					POSTI<input type="text" name="posti" value="<%=l.getPosti()%>"><br>
 					INDIRIZZO<input type="text" name="indirizzo" value="<%=l.getIndirizzo()%>"><br>
