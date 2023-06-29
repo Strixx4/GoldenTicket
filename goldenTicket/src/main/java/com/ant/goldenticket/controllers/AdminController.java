@@ -74,8 +74,10 @@ public class AdminController {
 		if (l == null || ar.size() <= 0)
 			return "redirect:formnuovoevento";
 		Evento e = context.getBean(Evento.class, params, ar, l);
-
-		de.create(e);
+		try {
+			de.create(e);
+		} catch (Exception ex) {
+		}
 		return "redirect:listaeventi";
 	}
 
@@ -125,18 +127,39 @@ public class AdminController {
 		if (l == null || la.size() <= 0)
 			return "redirect:formmodificaevento";
 		Evento e = context.getBean(Evento.class, inputs, la, l);
-		de.update(e);
+		try {
+			de.update(e);
+		} catch (Exception ex) {
+
+		}
 		return "redirect:listaeventi";
 	}
 
 	private boolean checkEvento(Evento e) {
-		boolean ris = false;
-		//controllo data
+		boolean ris = true;
+		// controllo data
 		String[] data = e.getData().split("-");
-		
+		try {
+			int gg = Integer.parseInt(data[2]);
+			int mm = Integer.parseInt(data[1]);
+			int yyyy = Integer.parseInt(data[0]);
+			if (Integer.parseInt(data[0]) < 2023 || Integer.parseInt(data[0]) > 2040)
+				return false;
+			if (Integer.parseInt(data[1]) < 1 || Integer.parseInt(data[1]) > 12)
+				return false;
+			if (gg < 1 || gg > 31)
+				return false;
+			if (gg > 29 && mm == 2)
+				return false;
+		} catch (Exception ex) {
+			return false;
+		}
+		if (e.getGenere().length() < 1 || e.getGenere().length() > 100)
+			return false;
+
 		return ris;
 	}
-	
+
 	// ----------------------------ARTISTA----------------------------
 	@GetMapping("formnuovoartista")
 	public String formnuovoartista(HttpSession session, Model model) {
