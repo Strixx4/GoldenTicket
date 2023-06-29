@@ -142,27 +142,32 @@
       </div>
       
       <div id="context_carrello">
-      <%for(Biglietto b : biglietti) {%>
-        <div class="card_biglietto">
-          <div class="img_biglietto">
-            <img src="<%=b.getEvento().getLocandina()%>" id="locandina">
-          </div>
+        <form action="checkout" method="get">
+          <%for(Biglietto b : biglietti) {%>
+          <div class="card_biglietto">
+            <div class="img_biglietto">
+              <img src="<%=b.getEvento().getLocandina()%>" id="locandina">
+            </div>
 
-          <div class="info_biglietto">
-            <p>Evento: <%=b.getEvento().getNome()%></p>
-            <span>Data: <%=b.getEvento().getData() %></span>
-            <p>Orario: <%=b.getEvento().getOra() %></p>
-            <span>Fila: <%=b.getFila() %></span>
-            <span>Posto: <%=b.getPosto() %></span>
-            <span>Prezzo: <%=b.getPrezzo() %></span>
-          </div>
+            <div class="info_biglietto">
+              <p>Evento: <%=b.getEvento().getNome()%></p>
+              <span>Data: <%=b.getEvento().getData() %></span>
+              <p>Orario: <%=b.getEvento().getOra() %></p>
+              <span>Fila: <%=b.getFila() %></span>
+              <span>Posto: <%=b.getPosto() %></span>
+              <span>Prezzo: <%=b.getPrezzo() %></span>
+            </div>
 
-          <div class="link_biglietto">
-            <a href="eliminadacarrello?id=<%=b.getId()%>">ELIMINA</a>
+            <div class="link_biglietto">
+              <a href="eliminadacarrello?id=<%=b.getId()%>">ELIMINA</a>
+              <label for="a-<%=b.getId()%>">Compra</label>
+              <input type="radio" name="a-<%=b.getId()%>">
+            </div>
           </div>
-        </div>
-			<%} %>
-      <a href="checkout" style="left: 50%;">Checkout</a>
+			    <%} %>
+          <input type="reset" value="pulisci">
+          <input type="submit" value="checkOut" style="left: 50%;">
+        </form>
     </div>
     
       <div class="footer">

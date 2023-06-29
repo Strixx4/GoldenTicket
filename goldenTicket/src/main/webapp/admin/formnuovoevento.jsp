@@ -14,6 +14,7 @@
 <link rel="icon" type="image/x-icon" href="/IMG/favicon.jpeg">
 <link rel="stylesheet" href="../CSS/index.css">
 <link rel="stylesheet" href="../CSS/navbar.css">
+<link rel="stylesheet" href="../CSS/form.css">
 <link rel="stylesheet"
 	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 <script src="../admin/Fileadmin.js"></script>
@@ -119,7 +120,7 @@
 				<label>Artisti:</label>
 				<input type="text" name="iArtisti" placeholder="Vasco Rossi,Bugo,Milan"><br><br>
 				<hr>
-				<input type="submit" value="aggiungi">
+				<input class="bottone" type="submit" value="aggiungi">
 			</form>
 		</div>
 
