@@ -8,6 +8,8 @@
     width: auto;
 
     display: block;
+    
+    
 }
 
 .card_biglietto
@@ -22,4 +24,8 @@
 {
     height: 30px;
     width: auto;
+}
+.card_biglietto:hover
+{
+    transform: scale(1.07);
 }

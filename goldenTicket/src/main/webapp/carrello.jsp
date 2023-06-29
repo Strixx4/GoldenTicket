@@ -153,6 +153,7 @@ String controllaLogin = (String) request.getAttribute("controllologin");
       </div>
       <!--B-->
       <div id="context_carrello">
+      <br><br>
         Prezzo: <output id="prezzo"> </output> Euro
         <form action="checkout" method="get">
           <%for(Biglietto b : biglietti) {%>
@@ -177,6 +178,7 @@ String controllaLogin = (String) request.getAttribute("controllologin");
             </div>
           </div>
 			    <%} %>
+		  <br>
           <input type="reset" value="pulisci" onclick="pulisciP();stampaP()">
           <input type="submit" value="checkOut" style="left: 50%;">
         </form>

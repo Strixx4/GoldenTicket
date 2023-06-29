@@ -21,6 +21,7 @@
       <link rel="stylesheet" href="../CSS/index.css">
       <link rel="stylesheet" href="../CSS/navbar.css">
       <link rel="stylesheet" href="../CSS/card.css">
+      <link rel="stylesheet" href="../CSS/carrello.css">
       <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
       <script src="File.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -140,26 +141,29 @@
         </div>
       </div>
 
-      <div id="context_carrello">
-      	<%for(Biglietto b : biglietti) {%>
-        <div class="result">
-          <img src="<%=b.getEvento().getLocandina()%>" id="locandina">
-            <div class="infospettacolo">
+    <div id="context_carrello">
+          <%for(Biglietto b : biglietti) {%>
+          <div class="card_biglietto">
+            <div class="img_biglietto">
+              <img src="<%=b.getEvento().getLocandina()%>" id="locandina">
+            </div>
+
+            <div class="info_biglietto">
               <p>Evento: <%=b.getEvento().getNome()%></p>
               <span>Data: <%=b.getEvento().getData() %></span>
+              <span>Data Emissione: <%=b.getDataEmissione() %></span>
               <p>Orario: <%=b.getEvento().getOra() %></p>
-              <p>Data Emissione: <%=b.getDataEmissione() %> </p>
               <span>Fila: <%=b.getFila() %></span>
               <span>Posto: <%=b.getPosto() %></span>
               <span>Prezzo: <%=b.getPrezzo() %></span>
-              <a href= "rimborso?id=<%= b.getId() %>"> ELIMINA </a>
-			      </div>
-			      </div>
-			      <hr>
-			      <% } %>
-			      
-    </div>
+            </div>
 
+            <div class="link_biglietto">
+              <a href="rimborso?id=<%= b.getId() %>"> ELIMINA </a>
+            </div>
+          </div>
+			    <%} %>
+		</div>
       <div class="footer">
         <div id="linguaggi">
           <h2>Tecnologie Utilizzate</h2>
