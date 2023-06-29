@@ -104,10 +104,10 @@
 					<br>
 					NOMINATIVO
 					<br>
-					<input type="text" name="nominativo" value="<%=a.getNominativo()%>">
+					<input type="text" name="nominativo" value="<%=a.getNominativo()%>" id="nom" >
 					<br>
 					<br>
-					<input type="submit" class = "bottone" value="AGGIORNA">
+					<input type="submit" class = "bottone" value="AGGIORNA" onclick="controlArtista()">
 				</form>
 			</div>
 			<div class="footer">

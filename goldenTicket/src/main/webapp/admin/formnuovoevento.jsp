@@ -16,10 +16,7 @@
 <link rel="stylesheet" href="../CSS/navbar.css">
 <link rel="stylesheet"
 	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-<script src="../admin/Fileadmin.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<Script src="../admin/jqSearchadmin.js"></Script>
+<script src="Fileadmin.js"></script>
 </head>
 
 <body>
@@ -99,27 +96,27 @@
 		<div class="context">
 			<form action="nuovoevento" method="get">
 				<label>Nome:</label>
-				<input type="text" name="nome" placeholder="Finale di Champions"><br><br>
+				<input type="text" name="nome" placeholder="Finale di Champions" id="n"><br><br>
 				<label>Tipologia:</label>
-				<input type="text" name="tipologia" placeholder="Sport"><br>
+				<input type="text" name="tipologia" placeholder="Sport" id="t"><br>
 				<label>Genere:</label>
-				<input type="text" name="genere" placeholder="Calcio"><br><br>
+				<input type="text" name="genere" placeholder="Calcio" id="g"><br><br>
 				<label>Data:</label>
-				<input type="date" name="data" ><br>
+				<input type="date" name="data" id="d"><br>
 				<label>Giorno della Settimana:</label>
-				<input type="text" name="giornoSettimana" placeholder="Lunedi"><br>
+				<input type="text" name="giornoSettimana" placeholder="Lunedi" id="gs"><br>
 				<label>Ora:</label>
-				<input type="text" name="ora" placeholder="11:20"><br><br>
+				<input type="text" name="ora" placeholder="11:20" id="o"><br><br>
 				<label>Locandina:</label>
-				<input type="text" name="locandina" placeholder="www.foto.com"><br><br>
+				<input type="text" name="locandina" placeholder="www.foto.com" id="l"><br><br>
 				<label>Zona:</label>
-				<input type="text" name="zona" placeholder="San Siro"><br><br>
+				<input type="text" name="zona" placeholder="San Siro" id="z"><br><br>
 				<label>Citta:</label>
-				<input type="text" name="citta" placeholder="Milano"><br><br>
+				<input type="text" name="citta" placeholder="Milano" id="c"><br><br>
 				<label>Artisti:</label>
-				<input type="text" name="iArtisti" placeholder="Vasco Rossi,Bugo,Milan"><br><br>
+				<input type="text" name="iArtisti" placeholder="Vasco Rossi,Bugo,Milan" id="a"><br><br>
 				<hr>
-				<input type="submit" value="aggiungi">
+				<input type="submit" value="aggiungi" onclick="controlEvento()">
 			</form>
 		</div>
 

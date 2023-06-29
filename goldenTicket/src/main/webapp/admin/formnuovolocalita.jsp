@@ -14,10 +14,8 @@
 <link rel="stylesheet" href="../CSS/navbar.css">
 <link rel="stylesheet"
 	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-<script src="../admin/Fileadmin.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<Script src="../admin/jqSearchadmin.js"></Script>
+<script src="Fileadmin.js"></script>
+
 <body>
 	<div id="container">
 		<div class="header">
@@ -95,14 +93,14 @@
 		<div class="context">
 			<form action="nuovolocalita" method="get" style=" display: inline-block;">
 				<label for="citta">Citta':</label>
-				<input type="text" name="citta" placeholder="CittÃ "><br>
+				<input type="text" name="citta" placeholder="CittÃ " id="c"><br>
 				<label for="zona">Zona:</label>
-				<input type="text" name="zona" placeholder="Zona"><br>
+				<input type="text" name="zona" placeholder="Zona" id="z"><br>
 				<label for="posti">Posti:</label>
-				<input type="text" name="posti" placeholder="Numero posti"><br>
+				<input type="text" name="posti" placeholder="Numero posti" id="p"><br>
 				<label for="indirizzo">Indirizzo:</label>
-				<input type="text" name="indirizzo" placeholder="Indirizzo"><br>
-				<input type="submit" value="Aggiungi">
+				<input type="text" name="indirizzo" placeholder="Indirizzo" id="i"><br>
+				<input type="submit" value="Aggiungi" onclick="controlLocalita()">
 			</form>
 		</div>
 

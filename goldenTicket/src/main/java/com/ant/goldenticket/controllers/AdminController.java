@@ -299,16 +299,17 @@ public class AdminController {
 	}
 
 	private boolean checkLocalita(Localita l) {
-		if (l.getIndirizzo().length() > 0 && l.getIndirizzo().length() <= 100) {
-			if (l.getCitta().length() > 0 && l.getCitta().length() <= 50) {
-				if (l.getZona().length() > 0 && l.getZona().length() <= 20) {
-					return true;
-				} else
-					return false;
-			} else
-				return false;
-		} else
+		if (l.getCitta().length() < 1 && l.getCitta().length() > 50)
 			return false;
+		if (l.getZona().length() < 1 && l.getZona().length() > 20)
+			return false;
+		if (l.getPosti() < 0)
+			return false;
+		if (l.getIndirizzo().length() < 1 && l.getIndirizzo().length() > 100)
+			return false;
+		
+		return true;
+
 	}
 
 	// '--------------------------------USER'--------------------------------

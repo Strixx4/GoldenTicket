@@ -16,10 +16,7 @@
 		<link rel="stylesheet" href="../CSS/navbar.css">
 		<link rel="stylesheet"
 			href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-		<script src="../admin/Fileadmin.js"></script>
-		<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-		<Script src="../admin/jqSearchadmin.js"></Script>
+		<script src="Fileadmin.js"></script>
 	</head>
 	
 	<body>
@@ -87,9 +84,9 @@
 			<div class="context">
 				<form action="modificauser" method="post">
 					ID<input type="text" name="id" value="<%=u.get("id")%>"readonly><br>
-					USERNAME<input type="text" name="username" value="<%=u.get("username")%>"><br>
-					PASSWORD<input type="text" name="password" value="<%=u.get("password")%>"><br>
-					<input type="submit" value="AGGIORNA">
+					USERNAME<input type="text" name="username" value="<%=u.get("username")%>" id="u"><br>
+					PASSWORD<input type="text" name="password" value="<%=u.get("password")%>" id="p"><br>
+					<input type="submit" value="AGGIORNA" onclick="controlUser()">
 				</form>
 			</div>
 			<div class="footer">
