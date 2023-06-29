@@ -176,7 +176,7 @@
         </div>
         
         <div id="societa">
-          <h2>La Societ�</h2>
+          <h2>La Societa'</h2>
             <li>Andrea Sbabo</li>
             <li>Michele Pasino</li>
             <li>Beatrice Sala</li>

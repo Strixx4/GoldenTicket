@@ -17,7 +17,9 @@
 <link rel="stylesheet" href="../CSS/navbar.css">
 <link rel="stylesheet"
 	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+
 <script src="Fileadmin.js"></script>
+
 </head>
 
 <body>
@@ -96,8 +98,10 @@
 		</div>
 		<div class="context">
 			<form action="nuovoartista" method="get">
+
 			NOMINATIVO <input type="text" name="nominativo" id="nom">
 			<input type="submit" value="AGGIUNGI" onclick="controlArtista()">
+
 		</form>
 		</div>
 

@@ -16,6 +16,7 @@
 	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 <script src="Fileadmin.js"></script>
 
+
 <body>
 	<div id="container">
 		<div class="header">
@@ -93,7 +94,7 @@
 		<div class="context">
 			<form action="nuovolocalita" method="get" style=" display: inline-block;">
 				<label for="citta">Citta':</label>
-				<input type="text" name="citta" placeholder="CittÃ " id="c"><br>
+				<input type="text" name="citta" placeholder="Citta' " id="c"><br>
 				<label for="zona">Zona:</label>
 				<input type="text" name="zona" placeholder="Zona" id="z"><br>
 				<label for="posti">Posti:</label>
@@ -101,6 +102,7 @@
 				<label for="indirizzo">Indirizzo:</label>
 				<input type="text" name="indirizzo" placeholder="Indirizzo" id="i"><br>
 				<input type="submit" value="Aggiungi" onclick="controlLocalita()">
+
 			</form>
 		</div>
 
@@ -115,7 +117,7 @@
 				<h4>BACK-END</h4>
 				<a href="https://www.w3schools.com/java/default.asp" target="_blank">Java</a>
 				<a href="https://www.w3schools.com/MySQL/default.asp"target="_blank">MySQL</a> 
-				<a href="https://spring.io/"ctarget="_blank">Spring</a>
+				<a href="https://spring.io/"target="_blank">Spring</a>
 
 			</div>
 

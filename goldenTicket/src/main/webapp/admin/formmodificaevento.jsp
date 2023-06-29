@@ -16,7 +16,9 @@
 <link rel="stylesheet" href="../CSS/navbar.css">
 <link rel="stylesheet"
 	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+
 <script src="Fileadmin.js"></script>
+
 
 </head>
 
@@ -96,6 +98,7 @@
 		</div>
 		<div class="context">
 			<form action="modificaevento" method="get">
+			<label>ID:</label>
 			<input type="text" name="id" value="<%= e.getId() %>" readonly><br>
 				<label>Nome:</label>
 				<input type="text" name="nome" value="<%= e.getNome() %>"><br><br>
@@ -119,7 +122,7 @@
 				<input type="text" name="iArtisti" >
 				<br><br>
 				<hr>
-				<input type="submit" value="aggiungi">
+				<input type="submit" value="AGGIUNGI" class="bottone">
 			</form>
 		</div>
 

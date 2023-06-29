@@ -16,7 +16,9 @@
 <link rel="stylesheet" href="../CSS/navbar.css">
 <link rel="stylesheet"
 	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+
 <script src="Fileadmin.js"></script>
+
 </head>
 
 <body>
@@ -85,7 +87,7 @@
 						<!--SI LOGIN -->
 						<div class="login">
 							<div class="search-container">
-								<a href= "logout" id="logout" type="submit">ESCI</a>
+								<a href= "logout" id="logout" type="submit" class = "bottone">ESCI</a>
 							</div>
 						</div>
 
@@ -96,6 +98,7 @@
 		<div class="context">
 			<form action="nuovoevento" method="get">
 				<label>Nome:</label>
+
 				<input type="text" name="nome" placeholder="Finale di Champions" id="n"><br><br>
 				<label>Tipologia:</label>
 				<input type="text" name="tipologia" placeholder="Sport" id="t"><br>
@@ -117,6 +120,7 @@
 				<input type="text" name="iArtisti" placeholder="Vasco Rossi,Bugo,Milan" id="a"><br><br>
 				<hr>
 				<input type="submit" value="aggiungi" onclick="controlEvento()">
+
 			</form>
 		</div>
 

@@ -16,7 +16,9 @@
 <link rel="stylesheet" href="../CSS/navbar.css">
 <link rel="stylesheet"
 	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+
 <script src="Fileadmin.js"></script>
+
 
 </head>
 
@@ -99,6 +101,7 @@
 			Username: <input type="text" name="username" id="u"><br>
 			Password: <input type="text" name="password" id="p"><br>
 			<input type="submit" value="aggiungi" onclick="controlUser()"> 
+
 			</form>
 			
 		</div>

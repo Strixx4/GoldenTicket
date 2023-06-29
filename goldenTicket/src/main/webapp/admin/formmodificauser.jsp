@@ -17,6 +17,7 @@
 		<link rel="stylesheet"
 			href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 		<script src="Fileadmin.js"></script>
+
 	</head>
 	
 	<body>
@@ -65,7 +66,7 @@
 						<!-- eventi -->
 						<li><a href="listaeventi">Eventi</a></li>
 						<!-- localita-->
-						<li><a href="listalocalita">Localita'�</a></li>
+						<li><a href="listalocalita">Localita'</a></li>
 						<!-- eventi -->
 						<li><a href="listaartisti">Artisti</a></li>
 						<!-- users -->
@@ -84,9 +85,11 @@
 			<div class="context">
 				<form action="modificauser" method="post">
 					ID<input type="text" name="id" value="<%=u.get("id")%>"readonly><br>
+
 					USERNAME<input type="text" name="username" value="<%=u.get("username")%>" id="u"><br>
 					PASSWORD<input type="text" name="password" value="<%=u.get("password")%>" id="p"><br>
 					<input type="submit" value="AGGIORNA" onclick="controlUser()">
+
 				</form>
 			</div>
 			<div class="footer">

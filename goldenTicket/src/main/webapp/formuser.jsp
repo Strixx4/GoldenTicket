@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
 <!DOCTYPE html>
 <html>
 <meta charset="ISO-8859-1">
@@ -13,14 +12,12 @@
 </head>
 <body>
 	<div class="container">
-		<form action="login" method="post">
+		<form action="formpassword" method="post">
 			<a class="bottone" id="home"href="/">HOME</a>
-			<h2 id="titolo">LOGIN</h2>
+			<h2 id="titolo">INSERISCI L'USERNAME</h2>
 			Username<input type="text" placeholder="username" name="username"><br><br>
-			Password <input type="password" placeholder="Password" name="password"> <br> <br>
-			<input type="submit" class="bottone" value="LOGIN"><br><br>
-			<a id="passwordsma" href="formuser">Hai dimenticato la password?</a><br><br>
-			Non hai un account?       <a class="bottone" href="formregistra">REGISTRATI</a>
+			<input type="submit" class="bottone" value="CONTINUA"><br><br>
+			
 		</form>
 	</div>
 	
