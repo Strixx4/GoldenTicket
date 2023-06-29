@@ -18,6 +18,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <Script src="../admin/jqSearchadmin.js"></Script>
+<link rel ="stylesheet" href = "../CSS/form.css">
 <body>
 	<div id="container">
 		<div class="header">
@@ -95,14 +96,14 @@
 		<div class="context">
 			<form action="nuovolocalita" method="get" style=" display: inline-block;">
 				<label for="citta">Citta':</label>
-				<input type="text" name="citta" placeholder="CittÃ "><br>
+				<input type="text" name="citta" placeholder="Citta'�"><br>
 				<label for="zona">Zona:</label>
 				<input type="text" name="zona" placeholder="Zona"><br>
 				<label for="posti">Posti:</label>
 				<input type="text" name="posti" placeholder="Numero posti"><br>
 				<label for="indirizzo">Indirizzo:</label>
 				<input type="text" name="indirizzo" placeholder="Indirizzo"><br>
-				<input type="submit" value="Aggiungi">
+				<input type="submit" value="AGGIUNGI" class = "bottone">
 			</form>
 		</div>
 
@@ -117,7 +118,7 @@
 				<h4>BACK-END</h4>
 				<a href="https://www.w3schools.com/java/default.asp" target="_blank">Java</a>
 				<a href="https://www.w3schools.com/MySQL/default.asp"target="_blank">MySQL</a> 
-				<a href="https://spring.io/"ctarget="_blank">Spring</a>
+				<a href="https://spring.io/"target="_blank">Spring</a>
 
 			</div>
 

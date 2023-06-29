@@ -21,6 +21,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <Script src="../admin/jqSearchadmin.js"></Script>
+<link rel ="stylesheet" href = "../CSS/form.css">
 </head>
 
 <body>
@@ -99,8 +100,8 @@
 		</div>
 		<div class="context">
 			<form action="nuovoartista" method="get">
-			NOMINATIVO <input type="text" name="nominativo">
-			<input type="submit" value="AGGIUNGI">
+			Nominativo <input type="text" name="nominativo">
+			<input type="submit" value="AGGIUNGI" class = "bottone">
 		</form>
 		</div>
 

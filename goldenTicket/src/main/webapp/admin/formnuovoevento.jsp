@@ -20,6 +20,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <Script src="../admin/jqSearchadmin.js"></Script>
+<link rel ="stylesheet" href = "../CSS/form.css">
 </head>
 
 <body>
@@ -88,7 +89,7 @@
 						<!--SI LOGIN -->
 						<div class="login">
 							<div class="search-container">
-								<a href= "logout" id="logout" type="submit">ESCI</a>
+								<a href= "logout" id="logout" type="submit" class = "bottone">ESCI</a>
 							</div>
 						</div>
 
@@ -99,27 +100,47 @@
 		<div class="context">
 			<form action="nuovoevento" method="get">
 				<label>Nome:</label>
-				<input type="text" name="nome" placeholder="Finale di Champions"><br><br>
+				<input type="text" name="nome" placeholder="Finale di Champions">
+				<br>
+				<br>
 				<label>Tipologia:</label>
-				<input type="text" name="tipologia" placeholder="Sport"><br>
+				<input type="text" name="tipologia" placeholder="Sport">
+				<br>
 				<label>Genere:</label>
-				<input type="text" name="genere" placeholder="Calcio"><br><br>
+				<input type="text" name="genere" placeholder="Calcio">
+				<br>
+				<br>
 				<label>Data:</label>
-				<input type="date" name="data" ><br>
+				<input type="date" name="data" >
+				<br>
+				<br>
 				<label>Giorno della Settimana:</label>
-				<input type="text" name="giornoSettimana" placeholder="Lunedi"><br>
+				<input type="text" name="giornoSettimana" placeholder="Lunedi">
+				<br>
+				<br>
 				<label>Ora:</label>
-				<input type="text" name="ora" placeholder="11:20"><br><br>
+				<br>
+				<input type="text" name="ora" placeholder="11:20">
+				<br>
+				<br>
 				<label>Locandina:</label>
-				<input type="text" name="locandina" placeholder="www.foto.com"><br><br>
+				<input type="text" name="locandina" placeholder="www.foto.com">
+				<br>
+				<br>
 				<label>Zona:</label>
-				<input type="text" name="zona" placeholder="San Siro"><br><br>
+				<input type="text" name="zona" placeholder="San Siro">
+				<br>
+				<br>
 				<label>Citta:</label>
-				<input type="text" name="citta" placeholder="Milano"><br><br>
+				<input type="text" name="citta" placeholder="Milano">
+				<br>
+				<br>
 				<label>Artisti:</label>
-				<input type="text" name="iArtisti" placeholder="Vasco Rossi,Bugo,Milan"><br><br>
+				<input type="text" name="iArtisti" placeholder="Vasco Rossi,Bugo,Milan">
+				<br>
+				<br>
 				<hr>
-				<input type="submit" value="aggiungi">
+				<input type="submit" value="AGGIUNGI" class = "bottone">
 			</form>
 		</div>
 
