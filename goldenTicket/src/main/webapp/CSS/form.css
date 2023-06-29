@@ -21,4 +21,6 @@ input
 	margin: 25px 0px 0px 25px;    
 	background-color: white;   
 }
-
+.bottone:hover{
+	transform: scale(1.07);
+}
