@@ -105,24 +105,24 @@
 				<label>Tipologia:</label>
 				<input type="text" name="tipologia" value="<%= e.getTipologia() %>" id="t"><br>
 				<label>Genere:</label>
-				<input type="text" name="genere" value="<%= e.getGenere()%>"><br><br>
+				<input type="text" name="genere" value="<%= e.getGenere()%>" id="g"><br><br>
 				<label>Data:</label>
-				<input type="date" name="data" value="<%= e.getData() %>"><br>
+				<input type="date" name="data" value="<%= e.getData() %>" id="d"><br>
 				<label>Giorno della Settimana:</label>
-				<input type="text" name="giornoSettimana" value="<%= e.getTipologia() %>"><br>
+				<input type="text" name="giornoSettimana" value="<%= e.getTipologia() %>" id="gs"><br>
 				<label>Ora:</label>
-				<input type="text" name="ora" value="<%= e.getOra() %>"><br><br>
+				<input type="text" name="ora" value="<%= e.getOra() %>" id="o"><br><br>
 				<label>Locandina:</label>
-				<input type="text" name="locandina" value="<%= e.getLocandina() %>"><br><br>
+				<input type="text" name="locandina" value="<%= e.getLocandina() %>" id="l"><br><br>
 				<label>Zona: </label>
-				<input type="text" name="zona" value="<%= e.getLocalita().getZona() %>"><br><br>
+				<input type="text" name="zona" value="<%= e.getLocalita().getZona() %>" id="z"><br><br>
 				<label>Citta':</label>
-				<input type="text" name="citta" value="<%= e.getLocalita().getCitta() %>"><br><br>
+				<input type="text" name="citta" value="<%= e.getLocalita().getCitta() %>" id="c"><br><br>
 				<label>Artisti:</label>
-				<input type="text" name="iArtisti" >
+				<input type="text" name="iArtisti" id="a">
 				<br><br>
 				<hr>
-				<input type="submit" value="AGGIUNGI" class="bottone">
+				<input type="submit" value="AGGIUNGI" class="bottone" onclick="controlEvento()">
 			</form>
 		</div>
 
