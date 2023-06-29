@@ -119,7 +119,7 @@
 				<label>Artisti:</label>
 				<input type="text" name="iArtisti" placeholder="Vasco Rossi,Bugo,Milan"><br><br>
 				<hr>
-				<input type="submit" value="aggiungi">
+				<input type="submit" value="aggiungi" class = "bottone">
 			</form>
 		</div>
 

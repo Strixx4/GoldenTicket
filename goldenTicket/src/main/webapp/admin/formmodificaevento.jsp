@@ -20,6 +20,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <Script src="../admin/jqSearchadmin.js"></Script>
+<link rel ="stylesheet" href = "../CSS/form.css">
 </head>
 
 <body>
@@ -98,6 +99,7 @@
 		</div>
 		<div class="context">
 			<form action="modificaevento" method="get">
+			<label>ID:</label>
 			<input type="text" name="id" value="<%= e.getId() %>" readonly><br>
 				<label>Nome:</label>
 				<input type="text" name="nome" value="<%= e.getNome() %>"><br><br>
@@ -121,7 +123,7 @@
 				<input type="text" name="iArtisti" >
 				<br><br>
 				<hr>
-				<input type="submit" value="aggiungi">
+				<input type="submit" value="AGGIUNGI" class="bottone">
 			</form>
 		</div>
 
