@@ -4,7 +4,7 @@
     background-color: #F5D12D;
     padding: 0;
     margin: 0;
-    border-radius: 5%;
+    border-radius: 15px;
 
     height: auto;
     width: auto;
@@ -32,8 +32,8 @@
 {
     height: 100%;
     width: 100%;
-    border-top-right-radius: 5%;
-    border-top-left-radius: 5%;
+    border-top-right-radius: 13px;
+    border-top-left-radius: 13px;
 }
 
 .nome-card
@@ -51,12 +51,125 @@
 {
     text-decoration: none;
     border: 3px solid black;
-    border-radius: 15%;
+    border-radius: 15px;
     background: black;
     color: #F5D12D;
 }
 
 .dettagli-card a:hover
+{
+    background-color: #133847;
+    border-color: #133847;
+}
+
+/*--------------------------CARD LOCALITA-------------------------------------------------------*/
+
+.card_localita
+{
+    border: solid 2px black;
+    background-color: #F5D12D;
+    padding: 5%;
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card_localita:hover
+{
+    transform: scale(1.07);
+}
+
+.card_localita div
+{
+    padding: 5%;
+}
+
+.card_localita a
+{
+    text-decoration: none;
+    border: 3px solid black;
+    border-radius: 15px;
+    background: black;
+    color: #F5D12D;
+}
+
+.card_localita a:hover
+{
+    background-color: #133847;
+    border-color: #133847;
+}
+/*--------------------------CARD ARTISTI-------------------------------------------------------*/
+.card_artisti
+{
+    border: solid 2px black;
+    background-color: #F5D12D;
+    padding: 5%;
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card_artisti:hover
+{
+    transform: scale(1.07);
+}
+
+.card_artisti div
+{
+    padding: 5%;
+}
+
+.card_artisti a
+{
+    text-decoration: none;
+    border: 3px solid black;
+    border-radius: 15px;
+    background: black;
+    color: #F5D12D;
+}
+
+.card_artisti a:hover
+{
+    background-color: #133847;
+    border-color: #133847;
+}
+/*--------------------------CARD USERS-------------------------------------------------------*/
+.card_users
+{
+    border: solid 2px black;
+    background-color: #F5D12D;
+    padding: 5%;
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card_users:hover
+{
+    transform: scale(1.07);
+}
+
+.card_users div
+{
+    padding: 5%;
+}
+
+.card_users a
+{
+    text-decoration: none;
+    border: 3px solid black;
+    border-radius: 15px;
+    background: black;
+    color: #F5D12D;
+}
+
+.card_users a:hover
 {
     background-color: #133847;
     border-color: #133847;

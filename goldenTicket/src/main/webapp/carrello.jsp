@@ -21,6 +21,7 @@
       <link rel="icon" type="image/x-icon" href="/IMG/favicon.jpeg">
       <link rel="stylesheet" href="../CSS/index.css">
       <link rel="stylesheet" href="../CSS/navbar.css">
+      <link rel="stylesheet" href="../CSS/carrello.css">
       <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
       <script src="File.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -140,24 +141,27 @@
         </div>
       </div>
       
-      <div class="contextbiglietto">
-      <hr>
+      <div id="context_carrello">
       <%for(Biglietto b : biglietti) {%>
-        <div class="result">
-          <img src="<%=b.getEvento().getLocandina()%>" id="locandina">
-            <div class="infospettacolo">
-              <p>Evento: <%=b.getEvento().getNome()%></p>
-              <span>Data: <%=b.getEvento().getData() %></span>
-              <p>Orario: <%=b.getEvento().getOra() %></p>
-              <span>Fila: <%=b.getFila() %></span>
-              <span>Posto: <%=b.getPosto() %></span>
-              <span>Prezzo: <%=b.getPrezzo() %></span>
-			      </div>
-			      <a href="eliminadacarrello?id=<%=b.getId()%>">ELIMINA</a>
+        <div class="card_biglietto">
+          <div class="img_biglietto">
+            <img src="<%=b.getEvento().getLocandina()%>" id="locandina">
+          </div>
+
+          <div class="info_biglietto">
+            <p>Evento: <%=b.getEvento().getNome()%></p>
+            <span>Data: <%=b.getEvento().getData() %></span>
+            <p>Orario: <%=b.getEvento().getOra() %></p>
+            <span>Fila: <%=b.getFila() %></span>
+            <span>Posto: <%=b.getPosto() %></span>
+            <span>Prezzo: <%=b.getPrezzo() %></span>
+          </div>
+
+          <div class="link_biglietto">
+            <a href="eliminadacarrello?id=<%=b.getId()%>">ELIMINA</a>
+          </div>
         </div>
-        
 			<%} %>
-      <hr>
       <a href="checkout" style="left: 50%;">Checkout</a>
     </div>
     

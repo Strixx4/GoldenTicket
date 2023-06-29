@@ -20,6 +20,7 @@
       <link rel="icon" type="image/x-icon" href="/IMG/favicon.jpeg">
       <link rel="stylesheet" href="../CSS/index.css">
       <link rel="stylesheet" href="../CSS/navbar.css">
+      <link rel="stylesheet" href="../CSS/card.css">
       <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
       <script src="File.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -139,7 +140,7 @@
         </div>
       </div>
 
-      <div class="contextbiglietto">
+      <div id="context_carrello">
       	<%for(Biglietto b : biglietti) {%>
         <div class="result">
           <img src="<%=b.getEvento().getLocandina()%>" id="locandina">
