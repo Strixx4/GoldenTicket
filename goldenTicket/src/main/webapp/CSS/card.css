@@ -61,7 +61,16 @@
     background-color: #133847;
     border-color: #133847;
 }
-
+/*--------------------------RICERCA------------------------------------------------------------*/
+.ha:hover{
+	transform: scale(1.07);
+}
+.hc:hover{
+	transform: scale(1.07);
+}
+.hn:hover{
+	transform: scale(1.07);
+}
 /*--------------------------CARD LOCALITA-------------------------------------------------------*/
 
 .card_localita
