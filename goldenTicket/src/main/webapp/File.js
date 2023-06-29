@@ -33,3 +33,19 @@ function controlRegistra(){
 		alert("campo scorretto");
 	}
 }
+
+let prezzo = 0;
+
+function aggiornaP(p){
+    prezzo += p;
+}
+function pulisciP(){
+    prezzo = 0;
+}
+function stampaP(){
+    document.getElementById("prezzo").innerHTML=prezzo;
+}
+
+
+
+
