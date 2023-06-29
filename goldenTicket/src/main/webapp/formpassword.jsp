@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+<%@ page import="java.util.*"%>   
+<%Map<String,String> us=(Map<String,String>)request.getAttribute("user"); %>
 <!DOCTYPE html>
 <html>
 <meta charset="ISO-8859-1">
@@ -13,14 +14,13 @@
 </head>
 <body>
 	<div class="container">
-		<form action="login" method="post">
+		<form action="cambiapassword" method="post">
 			<a class="bottone" id="home"href="/">HOME</a>
-			<h2 id="titolo">LOGIN</h2>
-			Username<input type="text" placeholder="username" name="username"><br><br>
-			Password <input type="password" placeholder="Password" name="password"> <br> <br>
-			<input type="submit" class="bottone" value="LOGIN"><br><br>
-			<a id="passwordsma" href="formuser">Hai dimenticato la password?</a><br><br>
-			Non hai un account?       <a class="bottone" href="formregistra">REGISTRATI</a>
+			<h2 id="titolo">CAMBIA PASSWORD</h2>
+			Username<input type="text" value="<%=us.get("username")%>" name="username" readonly><br>
+			Nuova Password <input type="text" placeholder="Password" name="password"> <br> <br>
+			<input type="submit" class="bottone" value="CAMBIA"><br><br>
+			
 		</form>
 	</div>
 	
