@@ -12,6 +12,7 @@
 <link rel="icon" type="image/x-icon" href="/IMG/favicon.jpeg">
 <link rel="stylesheet" href="../CSS/index.css">
 <link rel="stylesheet" href="../CSS/navbar.css">
+<link rel="stylesheet" href="../CSS/form.css">
 <link rel="stylesheet"
 	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 <script src="Fileadmin.js"></script>
@@ -100,8 +101,9 @@
 				<label for="posti">Posti:</label>
 				<input type="text" name="posti" placeholder="Numero posti" id="p"><br>
 				<label for="indirizzo">Indirizzo:</label>
+
 				<input type="text" name="indirizzo" placeholder="Indirizzo" id="i"><br>
-				<input type="submit" value="Aggiungi" onclick="controlLocalita()">
+				<input class="bottone" type="submit" value="Aggiungi" onclick="controlLocalita()">
 
 			</form>
 		</div>

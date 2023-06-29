@@ -14,6 +14,7 @@
 		<link rel="icon" type="image/x-icon" href="/IMG/favicon.jpeg">
 		<link rel="stylesheet" href="../CSS/index.css">
 		<link rel="stylesheet" href="../CSS/navbar.css">
+		<link rel="stylesheet" href="../CSS/form.css">
 		<link rel="stylesheet"
 			href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 		<script src="Fileadmin.js"></script>
@@ -85,9 +86,10 @@
 			<div class="context">
 				<form action="modificauser" method="post">
 					ID<input type="text" name="id" value="<%=u.get("id")%>"readonly><br>
+
 					USERNAME<input type="text" name="username" value="<%=u.get("username")%>" id="u"><br>
 					PASSWORD<input type="text" name="password" value="<%=u.get("password")%>" id="p"><br>
-					<input type="submit" value="AGGIORNA" onclick="controlUser()">
+					<input class="bottone" type="submit" value="AGGIORNA" onclick="controlUser()">
 
 				</form>
 			</div>

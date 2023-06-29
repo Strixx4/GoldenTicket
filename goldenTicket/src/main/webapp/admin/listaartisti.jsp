@@ -14,6 +14,7 @@
 <link rel="icon" type="image/x-icon" href="/IMG/favicon.jpeg">
 <link rel="stylesheet" href="../CSS/index.css">
 <link rel="stylesheet" href="../CSS/navbar.css">
+<link rel="stylesheet" href="../CSS/card.css">
 <link rel="stylesheet"
 	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 <script src="../admin/Fileadmin.js"></script>
@@ -100,10 +101,15 @@
 		<div class="context">
 			
 			<%for(Artista a : artisti){ %>
-			<div>
-					<h1> <%=a.getNominativo() %></h1> <br>
-					<a href="eliminaartista?id= <%=a.getId() %>">Elimina</a>
-					<a href="formmodificaartista?id= <%=a.getId() %>">modifica</a>
+			<div class="card_artisti">
+					<div>
+						<h1> <%=a.getNominativo() %></h1>
+					</div>
+					
+					<div>
+						<a href="eliminaartista?id= <%=a.getId() %>">Elimina</a>
+						<a href="formmodificaartista?id= <%=a.getId() %>">modifica</a>
+					</div>
 			</div>
 			<%} %>
 		</div>

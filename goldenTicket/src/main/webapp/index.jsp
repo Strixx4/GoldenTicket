@@ -20,6 +20,7 @@
 <link rel="icon" type="image/x-icon" href="/IMG/favicon.jpeg">
 <link rel="stylesheet" href="../CSS/index.css">
 <link rel="stylesheet" href="../CSS/navbar.css">
+<link rel="stylesheet" href="../CSS/card.css">
 <link rel="stylesheet"
 	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 <script src="File.js"></script>
@@ -94,8 +95,8 @@
 											%>
 											<li aria-haspopup="true"><a
 												href="leggigenere?tipologia=<%=tipologia%>&genere=<%=genere%>"><%=genere%></a> <%
-											 }
-											 %></li>
+											}
+											%></li>
 										</ul>
 									</div></li>
 								<%
@@ -135,7 +136,7 @@
 						</div>
 			<% }else {%>
         <form action="carrello" method="get">                  
-          <button type="submit"><i class="fas fa-shopping-cart"></i></button>
+        	<button type="submit"><i class="fas fa-shopping-cart"></i></button>
         </form>  
         <a href="formlogin" id="login" type="submit">LOGIN</a>      
 			<%} %>
@@ -149,18 +150,31 @@
 			<%
 			for (Evento e : eventi) {
 			%>
-			<div class="evento">
-				<img src="<%=e.getLocandina()%>"> <br>
-				<h1>
-					<%=e.getNome()%></h1>
-				<br>
-				<p><%=e.getLocalita().getCitta()%><br>
-					<%=e.getLocalita().getZona()%><br>
-					<%=e.getGiornoSettimana()%>
-					<%=e.getData()%>alle ore<%=e.getOra()%>
-				</p>
-				<br>
-				<a href="dettagli?id=<%=e.getId()%>">DETTAGLI</a>
+			<div class="card">
+				<div class="img-card" >
+					<img src="<%=e.getLocandina()%>">
+				</div>
+				
+				<div class="nome-card">
+					<h1>
+						<%=e.getNome()%>
+					</h1>
+				</div>
+
+				<div class="paragrafo-card">
+					<p>
+						<%=e.getLocalita().getCitta()%><br>
+						<%=e.getLocalita().getZona()%><br>
+						<%=e.getGiornoSettimana()%>
+						<%=e.getData()%>
+						alle ore
+						<%=e.getOra()%>
+					</p>
+				</div>
+
+				<div class="dettagli-card">
+					<a href="dettagli?id=<%=e.getId()%>">DETTAGLI</a>
+				</div>
 			</div>
 			<%
 			}

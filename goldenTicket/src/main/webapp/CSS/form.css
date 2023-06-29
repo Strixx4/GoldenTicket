@@ -1,21 +1,24 @@
-@charset "UTF-8";
 
-.bottone {
-  background-color: black;
-  color: gold;
-  font-size:15px;
-  text-align: center;
+@charset "UTF-8";  
+.bottone 
+{   
+	background-color: black;  
+	color: gold;   
+	font-size:15px;   
+	text-align: center; 
+}   
+
+#modifica 
+{ 
+	text-align: center;     
+	margin: 25px 0px 0px 25px;     
+	background-color: rgb(233,233,233);   
+}      
+
+input 
+{   
+	text-align: center;     
+	margin: 25px 0px 0px 25px;    
+	background-color: white;   
 }
 
-
-#modifica {
-    text-align: center;
-    margin: 25px 0px 0px 25px;
-    background-color: rgb(233,233,233);
-  }
-  
-  input {
-  text-align: center;
-    margin: 25px 0px 0px 25px;
-    background-color: white;
-  }

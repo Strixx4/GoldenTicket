@@ -96,8 +96,6 @@
 				</ul>
 			</div>
 		</div>
-		<div class="context">
-		</div>
 
 		<div class="footer">
 			<div id="linguaggi">

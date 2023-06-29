@@ -15,6 +15,7 @@
 		<link rel="icon" type="image/x-icon" href="/IMG/favicon.jpeg">
 		<link rel="stylesheet" href="../CSS/index.css">
 		<link rel="stylesheet" href="../CSS/navbar.css">
+		<link rel="stylesheet" href="../CSS/card.css">
 		<link rel="stylesheet"
 			href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 		<script src="../admin/Fileadmin.js"></script>
@@ -99,14 +100,17 @@
 		</div>
 			<div class="context">
 				<%for(Map<String,String> m:users) {%>
-					<div>
-						<%=m.get("username") %>
-						<%=m.get("ruolo") %>
-						<a href="eliminauser?id=<%=m.get("id")%>">Elimina</a>
-						<a href="formmodificauser?id=<%=m.get("id")%>">Modifica</a>
+					<div class="card_users">
+						<div>
+							<%=m.get("username") %>
+							<%=m.get("ruolo") %>
+						</div>
+
+						<div>
+							<a href="eliminauser?id=<%=m.get("id")%>">Elimina</a>
+							<a href="formmodificauser?id=<%=m.get("id")%>">Modifica</a>
+						</div>
 					</div>
-					
-					
 				<%} %>
 			</div>
 			<div class="footer">

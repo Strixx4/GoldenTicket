@@ -15,6 +15,7 @@
 		<link rel="icon" type="image/x-icon" href="/IMG/favicon.jpeg">
 		<link rel="stylesheet" href="../CSS/index.css">
 		<link rel="stylesheet" href="../CSS/navbar.css">
+		<link rel="stylesheet" href="../CSS/card.css">
 		<link rel="stylesheet"
 			href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 		<script src="../admin/Fileadmin.js"></script>
@@ -99,16 +100,19 @@
 		</div>
 			<div class="context">
 				<%for(Localita l:localita) {%>
-					<div>
-						<%=l.getCitta() %><br>
+					<div class="card_localita">
+						<div>
+							<%=l.getCitta() %><br>
 						<%=l.getZona() %><br>
 						<%=l.getPosti()%><br>
 						<%=l.getIndirizzo() %><br>
-						<a href="eliminalocalita?id= <%=l.getId() %>">Elimina</a>
-						<a href="formmodificalocalita?id= <%=l.getId() %>">modifica</a>
+						</div>
+						
+						<div>
+							<a href="eliminalocalita?id= <%=l.getId() %>">Elimina</a>
+							<a href="formmodificalocalita?id= <%=l.getId() %>">modifica</a>
+						</div>
 					</div>
-					
-					
 				<%} %>
 			</div>
 			<div class="footer">

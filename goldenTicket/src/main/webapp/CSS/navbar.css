@@ -1,24 +1,3 @@
-html,
-body,
-aside {
-  display: block;
-  margin: 0;
-  padding: 0;
-}
-body {
-  padding: 40px;
-  background-attachment: fixed;
-  background-position: 50% 0;
-  background-size: cover;
-  background-color: #133847;
-}
-aside {
-  width: 233px;
-  min-height: 500px;
-}
-aside.right {
-  margin-left: auto;
-}
 a {
   text-decoration: underline;
 }
@@ -52,10 +31,7 @@ a:hover {
 .bg-black {
   background-image: url(../img/bg-black.jpg);
 }
-.body {
-  max-width: 1200px;
-  margin: 0 auto;
-}
+
 @media screen and (max-width: 1000px) {
   body {
     padding: 20px;

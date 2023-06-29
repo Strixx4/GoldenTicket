@@ -14,6 +14,7 @@
 <link rel="icon" type="image/x-icon" href="/IMG/favicon.jpeg">
 <link rel="stylesheet" href="../CSS/index.css">
 <link rel="stylesheet" href="../CSS/navbar.css">
+<link rel="stylesheet" href="../CSS/form.css">
 <link rel="stylesheet"
 	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 
@@ -98,9 +99,10 @@
 		</div>
 		<div class="context">
 			<form action="nuovouser">
+
 			Username: <input type="text" name="username" id="u"><br>
 			Password: <input type="text" name="password" id="p"><br>
-			<input type="submit" value="aggiungi" onclick="controlUser()"> 
+			<input class="bottone" type="submit" value="aggiungi" onclick="controlUser()"> 
 
 			</form>
 			

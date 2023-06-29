@@ -13,6 +13,7 @@
 		<link rel="icon" type="image/x-icon" href="/IMG/favicon.jpeg">
 		<link rel="stylesheet" href="../CSS/index.css">
 		<link rel="stylesheet" href="../CSS/navbar.css">
+		<link rel="stylesheet" href="../CSS/form.css">
 		<link rel="stylesheet"
 			href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 		<script src="../admin/Fileadmin.js" defer></script>
@@ -108,6 +109,7 @@
 					<br>
 					<br>
 					<input type="submit" class = "bottone" value="AGGIORNA" onclick="controlArtista()">
+
 				</form>
 			</div>
 			<div class="footer">

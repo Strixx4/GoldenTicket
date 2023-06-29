@@ -14,6 +14,7 @@
 <link rel="icon" type="image/x-icon" href="/IMG/favicon.jpeg">
 <link rel="stylesheet" href="../CSS/index.css">
 <link rel="stylesheet" href="../CSS/navbar.css">
+<link rel="stylesheet" href="../CSS/card.css">
 <link rel="stylesheet"
 	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 <script src="../admin/Fileadmin.js"></script>
@@ -100,21 +101,32 @@
 		<div class="context">
 			
 			<%for(Evento e : list){ %>
-			<div>
-					<h1> <%=e.getNome() %></h1> <br>
-					<img src="<%=e.getLocandina()%>"><br>
-					<%=e.getTipologia()%>, <%=e.getGenere()%><br>
-					Artisti:<br>
-					<%for(Artista a: e.getArtisti()){ %>
-						<%=a.getNominativo()%><br>
-					<%} %>
-					<p><%=e.getLocalita().getCitta()%> in <%=e.getLocalita().getZona()%><br>
-					indirizzo : <%=e.getLocalita().getIndirizzo()%><br>
-					<%=e.getGiornoSettimana()%> <br>
-					<%=e.getData()%> alle ore <%=e.getOra()%> </p> <br>
-					<a href="eliminaevento?id= <%=e.getId() %>">Elimina</a>
-					<a href="formmodificaevento?id= <%=e.getId() %>">modifica</a>
-			</div>
+				<div class="card">
+					<div class="img-card">
+						<img src="<%=e.getLocandina()%>">
+					</div>
+
+					<div class="nome-card">
+						<h1> <%=e.getNome() %></h1>
+					</div>
+					
+					<div class="paragrafo-card">
+						<%=e.getTipologia()%>, <%=e.getGenere()%><br>
+						Artisti:<br>
+						<%for(Artista a: e.getArtisti()){ %>
+							<%=a.getNominativo()%><br>
+						<%} %>
+						<p><%=e.getLocalita().getCitta()%> in <%=e.getLocalita().getZona()%><br>
+						indirizzo : <%=e.getLocalita().getIndirizzo()%><br>
+						<%=e.getGiornoSettimana()%> <br>
+						<%=e.getData()%> alle ore <%=e.getOra()%> </p> <br>
+					</div>
+
+					<div class="dettagli-card">
+						<a href="eliminaevento?id= <%=e.getId() %>">Elimina</a>
+						<a href="formmodificaevento?id= <%=e.getId() %>">modifica</a>
+					</div>
+				</div>
 			<%} %>
 		</div>
 
