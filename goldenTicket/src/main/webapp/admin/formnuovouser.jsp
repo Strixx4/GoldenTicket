@@ -20,6 +20,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <Script src="../admin/jqSearchadmin.js"></Script>
+<link rel ="stylesheet" href = "../CSS/form.css">
 </head>
 
 <body>
@@ -100,7 +101,7 @@
 			<form action="nuovouser">
 			Username: <input type="text" name="username"><br>
 			Password: <input type="text" name="password"><br>
-			<input type="submit" value="aggiungi"> 
+			<input type="submit" value="AGGIUNGI" class = "bottone"> 
 			</form>
 			
 		</div>

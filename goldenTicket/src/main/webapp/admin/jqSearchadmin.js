@@ -14,3 +14,8 @@ $(document).ready(function(){
       $("#listCitta").toggle(1000);
     }); 
   });
+  
+  $('.formArtista').submit(function(){
+	  if($('.nominativo')=="")
+	  return false;
+  })

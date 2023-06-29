@@ -20,6 +20,5 @@
 			<input type="submit" class="bottone" value="REGISTRATI"> <br>
 		</form>
 	</div>
-	
 </body>
 </html>

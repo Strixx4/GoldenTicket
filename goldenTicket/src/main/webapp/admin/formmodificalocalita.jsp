@@ -19,6 +19,7 @@
 		<script
 			src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 		<Script src="../admin/jqSearchadmin.js"></Script>
+		<link rel ="stylesheet" href = "../CSS/form.css">
 	</head>
 	
 	<body>
@@ -102,7 +103,7 @@
 					ZONA<input type="text" name="zona" value="<%=l.getZona()%>"><br>
 					POSTI<input type="text" name="posti" value="<%=l.getPosti()%>"><br>
 					INDIRIZZO<input type="text" name="indirizzo" value="<%=l.getIndirizzo()%>"><br>
-					<input type="submit" value="AGGIORNA">
+					<input type="submit" value="AGGIORNA" class="bottone">
 				</form>
 			</div>
 			<div class="footer">

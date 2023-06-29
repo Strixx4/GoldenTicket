@@ -45,7 +45,8 @@ public class LoginController {
 				} else
 					return "redirect:/";
 			}
-		}return "redirect:formlogin";
+		}
+		return "redirect:formlogin";
 	}
 
 	@GetMapping("formregistra")
@@ -64,10 +65,24 @@ public class LoginController {
 	@PostMapping("registrati")
 	public String registrati(HttpSession session, @RequestParam("username") String u,
 			@RequestParam("password") String p) {
-		if (checkSession(session)) {
-			du.create(u, p, "loggato");
-			login(u, p, session);
-			return "redirect:/";
+		if (!checkSession(session)) {
+			if (du.cercaPerNome(u) == null) {
+				System.out.println("u.size() == null");
+				if (checkData(u, p)) {
+					du.create(u, p, "loggato");
+					session.setAttribute("login", "ok");
+					session.setAttribute("username", u);
+					session.setAttribute("password", p);
+					session.setAttribute("id", du.cercaPerNome(u).get("id"));
+					session.setAttribute("ruolo", du.cercaPerNome(u).get("ruolo"));
+					System.out.println("done");
+					return "redirect:/";
+				} else
+					return "redirect:formlogin";
+
+			} else
+				System.out.println("u.size !=0");
+			return "redirect:formlogin";
 		} else {
 			if (checkUtenti(session)) {
 				return "redirect:/";
@@ -150,7 +165,6 @@ public class LoginController {
 				return"redirect:formuser";
 		}
 		else
-			
 			return"redirect:formuser";
 			
 	}
@@ -174,6 +188,14 @@ public class LoginController {
 		return"redirect:formlogin";
 		
 		
-		
+
+	public static boolean checkData(String u, String p) {
+		if (u.length() > 0 && u.length() < 50) {
+			if (p.length() > 0 && p.length() < 16) {
+				return true;
+			} else
+				return false;
+		} else
+			return false;
 	}
 }
