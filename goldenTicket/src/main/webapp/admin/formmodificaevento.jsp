@@ -106,7 +106,7 @@
 				<label>Genere:</label>
 				<input type="text" name="genere" value="<%= e.getGenere()%>"><br><br>
 				<label>Data:</label>
-				<input type="text" name="data" value="<%= e.getData() %>"><br>
+				<input type="date" name="data" value="<%= e.getData() %>"><br>
 				<label>Giorno della Settimana:</label>
 				<input type="text" name="giornoSettimana" value="<%= e.getTipologia() %>"><br>
 				<label>Ora:</label>

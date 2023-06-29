@@ -105,7 +105,7 @@
 				<label>Genere:</label>
 				<input type="text" name="genere" placeholder="Calcio"><br><br>
 				<label>Data:</label>
-				<input type="text" name="data" placeholder="YYYY-MM-DD"><br>
+				<input type="date" name="data" ><br>
 				<label>Giorno della Settimana:</label>
 				<input type="text" name="giornoSettimana" placeholder="Lunedi"><br>
 				<label>Ora:</label>
