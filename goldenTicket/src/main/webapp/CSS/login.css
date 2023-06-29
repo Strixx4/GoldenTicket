@@ -17,7 +17,7 @@ form
 	width: 50%;
 	padding:20px;
 	text-align:center;
-	height: 250px;
+	height: 280px;
 	width:350px; 
 	border: solid rgb(255, 217, 0) 20px;
 	background-color: white;
@@ -57,4 +57,19 @@ a
 .bottone #home
 {
 	float:left;
+}
+ #passwordsma
+{
+	 color:#0eb0e5;
+	
+}
+ #passwordsma:hover
+{
+	 text-decoration: underline;
+	 color:grey;
+}
+ #passwordsma:active
+{
+	
+	color:#0eb0e5;
 }

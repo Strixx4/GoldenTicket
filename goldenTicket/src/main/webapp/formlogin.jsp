@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 <meta charset="ISO-8859-1">
@@ -17,8 +18,9 @@
 			<h2 id="titolo">LOGIN</h2>
 			Username<input type="text" placeholder="username" name="username"><br><br>
 			Password <input type="password" placeholder="Password" name="password"> <br> <br>
-			<a>Hai dimenticato la password?</a><input type="submit" class="bottone" value="LOGIN"><br><br>
-			Non hai un account?<a class="bottone" href="formregistra">REGISTRATI</a>
+			<input type="submit" class="bottone" value="LOGIN"><br><br>
+			<a id="passwordsma" href="formuser">Hai dimenticato la password?</a><br><br>
+			Non hai un account?       <a class="bottone" href="formregistra">REGISTRATI</a>
 		</form>
 	</div>
 	

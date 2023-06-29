@@ -36,4 +36,8 @@ public class DAOUtenti {
 	public Map<String, String> cercaPerNome(String nome) {
 		return db.row("select * from utenti where username = ?", nome);
 	}
+	public boolean updateByNome(Map<String, String> u) {
+		String query = "update utenti set password =? where username=? and id>0";
+		return db.update(query, u.get("password"), u.get("username"));
+	}
 }
