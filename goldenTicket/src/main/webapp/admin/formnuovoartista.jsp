@@ -17,11 +17,9 @@
 <link rel="stylesheet" href="../CSS/navbar.css">
 <link rel="stylesheet"
 	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-<script src="../admin/Fileadmin.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<Script src="../admin/jqSearchadmin.js"></Script>
-<link rel ="stylesheet" href = "../CSS/form.css">
+
+<script src="Fileadmin.js"></script>
+
 </head>
 
 <body>
@@ -100,8 +98,10 @@
 		</div>
 		<div class="context">
 			<form action="nuovoartista" method="get">
-			Nominativo <input type="text" name="nominativo">
-			<input type="submit" value="AGGIUNGI" class = "bottone">
+
+			NOMINATIVO <input type="text" name="nominativo" id="nom">
+			<input type="submit" value="AGGIUNGI" onclick="controlArtista()">
+
 		</form>
 		</div>
 
