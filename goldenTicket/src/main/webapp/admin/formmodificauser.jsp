@@ -20,6 +20,7 @@
 		<script
 			src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 		<Script src="../admin/jqSearchadmin.js"></Script>
+		<link rel ="stylesheet" href = "../CSS/form.css">
 	</head>
 	
 	<body>
@@ -68,7 +69,7 @@
 						<!-- eventi -->
 						<li><a href="listaeventi">Eventi</a></li>
 						<!-- localita-->
-						<li><a href="listalocalita">Localita'�</a></li>
+						<li><a href="listalocalita">Localita'</a></li>
 						<!-- eventi -->
 						<li><a href="listaartisti">Artisti</a></li>
 						<!-- users -->
@@ -89,7 +90,7 @@
 					ID<input type="text" name="id" value="<%=u.get("id")%>"readonly><br>
 					USERNAME<input type="text" name="username" value="<%=u.get("username")%>"><br>
 					PASSWORD<input type="text" name="password" value="<%=u.get("password")%>"><br>
-					<input type="submit" value="AGGIORNA">
+					<input type="submit" value="AGGIORNA" class="bottone">
 				</form>
 			</div>
 			<div class="footer">

@@ -100,7 +100,7 @@
 			<form action="nuovouser">
 			Username: <input type="text" name="username"><br>
 			Password: <input type="text" name="password"><br>
-			<input type="submit" value="aggiungi"> 
+			<input type="submit" value="aggiungi" class= "bottone"> 
 			</form>
 			
 		</div>

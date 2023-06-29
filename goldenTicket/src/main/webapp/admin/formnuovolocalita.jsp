@@ -102,7 +102,7 @@
 				<input type="text" name="posti" placeholder="Numero posti"><br>
 				<label for="indirizzo">Indirizzo:</label>
 				<input type="text" name="indirizzo" placeholder="Indirizzo"><br>
-				<input type="submit" value="Aggiungi">
+				<input type="submit" value="Aggiungi" class="bottone">
 			</form>
 		</div>
 
