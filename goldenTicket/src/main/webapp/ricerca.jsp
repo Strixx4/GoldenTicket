@@ -250,6 +250,7 @@
 				<div class="dettagli-card">
 					<a href="dettagli?id=<%=e.getId()%>">DETTAGLI</a>
 				</div>
+			</div>
           <%}%>
         <%} %>
       <% if(ll.size()  == 0){ %>
@@ -258,7 +259,7 @@
           </div>
     </div>
 
-      
+      </div>
     </div>
     <div class="footer">
       <div id="linguaggi">
