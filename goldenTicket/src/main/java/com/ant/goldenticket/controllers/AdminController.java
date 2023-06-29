@@ -74,10 +74,8 @@ public class AdminController {
 		if (l == null || ar.size() <= 0)
 			return "redirect:formnuovoevento";
 		Evento e = context.getBean(Evento.class, params, ar, l);
-		try {
+		if (checkEvento(e, l, ar))
 			de.create(e);
-		} catch (Exception ex) {
-		}
 		return "redirect:listaeventi";
 	}
 
@@ -127,36 +125,35 @@ public class AdminController {
 		if (l == null || la.size() <= 0)
 			return "redirect:formmodificaevento";
 		Evento e = context.getBean(Evento.class, inputs, la, l);
-		try {
+		if (checkEvento(e, l, la))
 			de.update(e);
-		} catch (Exception ex) {
-
-		}
 		return "redirect:listaeventi";
 	}
 
-	private boolean checkEvento(Evento e) {
+	private boolean checkEvento(Evento e, Localita l, List<Artista> a) {
 		boolean ris = true;
 		// controllo data
-		String[] data = e.getData().split("-");
-		try {
-			int gg = Integer.parseInt(data[2]);
-			int mm = Integer.parseInt(data[1]);
-			int yyyy = Integer.parseInt(data[0]);
-			if (Integer.parseInt(data[0]) < 2023 || Integer.parseInt(data[0]) > 2040)
-				return false;
-			if (Integer.parseInt(data[1]) < 1 || Integer.parseInt(data[1]) > 12)
-				return false;
-			if (gg < 1 || gg > 31)
-				return false;
-			if (gg > 29 && mm == 2)
-				return false;
-		} catch (Exception ex) {
-			return false;
-		}
-		if (e.getGenere().length() < 1 || e.getGenere().length() > 100)
-			return false;
 
+		if (e.getNome().length() < 1 || e.getNome().length() > 100)
+			return false;
+		if (e.getTipologia().length() < 1 || e.getTipologia().length() > 40)
+			return false;
+		if (e.getGenere().length() < 1 || e.getGenere().length() > 30)
+			return false;
+		if (e.getData().length() != 10)
+			return false;
+		if (e.getOra().length() < 1 || e.getOra().length() > 10)
+			return false;
+		if (e.getGiornoSettimana().length() < 1 || e.getGiornoSettimana().length() > 30)
+			return false;
+		if (e.getLocandina().length() < 1 || e.getLocandina().length() > 300)
+			return false;
+		if (l == null)
+			return false;
+		if (a == null)
+			return false;
+		if (a.size() == 0)
+			return false;
 		return ris;
 	}
 
@@ -187,8 +184,9 @@ public class AdminController {
 		if (!LoginController.checkAdmin(session))
 			return "redirect:/";
 		Artista a = context.getBean(Artista.class, m);
-		if (checkArtisti(a))
+		if (checkArtisti(a)) {
 			da.create(a);
+		}
 		return "redirect:listaartisti";
 	}
 
@@ -209,8 +207,9 @@ public class AdminController {
 		if (!LoginController.checkAdmin(session))
 			return "redirect:/";
 		Artista a = context.getBean(Artista.class, inputs);
-		if (checkArtisti(a))
+		if (checkArtisti(a)) {
 			da.update(a);
+		}
 		return "redirect:listaartisti";
 	}
 
@@ -225,10 +224,10 @@ public class AdminController {
 	}
 
 	private boolean checkArtisti(Artista a) {
-		if (a.getNominativo().length() > 0 && a.getNominativo().length() <= 100)
-			return true;
-		else
+		if (a.getNominativo().length() == 0 || a.getNominativo().length() > 100) {
 			return false;
+		}
+		return true;
 	}
 
 	// '--------------------------------LOCALITA'--------------------------------
