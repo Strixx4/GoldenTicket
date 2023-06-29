@@ -186,7 +186,7 @@ String controllaLogin = (String) request.getAttribute("controllologin");
 					
 					<a href="eliminadacarrello?id=<%=b.getId()%>">ELIMINA</a>
 					<label for="a-<%=b.getId()%>">COMPRA</label>
-					<input type="radio" name="a-<%=b.getId()%>" onclick="aggiornaP(<%=b.getPrezzo()%>);stampaP();">
+					<input type="radio" name="a-<%=b.getId()%>" onchange="aggiornaP(<%=b.getPrezzo()%>);stampaP();">
 				</div>
 				
 				<%
