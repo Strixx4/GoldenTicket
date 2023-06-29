@@ -40,7 +40,6 @@ String controllaLogin = (String) request.getAttribute("controllologin");
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <Script src="jqSearch.js"></Script>
 </head>
-
 <body>
 	<div id="container">
 		<div class="header">
@@ -48,6 +47,7 @@ String controllaLogin = (String) request.getAttribute("controllologin");
 			<h1>GoldenTicket</h1>
 			<img src="../IMG/golden-ticket.png" id="logo">
 		</div>
+
 
 		<div id="megamenu">
 			<!-- mega menu -->

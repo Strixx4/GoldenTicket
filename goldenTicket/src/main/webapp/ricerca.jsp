@@ -147,7 +147,7 @@
       <div id="listNome" class="context">
       <% if(el.size() > 0){ %>
           <%for(Evento e : el){ %>
-          <div >
+          <div class="evento">
           	<h1> <%=e.getNome() %></h1> <br>
 				<img src="<%=e.getLocandina()%>"><br>
 				<p><%=e.getLocalita().getCitta()%><br><%= e.getLocalita().getZona()%><br><%=e.getGiornoSettimana()%> <%=e.getData()%> alle ore <%= e.getOra()%> </p> <br>
@@ -163,7 +163,7 @@
       <div id="listArtista" class ="context">
       <% if(al.size() > 0){ %>
           <%for(Evento e : al){ %>
-          	<div><h1> <%=e.getNome() %></h1> <br>
+          	<div class="evento"><h1> <%=e.getNome() %></h1> <br>
 				<img src="<%=e.getLocandina()%>"><br>
 				<p><%=e.getLocalita().getCitta()%><br><%= e.getLocalita().getZona()%><br><%=e.getGiornoSettimana()%> <%=e.getData()%> alle ore <%= e.getOra()%> </p> <br>
 				<a href = "dettagli?id=<%=e.getId()%>">DETTAGLI</a>
@@ -179,7 +179,7 @@
       	<div id="listCitta" class="context">
       	 <% if(ll.size() > 0){ %>
           <%for(Evento e : ll){ %>
-          <div>
+          <div class="evento">
           	<h1> <%=e.getNome() %></h1> <br>
 				<img src="<%=e.getLocandina()%>"><br>
 				<p><%=e.getLocalita().getCitta()%><br><%= e.getLocalita().getZona()%><br><%=e.getGiornoSettimana()%> <%=e.getData()%> alle ore <%= e.getOra()%> </p> <br>

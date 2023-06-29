@@ -145,7 +145,7 @@
       <div class="context">	
           <!-- elenco degli eventi -->
 		<%for(Evento e: eventi){ %>
-			<div>
+			<div class="evento">
 				<h1> <%=e.getNome() %></h1> <br>
 				<img src="<%=e.getLocandina()%>"><br>
 				<p><%=e.getLocalita().getCitta()%><br><%= e.getLocalita().getZona()%><br><%=e.getGiornoSettimana()%> <%=e.getData()%> alle ore <%= e.getOra()%> </p> <br>
