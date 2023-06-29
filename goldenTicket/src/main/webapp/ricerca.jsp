@@ -148,6 +148,7 @@
       <div id="listNome" class="context">
       <% if(el.size() > 0){ %>
           <%for(Evento e : el){ %>
+
           <div class="card">
 				<div class="img-card" >
 					<img src="<%=e.getLocandina()%>">
@@ -174,6 +175,7 @@
 					<a href="dettagli?id=<%=e.getId()%>">DETTAGLI</a>
 				</div>
 			</div>
+
           <%}%>
       <%} %>
       <% if(el.size()  == 0){ %>
@@ -184,6 +186,7 @@
       <div id="listArtista" class ="context">
       <% if(al.size() > 0){ %>
           <%for(Evento e : al){ %>
+
           	<div class="card">
 				<div class="img-card" >
 					<img src="<%=e.getLocandina()%>">
@@ -210,6 +213,7 @@
 					<a href="dettagli?id=<%=e.getId()%>">DETTAGLI</a>
 				</div>
 			</div>
+
           <%}%>
       <%} %>
       <% if(al.size()  == 0){ %>

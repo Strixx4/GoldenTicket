@@ -1,19 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ page import="java.util.*" %>
-<%@ page import="com.ant.goldenticket.entities.*" %>
-<%@ page import="com.ant.goldenticket.*" %>
+	pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.*"%>
+<%@ page import="com.ant.goldenticket.entities.*"%>
+<%@ page import="com.ant.goldenticket.*"%>
 
-<% List<String> c = (List<String>)request.getAttribute("listacitta");%>
-<% List<String> t = (List<String>)request.getAttribute("listatipologia");%>
-<% Map<String, List<String>> z = (Map<String, List<String>>)request.getAttribute("listazone");%>
-<% Map<String, List<String>> g = (Map<String, List<String>>)request.getAttribute("listaSG");%>
+<%
+List<String> c = (List<String>) request.getAttribute("listacitta");
+%>
+<%
+List<String> t = (List<String>) request.getAttribute("listatipologia");
+%>
+<%
+Map<String, List<String>> z = (Map<String, List<String>>) request.getAttribute("listazone");
+%>
+<%
+Map<String, List<String>> g = (Map<String, List<String>>) request.getAttribute("listaSG");
+%>
 
-<% List<Biglietto> biglietti = (List<Biglietto>) request.getAttribute("listabiglietti");%>
-<% String controllaLogin = (String) request.getAttribute("controllologin");%>
+<%
+List<Biglietto> biglietti = (List<Biglietto>) request.getAttribute("listabiglietti");
+%>
+<%
+String controllaLogin = (String) request.getAttribute("controllologin");
+%>
 
 <!DOCTYPE html>
 <html>
+
   <head>
       <title>GoldenTicket</title>
       <meta charset="utf-8">
@@ -24,8 +37,6 @@
       <link rel="stylesheet" href="../CSS/carrello.css">
       <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
       <script src="File.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-      <Script src="jqSearch.js"></Script>
   </head>
 
   <body>
@@ -140,8 +151,9 @@
           </ul>
         </div>
       </div>
-      
+      <!--B-->
       <div id="context_carrello">
+        Prezzo: <output id="prezzo"> </output> Euro
         <form action="checkout" method="get">
           <%for(Biglietto b : biglietti) {%>
           <div class="card_biglietto">
@@ -161,11 +173,11 @@
             <div class="link_biglietto">
               <a href="eliminadacarrello?id=<%=b.getId()%>">ELIMINA</a>
               <label for="a-<%=b.getId()%>">Compra</label>
-              <input type="radio" name="a-<%=b.getId()%>">
+              <input type="radio" name="a-<%=b.getId()%>" onchange="aggiornaP(<%=b.getPrezzo()%>);stampaP()">
             </div>
           </div>
 			    <%} %>
-          <input type="reset" value="pulisci">
+          <input type="reset" value="pulisci" onclick="pulisciP();stampaP()">
           <input type="submit" value="checkOut" style="left: 50%;">
         </form>
     </div>
@@ -177,33 +189,11 @@
           <a href="https://www.w3schools.com/html/default.asp" target="_blank">HTML</a>
           <a href="https://www.w3schools.com/cs/default.asp" target="_blank">CSS</a>
           <a href="https://www.w3schools.com/js/default.asp" target="_blank">JavaScript</a>
-
-          <h4>BACK-END</h4>
-          <a href="https://www.w3schools.com/java/default.asp" target="_blank">Java</a>
-          <a href="https://www.w3schools.com/MySQL/default.asp" target="_blank">MySQL</a>
-          <a href="https://spring.io/">Spring</a>
-        </div>
-        
-        <div id="societa">
-          <h2>La Societa'</h2>
-            <li>Andrea Sbabo</li>
-            <li>Michele Pasino</li>
-            <li>Beatrice Sala</li>
-            <li>Samuele Alessandro Di Silvestri</li>
-            <li>Bryan Huarcaya</li>
         </div>
 
-        <div id="contatti">
-          <h2>Contatti</h2>
-            <li>andreasbabo6@gmail.com</li>
-            <li>michele.pasino@hotmail.com</li>
-            <li>sala.beatrice00@gmail.com</li>
-            <li>samueledisilvestri@gmail.com</li>
-            <li>bryanhuarcayar@gmail.com</li> 
-        </div>
-
-      </div>
-    </div>
-  </body>
-  	<script>nascondi()</script>
+</div>
+</body>
+<script>
+	stampaP()
+</script>
 </html>

@@ -17,10 +17,10 @@
 <link rel="stylesheet" href="../CSS/form.css">
 <link rel="stylesheet"
 	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-<script src="../admin/Fileadmin.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<Script src="../admin/jqSearchadmin.js"></Script>
+
+<script src="Fileadmin.js"></script>
+
+
 </head>
 
 <body>
@@ -99,9 +99,11 @@
 		</div>
 		<div class="context">
 			<form action="nuovouser">
-			Username: <input type="text" name="username"><br>
-			Password: <input type="text" name="password"><br>
-			<input class="bottone" type="submit" value="aggiungi"> 
+
+			Username: <input type="text" name="username" id="u"><br>
+			Password: <input type="text" name="password" id="p"><br>
+			<input class="bottone" type="submit" value="aggiungi" onclick="controlUser()"> 
+
 			</form>
 			
 		</div>

@@ -147,7 +147,7 @@
 
       
         <%for(Evento e: eventi){ %>
-          <div>
+          <div class="evento">
               <img src="<%=e.getLocandina()%>"> <br>
               <h1> <%=e.getNome() %></h1> <br>
               <p><%=e.getLocalita().getCitta()%><br>
@@ -176,7 +176,7 @@
         </div>
         
         <div id="societa">
-          <h2>La Societ�</h2>
+          <h2>La Societa'</h2>
             <li>Andrea Sbabo</li>
             <li>Michele Pasino</li>
             <li>Beatrice Sala</li>

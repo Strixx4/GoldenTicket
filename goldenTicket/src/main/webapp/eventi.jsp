@@ -172,6 +172,7 @@
 				<div class="dettagli-card">
 					<a href="dettagli?id=<%=e.getId()%>">DETTAGLI</a>
 				</div>
+
 			</div>
 			<%
 			}
