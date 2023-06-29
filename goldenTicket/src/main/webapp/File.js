@@ -22,3 +22,15 @@ function nascondi(){
   		 document.getElementById("listArtista").style.display = "none";
   		 document.getElementById("listCitta").style.display = "none";
 }
+
+let prezzo = 0;
+
+function aggiornaP(p){
+	prezzo += p;
+}
+function pulisciP(){
+	prezzo = 0;
+}
+function stampaP(){
+	document.getElementById("prezzo").innerHTML=prezzo;
+}

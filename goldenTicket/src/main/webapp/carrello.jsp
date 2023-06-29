@@ -36,9 +36,6 @@ String controllaLogin = (String) request.getAttribute("controllologin");
 <link rel="stylesheet"
 	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 <script src="File.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<Script src="jqSearch.js"></Script>
 </head>
 
 <body>
@@ -58,7 +55,7 @@ String controllaLogin = (String) request.getAttribute("controllologin");
 					<li><a href="/"><i class="fa fa-single fa-home"></i></a></li>
 					<!--/ home -->
 					<!-- about -->
-					<!-- Città  -->
+					<!-- CittÃ Â  -->
 					<li aria-haspopup="true"><a>Citta'<i
 							class="fa fa-indicator fa-chevron-down"></i></a>
 						<div class="grid-container3">
@@ -166,6 +163,8 @@ String controllaLogin = (String) request.getAttribute("controllologin");
 
 		<div class="contextbiglietto">
 			<hr>
+			Prezzo: 
+			<output id="prezzo"></output> Euro
 			<form action="checkout" method="get">
 				<%
 				for (Biglietto b : biglietti) {
@@ -186,7 +185,7 @@ String controllaLogin = (String) request.getAttribute("controllologin");
 					
 					<a href="eliminadacarrello?id=<%=b.getId()%>">ELIMINA</a>
 					<label for="a-<%=b.getId()%>">Compra</label>
-					<input type="radio" name="a-<%=b.getId()%>">
+					<input type="radio" name="a-<%=b.getId()%>" onclick="aggiornaP(<%=b.getPrezzo()%>);stampaP();">
 				</div>
 				
 				<%
@@ -194,9 +193,11 @@ String controllaLogin = (String) request.getAttribute("controllologin");
 				%>
 				
 				<hr>
-				<input type="reset" value="pulisci">
+				<input type="reset" value="pulisci" onclick="pulisciP();stampaP()">
 				<input type="submit" value="checkOut" style="left: 50%;">
 			</form>
+			
+			
 		</div>
 
 		<div class="footer">
@@ -235,6 +236,6 @@ String controllaLogin = (String) request.getAttribute("controllologin");
 	</div>
 </body>
 <script>
-	nascondi()
+	stampaP()
 </script>
 </html>
