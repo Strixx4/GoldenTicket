@@ -36,6 +36,7 @@ String controllaLogin = (String) request.getAttribute("controllologin");
 <link rel="stylesheet"
 	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 <script src="File.js"></script>
+<link rel ="stylesheet" href ="../CSS/carrello.css">
 </head>
 
 <body>
@@ -184,7 +185,7 @@ String controllaLogin = (String) request.getAttribute("controllologin");
 					</div>
 					
 					<a href="eliminadacarrello?id=<%=b.getId()%>">ELIMINA</a>
-					<label for="a-<%=b.getId()%>">Compra</label>
+					<label for="a-<%=b.getId()%>">COMPRA</label>
 					<input type="radio" name="a-<%=b.getId()%>" onclick="aggiornaP(<%=b.getPrezzo()%>);stampaP();">
 				</div>
 				
@@ -193,8 +194,8 @@ String controllaLogin = (String) request.getAttribute("controllologin");
 				%>
 				
 				<hr>
-				<input type="reset" value="pulisci" onclick="pulisciP();stampaP()">
-				<input type="submit" value="checkOut" style="left: 50%;">
+				<input type="reset" value="PULISCI" onclick="pulisciP();stampaP()" class= "bottone">
+				<input type="submit" value="CHECK-OUT" style="left: 50%;" class= "bottone">
 			</form>
 			
 			
