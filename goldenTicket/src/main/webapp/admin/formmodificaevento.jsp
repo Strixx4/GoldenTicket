@@ -101,9 +101,9 @@
 			<label>ID:</label>
 			<input type="text" name="id" value="<%= e.getId() %>" readonly><br>
 				<label>Nome:</label>
-				<input type="text" name="nome" value="<%= e.getNome() %>"><br><br>
+				<input type="text" name="nome" value="<%= e.getNome() %>" id="n"><br><br>
 				<label>Tipologia:</label>
-				<input type="text" name="tipologia" value="<%= e.getTipologia() %>"><br>
+				<input type="text" name="tipologia" value="<%= e.getTipologia() %>" id="t"><br>
 				<label>Genere:</label>
 				<input type="text" name="genere" value="<%= e.getGenere()%>"><br><br>
 				<label>Data:</label>

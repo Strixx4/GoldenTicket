@@ -353,12 +353,15 @@ public class AdminController {
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
 			return "redirect:/";
+		
 		if (du.cercaPerNome(inputs.get("username")) == null) {
-			if (LoginController.checkData(inputs.get("username"), inputs.get("password")))
-				du.update(inputs);
+			System.out.println("ricerca == null");
+			if (LoginController.checkData(inputs.get("username"), inputs.get("password"))) {
+				System.out.println("Dati accettati");
+				du.update(inputs);}
 			return "redirect:listauser";
 		} else {
-			if (du.cercaPerNome(inputs.get("username")).get("username") == inputs.get("username")) {
+			if (du.readByID(Integer.parseInt(inputs.get("id"))).get("username").equals(inputs.get("username"))) {
 				if (LoginController.checkData(inputs.get("username"), inputs.get("password")))
 					du.update(inputs);
 

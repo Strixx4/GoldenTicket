@@ -133,69 +133,59 @@ public class LoginController {
 			ris = true;
 		return ris;
 	}
-	
-	
+
 	@GetMapping("formuser")
 	public String formcambiapasswordparteuser() {
 		return "formuser.jsp";
 	}
+
 	@PostMapping("formpassword")
-	public String formcambiapasswordpartepassword(Model model,@RequestParam("username")String u,HttpSession session) {
+	public String formcambiapasswordpartepassword(Model model, @RequestParam("username") String u,
+			HttpSession session) {
 		if (checkSession(session)) {
 			return "redirect:/";
-		} 
-		if (checkUtenti(session))
-		{
+		}
+		if (checkUtenti(session)) {
 			return "redirect:/";
-		} 
-		if (checkAdmin(session)) 
-		{
+		}
+		if (checkAdmin(session)) {
 			return "redirect:admin/";
 		}
 		Map<String, String> ut = du.cercaPerNome(u);
 		System.out.println(ut);
-		if(ut != null) 
-		{
-			if (u.equals(ut.get("username")))
-			{
-				model.addAttribute("user",du.cercaPerNome(u));
+		if (ut != null) {
+			if (u.equals(ut.get("username"))) {
+				model.addAttribute("user", du.cercaPerNome(u));
 				return "formpassword.jsp";
-			}
-			else
-				return"redirect:formuser";
-		}
-		else
-			return"redirect:formuser";
-			
+			} else
+				return "redirect:formuser";
+		} else
+			return "redirect:formuser";
+
 	}
-	
+
 	@PostMapping("cambiapassword")
-	public String cambiapas(@RequestParam Map<String,String> inputs, HttpSession session)
-	{
+	public String cambiapas(@RequestParam Map<String, String> inputs, HttpSession session) {
 		if (checkSession(session)) {
 			return "redirect:/";
-		} 
-		if (checkUtenti(session))
-		{
+		}
+		if (checkUtenti(session)) {
 			return "redirect:/";
-		} 
-		if (checkAdmin(session)) 
-		{
+		}
+		if (checkAdmin(session)) {
 			return "redirect:admin/";
 		}
-		
-		du.updateByNome(inputs);
-		return"redirect:formlogin";
-		
-		
+		if (checkData(inputs.get("username"), inputs.get("password")))
+			du.updateByNome(inputs);
+		return "redirect:formlogin";
+	}
 
 	public static boolean checkData(String u, String p) {
-		if (u.length() > 0 && u.length() < 50) {
-			if (p.length() > 0 && p.length() < 16) {
-				return true;
-			} else
-				return false;
-		} else
+		if (u.length() < 1 || u.length() > 50)
 			return false;
+		if (p.length() < 1 || p.length() > 16)
+			return false;
+		return true;
+
 	}
 }

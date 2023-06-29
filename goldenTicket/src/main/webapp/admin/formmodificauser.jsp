@@ -85,7 +85,6 @@
 			<div class="context">
 				<form action="modificauser" method="post">
 					ID<input type="text" name="id" value="<%=u.get("id")%>"readonly><br>
-
 					USERNAME<input type="text" name="username" value="<%=u.get("username")%>" id="u"><br>
 					PASSWORD<input type="text" name="password" value="<%=u.get("password")%>" id="p"><br>
 					<input type="submit" value="AGGIORNA" onclick="controlUser()">
