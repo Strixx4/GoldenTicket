@@ -15,10 +15,11 @@
 		<link rel="stylesheet" href="../CSS/navbar.css">
 		<link rel="stylesheet"
 			href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-		<script src="../admin/Fileadmin.js"></script>
+		<script src="../admin/Fileadmin.js" defer></script>
 		<script
 			src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 		<Script src="../admin/jqSearchadmin.js"></Script>
+		<link rel ="stylesheet" href = "../CSS/form.css">
 	</head>
 	
 	<body>
@@ -96,10 +97,17 @@
 			</div>
 		</div>
 			<div class="context">
-				<form action="modificaartista">
-					ID<input type="text" name="id" value="<%=a.getId()%>"readonly><br>
-					NOMINATIVO<input type="text" name="nominativo" value="<%=a.getNominativo()%>"><br>
-					<input type="submit" value="AGGIORNA">
+				<form action ="modificaartista" id = modifica>
+					ID <br>
+					<input type="text" name="id" value="<%=a.getId()%>"readonly>
+					<br>
+					<br>
+					NOMINATIVO
+					<br>
+					<input type="text" name="nominativo" value="<%=a.getNominativo()%>" id="nom" >
+					<br>
+					<br>
+					<input type="submit" class = "bottone" value="AGGIORNA" onclick="controlArtista()">
 				</form>
 			</div>
 			<div class="footer">

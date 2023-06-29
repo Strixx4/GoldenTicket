@@ -15,10 +15,8 @@
 		<link rel="stylesheet" href="../CSS/navbar.css">
 		<link rel="stylesheet"
 			href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-		<script src="../admin/Fileadmin.js"></script>
-		<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-		<Script src="../admin/jqSearchadmin.js"></Script>
+		<script src="Fileadmin.js"></script>
+
 	</head>
 	
 	<body>
@@ -98,11 +96,11 @@
 			<div class="context">
 				<form action="modificalocalita" method="post">
 					ID<input type="text" name="id" value="<%=l.getId()%>"readonly><br>
-					CITTA<input type="text" name="citta" value="<%=l.getCitta()%>"><br>
-					ZONA<input type="text" name="zona" value="<%=l.getZona()%>"><br>
-					POSTI<input type="text" name="posti" value="<%=l.getPosti()%>"><br>
-					INDIRIZZO<input type="text" name="indirizzo" value="<%=l.getIndirizzo()%>"><br>
-					<input type="submit" value="AGGIORNA">
+					CITTA<input type="text" name="citta" value="<%=l.getCitta()%>" id="c"><br>
+					ZONA<input type="text" name="zona" value="<%=l.getZona()%>" id="z"><br>
+					POSTI<input type="text" name="posti" value="<%=l.getPosti()%>" id="p"><br>
+					INDIRIZZO<input type="text" name="indirizzo" value="<%=l.getIndirizzo()%>" id="i"><br>
+					<input type="submit" value="AGGIORNA" onclick="controlLocalita()">
 				</form>
 			</div>
 			<div class="footer">

@@ -233,6 +233,8 @@ public abstract class Entity
 	//A questo punto possiamo creare un metodo toString() dell'oggetto Entity che attraverso il metodo toMap()
 	//non restituir� solo il valore dell'id ma anche di tutte le propriet� che ancora non ci sono
 	//ma che evidentemente arriveranno in futuro*/
+	
+	//////////////////////////////////////////////////////////////////
 	public void fromMap(Map<String, String> map) {
 		// ciclo per le chiavi delle mappe
 		for (String key : map.keySet()) {

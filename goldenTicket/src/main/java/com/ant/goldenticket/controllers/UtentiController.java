@@ -1,6 +1,7 @@
 package com.ant.goldenticket.controllers;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +20,6 @@ import com.ant.goldenticket.dao.DAOEvento;
 import com.ant.goldenticket.dao.DAOLocalita;
 import com.ant.goldenticket.dao.DAOUtenti;
 import com.ant.goldenticket.entities.Biglietto;
-import com.ant.goldenticket.entities.Evento;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -81,7 +81,7 @@ public class UtentiController {
 	}
 
 	@GetMapping("checkout")
-	public String checkout(HttpSession session) {
+	public String checkout(HttpSession session,@RequestParam Map<String,String> m) {
 		if (!LoginController.checkSession(session)) {
 			return "redirect:formlogin";
 		} else {
@@ -89,11 +89,21 @@ public class UtentiController {
 				return "redirect:admin/";
 			}
 		}
-		List<Biglietto> carr = dc.readAll(Integer.parseInt(session.getAttribute("id").toString()));
+		System.out.println(m);
+		List<Biglietto> carr = new ArrayList<>();
+		for(String s : m.keySet()) {
+			if(m.get(s).equals("on")) {
+			int idB = Integer.parseInt(s.split("-")[1]);
+			carr.add(dc.cercaPerId(idB));
+			}
+		}
+		//List<Biglietto> carr = dc.readAll(Integer.parseInt(session.getAttribute("id").toString()));
 		String data=LocalDate.now().toString();
+		
 		for (Biglietto b : carr) {
-			Biglietto c = (Biglietto) context.getBean("creaBigliettoAcquistato",data , b.getFila(), b.getPosto(),
+			Biglietto c = (Biglietto) context.getBean("creaBigliettoAcquistato",data, b.getFila(), b.getPosto(),
 					b.getPrezzo(), b.getUtente(), b.getEvento());
+			
 			db.createAcquisto(c);
 			dc.delete(b.getId());
 			//String dataEmissione,String fila,int posto,double prezzo,Map<String,String> utente,Evento evento

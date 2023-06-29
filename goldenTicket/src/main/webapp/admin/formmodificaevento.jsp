@@ -16,10 +16,10 @@
 <link rel="stylesheet" href="../CSS/navbar.css">
 <link rel="stylesheet"
 	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-<script src="../admin/Fileadmin.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<Script src="../admin/jqSearchadmin.js"></Script>
+
+<script src="Fileadmin.js"></script>
+
+
 </head>
 
 <body>
@@ -98,29 +98,31 @@
 		</div>
 		<div class="context">
 			<form action="modificaevento" method="get">
+			<label>ID:</label>
+			<input type="text" name="id" value="<%= e.getId() %>" readonly><br>
 				<label>Nome:</label>
-				<input type="text" name="nome" value="<%= e.getNome() %>"><br><br>
+				<input type="text" name="nome" value="<%= e.getNome() %>" id="n"><br><br>
 				<label>Tipologia:</label>
-				<input type="text" name="tipologia" value="<%= e.getTipologia() %>"><br>
+				<input type="text" name="tipologia" value="<%= e.getTipologia() %>" id="t"><br>
 				<label>Genere:</label>
-				<input type="text" name="genere" value="<%= e.getGenere()%>"><br><br>
+				<input type="text" name="genere" value="<%= e.getGenere()%>" id="g"><br><br>
 				<label>Data:</label>
-				<input type="text" name="data" value="<%= e.getData() %>"><br>
+				<input type="date" name="data" value="<%= e.getData() %>" id="d"><br>
 				<label>Giorno della Settimana:</label>
-				<input type="text" name="giornoSettimana" value="<%= e.getTipologia() %>"><br>
+				<input type="text" name="giornoSettimana" value="<%= e.getTipologia() %>" id="gs"><br>
 				<label>Ora:</label>
-				<input type="text" name="ora" value="<%= e.getOra() %>"><br><br>
+				<input type="text" name="ora" value="<%= e.getOra() %>" id="o"><br><br>
 				<label>Locandina:</label>
-				<input type="text" name="locandina" value="<%= e.getLocandina() %>"><br><br>
+				<input type="text" name="locandina" value="<%= e.getLocandina() %>" id="l"><br><br>
 				<label>Zona: </label>
-				<input type="text" name="zona" value="<%= e.getLocalita().getZona() %>"><br><br>
+				<input type="text" name="zona" value="<%= e.getLocalita().getZona() %>" id="z"><br><br>
 				<label>Citta':</label>
-				<input type="text" name="citta" value="<%= e.getLocalita().getCitta() %>"><br><br>
+				<input type="text" name="citta" value="<%= e.getLocalita().getCitta() %>" id="c"><br><br>
 				<label>Artisti:</label>
-				<input type="text" name="artisti" >
+				<input type="text" name="iArtisti" id="a">
 				<br><br>
 				<hr>
-				<input type="submit" value="aggiungi">
+				<input type="submit" value="AGGIUNGI" class="bottone" onclick="controlEvento()">
 			</form>
 		</div>
 
