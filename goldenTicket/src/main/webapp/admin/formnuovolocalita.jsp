@@ -96,7 +96,7 @@
 		<div class="context">
 			<form action="nuovolocalita" method="get" style=" display: inline-block;">
 				<label for="citta">Citta':</label>
-				<input type="text" name="citta" placeholder="Citta'�"><br>
+				<input type="text" name="citta" placeholder="Citta'"><br>
 				<label for="zona">Zona:</label>
 				<input type="text" name="zona" placeholder="Zona"><br>
 				<label for="posti">Posti:</label>
