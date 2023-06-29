@@ -1,17 +1,3 @@
-html,
-body,
-aside {
-  display: block;
-  margin: 0;
-  padding: 0;
-}
-body {
-  padding: 40px;
-  background-attachment: fixed;
-  background-position: 50% 0;
-  background-size: cover;
-  background-color: #133847;
-}
 aside {
   width: 233px;
   min-height: 500px;

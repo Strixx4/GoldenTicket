@@ -1,0 +1,63 @@
+.card
+{
+    border: solid black 2px;
+    background-color: #F5D12D;
+    padding: 0;
+    margin: 0;
+    border-radius: 5%;
+
+    height: auto;
+    width: auto;
+
+    box-shadow: 0 5px 10px #133847;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card:hover
+{
+    transform: scale(1.07);
+}
+
+.img-card
+{
+    height: 100%;
+    width: 100%;
+}
+
+.img-card img
+{
+    height: 100%;
+    width: 100%;
+    border-top-right-radius: 5%;
+    border-top-left-radius: 5%;
+}
+
+.nome-card
+{
+    font-size: 60%;
+    padding: 3%;
+}
+
+.dettagli-card
+{
+    padding: 4%;
+}
+
+.dettagli-card a
+{
+    text-decoration: none;
+    border: 3px solid black;
+    border-radius: 15%;
+    background: black;
+    color: #F5D12D;
+}
+
+.dettagli-card a:hover
+{
+    background-color: #133847;
+    border-color: #133847;
+}
