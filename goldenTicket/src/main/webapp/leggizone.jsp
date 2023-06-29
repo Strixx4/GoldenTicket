@@ -144,7 +144,7 @@
 
       <div class="context">
         <%for(Evento e: eventi){ %>
-          <div>
+          <div class="evento">
               <img src="<%=e.getLocandina()%>"> <br>
               <h1> <%=e.getNome() %></h1> <br>
               <p><%=e.getLocalita().getCitta()%><br>

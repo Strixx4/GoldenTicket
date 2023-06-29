@@ -155,9 +155,8 @@
 			      </div>
 			      <a href="eliminadacarrello?id=<%=b.getId()%>">ELIMINA</a>
         </div>
-        
+        <hr>  
 			<%} %>
-      <hr>
       <a href="checkout" style="left: 50%;">Checkout</a>
     </div>
     

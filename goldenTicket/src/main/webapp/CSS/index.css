@@ -83,6 +83,18 @@ div .context div
   padding: 2%;
 }
 
+div .context a, div .contextbiglietto a
+{
+  text-decoration: none;
+}
+
+.evento:hover{
+  color: rgb(0, 0, 0);
+  background-color: #99949448;
+  opacity: 1;
+}
+
+
 .contextbiglietto
 {
   background-color:#e9e9e9;
@@ -102,6 +114,9 @@ div .context div
   padding: 30px;
 }
 
+.contextbiglietto .result:hover{
+  background-color:#99949448;
+}
 .infospettacolo{
   padding: 10px;
   line-height: 0.4;

@@ -143,7 +143,7 @@
       </div>
       
 <div class="context">
-	<div>
+	<div class="evento">
 				<h1> <%=e.getNome() %></h1> <br>
 				<img src="<%=e.getLocandina()%>"><br>
 				<%=e.getTipologia()%>, <%=e.getGenere()%><br>
