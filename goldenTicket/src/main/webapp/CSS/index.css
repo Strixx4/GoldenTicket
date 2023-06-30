@@ -67,8 +67,20 @@ body {
   grid-template-columns: repeat(3,1fr);
   grid-template-rows: auto;
   background: rgb(31, 29, 29);
+  padding: 50px;
+  list-style: none;
+}
 
+.footer h2{
+  margin-bottom: 10px;
+}
 
+.footer li{
+  line-height: 20px;
+}
+
+.footer a{
+  line-height: 30px;
 }
 
 .notfound{

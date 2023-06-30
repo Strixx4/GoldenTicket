@@ -147,9 +147,7 @@
 			<% for (Evento e : eventi) { %>
 			<div class="card">
 				<div class="img-card">
-					
-						<img src="<%=e.getLocandina()%>">
-					</a>
+					<a href="dettagli?id=<%=e.getId()%>"><img src="<%=e.getLocandina()%>"></a> 
 				</div>
 				
 				<div class="nome-card">
@@ -169,7 +167,7 @@
 					</p>
 				</div>
 				<div class="dettagli-card">
-					<a href="dettagli?id=<%=e.getId()%>">DETTAGLI</a> 
+					
 				</div>
 			</div>
 			<% } %>
@@ -186,8 +184,8 @@
 
 				<h4>BACK-END</h4>
 				<a href="https://www.w3schools.com/java/default.asp" target="_blank">Java</a>
-				<a href="https://www.w3schools.com/MySQL/default.asp"
-					target="_blank">MySQL</a> <a href="https://spring.io/">Spring</a>
+				<a href="https://www.w3schools.com/MySQL/default.asp" target="_blank">MySQL</a> 
+				<a href="https://spring.io/" target="_blank">Spring</a>
 			</div>
 
 			<div id="societa">

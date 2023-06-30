@@ -180,24 +180,18 @@ String controllaLogin = (String) request.getAttribute("controllologin");
 
 				<div class="paragrafo-card">
 					<p>
-						<%=e.getTipologia()%>,
-						<%=e.getGenere()%><br> Artisti:<br>
-						<%
-						for (Artista a : e.getArtisti()) {
-						%>
-						<%=a.getNominativo()%><br>
-						<%
-						}
-						%>
+						<%=e.getTipologia()%> <%=e.getGenere()%><br> 
+						Artisti:
+						<% for (Artista a : e.getArtisti()) {%>
+							<%=a.getNominativo()%><br>
+						<%}%>
 						<%=e.getLocalita().getCitta()%>
 						in
 						<%=e.getLocalita().getZona()%><br> indirizzo :
 						<%=e.getLocalita().getIndirizzo()%><br>
 						<%=e.getGiornoSettimana()%>
 						<br>
-						<%=e.getData()%>
-						alle ore
-						<%=e.getOra()%>
+						<%=e.getData()%> alle ore <%=e.getOra()%>
 					</p>
 				</div>
 
