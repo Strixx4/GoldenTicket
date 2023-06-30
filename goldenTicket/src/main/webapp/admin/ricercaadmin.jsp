@@ -50,30 +50,25 @@
 					<!-- about -->
 					<!-- Città  -->
 					<li aria-haspopup="true"><a>NUOVO<i
-							class="fa fa-indicator fa-chevron-down"></i></a>
-						<div class="grid-container3">
-							<ul>
-								<!-- FOR PER STAMPARE NOMI CITTA'-->
-							
-								<li><a href="formnuovoevento">Evento<i
-										class="fa fa-group"></i><i
-										class="fa fa-indicator fa-chevron-right"></i></a>
-								</li>
-								<li><a href="formnuovoartista">Artista<i
-										class="fa fa-group"></i><i
-										class="fa fa-indicator fa-chevron-right"></i></a>
-								</li>
-								<li><a href="formnuovolocalita">Localita'<i
-										class="fa fa-group"></i><i
-										class="fa fa-indicator fa-chevron-right"></i></a>
-								</li>
-								<li><a href="formnuovouser">User</i><i
-
-										class="fa fa-group"></i><i
-										class="fa fa-indicator fa-chevron-right"></i></a>
-								</li>
-							</ul>
-						</div></li>
+						class="fa fa-indicator fa-chevron-down"></i></a>
+					<div class="grid-container3">
+						<ul>
+							<!-- FOR PER STAMPARE NOMI CITTA'-->
+						
+							<li><a href="formnuovoevento">Evento<i
+									class="fa fa-group"></i></a>
+							</li>
+							<li><a href="formnuovoartista">Artista<i
+									class="fa fa-group"></i></a>
+							</li>
+							<li><a href="formnuovolocalita">Localita'<i
+									class="fa fa-group"></i></a>
+							</li>
+							<li><a href="formnuovouser">User</i><i
+									class="fa fa-group"></i></a>
+							</li>
+						</ul>
+					</div></li>
 					<!--/ about -->
 					<!-- eventi -->
 					<li><a href="listaeventi">Eventi</a></li>
@@ -105,118 +100,114 @@
 				</ul>
 			</div>
 		</div>
-			<div class="ricerca">
-	      <!-- INSERISCI QUI -->
-	      <h3 class="hn">EVENTI PER NOME ( <%=el.size() %> )</h3>
-	      <div id="listNome" class="context">
-	      <% if(el.size() > 0){ %>
-	          <%for(Evento e : el){ %>
-				<div class="card">
-					<div class="img-card">
-						<img src="<%=e.getLocandina()%>">
+		<div class="ricerca">
+			<!-- Controllo se non esiste nessun risultato-->
+			<%if(el.size() == 0 && al.size() == 0 && ll.size() == 0){ %>
+				<img src="IMG/notfound.jpg" alt="Pineapple">
+			  <p>Non ho trovato nessun risultato per tutti i campi</p>
+			  <p>Hai provao a ridurre la ricerca?</p>
+			<%} else { %>
+				<!-- Qui ho trovato almeno una cosa-->
+				<!-- Controllo se esiste almeno una città-->
+				<% if(el.size() > 0){ %>
+				  <h3 class="hn">EVENTI PER NOME ( <%=el.size() %> )</h3>
+				  <div id="listNome" class="context">
+				  <%for(Evento e : el){ %>
+				  <div class="card">
+					<div class="img-card" >
+					  <img src="<%=e.getLocandina()%>">
 					</div>
-
 					<div class="nome-card">
-						<h1> <%=e.getNome() %></h1>
+					  <h1>
+						<%=e.getNome()%>
+					  </h1>
 					</div>
-					
 					<div class="paragrafo-card">
-						<%=e.getTipologia()%>, <%=e.getGenere()%><br>
-						Artisti:<br>
-						<%for(Artista a: e.getArtisti()){ %>
-							<%=a.getNominativo()%><br>
-						<%} %>
-						<p><%=e.getLocalita().getCitta()%> in <%=e.getLocalita().getZona()%><br>
-						indirizzo : <%=e.getLocalita().getIndirizzo()%><br>
-						<%=e.getGiornoSettimana()%> <br>
-						<%=e.getData()%> alle ore <%=e.getOra()%> </p> <br>
+					  <p>
+						<%=e.getLocalita().getCitta()%><br>
+						<%=e.getLocalita().getZona()%><br>
+						<%=e.getGiornoSettimana()%>
+						<%=e.getData()%>
+						alle ore
+						<%=e.getOra()%>
+					  </p>
 					</div>
-
 					<div class="dettagli-card">
-						<a href="eliminaevento?id= <%=e.getId() %>">Elimina</a>
-						<a href="formmodificaevento?id= <%=e.getId() %>">modifica</a>
+					  <a href="dettagli?id=<%=e.getId()%>">DETTAGLI</a>
 					</div>
-				</div>
-	          <%}%>
-	      <%} %>
-	      <% if(el.size()  == 0){ %>
-	      	<p>Non ci sono risultati disponibili</p>
-	       <%} %>
-	        </div>
-	      <h3 class="ha">EVENTI PER ARTISTA ( <%=al.size() %> )</h3>  
-	      <div id="listArtista" class ="context">
-	      <% if(al.size() > 0){ %>
-	          <%for(Evento e : al){ %>
-				<div class="card">
-					<div class="img-card">
-						<img src="<%=e.getLocandina()%>">
-					</div>
-
-					<div class="nome-card">
-						<h1> <%=e.getNome() %></h1>
-					</div>
-					
-					<div class="paragrafo-card">
-						<%=e.getTipologia()%>, <%=e.getGenere()%><br>
-						Artisti:<br>
-						<%for(Artista a: e.getArtisti()){ %>
-							<%=a.getNominativo()%><br>
-						<%} %>
-						<p><%=e.getLocalita().getCitta()%> in <%=e.getLocalita().getZona()%><br>
-						indirizzo : <%=e.getLocalita().getIndirizzo()%><br>
-						<%=e.getGiornoSettimana()%> <br>
-						<%=e.getData()%> alle ore <%=e.getOra()%> </p> <br>
-					</div>
-
-					<div class="dettagli-card">
-						<a href="eliminaevento?id= <%=e.getId() %>">Elimina</a>
-						<a href="formmodificaevento?id= <%=e.getId() %>">modifica</a>
-					</div>
-				</div>
-	          <%}%>
-	      <%} %>
-	      <% if(al.size()  == 0){ %>
-	      	<p>Non ci sono risultati disponibili</p>
-	       <%} %>
-	        </div>
+				  </div>
+					<%}%>
+				  </div>
+				<%}%>
+			  <!-- Fine controllo città-->
 	
-	      <h3 class="hc">EVENTI PER CITTA ( <%=ll.size() %> )</h3>  
-	      	<div id="listCitta" class="context">
-	      	 <% if(ll.size() > 0){ %>
-	          <%for(Evento e : ll){ %>
-				<div class="card">
-					<div class="img-card">
+			  <!-- Controllo se esiste almeno un artista trovato-->
+			  <% if(al.size() > 0){ %>
+				<h3 class="ha">EVENTI PER ARTISTA ( <%=al.size() %> )</h3>  
+				<div id="listArtista" class ="context">
+				  <%for(Evento e : al){ %>
+					<div class="card">
+					  <div class="img-card" >
 						<img src="<%=e.getLocandina()%>">
+					  </div>
+					  <div class="nome-card">
+						<h1>
+						  <%=e.getNome()%>
+						</h1>
+					  </div>
+					  <div class="paragrafo-card">
+						<p>
+						  <%=e.getLocalita().getCitta()%><br>
+						  <%=e.getLocalita().getZona()%><br>
+						  <%=e.getGiornoSettimana()%>
+						  <%=e.getData()%>
+						  alle ore
+						  <%=e.getOra()%>
+						</p>
+					  </div>
+					  <div class="dettagli-card">
+						<a href="dettagli?id=<%=e.getId()%>">DETTAGLI</a>
+					  </div>
 					</div>
-
-					<div class="nome-card">
-						<h1> <%=e.getNome() %></h1>
-					</div>
-					
-					<div class="paragrafo-card">
-						<%=e.getTipologia()%>, <%=e.getGenere()%><br>
-						Artisti:<br>
-						<%for(Artista a: e.getArtisti()){ %>
-							<%=a.getNominativo()%><br>
-						<%} %>
-						<p><%=e.getLocalita().getCitta()%> in <%=e.getLocalita().getZona()%><br>
-						indirizzo : <%=e.getLocalita().getIndirizzo()%><br>
-						<%=e.getGiornoSettimana()%> <br>
-						<%=e.getData()%> alle ore <%=e.getOra()%> </p> <br>
-					</div>
-
-					<div class="dettagli-card">
-						<a href="eliminaevento?id= <%=e.getId() %>">Elimina</a>
-						<a href="formmodificaevento?id= <%=e.getId() %>">modifica</a>
-					</div>
+				  <%}%>
 				</div>
-	          <%}%>
-	        <%} %>
-	      <% if(ll.size()  == 0){ %>
-	      	<p>Non ci sono risultati disponibili</p>
-	       <%} %>
-	          </div>
-	    </div>
+			  <%}%>
+	
+			  <!-- Controllo se esiste almeno una citta-->
+			  <% if(ll.size() > 0){ %>
+				<h3 class="hc">EVENTI PER CITTA ( <%=ll.size() %> )</h3>  
+				<div id="listCitta" class="context">
+				<%for(Evento e : ll){ %>
+				<div class="card">
+				  <div class="img-card" >
+					<img src="<%=e.getLocandina()%>">
+				  </div>
+				  <div class="nome-card">
+					<h1>
+					  <%=e.getNome()%>
+					</h1>
+				  </div>
+				  <div class="paragrafo-card">
+					<p>
+					  <%=e.getLocalita().getCitta()%><br>
+					  <%=e.getLocalita().getZona()%><br>
+					  <%=e.getGiornoSettimana()%>
+					  <%=e.getData()%>
+					  alle ore
+					  <%=e.getOra()%>
+					</p>
+				  </div>
+				  <div class="dettagli-card">
+					<a href="dettagli?id=<%=e.getId()%>">DETTAGLI</a>
+				  </div>
+				</div>
+				<%}%>
+			  </div>
+			  <%} %>
+	
+			  <!-- Fine controllo iniziale-->
+			  <%}%>
+		  </div>
 	
 			<div class="footer">
 				<div id="linguaggi">

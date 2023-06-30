@@ -41,38 +41,38 @@
         <div class="caselle-sinistra">
           <ul
             class="sky-mega-menu sky-mega-menu-anim-flip sky-mega-menu-response-to-icons">
-            <!-- home -->
-            <li><a href="/"><i class="fa fa-single fa-home"></i></a></li>
-            <!--/ home -->
-            <!-- about -->
+              <li><a href="/"><i class="fa fa-single fa-home"></i></a></li>
             <!-- Città  -->
-            <li aria-haspopup="true"><a>Citta'<i
-                class="fa fa-indicator fa-chevron-down"></i></a>
-              <div class="grid-container3">
-                <ul>
-                  <!-- FOR PER STAMPARE NOMI CITTA'-->
-                  <%
-                  for (String citta : c) {
-                  %>
-                  <li><a href="leggicitta?citta=<%=citta%>"></i><%=citta%><i
-                      class="fa fa-group"></i><i
-                      class="fa fa-indicator fa-chevron-right"></i></a>
-                    <div class="grid-container3">
+            <li aria-haspopup="true"><a>Citta'<i class="fa fa-indicator fa-chevron-down"></i></a>
+              
+                <div class="grid-container3">
+                  <div class="scrollbar-area">
+                    <div class="scrollbar-element">
                       <ul>
+                        <!-- FOR PER STAMPARE NOMI CITTA'-->
+                        <% for (String citta : c) { %>
+                        <li><a href="leggicitta?citta=<%=citta%>"></i><%=citta%><i
+                            class="fa fa-group"></i><i
+                            class="fa fa-indicator fa-chevron-right"></i></a>
+                          <div class="min">
+                            <ul>
+                              <%
+                              for (String zone : z.get(citta)) {
+                              %>
+                              <li aria-haspopup="true"><a
+                                href="leggizone?citta=<%=citta%>&zona=<%=zone%>"><%=zone%></a> <%
+                               }
+                               %></li>
+                            </ul>
+                          </div></li>
                         <%
-                        for (String zone : z.get(citta)) {
+                        }
                         %>
-                        <li aria-haspopup="true"><a
-                          href="leggizone?citta=<%=citta%>&zona=<%=zone%>"><%=zone%></a> <%
-                         }
-                         %></li>
                       </ul>
-                    </div></li>
-                  <%
-                  }
-                  %>
-                </ul>
-              </div></li>
+                    </div>
+                  </div>
+                </div>
+            </li>
             <!--/ about -->
             <!-- Tipologia -->
             <li aria-haspopup="true"><a href="#">Tipologia<i
@@ -94,8 +94,8 @@
                         %>
                         <li aria-haspopup="true"><a
                           href="leggigenere?tipologia=<%=tipologia%>&genere=<%=genere%>"><%=genere%></a> <%
-                         }
-                         %></li>
+                        }
+                        %></li>
                       </ul>
                     </div></li>
                   <%
@@ -117,9 +117,11 @@
                   </button>
                 </form>
               </div>
+  
+
               <div class="login">
                 <div class="search-container">
-                  <%if(controllaLogin != null){%>
+                          <%if(controllaLogin != null){%>
                   <form action="carrello" method="get">
                     <button type="submit">
                       <i class="fas fa-shopping-cart"></i>

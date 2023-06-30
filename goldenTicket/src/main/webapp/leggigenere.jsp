@@ -44,33 +44,36 @@
             <!--/ home -->
             <!-- about -->
             <!-- Città  -->
-            <li aria-haspopup="true"><a>Citta'<i
-                class="fa fa-indicator fa-chevron-down"></i></a>
-              <div class="grid-container3">
-                <ul>
-                  <!-- FOR PER STAMPARE NOMI CITTA'-->
-                  <%
-                  for (String citta : c) {
-                  %>
-                  <li><a href="leggicitta?citta=<%=citta%>"></i><%=citta%><i
-                      class="fa fa-group"></i><i
-                      class="fa fa-indicator fa-chevron-right"></i></a>
-                    <div class="grid-container3">
-                      <ul>
-                        <%
-                        for (String zone : z.get(citta)) {
-                        %>
-                        <li aria-haspopup="true"><a
-                          href="leggizone?citta=<%=citta%>&zona=<%=zone%>"><%=zone%></a> <%
-                         }
-                         %></li>
-                      </ul>
-                    </div></li>
-                  <%
-                  }
-                  %>
-                </ul>
-              </div></li>
+            <li aria-haspopup="true"><a>Citta'<i class="fa fa-indicator fa-chevron-down"></i></a>
+						
+							<div class="grid-container3">
+								<div class="scrollbar-area">
+									<div class="scrollbar-element">
+										<ul>
+											<!-- FOR PER STAMPARE NOMI CITTA'-->
+											<% for (String citta : c) { %>
+											<li><a href="leggicitta?citta=<%=citta%>"></i><%=citta%><i
+													class="fa fa-group"></i><i
+													class="fa fa-indicator fa-chevron-right"></i></a>
+												<div class="min">
+													<ul>
+														<%
+														for (String zone : z.get(citta)) {
+														%>
+														<li aria-haspopup="true"><a
+															href="leggizone?citta=<%=citta%>&zona=<%=zone%>"><%=zone%></a> <%
+														 }
+														 %></li>
+													</ul>
+												</div></li>
+											<%
+											}
+											%>
+										</ul>
+									</div>
+								</div>
+							</div>
+					</li>
             <!--/ about -->
             <!-- Tipologia -->
             <li aria-haspopup="true"><a href="#">Tipologia<i

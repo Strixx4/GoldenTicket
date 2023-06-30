@@ -47,21 +47,16 @@
 								<!-- FOR PER STAMPARE NOMI CITTA'-->
 							
 								<li><a href="formnuovoevento">Evento<i
-										class="fa fa-group"></i><i
-										class="fa fa-indicator fa-chevron-right"></i></a>
+										class="fa fa-group"></i></a>
 								</li>
 								<li><a href="formnuovoartista">Artista<i
-										class="fa fa-group"></i><i
-										class="fa fa-indicator fa-chevron-right"></i></a>
+										class="fa fa-group"></i></a>
 								</li>
 								<li><a href="formnuovolocalita">Localita'<i
-										class="fa fa-group"></i><i
-										class="fa fa-indicator fa-chevron-right"></i></a>
+										class="fa fa-group"></i></a>
 								</li>
 								<li><a href="formnuovouser">User</i><i
-
-										class="fa fa-group"></i><i
-										class="fa fa-indicator fa-chevron-right"></i></a>
+										class="fa fa-group"></i></a>
 								</li>
 							</ul>
 						</div></li>

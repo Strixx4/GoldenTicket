@@ -43,7 +43,7 @@
 				<ul
 					class="sky-mega-menu sky-mega-menu-anim-flip sky-mega-menu-response-to-icons">
 						<li><a href="/"><i class="fa fa-single fa-home"></i></a></li>
-					<!-- Città  -->
+					<!-- Citta' -->
 					<li aria-haspopup="true"><a>Citta'<i class="fa fa-indicator fa-chevron-down"></i></a>
 						
 							<div class="grid-container3">
