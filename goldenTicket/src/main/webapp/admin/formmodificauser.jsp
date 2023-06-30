@@ -40,29 +40,25 @@
 						<!-- about -->
 						<!-- Città  -->
 						<li aria-haspopup="true"><a>NUOVO<i
-								class="fa fa-indicator fa-chevron-down"></i></a>
-							<div class="grid-container3">
-								<ul>
-									<!-- FOR PER STAMPARE NOMI CITTA'-->
-								
-									<li><a href="formnuovoevento">Evento<i
-											class="fa fa-group"></i><i
-											class="fa fa-indicator fa-chevron-right"></i></a>
-									</li>
-									<li><a href="formnuovoartista">Artista<i
-											class="fa fa-group"></i><i
-											class="fa fa-indicator fa-chevron-right"></i></a>
-									</li>
-									<li><a href="formnuovolocalita">Localita'<i
-											class="fa fa-group"></i><i
-											class="fa fa-indicator fa-chevron-right"></i></a>
-									</li>
-									<li><a href="formnuovouser">User</i><i
-											class="fa fa-group"></i><i
-											class="fa fa-indicator fa-chevron-right"></i></a>
-									</li>
-								</ul>
-							</div></li>
+							class="fa fa-indicator fa-chevron-down"></i></a>
+						<div class="grid-container3">
+							<ul>
+								<!-- FOR PER STAMPARE NOMI CITTA'-->
+							
+								<li><a href="formnuovoevento">Evento<i
+										class="fa fa-group"></i></a>
+								</li>
+								<li><a href="formnuovoartista">Artista<i
+										class="fa fa-group"></i></a>
+								</li>
+								<li><a href="formnuovolocalita">Localita'<i
+										class="fa fa-group"></i></a>
+								</li>
+								<li><a href="formnuovouser">User</i><i
+										class="fa fa-group"></i></a>
+								</li>
+							</ul>
+						</div></li>
 						<!--/ about -->
 						<!-- eventi -->
 						<li><a href="listaeventi">Eventi</a></li>
