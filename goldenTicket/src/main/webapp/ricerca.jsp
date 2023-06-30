@@ -155,7 +155,7 @@
             <%}%>
           <!-- Fine controllo città-->
 
-          <!-- Controllo se esiste almeno un artista-->
+          <!-- Controllo se esiste almeno un artista trovato-->
           <% if(al.size() > 0){ %>
             <h3 class="ha">EVENTI PER ARTISTA ( <%=al.size() %> )</h3>  
             <div id="listArtista" class ="context">
