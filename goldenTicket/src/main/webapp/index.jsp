@@ -43,7 +43,7 @@
 				<ul
 					class="sky-mega-menu sky-mega-menu-anim-flip sky-mega-menu-response-to-icons">
 						<li><a href="/"><i class="fa fa-single fa-home"></i></a></li>
-					<!-- Città  -->
+					<!-- Citta' -->
 					<li aria-haspopup="true"><a>Citta'<i class="fa fa-indicator fa-chevron-down"></i></a>
 						
 							<div class="grid-container3">
@@ -119,9 +119,6 @@
 							</form>
 						</div>
 
-
-    
-
 						<div class="login">
 							<div class="search-container">
                 				<%if(controllaLogin != null){%>
@@ -147,12 +144,12 @@
 		</div>
 
 		<div class="context">
-			<%
-			for (Evento e : eventi) {
-			%>
+			<% for (Evento e : eventi) { %>
 			<div class="card">
-				<div class="img-card" >
-					<img src="<%=e.getLocandina()%>">
+				<div class="img-card">
+					
+						<img src="<%=e.getLocandina()%>">
+					</a>
 				</div>
 				
 				<div class="nome-card">
@@ -171,15 +168,11 @@
 						<%=e.getOra()%>
 					</p>
 				</div>
-
 				<div class="dettagli-card">
-					<a href="dettagli?id=<%=e.getId()%>">DETTAGLI</a>
+					<a href="dettagli?id=<%=e.getId()%>">DETTAGLI</a> 
 				</div>
 			</div>
-			<%
-			}
-			%>
-
+			<% } %>
 		</div>
 
 		<div class="footer">
@@ -195,7 +188,6 @@
 				<a href="https://www.w3schools.com/java/default.asp" target="_blank">Java</a>
 				<a href="https://www.w3schools.com/MySQL/default.asp"
 					target="_blank">MySQL</a> <a href="https://spring.io/">Spring</a>
-
 			</div>
 
 			<div id="societa">

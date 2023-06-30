@@ -119,7 +119,7 @@
         <%if(el.size() == 0 && al.size() == 0 && ll.size() == 0){ %>
         	<img src="IMG/notfound.jpg" alt="Pineapple">
           <p>Non ho trovato nessun risultato per tutti i campi</p>
-          <p>Hai provao a ridurre la ricerca?</p>
+          <p>Hai provato a ridurre la ricerca?</p>
         <%} else { %>
             <!-- Qui ho trovato almeno una cosa-->
             <!-- Controllo se esiste almeno una città-->

@@ -67,7 +67,8 @@ body {
   grid-template-columns: repeat(3,1fr);
   grid-template-rows: auto;
   background: rgb(31, 29, 29);
-  padding: 50px;
+
+
 }
 
 .notfound{

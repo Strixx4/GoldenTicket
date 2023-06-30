@@ -121,7 +121,7 @@ public class DAOEvento {
 	}
 
 	public List<Evento> eventiCasuali() {
-		return read("select * from eventi order by rand() limit 8");
+		return read("select * from eventi order by rand() limit 12");
 	}
 
 	public List<Evento> readByNome(String nome) {
