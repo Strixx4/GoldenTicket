@@ -35,6 +35,7 @@ String controllaLogin = (String) request.getAttribute("controllologin");
       <link rel="stylesheet" href="../CSS/index.css">
       <link rel="stylesheet" href="../CSS/navbar.css">
       <link rel="stylesheet" href="../CSS/carrello.css">
+      <link rel="stylesheet" href="../CSS/form.css">
       <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
       <script src="File.js"></script>
   </head>
@@ -153,8 +154,6 @@ String controllaLogin = (String) request.getAttribute("controllologin");
       </div>
       <!--B-->
       <div id="context_carrello">
-      <br><br>
-        Prezzo: <output id="prezzo"> </output> Euro
         <form action="checkout" method="get">
           <%for(Biglietto b : biglietti) {%>
           <div class="card_biglietto">
@@ -163,25 +162,36 @@ String controllaLogin = (String) request.getAttribute("controllologin");
             </div>
 
             <div class="info_biglietto">
-              <p>Evento: <%=b.getEvento().getNome()%></p>
-              <span>Data: <%=b.getEvento().getData() %></span>
-              <p>Orario: <%=b.getEvento().getOra() %></p>
-              <span>Fila: <%=b.getFila() %></span>
-              <span>Posto: <%=b.getPosto() %></span>
-              <span>Prezzo: <%=b.getPrezzo() %></span>
+              <div>
+                <p>Evento: <%=b.getEvento().getNome()%></p>
+                <span>Data: <%=b.getEvento().getData() %></span>
+                <p>Orario: <%=b.getEvento().getOra() %></p>
+                <span>Fila: <%=b.getFila() %></span>
+                <span>Posto: <%=b.getPosto() %></span>
+                <span>Prezzo: <%=b.getPrezzo() %></span>
+              </div>
             </div>
 
             <div class="link_biglietto">
-              <a href="eliminadacarrello?id=<%=b.getId()%>">ELIMINA</a>
-              <label for="a-<%=b.getId()%>">Compra</label>
-              <input type="radio" name="a-<%=b.getId()%>" onchange="aggiornaP(<%=b.getPrezzo()%>);stampaP()">
+              <div>
+                <a href="eliminadacarrello?id=<%=b.getId()%>">ELIMINA</a>
+              </div>
+              <div>
+                <label for="a-<%=b.getId()%>">COMPRA</label>
+                <input type="radio" name="a-<%=b.getId()%>" onchange="aggiornaP(<%=b.getPrezzo()%>);stampaP()">
+              </div>
             </div>
           </div>
 			    <%} %>
-		  <br>
-          <input type="reset" value="pulisci" onclick="pulisciP();stampaP()">
-          <input type="submit" value="checkOut" style="left: 50%;">
+          <div class="bottoni_biglietto">
+            <input class="bottone" type="reset" value="PULISCI" onclick="pulisciP();stampaP()">
+            <input class="bottone" type="submit" value="CHECKOUT" style="left: 50%;">
+            <div>
+              Prezzo: <output id="prezzo"> </output> Euro
+            </div>
+          </div>
         </form>
+        
     </div>
     
       <div class="footer">
