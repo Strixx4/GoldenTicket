@@ -43,7 +43,7 @@ public class LoginController {
 				if (checkAdmin(session)) {
 					return "redirect:admin/";
 				} else
-					return "redirect:/";
+					return "redirect:" + session.getAttribute("url");
 			}
 		}
 		return "redirect:formlogin";

@@ -30,6 +30,7 @@ public class IndexController {
 	@GetMapping("/")
 
 	public String index(HttpSession session, Model model) {
+		session.setAttribute("url", "/");
 		List<String> citta = dl.tutteLeCitta();
 		List<String> tipologia = de.listaTipologia();
 		model.addAttribute("listacitta", citta);
@@ -55,6 +56,7 @@ public class IndexController {
 
 	@GetMapping("eventi")
 	public String elencoeventi(HttpSession session, Model model) {
+		session.setAttribute("url", "/");
 		List<String> citta = dl.tutteLeCitta();
 		List<String> tipologia = de.listaTipologia();
 		model.addAttribute("listacitta", citta);
@@ -78,6 +80,7 @@ public class IndexController {
 
 	@GetMapping("dettagli")
 	public String dettagli(@RequestParam("id") int idEvento, Model model, HttpSession session) {
+		session.setAttribute("url", "/");
 
 		Evento e = de.cercaPerID(idEvento);
 		if (e == null)
@@ -107,6 +110,7 @@ public class IndexController {
 
 	@GetMapping("ricerca")
 	public String ricerca(@RequestParam("search") String par, Model model, HttpSession session) {
+		session.setAttribute("url", "/");
 		List<String> citta = dl.tutteLeCitta();
 		List<String> tipologia = de.listaTipologia();
 		model.addAttribute("listacitta", citta);
@@ -132,6 +136,7 @@ public class IndexController {
 
 	@GetMapping("leggigenere")
 	public String leggiGenere(@RequestParam("genere") String g, @RequestParam("tipologia") String c, Model model, HttpSession session) {
+		session.setAttribute("url", "/");
 		List<String> citta = dl.tutteLeCitta();
 		List<String> tipologia = de.listaTipologia();
 		model.addAttribute("listacitta", citta);
@@ -155,6 +160,7 @@ public class IndexController {
 
 	@GetMapping("leggizone")
 	public String elencozone(@RequestParam("citta") String cit, @RequestParam("zona") String zon, Model model, HttpSession session) {
+		session.setAttribute("url", "/");
 		List<String> citta = dl.tutteLeCitta();
 		List<String> tipologia = de.listaTipologia();
 		model.addAttribute("listacitta", citta);
@@ -177,6 +183,7 @@ public class IndexController {
 
 	@GetMapping("leggitipologia")
 	public String cercatipologia(@RequestParam("tipologia") String tipo, Model model, HttpSession session) {
+		session.setAttribute("url", "/");
 		List<String> citta = dl.tutteLeCitta();
 		List<String> tipologia = de.listaTipologia();
 		model.addAttribute("listacitta", citta);
@@ -199,6 +206,7 @@ public class IndexController {
 
 	@GetMapping("leggicitta")
 	public String leggicitta(@RequestParam("citta") String par, Model model, HttpSession session) {
+		session.setAttribute("url", "/");
 
 		List<String> citta = dl.tutteLeCitta();
 		List<String> tipologia = de.listaTipologia();

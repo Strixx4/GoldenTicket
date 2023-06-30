@@ -40,6 +40,7 @@ public class AdminController {
 
 	@GetMapping("/")
 	public String indexadmin(HttpSession session, Model model) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
@@ -51,6 +52,7 @@ public class AdminController {
 
 	@GetMapping("formnuovoevento")
 	public String formnuovoevento(HttpSession session, Model model) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
@@ -60,6 +62,7 @@ public class AdminController {
 
 	@GetMapping("nuovoevento")
 	public String nuovoevento(HttpSession session, @RequestParam Map<String, String> params) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
@@ -81,6 +84,7 @@ public class AdminController {
 
 	@GetMapping("listaeventi")
 	public String elencoeventi(HttpSession session, Model model) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
@@ -91,6 +95,7 @@ public class AdminController {
 
 	@GetMapping("eliminaevento")
 	public String cancellaevento(@RequestParam("id") int idEvento, HttpSession session) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
@@ -101,6 +106,7 @@ public class AdminController {
 
 	@GetMapping("formmodificaevento")
 	public String formModificaEvento(HttpSession session, @RequestParam("id") int id, Model model) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
@@ -111,6 +117,7 @@ public class AdminController {
 
 	@GetMapping("modificaevento")
 	public String formmodificaEvento(@RequestParam Map<String, String> inputs, HttpSession session) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
@@ -160,6 +167,7 @@ public class AdminController {
 	// ----------------------------ARTISTA----------------------------
 	@GetMapping("formnuovoartista")
 	public String formnuovoartista(HttpSession session, Model model) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
@@ -169,6 +177,7 @@ public class AdminController {
 
 	@GetMapping("formmodificaartista")
 	public String formmodificaartista(HttpSession session, Model model, @RequestParam("id") int idArtista) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
@@ -179,6 +188,7 @@ public class AdminController {
 
 	@GetMapping("nuovoartista")
 	public String nuovoartista(@RequestParam Map<String, String> m, HttpSession session) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
@@ -192,6 +202,7 @@ public class AdminController {
 
 	@GetMapping("eliminaartista")
 	public String cancellaartista(@RequestParam("id") int idArtista, HttpSession session) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
@@ -202,6 +213,7 @@ public class AdminController {
 
 	@GetMapping("modificaartista")
 	public String modificaArtista(@RequestParam Map<String, String> inputs, HttpSession session) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
@@ -215,6 +227,7 @@ public class AdminController {
 
 	@GetMapping("listaartisti")
 	public String elencoartisti(HttpSession session, Model model) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
@@ -233,6 +246,7 @@ public class AdminController {
 	// '--------------------------------LOCALITA'--------------------------------
 	@GetMapping("formnuovolocalita")
 	public String nuovolocalita(HttpSession session, Model model) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
@@ -242,6 +256,7 @@ public class AdminController {
 
 	@GetMapping("nuovolocalita")
 	public String nuovolocalita(@RequestParam Map<String, String> m, HttpSession session) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
@@ -254,6 +269,7 @@ public class AdminController {
 
 	@GetMapping("eliminalocalita")
 	public String cancellalocalita(@RequestParam("id") int idLocalita, HttpSession session) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
@@ -264,6 +280,7 @@ public class AdminController {
 
 	@PostMapping("modificalocalita")
 	public String formmodificaLocalita(@RequestParam Map<String, String> inputs, HttpSession session) {
+		session.setAttribute("url", "/");
 
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
@@ -278,6 +295,7 @@ public class AdminController {
 
 	@GetMapping("formmodificalocalita")
 	public String formmodificalocalita(@RequestParam("id") int idLocalita, HttpSession session, Model model) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
@@ -289,6 +307,7 @@ public class AdminController {
 
 	@GetMapping("listalocalita")
 	public String elencolocalita(HttpSession session, Model model) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
@@ -315,6 +334,7 @@ public class AdminController {
 	// '--------------------------------USER'--------------------------------
 	@GetMapping("formnuovouser")
 	public String nuovouser(HttpSession session, Model model) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
@@ -325,6 +345,7 @@ public class AdminController {
 
 	@GetMapping("nuovouser")
 	public String nuovouser(@RequestParam Map<String, String> m, HttpSession session) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
@@ -339,6 +360,7 @@ public class AdminController {
 
 	@GetMapping("formmodificauser")
 	public String formmodificauser(HttpSession session, Model model, @RequestParam("id") int idUser) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
@@ -349,6 +371,7 @@ public class AdminController {
 
 	@PostMapping("modificauser")
 	public String modificaUtente(@RequestParam Map<String, String> inputs, HttpSession session) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
@@ -375,6 +398,7 @@ public class AdminController {
 
 	@GetMapping("eliminauser")
 	public String cancellauser(@RequestParam("id") int idUser, HttpSession session) {
+		session.setAttribute("url", "/");
 
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
@@ -386,6 +410,7 @@ public class AdminController {
 
 	@GetMapping("listauser")
 	public String elencousers(HttpSession session, Model model) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))
@@ -396,6 +421,7 @@ public class AdminController {
 
 	@GetMapping("ricercaadmin")
 	public String ricerca(@RequestParam("search") String par, Model model, HttpSession session) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session))
 			return "redirect:/";
 		if (!LoginController.checkAdmin(session))

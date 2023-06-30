@@ -40,6 +40,7 @@ public class UtentiController {
 
 	@GetMapping("carrello")
 	public String carrello(HttpSession session, Model model) {
+		session.setAttribute("url", "/");
 		List<String> citta = dl.tutteLeCitta();
 		List<String> tipologia = de.listaTipologia();
 		model.addAttribute("listacitta", citta);
@@ -56,7 +57,10 @@ public class UtentiController {
 		}
 		model.addAttribute("controllologin", session.getAttribute("login"));
 		model.addAttribute("listaSG", sottog);
+		
+		
 		if (!LoginController.checkSession(session)) {
+			session.setAttribute("url", "carrello");
 			return "redirect:formlogin";
 		} else {
 			if (LoginController.checkAdmin(session)) {
@@ -68,7 +72,9 @@ public class UtentiController {
 	}
 
 	@GetMapping("eliminadacarrello")
+	
 	public String eliminaDaCarrello(@RequestParam("id") int id, HttpSession session) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session)) {
 			return "redirect:formlogin";
 		} else {
@@ -82,6 +88,7 @@ public class UtentiController {
 
 	@GetMapping("checkout")
 	public String checkout(HttpSession session,@RequestParam Map<String,String> m) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session)) {
 			return "redirect:formlogin";
 		} else {
@@ -113,8 +120,9 @@ public class UtentiController {
 
 	@GetMapping("acquisti")
 	public String bigliettiAcquistati(HttpSession session, Model model) {
-
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session)) {
+			session.setAttribute("url", "acquisti");
 			return "redirect:formlogin";
 		} else {
 			if (LoginController.checkAdmin(session)) {
@@ -145,6 +153,7 @@ public class UtentiController {
 
 	@GetMapping("rimborso")
 	public String rimborso(HttpSession session, @RequestParam("id") int id) {
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session)) {
 			return "redirect:formlogin";
 		} else {
@@ -158,8 +167,9 @@ public class UtentiController {
 
 	@GetMapping("aggiungiacarrello")
 	public String AggiungiaCarrello(@RequestParam("id") int id, HttpSession session) {
-
+		session.setAttribute("url", "/");
 		if (!LoginController.checkSession(session)) {
+			session.setAttribute("url", "aggiungiacarrello?id="+id);
 			return "redirect:formlogin";
 		} else {
 			if (LoginController.checkAdmin(session)) {
