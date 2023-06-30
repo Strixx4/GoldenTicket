@@ -63,13 +63,19 @@
 }
 /*--------------------------RICERCA------------------------------------------------------------*/
 .ha:hover{
-	transform: scale(1.07);
+	/*transform: scale(1.07);*/
+    background-color: #F5D12D;
+    text-align: center;
 }
 .hc:hover{
-	transform: scale(1.07);
+	/*transform: scale(1.07);*/
+    background-color: #F5D12D;
+    text-align: center;
 }
 .hn:hover{
-	transform: scale(1.07);
+	/*transform: scale(1.07);*/
+    background-color: #F5D12D;
+    text-align: center;
 }
 /*--------------------------CARD LOCALITA-------------------------------------------------------*/
 
