@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.*" %>
 <%@ page import="com.ant.goldenticket.entities.*" %>
 <%@ page import="com.ant.goldenticket.*" %>
@@ -7,7 +6,6 @@
 <% List<String> t = (List<String>)request.getAttribute("listatipologia");%>
 <% Map<String, List<String>> z = (Map<String, List<String>>)request.getAttribute("listazone");%>
 <% Map<String, List<String>> g = (Map<String, List<String>>)request.getAttribute("listaSG");%>
-
 
 <% List<Evento> el=  (List<Evento>)request.getAttribute("lNome");%>
 <% List<Evento> al=  (List<Evento>)request.getAttribute("lArtista");%>
@@ -38,76 +36,50 @@
       </div>
         
       <div id="megamenu">
-        <!-- mega menu -->
+
         <div class="caselle-sinistra">
-          <ul
-            class="sky-mega-menu sky-mega-menu-anim-flip sky-mega-menu-response-to-icons">
-            <!-- home -->
+          <ul class="sky-mega-menu sky-mega-menu-anim-flip sky-mega-menu-response-to-icons">
             <li><a href="/"><i class="fa fa-single fa-home"></i></a></li>
-            <!--/ home -->
-            <!-- about -->
-            <!-- Città  -->
-            <li aria-haspopup="true"><a>Citta'<i
-                class="fa fa-indicator fa-chevron-down"></i></a>
+            <li aria-haspopup="true"><a>Citta'<i class="fa fa-indicator fa-chevron-down"></i></a>
               <div class="grid-container3">
                 <ul>
                   <!-- FOR PER STAMPARE NOMI CITTA'-->
-                  <%
-                  for (String citta : c) {
-                  %>
-                  <li><a href="leggicitta?citta=<%=citta%>"></i><%=citta%><i
-                      class="fa fa-group"></i><i
-                      class="fa fa-indicator fa-chevron-right"></i></a>
+                  <% for (String citta : c) { %>
+                  <li><a href="leggicitta?citta=<%=citta%>"><%=citta%><i class="fa fa-group"></i><i class="fa fa-indicator fa-chevron-right"></i></a>
                     <div class="grid-container3">
                       <ul>
-                        <%
-                        for (String zone : z.get(citta)) {
-                        %>
-                        <li aria-haspopup="true"><a
-                          href="leggizone?citta=<%=citta%>&zona=<%=zone%>"><%=zone%></a> <%
-                         }
-                         %></li>
+                        <% for (String zone : z.get(citta)) { %>
+                        <li aria-haspopup="true"><a href="leggizone?citta=<%=citta%>&zona=<%=zone%>"><%=zone%></a> <%
+                         }%>
+                        </li>
                       </ul>
-                    </div></li>
-                  <%
-                  }
-                  %>
+                    </div>
+                  </li>
+                  <%}%>
                 </ul>
               </div></li>
-            <!--/ about -->
+
             <!-- Tipologia -->
-            <li aria-haspopup="true"><a href="#">Tipologia<i
-                class="fa fa-indicator fa-chevron-down"></i></a>
+            <li aria-haspopup="true"><a href="#">Tipologia<i class="fa fa-indicator fa-chevron-down"></i></a>
               <div class="grid-container3">
                 <ul>
-                  <!-- FOR PER STAMPARE NOMI CITTA'-->
-                  <%
-                  for (String tipologia : t) {
-                  %>
-                  <li><a href="leggitipologia?tipologia=<%=tipologia%>"><%=tipologia%><i
-                      class="fa fa-group"></i><i
-                      class="fa fa-indicator fa-chevron-right"></i></a>
+                  <% for (String tipologia : t) { %>
+                  <li><a href="leggitipologia?tipologia=<%=tipologia%>"><%=tipologia%><i class="fa fa-group"></i><i class="fa fa-indicator fa-chevron-right"></i></a>
                     <div class="grid-container3">
                       <ul>
-  
-                        <%
-                        for (String genere : g.get(tipologia)) {
-                        %>
-                        <li aria-haspopup="true"><a
-                          href="leggigenere?tipologia=<%=tipologia%>&genere=<%=genere%>"><%=genere%></a> <%
-                         }
-                         %></li>
+                        <% for (String genere : g.get(tipologia)) { %>
+                        <li aria-haspopup="true"><a href="leggigenere?tipologia=<%=tipologia%>&genere=<%=genere%>"><%=genere%></a> 
+                        <% } %>
+                        </li>
                       </ul>
-                    </div></li>
-                  <%
-                  }
-                  %>
+                    </div>
+                  </li>
+                  <% } %>
                 </ul>
-              </div></li>
-            <!--/ news -->
-            <!-- eventi -->
+              </div>
+            </li>
+
             <li><a href="eventi">Eventi</a></li>
-  
             <div class="navbar">
               <div class="search-container">
                 <form action="ricerca" method="get">
@@ -130,136 +102,127 @@
                     id="logout" type="submit">ESCI</a>
                 </div>
               </div>
-        <% }else {%>
-          <form action="carrello" method="get">                  
-            <button type="submit"><i class="fas fa-shopping-cart"></i></button>
-          </form>  
-          <a href="formlogin" id="login" type="submit">LOGIN</a>      
-        <%} %>
+                <% }else {%>
+                    <form action="carrello" method="get">                  
+                      <button type="submit"><i class="fas fa-shopping-cart"></i></button>
+                    </form>  
+                    <a href="formlogin" id="login" type="submit">LOGIN</a>      
+                  <%} %>
             </div>
-  
           </ul>
         </div>
       </div>
 
+
       <div class="ricerca">
-      <!-- INSERISCI QUI -->
-      <h3 class="hn">EVENTI PER NOME ( <%=el.size() %> )</h3>
-      <div id="listNome" class="context">
-      <% if(el.size() > 0){ %>
-          <%for(Evento e : el){ %>
+        <!-- Controllo se non esiste nessun risultato-->
+        <%if(el.size() == 0 && al.size() == 0 && ll.size() == 0){ %>
+        	<img src="IMG/notfound.jpg" alt="Pineapple">
+          <p>Non ho trovato nessun risultato per tutti i campi</p>
+          <p>Hai provao a ridurre la ricerca?</p>
+        <%} else { %>
+            <!-- Qui ho trovato almeno una cosa-->
+            <!-- Controllo se esiste almeno una città-->
+            <% if(el.size() > 0){ %>
+              <h3 class="hn">EVENTI PER NOME ( <%=el.size() %> )</h3>
+              <div id="listNome" class="context">
+              <%for(Evento e : el){ %>
+              <div class="card">
+                <div class="img-card" >
+                  <img src="<%=e.getLocandina()%>">
+                </div>
+                <div class="nome-card">
+                  <h1>
+                    <%=e.getNome()%>
+                  </h1>
+                </div>
+                <div class="paragrafo-card">
+                  <p>
+                    <%=e.getLocalita().getCitta()%><br>
+                    <%=e.getLocalita().getZona()%><br>
+                    <%=e.getGiornoSettimana()%>
+                    <%=e.getData()%>
+                    alle ore
+                    <%=e.getOra()%>
+                  </p>
+                </div>
+                <div class="dettagli-card">
+                  <a href="dettagli?id=<%=e.getId()%>">DETTAGLI</a>
+                </div>
+              </div>
+                <%}%>
+              </div>
+            <%}%>
+          <!-- Fine controllo città-->
 
-          <div class="card">
-				<div class="img-card" >
-					<img src="<%=e.getLocandina()%>">
-				</div>
-				
-				<div class="nome-card">
-					<h1>
-						<%=e.getNome()%>
-					</h1>
-				</div>
-
-				<div class="paragrafo-card">
-					<p>
-						<%=e.getLocalita().getCitta()%><br>
-						<%=e.getLocalita().getZona()%><br>
-						<%=e.getGiornoSettimana()%>
-						<%=e.getData()%>
-						alle ore
-						<%=e.getOra()%>
-					</p>
-				</div>
-
-				<div class="dettagli-card">
-					<a href="dettagli?id=<%=e.getId()%>">DETTAGLI</a>
-				</div>
-			</div>
-
+          <!-- Controllo se esiste almeno un artista-->
+          <% if(al.size() > 0){ %>
+            <h3 class="ha">EVENTI PER ARTISTA ( <%=al.size() %> )</h3>  
+            <div id="listArtista" class ="context">
+              <%for(Evento e : al){ %>
+                <div class="card">
+                  <div class="img-card" >
+                    <img src="<%=e.getLocandina()%>">
+                  </div>
+                  <div class="nome-card">
+                    <h1>
+                      <%=e.getNome()%>
+                    </h1>
+                  </div>
+                  <div class="paragrafo-card">
+                    <p>
+                      <%=e.getLocalita().getCitta()%><br>
+                      <%=e.getLocalita().getZona()%><br>
+                      <%=e.getGiornoSettimana()%>
+                      <%=e.getData()%>
+                      alle ore
+                      <%=e.getOra()%>
+                    </p>
+                  </div>
+                  <div class="dettagli-card">
+                    <a href="dettagli?id=<%=e.getId()%>">DETTAGLI</a>
+                  </div>
+                </div>
+              <%}%>
+            </div>
           <%}%>
-      <%} %>
-      <% if(el.size()  == 0){ %>
-      	<p>Non ci sono risultati disponibili</p>
-       <%} %>
-        </div>
-      <h3 class="ha">EVENTI PER ARTISTA ( <%=al.size() %> )</h3>  
-      <div id="listArtista" class ="context">
-      <% if(al.size() > 0){ %>
-          <%for(Evento e : al){ %>
 
-          	<div class="card">
-				<div class="img-card" >
-					<img src="<%=e.getLocandina()%>">
-				</div>
-				
-				<div class="nome-card">
-					<h1>
-						<%=e.getNome()%>
-					</h1>
-				</div>
-
-				<div class="paragrafo-card">
-					<p>
-						<%=e.getLocalita().getCitta()%><br>
-						<%=e.getLocalita().getZona()%><br>
-						<%=e.getGiornoSettimana()%>
-						<%=e.getData()%>
-						alle ore
-						<%=e.getOra()%>
-					</p>
-				</div>
-
-				<div class="dettagli-card">
-					<a href="dettagli?id=<%=e.getId()%>">DETTAGLI</a>
-				</div>
-			</div>
-
-          <%}%>
-      <%} %>
-      <% if(al.size()  == 0){ %>
-      	<p>Non ci sono risultati disponibili</p>
-       <%} %>
-        </div>
-
-      <h3 class="hc">EVENTI PER CITTA ( <%=ll.size() %> )</h3>  
-      	<div id="listCitta" class="context">
-      	 <% if(ll.size() > 0){ %>
-          <%for(Evento e : ll){ %>
-          <div class="card">
-				<div class="img-card" >
-					<img src="<%=e.getLocandina()%>">
-				</div>
-				
-				<div class="nome-card">
-					<h1>
-						<%=e.getNome()%>
-					</h1>
-				</div>
-
-				<div class="paragrafo-card">
-					<p>
-						<%=e.getLocalita().getCitta()%><br>
-						<%=e.getLocalita().getZona()%><br>
-						<%=e.getGiornoSettimana()%>
-						<%=e.getData()%>
-						alle ore
-						<%=e.getOra()%>
-					</p>
-				</div>
-
-				<div class="dettagli-card">
-					<a href="dettagli?id=<%=e.getId()%>">DETTAGLI</a>
-				</div>
-			</div>
-          <%}%>
-        <%} %>
-      <% if(ll.size()  == 0){ %>
-      	<p>Non ci sono risultati disponibili</p>
-       <%} %>
+          <!-- Controllo se esiste almeno una citta-->
+          <% if(ll.size() > 0){ %>
+            <h3 class="hc">EVENTI PER CITTA ( <%=ll.size() %> )</h3>  
+            <div id="listCitta" class="context">
+            <%for(Evento e : ll){ %>
+            <div class="card">
+              <div class="img-card" >
+                <img src="<%=e.getLocandina()%>">
+              </div>
+              <div class="nome-card">
+                <h1>
+                  <%=e.getNome()%>
+                </h1>
+              </div>
+              <div class="paragrafo-card">
+                <p>
+                  <%=e.getLocalita().getCitta()%><br>
+                  <%=e.getLocalita().getZona()%><br>
+                  <%=e.getGiornoSettimana()%>
+                  <%=e.getData()%>
+                  alle ore
+                  <%=e.getOra()%>
+                </p>
+              </div>
+              <div class="dettagli-card">
+                <a href="dettagli?id=<%=e.getId()%>">DETTAGLI</a>
+              </div>
+            </div>
+            <%}%>
           </div>
-    </div>
+          <%} %>
 
+          <!-- Fine controllo iniziale-->
+          <%}%>
       </div>
+
     </div>
     <div class="footer">
       <div id="linguaggi">
@@ -300,3 +263,5 @@
   </body>
   	<script>nascondi()</script>
 </html>
+
+
