@@ -8,24 +8,57 @@
     width: auto;
 
     display: block;
-    
-    
 }
 
 .card_biglietto
 {
-    border-bottom: solid 2px rgba(128, 128, 128, 0.477);
-    padding: 10px;
-    margin: 0;
+    border-bottom: solid 2px #133847;
+    display: flex;
+}
 
+.img_biglietto
+{
+    width: 20%;
 }
 
 .card_biglietto .img_biglietto img
 {
-    height: 30px;
-    width: auto;
+    height: 100%;
+    width: 100%;
 }
+
+
 .card_biglietto:hover
 {
-    transform: scale(1.07);
+    transform: scale(1.03);
+}
+
+
+.info_biglietto
+{
+    width: 50%;
+    padding: 2%;
+}
+
+.info_biglietto div
+{
+    float: left;
+}
+
+.link_biglietto
+{
+    display: block;
+    width: 30%;
+    padding: 1%;
+}
+
+.link_biglietto div
+{
+    padding: 2%;
+    align-items: center;
+}
+
+.bottoni_biglietto
+{
+    padding: 2%;
 }
