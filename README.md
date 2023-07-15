@@ -4,9 +4,13 @@ e i biglietti, aggiungendo una parte ADMIN per aggiungere eventi e utenze.
 
 ### Tools utilizzati nel progetto
 * Eclipse 2023 EE
+* Spring
 * Visual Studio Code
 * GitHub Desktop
 * GitHub
 * Maven Repositories
 
-### Java Utilizzato
+### Tecnologie
+* Java v17
+* MySQL
+* HTML,CSS,JS,JQuery
